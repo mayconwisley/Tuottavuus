@@ -19,7 +19,7 @@ namespace Tuottavuus
         DateTime dtCompetencia;
         int idEmpregado = 0, idEmpresa = 0, idAtividade = 0, idAvaliacaoAtividade = 0, idCompetencia = 0, aux = 0, aux1 = 0;
         int numCalculo = 0, numEmpregado;
-        bool ausente = false;
+        bool ausente = false, alterar = false;
         public FrmCadastroAvaliacao()
         {
             InitializeComponent();
@@ -115,6 +115,10 @@ namespace Tuottavuus
                 DgvAvaliacao.CancelEdit();
                 CbxAtividade.Enabled = false;
                 TxtNota.Enabled = false;
+            }
+            else if (numCalculo == 0)
+            {
+                ausente = true;
             }
         }
 
@@ -239,6 +243,7 @@ namespace Tuottavuus
                 }
 
                 ListaAtividadeAvaliacao(idEmpresa, idEmpregado, idCompetencia);
+                alterar = false;
                 Reset();
                 return true;
             }
@@ -302,6 +307,7 @@ namespace Tuottavuus
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             Manipular(TipoManipulacao.Excluir);
+
         }
 
         private void TxtValor_TextChanged(object sender, EventArgs e)
@@ -374,6 +380,8 @@ namespace Tuottavuus
                     BtnGravar.Enabled = false;
                     BtnAlterar.Enabled = true;
                     BtnExcluir.Enabled = true;
+                    TxtNota.Focus();
+                    alterar = true;
                 }
             }
             catch (Exception ex)
@@ -384,9 +392,14 @@ namespace Tuottavuus
 
         private void TxtValor_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && alterar == false)
             {
                 Manipular(TipoManipulacao.Gravar);
+                LancamentoItem();
+            }
+            else if (e.KeyCode == Keys.Enter && alterar == true)
+            {
+                Manipular(TipoManipulacao.Alterar);
                 LancamentoItem();
             }
         }

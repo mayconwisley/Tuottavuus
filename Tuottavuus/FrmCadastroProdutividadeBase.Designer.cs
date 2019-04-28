@@ -35,14 +35,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtValor = new System.Windows.Forms.TextBox();
             this.DgvValores = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataCadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnGravar = new System.Windows.Forms.Button();
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataCadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvValores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,13 +51,14 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(16, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.Size = new System.Drawing.Size(114, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Data Cadastro";
+            this.label1.Text = "Competência Cadastro";
             // 
             // DtDataCadastro
             // 
-            this.DtDataCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtDataCadastro.CustomFormat = "MM/yyyy";
+            this.DtDataCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DtDataCadastro.Location = new System.Drawing.Point(16, 27);
             this.DtDataCadastro.Name = "DtDataCadastro";
             this.DtDataCadastro.Size = new System.Drawing.Size(102, 20);
@@ -106,37 +107,6 @@
             this.DgvValores.Size = new System.Drawing.Size(249, 150);
             this.DgvValores.TabIndex = 4;
             this.DgvValores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvValores_CellDoubleClick);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 41;
-            // 
-            // DataCadastro
-            // 
-            this.DataCadastro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DataCadastro.DataPropertyName = "Data_Cadastro";
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.DataCadastro.DefaultCellStyle = dataGridViewCellStyle1;
-            this.DataCadastro.HeaderText = "Data_Cadastro";
-            this.DataCadastro.Name = "DataCadastro";
-            this.DataCadastro.ReadOnly = true;
-            // 
-            // Valor
-            // 
-            this.Valor.DataPropertyName = "Valor";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Valor.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
-            this.Valor.ReadOnly = true;
-            this.Valor.Width = 56;
             // 
             // BtnGravar
             // 
@@ -188,6 +158,37 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Dois cliques sobre o item para alterar ou excluir";
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 41;
+            // 
+            // DataCadastro
+            // 
+            this.DataCadastro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DataCadastro.DataPropertyName = "Data_Cadastro";
+            dataGridViewCellStyle1.Format = "MM/yyyy";
+            dataGridViewCellStyle1.NullValue = null;
+            this.DataCadastro.DefaultCellStyle = dataGridViewCellStyle1;
+            this.DataCadastro.HeaderText = "Competência_Cadastro";
+            this.DataCadastro.Name = "DataCadastro";
+            this.DataCadastro.ReadOnly = true;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Valor.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            this.Valor.Width = 56;
+            // 
             // FrmCadastroProdutividadeBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,9 +228,9 @@
         private System.Windows.Forms.Button BtnAlterar;
         private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataCadastro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
-        private System.Windows.Forms.Label label4;
     }
 }

@@ -80,16 +80,17 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public double Valor_Data(DateTime data_Calculo)
+        public double Valor_Data(DateTime data_Competencia)
         {
             crud = new CRUD();
             SQL = "SELECT TOP 1 Valor FROM ProdutividadeBase " +
-                  "WHERE Data_Cadastro <= @Data_Calculo " +
+                  "WHERE  (Month(Data_Cadastro) <= Month(@Data_Cadastro)) AND " +
+                  "(Year(Data_Cadastro) <= Year(@Data_Cadastro)) " +
                   "ORDER BY Data_Cadastro DESC";
             try
             {
                 crud.LimparParametros();
-                crud.AdicionarParametros("Data_Calculo", data_Calculo);
+                crud.AdicionarParametros("Data_Cadastro", data_Competencia);
                 return double.Parse(crud.Executar(CommandType.Text, SQL).ToString());
             }
             catch (Exception ex)

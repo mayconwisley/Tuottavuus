@@ -37,7 +37,7 @@ namespace Tuottavuus
             reportDataSource = new ReportDataSource();
             try
             {
-                dtCalculoData = produtividadeControle.Calculo_Data(idCompetencia, idEmpresa);
+                dtCalculoData = dtCompetencia; //produtividadeControle.Calculo_Data(idCompetencia, idEmpresa);
                 strValorBase = produtividadeValorBaseControle.Valor_Data(dtCalculoData).ToString("#,##0.00");
                 paramenterValorBase = new ReportParameter("ValorBase", strValorBase);
                 paramenterCompetencia = new ReportParameter("Competencia", dtCompetencia.Date.ToString());

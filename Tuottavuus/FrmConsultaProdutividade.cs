@@ -47,24 +47,22 @@ namespace Tuottavuus
             }
         }
 
-
-
         private void ValorBase(int competenciaId, int empresaId)
         {
             produtividadeValorBaseControle = new ProdutividadeValorBaseControle();
             produtividadeControle = new ProdutividadeControle();
             try
             {
-                DateTime dtCalculoData = produtividadeControle.Calculo_Data(competenciaId, empresaId);
+                DateTime dtCalculoData = DateTime.Parse(MktCompetencia.Text); //produtividadeControle.Calculo_Data(competenciaId, empresaId);
 
                 valorBase = produtividadeValorBaseControle.Valor_Data(dtCalculoData);
                 LblValorBase.Text = "Valor Base: " + valorBase.ToString("#,##0.00");
             }
             catch (Exception ex)
             {
-                LblInfo.Text = "Dias Uteis: 00 "+
+                LblInfo.Text = "Dias Uteis: 00 " +
                 " - Domingos: 00" +
-                " - Feriados: 00" ;
+                " - Feriados: 00";
                 LblValorBase.Text = "Valor Base: 0,00";
                 MessageBox.Show(ex.Message);
             }

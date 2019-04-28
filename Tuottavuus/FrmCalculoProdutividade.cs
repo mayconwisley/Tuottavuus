@@ -59,12 +59,12 @@ namespace Tuottavuus
                 MessageBox.Show(ex.Message);
             }
         }
-        private void ValorBase()
+        private void ValorBase(DateTime competencia)
         {
             produtividadeValorBaseControle = new ProdutividadeValorBaseControle();
             try
             {
-                valorBase = produtividadeValorBaseControle.Valor();
+                valorBase = produtividadeValorBaseControle.Valor_Data(competencia);
                 LblValorBase.Text = "Valor Base: " + valorBase.ToString("#,##0.00");
             }
             catch (Exception ex)
@@ -402,7 +402,7 @@ namespace Tuottavuus
         private void FrmCalculoProdutividade_Load(object sender, EventArgs e)
         {
             InfomarcaoMes();
-            ValorBase();
+            ValorBase(dtCompetenciaAtiva);
             ListaEmpresa();
         }
         private void BtnCalcular_Click(object sender, EventArgs e)

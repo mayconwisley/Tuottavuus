@@ -116,11 +116,12 @@ namespace Controle
         public DateTime Calculo_Data(int competenciaId, int empresaId)
         {
             crud = new CRUD();
+
             SQL = "SELECT TOP 1 Produtividade.Data_Calculo " +
                   "FROM (Produtividade " +
                   "INNER JOIN Empregado ON Produtividade.Id_Empregado = Empregado.ID) " +
                   "WHERE Produtividade.Id_Competencia = @Id_Competencia AND Produtividade.Id_Empresa = @Id_Empresa " +
-                  "GROUP BY Produtividade.Id, Produtividade.Produtividade_Valor, Produtividade.Produtividade_Reflexo, Produtividade.Media_Avaliacao, Produtividade.Dias_Apurados, Produtividade.Fer_Dom_Apurados, Nome, Produtividade.Data_Calculo " +
+                  "GROUP BY Produtividade.Data_Calculo " +
                   "ORDER BY Produtividade.Data_Calculo DESC";
             try
             {
