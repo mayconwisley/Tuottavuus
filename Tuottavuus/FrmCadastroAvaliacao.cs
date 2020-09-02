@@ -200,7 +200,8 @@ namespace Tuottavuus
                 if (totalItens != 0)
                 {
                     media = dcNota / totalItens;
-                    LblInfo.Text = "Média para calculo: " + media.ToString("#,##0.00");
+                    LblInfo.Text = "Total: " + dcNota.ToString("#,##0.00") +
+                                   " Média para calculo: " + media.ToString("#,##0.00");
                 }
                 return true;
             }

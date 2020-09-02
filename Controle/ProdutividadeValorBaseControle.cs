@@ -91,11 +91,13 @@ namespace Controle
             {
                 crud.LimparParametros();
                 crud.AdicionarParametros("Data_Cadastro", data_Competencia);
-                return double.Parse(crud.Executar(CommandType.Text, SQL).ToString());
+
+                return double.Parse((crud.Executar(CommandType.Text, SQL) != null) ?
+                                     crud.Executar(CommandType.Text, SQL).ToString() :
+                                     throw new Exception("Valor da Produtividade não cadastrado para a competência."));
             }
             catch (Exception ex)
             {
-                return 0;
                 throw new Exception(ex.Message);
             }
         }

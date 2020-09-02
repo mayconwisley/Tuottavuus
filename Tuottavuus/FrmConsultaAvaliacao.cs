@@ -82,7 +82,8 @@ namespace Tuottavuus
                 if (totalItens != 0)
                 {
                     media = dcNota / totalItens;
-                    LblMedia.Text = "Média: " + media.ToString("#,##0.00");
+                    LblMedia.Text = "Total: " + dcNota.ToString("#,##0.00") +
+                                    " Média: " + media.ToString("#,##0.00");
                 }
 
             }
