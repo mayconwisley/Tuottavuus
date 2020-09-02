@@ -156,10 +156,15 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "SELECT Competencia FROM Competencia " +
-                "WHERE Ativo = Yes ";
+                  "WHERE Ativo = Yes ";
             try
             {
-                return DateTime.Parse(crud.Executar(CommandType.Text, SQL).ToString());
+                DateTime dateTime;
+
+                return dateTime = (crud.Executar(CommandType.Text, SQL) != null) ?
+                     DateTime.Parse(crud.Executar(CommandType.Text, SQL).ToString()) :
+                     throw new Exception("Competência não cadastrada.");
+
             }
             catch (Exception ex)
             {
@@ -196,8 +201,8 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "SELECT Id, Competencia, Ativo " +
-                "FROM Competencia " +
-                "ORDER BY Competencia DESC";
+                  "FROM Competencia " +
+                  "ORDER BY Competencia DESC";
             try
             {
                 DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
