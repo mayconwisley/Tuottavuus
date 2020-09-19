@@ -38,6 +38,9 @@
             this.avaliarProdutividadeEmpregadoTableAdapter = new Tuottavuus.Relatorios.RelatoriosTuottavuusTableAdapters.AvaliarProdutividadeEmpregadoTableAdapter();
             this.calculoProdutividadeDPTOTableAdapter = new Tuottavuus.Relatorios.RelatoriosTuottavuusTableAdapters.CalculoProdutividadeDPTOTableAdapter();
             this.calculoProdutividadeEmpregadoTableAdapter = new Tuottavuus.Relatorios.RelatoriosTuottavuusTableAdapters.CalculoProdutividadeEmpregadoTableAdapter();
+            this.avaliacaoProdutividadeMediaCompEmpresaTableAdapter = new Tuottavuus.Relatorios.RelatoriosTuottavuusTableAdapters.AvaliacaoProdutividadeMediaCompEmpresaTableAdapter();
+            this.avaliacaoProdutividadeMediaCompEmpregadoTableAdapter = new Tuottavuus.Relatorios.RelatoriosTuottavuusTableAdapters.AvaliacaoProdutividadeMediaCompEmpregadoTableAdapter();
+            this.avaliacaoProdutividadeMediaCompDPTOTableAdapter = new Tuottavuus.Relatorios.RelatoriosTuottavuusTableAdapters.AvaliacaoProdutividadeMediaCompDPTOTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.relatoriosTuottavuus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +94,18 @@
             // 
             this.calculoProdutividadeEmpregadoTableAdapter.ClearBeforeFill = true;
             // 
+            // avaliacaoProdutividadeMediaCompEmpresaTableAdapter
+            // 
+            this.avaliacaoProdutividadeMediaCompEmpresaTableAdapter.ClearBeforeFill = true;
+            // 
+            // avaliacaoProdutividadeMediaCompEmpregadoTableAdapter
+            // 
+            this.avaliacaoProdutividadeMediaCompEmpregadoTableAdapter.ClearBeforeFill = true;
+            // 
+            // avaliacaoProdutividadeMediaCompDPTOTableAdapter
+            // 
+            this.avaliacaoProdutividadeMediaCompDPTOTableAdapter.ClearBeforeFill = true;
+            // 
             // FrmVisualizarRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,5 +134,8 @@
         private Relatorios.RelatoriosTuottavuusTableAdapters.AvaliarProdutividadeEmpregadoTableAdapter avaliarProdutividadeEmpregadoTableAdapter;
         private Relatorios.RelatoriosTuottavuusTableAdapters.CalculoProdutividadeDPTOTableAdapter calculoProdutividadeDPTOTableAdapter;
         private Relatorios.RelatoriosTuottavuusTableAdapters.CalculoProdutividadeEmpregadoTableAdapter calculoProdutividadeEmpregadoTableAdapter;
+        private Relatorios.RelatoriosTuottavuusTableAdapters.AvaliacaoProdutividadeMediaCompEmpresaTableAdapter avaliacaoProdutividadeMediaCompEmpresaTableAdapter;
+        private Relatorios.RelatoriosTuottavuusTableAdapters.AvaliacaoProdutividadeMediaCompEmpregadoTableAdapter avaliacaoProdutividadeMediaCompEmpregadoTableAdapter;
+        private Relatorios.RelatoriosTuottavuusTableAdapters.AvaliacaoProdutividadeMediaCompDPTOTableAdapter avaliacaoProdutividadeMediaCompDPTOTableAdapter;
     }
 }

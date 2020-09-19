@@ -11,14 +11,16 @@ namespace Tuottavuus
         ReportDataSource reportDataSource;
         ReportParameter paramenterValorBase;
         ReportParameter paramenterCompetencia;
+        ReportParameter paramenterCompInicio;
+        ReportParameter paramenterCompFinal;
         int numRelatorio, idCompetencia, idEmpresa, idDepartamento, idEmpregado;
         string strValorBase = string.Empty;
-        DateTime dtCompetencia, dtCalculoData;
+        DateTime dtCompetencia, dtCalculoData, dtCompInicio, dtCompFinal;
         public FrmVisualizarRelatorio()
         {
             InitializeComponent();
         }
-        public FrmVisualizarRelatorio(int tipoRelatorio, int empresaId, int empregadoId, int departamentoId, int competenciaId, DateTime competencia)
+        public FrmVisualizarRelatorio(int tipoRelatorio, int empresaId, int empregadoId, int departamentoId, int competenciaId, DateTime competencia, DateTime compInicio, DateTime compFinal)
         {
             InitializeComponent();
             numRelatorio = tipoRelatorio;
@@ -27,6 +29,8 @@ namespace Tuottavuus
             idDepartamento = departamentoId;
             idCompetencia = competenciaId;
             dtCompetencia = competencia;
+            dtCompInicio = compInicio;
+            dtCompFinal = compFinal;
         }
 
         private void FrmVisualizarRelatorio_Load(object sender, EventArgs e)
@@ -35,12 +39,16 @@ namespace Tuottavuus
             produtividadeControle = new ProdutividadeControle();
             paramenterValorBase = new ReportParameter();
             reportDataSource = new ReportDataSource();
+            paramenterCompInicio = new ReportParameter();
+            paramenterCompFinal = new ReportParameter();
             try
             {
                 dtCalculoData = dtCompetencia; //produtividadeControle.Calculo_Data(idCompetencia, idEmpresa);
                 strValorBase = produtividadeValorBaseControle.Valor_Data(dtCalculoData).ToString("#,##0.00");
                 paramenterValorBase = new ReportParameter("ValorBase", strValorBase);
                 paramenterCompetencia = new ReportParameter("Competencia", dtCompetencia.Date.ToString());
+                paramenterCompInicio = new ReportParameter("CompInicio", dtCompInicio.Date.ToString());
+                paramenterCompFinal = new ReportParameter("CompFinal", dtCompFinal.Date.ToString());
                 switch (numRelatorio)
                 {
                     case 1: //Produtivade Calculado
@@ -111,6 +119,56 @@ namespace Tuottavuus
                         RvGeral.LocalReport.DataSources.Add(reportDataSource);
                         RvGeral.LocalReport.ReportPath = @"Relatorios\AvaliacaoProdutividadeDPTO.rdlc";
                         avaliacaoProdutividadeDPTOTableAdapter.Fill(relatoriosTuottavuus.AvaliacaoProdutividadeDPTO, idCompetencia, idEmpresa, idDepartamento);
+                        break;
+                    case 9: //Avaliacao Atividade
+                        reportDataSource.Name = "AvalicaoAtividade";
+                        reportDataSource.Value = relatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpresa;
+                        RvGeral.LocalReport.DataSources.Clear();
+                        RvGeral.LocalReport.DataSources.Add(reportDataSource);
+                        RvGeral.LocalReport.ReportPath = @"Relatorios\AvaliacaoAtividade.rdlc";
+                        RvGeral.LocalReport.SetParameters(paramenterCompInicio);
+                        RvGeral.LocalReport.SetParameters(paramenterCompFinal);
+                        avaliacaoProdutividadeMediaCompEmpresaTableAdapter.Fill(relatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpresa, dtCompInicio, dtCompFinal, idEmpresa);
+                        break;
+                    case 10: //Avaliacao Atividade Empresa Empregados
+                        reportDataSource.Name = "AvalicaoAtividade";
+                        reportDataSource.Value = relatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpresa;
+                        RvGeral.LocalReport.DataSources.Clear();
+                        RvGeral.LocalReport.DataSources.Add(reportDataSource);
+                        RvGeral.LocalReport.ReportPath = @"Relatorios\AvaliacaoAtividadeEmpresa.rdlc";
+                        RvGeral.LocalReport.SetParameters(paramenterCompInicio);
+                        RvGeral.LocalReport.SetParameters(paramenterCompFinal);
+                        avaliacaoProdutividadeMediaCompEmpresaTableAdapter.Fill(relatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpresa, dtCompInicio, dtCompFinal, idEmpresa);
+                        break;
+                    case 11: //Avaliacao Atividade Empregados
+                        reportDataSource.Name = "AvalicaoAtividadeEmpregado";
+                        reportDataSource.Value = relatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpregado;
+                        RvGeral.LocalReport.DataSources.Clear();
+                        RvGeral.LocalReport.DataSources.Add(reportDataSource);
+                        RvGeral.LocalReport.ReportPath = @"Relatorios\AvaliacaoAtividadeEmpregado.rdlc";
+                        RvGeral.LocalReport.SetParameters(paramenterCompInicio);
+                        RvGeral.LocalReport.SetParameters(paramenterCompFinal);
+                        avaliacaoProdutividadeMediaCompEmpregadoTableAdapter.Fill(relatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpregado, dtCompInicio, dtCompFinal, idEmpresa, idEmpregado);
+                        break;
+                    case 12: //Avaliacao Departamento
+                        reportDataSource.Name = "AvalicaoDepartamento";
+                        reportDataSource.Value = relatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDPTO;
+                        RvGeral.LocalReport.DataSources.Clear();
+                        RvGeral.LocalReport.DataSources.Add(reportDataSource);
+                        RvGeral.LocalReport.ReportPath = @"Relatorios\AvaliacaoAtividadeDepartamento.rdlc";
+                        RvGeral.LocalReport.SetParameters(paramenterCompInicio);
+                        RvGeral.LocalReport.SetParameters(paramenterCompFinal);
+                        avaliacaoProdutividadeMediaCompDPTOTableAdapter.Fill(relatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDPTO, dtCompInicio, dtCompFinal, idEmpresa, idDepartamento);
+                        break;
+                    case 13: //Avaliacao Departamento Empregado
+                        reportDataSource.Name = "AvalicaoAtividadeDepartamento";
+                        reportDataSource.Value = relatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDPTO;
+                        RvGeral.LocalReport.DataSources.Clear();
+                        RvGeral.LocalReport.DataSources.Add(reportDataSource);
+                        RvGeral.LocalReport.ReportPath = @"Relatorios\AvaliacaoAtividadeEmpresaDepartamento.rdlc";
+                        RvGeral.LocalReport.SetParameters(paramenterCompInicio);
+                        RvGeral.LocalReport.SetParameters(paramenterCompFinal);
+                        avaliacaoProdutividadeMediaCompDPTOTableAdapter.Fill(relatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDPTO, dtCompInicio, dtCompFinal, idEmpresa, idDepartamento);
                         break;
                     default:
                         break;

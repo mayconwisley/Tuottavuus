@@ -12,7 +12,7 @@ namespace Tuottavuus
         CompetenciaControle competenciaControle;
         Departamento departamento;
         DepartamentoControle departamentoControle;
-        DateTime dtCompetencia;
+        DateTime dtCompetencia, dtCompInicio, dtCompFinal;
         int idEmpregado, idEmpresa, idCompetencia, idDepartamento;
 
         FrmVisualizarRelatorio visualizarRelatorio;
@@ -88,9 +88,12 @@ namespace Tuottavuus
             int numRelatorio = 0;
             competenciaControle = new CompetenciaControle();
 
+
             try
             {
                 dtCompetencia = DateTime.Parse(MktCompetencia.Text);
+                dtCompInicio = DateTime.Parse(MktCompInicio.Text);
+                dtCompFinal = DateTime.Parse(MktComFinal.Text);
                 idCompetencia = competenciaControle.Id(dtCompetencia);
 
                 if (RbEmpresa.Checked && index == 0)
@@ -132,7 +135,28 @@ namespace Tuottavuus
                 {
                     numRelatorio = 3;
                 }
-                visualizarRelatorio = new FrmVisualizarRelatorio(numRelatorio, idEmpresa, idEmpregado, idDepartamento, idCompetencia, dtCompetencia.Date);
+                else if ((RbEmpresa.Checked && CbListAtividade.Checked) && index == 3)
+                {
+                    numRelatorio = 10;
+                }
+                else if (RbEmpresa.Checked && index == 3)
+                {
+                    numRelatorio = 9;
+                }
+                else if (RbEmpregado.Checked && index == 3)
+                {
+
+                    numRelatorio = 11;
+                }
+                else if ((RbDepartamento.Checked && CbListAtividade.Checked) && index == 3)
+                {
+                    numRelatorio = 13;
+                }
+                else if (RbDepartamento.Checked && index == 3)
+                {
+                    numRelatorio = 12;
+                }
+                visualizarRelatorio = new FrmVisualizarRelatorio(numRelatorio, idEmpresa, idEmpregado, idDepartamento, idCompetencia, dtCompetencia.Date, dtCompInicio, dtCompFinal);
                 visualizarRelatorio.MdiParent = FrmPrincipal.ActiveForm;
                 visualizarRelatorio.Show();
             }
@@ -180,6 +204,7 @@ namespace Tuottavuus
                 CbxEmpresa.Enabled = true;
                 CbxEmpregado.Enabled = false;
                 CbxDepartamento.Enabled = false;
+                CbListAtividade.Enabled = true;
             }
         }
 
@@ -190,6 +215,7 @@ namespace Tuottavuus
                 CbxEmpregado.Enabled = true;
                 CbxEmpresa.Enabled = true;
                 CbxDepartamento.Enabled = false;
+                CbListAtividade.Enabled = false;
             }
         }
 
@@ -200,6 +226,29 @@ namespace Tuottavuus
                 CbxDepartamento.Enabled = true;
                 CbxEmpresa.Enabled = true;
                 CbxEmpregado.Enabled = false;
+                CbListAtividade.Enabled = true;
+            }
+        }
+
+        private void CbxItensRelatorio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbxItensRelatorio.SelectedIndex == 3)
+            {
+                MktCompInicio.Visible = true;
+                MktComFinal.Visible = true;
+                CbListAtividade.Visible = true;
+                MktCompetencia.Visible = false;
+
+            }
+            else
+            {
+                // MktCompInicio.Clear();
+                //MktComFinal.Clear();
+                MktCompetencia.Visible = true;
+                MktCompInicio.Visible = false;
+                MktComFinal.Visible = false;
+                CbListAtividade.Visible = false;
+
             }
         }
 

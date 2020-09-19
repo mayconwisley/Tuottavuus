@@ -32,10 +32,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CbListAtividade = new System.Windows.Forms.CheckBox();
             this.CbxDepartamento = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.CbxEmpregado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.MktCompInicio = new System.Windows.Forms.MaskedTextBox();
+            this.MktComFinal = new System.Windows.Forms.MaskedTextBox();
             this.MktCompetencia = new System.Windows.Forms.MaskedTextBox();
             this.CbxEmpresa = new System.Windows.Forms.ComboBox();
             this.RbDepartamento = new System.Windows.Forms.RadioButton();
@@ -52,11 +55,13 @@
             this.CbxItensRelatorio.Items.AddRange(new object[] {
             "01 - Calculos Produtividade",
             "02 - Avaliação Produtividade",
-            "03 - Avaliar Produtividade"});
+            "03 - Avaliar Produtividade",
+            "04 - Avaliação Atividade"});
             this.CbxItensRelatorio.Location = new System.Drawing.Point(12, 27);
             this.CbxItensRelatorio.Name = "CbxItensRelatorio";
             this.CbxItensRelatorio.Size = new System.Drawing.Size(216, 21);
             this.CbxItensRelatorio.TabIndex = 0;
+            this.CbxItensRelatorio.SelectedIndexChanged += new System.EventHandler(this.CbxItensRelatorio_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -78,10 +83,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CbListAtividade);
             this.groupBox1.Controls.Add(this.CbxDepartamento);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.CbxEmpregado);
             this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.MktCompInicio);
+            this.groupBox1.Controls.Add(this.MktComFinal);
             this.groupBox1.Controls.Add(this.MktCompetencia);
             this.groupBox1.Controls.Add(this.CbxEmpresa);
             this.groupBox1.Controls.Add(this.RbDepartamento);
@@ -94,6 +102,17 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opções";
+            // 
+            // CbListAtividade
+            // 
+            this.CbListAtividade.AutoSize = true;
+            this.CbListAtividade.Location = new System.Drawing.Point(88, 44);
+            this.CbListAtividade.Name = "CbListAtividade";
+            this.CbListAtividade.Size = new System.Drawing.Size(98, 17);
+            this.CbListAtividade.TabIndex = 11;
+            this.CbListAtividade.Text = "Listar Atividade";
+            this.CbListAtividade.UseVisualStyleBackColor = true;
+            this.CbListAtividade.Visible = false;
             // 
             // CbxDepartamento
             // 
@@ -138,6 +157,26 @@
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Empregado";
+            // 
+            // MktCompInicio
+            // 
+            this.MktCompInicio.Location = new System.Drawing.Point(192, 41);
+            this.MktCompInicio.Mask = "00/0000";
+            this.MktCompInicio.Name = "MktCompInicio";
+            this.MktCompInicio.Size = new System.Drawing.Size(59, 20);
+            this.MktCompInicio.TabIndex = 6;
+            this.MktCompInicio.ValidatingType = typeof(System.DateTime);
+            this.MktCompInicio.Visible = false;
+            // 
+            // MktComFinal
+            // 
+            this.MktComFinal.Location = new System.Drawing.Point(257, 41);
+            this.MktComFinal.Mask = "00/0000";
+            this.MktComFinal.Name = "MktComFinal";
+            this.MktComFinal.Size = new System.Drawing.Size(59, 20);
+            this.MktComFinal.TabIndex = 6;
+            this.MktComFinal.ValidatingType = typeof(System.DateTime);
+            this.MktComFinal.Visible = false;
             // 
             // MktCompetencia
             // 
@@ -244,5 +283,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox CbxDepartamento;
         private System.Windows.Forms.RadioButton RbDepartamento;
+        private System.Windows.Forms.MaskedTextBox MktCompInicio;
+        private System.Windows.Forms.MaskedTextBox MktComFinal;
+        private System.Windows.Forms.CheckBox CbListAtividade;
     }
 }
