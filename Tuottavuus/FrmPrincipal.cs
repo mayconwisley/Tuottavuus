@@ -23,6 +23,7 @@ namespace Tuottavuus
         FrmRelatorio relatorio; // 9
         FrmConsultaAvaliacao consultaAvaliacao; // 10
         FrmConsultaProdutividade consultaProdutividade; //11
+        FrmConsultaAtividade consultaAtividade; //12
         bool aberto = true;
         private void AbrirFormulario(int formulario)
         {
@@ -138,6 +139,15 @@ namespace Tuottavuus
                             aberto = false;
                         }
                         break;
+                    case 12:
+                        consultaAtividade = new FrmConsultaAtividade();
+                        consultaAtividade.MdiParent = this;
+                        if (item is FrmConsultaAtividade)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -181,6 +191,9 @@ namespace Tuottavuus
                         break;
                     case 11:
                         consultaProdutividade.Show();
+                        break;
+                    case 12:
+                        consultaAtividade.Show();
                         break;
                     default:
                         break;
@@ -264,6 +277,11 @@ namespace Tuottavuus
         private void SubMenuProdutividadeConsultar_Click(object sender, EventArgs e)
         {
             AbrirFormulario(11);
+        }
+
+        private void SubMenuAvaliacaoConsultaAtividade_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(12);
         }
     }
 }

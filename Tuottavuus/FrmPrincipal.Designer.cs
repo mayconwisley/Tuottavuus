@@ -51,6 +51,7 @@
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusPrincipal = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.SubMenuAvaliacaoConsultaAtividade = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuPrincipal.SuspendLayout();
             this.StatusPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -149,7 +150,8 @@
             // 
             this.MenuAvaliacao.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SubMenuAvaliacaoAvaliar,
-            this.SubMenuAvaliacaoConsultar});
+            this.SubMenuAvaliacaoConsultar,
+            this.SubMenuAvaliacaoConsultaAtividade});
             this.MenuAvaliacao.Name = "MenuAvaliacao";
             this.MenuAvaliacao.Size = new System.Drawing.Size(70, 20);
             this.MenuAvaliacao.Text = "Avaliação";
@@ -157,14 +159,14 @@
             // SubMenuAvaliacaoAvaliar
             // 
             this.SubMenuAvaliacaoAvaliar.Name = "SubMenuAvaliacaoAvaliar";
-            this.SubMenuAvaliacaoAvaliar.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuAvaliacaoAvaliar.Size = new System.Drawing.Size(180, 22);
             this.SubMenuAvaliacaoAvaliar.Text = "Avaliar";
             this.SubMenuAvaliacaoAvaliar.Click += new System.EventHandler(this.SubMenuAvaliacaoAvaliar_Click);
             // 
             // SubMenuAvaliacaoConsultar
             // 
             this.SubMenuAvaliacaoConsultar.Name = "SubMenuAvaliacaoConsultar";
-            this.SubMenuAvaliacaoConsultar.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuAvaliacaoConsultar.Size = new System.Drawing.Size(180, 22);
             this.SubMenuAvaliacaoConsultar.Text = "Consultar";
             this.SubMenuAvaliacaoConsultar.Click += new System.EventHandler(this.SubMenuAvaliacaoConsultar_Click);
             // 
@@ -180,14 +182,14 @@
             // SubMenuProdutividadeCalcular
             // 
             this.SubMenuProdutividadeCalcular.Name = "SubMenuProdutividadeCalcular";
-            this.SubMenuProdutividadeCalcular.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuProdutividadeCalcular.Size = new System.Drawing.Size(125, 22);
             this.SubMenuProdutividadeCalcular.Text = "Calcular";
             this.SubMenuProdutividadeCalcular.Click += new System.EventHandler(this.SubMenuProdutividadeCalcular_Click);
             // 
             // SubMenuProdutividadeConsultar
             // 
             this.SubMenuProdutividadeConsultar.Name = "SubMenuProdutividadeConsultar";
-            this.SubMenuProdutividadeConsultar.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuProdutividadeConsultar.Size = new System.Drawing.Size(125, 22);
             this.SubMenuProdutividadeConsultar.Text = "Consultar";
             this.SubMenuProdutividadeConsultar.Click += new System.EventHandler(this.SubMenuProdutividadeConsultar_Click);
             // 
@@ -202,7 +204,7 @@
             // SubMenuRelatoriosRelatorio
             // 
             this.SubMenuRelatoriosRelatorio.Name = "SubMenuRelatoriosRelatorio";
-            this.SubMenuRelatoriosRelatorio.Size = new System.Drawing.Size(152, 22);
+            this.SubMenuRelatoriosRelatorio.Size = new System.Drawing.Size(121, 22);
             this.SubMenuRelatoriosRelatorio.Text = "Relatório";
             this.SubMenuRelatoriosRelatorio.Click += new System.EventHandler(this.SubMenuRelatoriosRelatorio_Click);
             // 
@@ -229,6 +231,13 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(217, 17);
             this.toolStripStatusLabel1.Text = "Desenvolvido por: Maycon Wisley - v1.0";
+            // 
+            // SubMenuAvaliacaoConsultaAtividade
+            // 
+            this.SubMenuAvaliacaoConsultaAtividade.Name = "SubMenuAvaliacaoConsultaAtividade";
+            this.SubMenuAvaliacaoConsultaAtividade.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuAvaliacaoConsultaAtividade.Text = "Consulta Atividade";
+            this.SubMenuAvaliacaoConsultaAtividade.Click += new System.EventHandler(this.SubMenuAvaliacaoConsultaAtividade_Click);
             // 
             // FrmPrincipal
             // 
@@ -280,6 +289,7 @@
         private System.Windows.Forms.ToolStripMenuItem SubMenuRelatoriosRelatorio;
         private System.Windows.Forms.ToolStripMenuItem SubMenuAvaliacaoConsultar;
         private System.Windows.Forms.ToolStripMenuItem SubMenuProdutividadeConsultar;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuAvaliacaoConsultaAtividade;
     }
 }
 

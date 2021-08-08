@@ -157,6 +157,12 @@
     <Compile Include="FrmCalculoProdutividade.Designer.cs">
       <DependentUpon>FrmCalculoProdutividade.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsultaAtividade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaAtividade.Designer.cs">
+      <DependentUpon>FrmConsultaAtividade.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConsultaAvaliacao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCalculoProdutividade.resx">
       <DependentUpon>FrmCalculoProdutividade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaAtividade.resx">
+      <DependentUpon>FrmConsultaAtividade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaAvaliacao.resx">
       <DependentUpon>FrmConsultaAvaliacao.cs</DependentUpon>
