@@ -4,10 +4,11 @@ namespace Banco_De_Dados
 {
     public class Conexao
     {
-        string conexao = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Banco de Dados\tuottavuus.mdb ";
+
         protected OleDbConnection dbConnection;
         protected bool Conectar()
         {
+            string conexao = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Banco de Dados\tuottavuus.mdb ";
             dbConnection = new OleDbConnection(conexao);
             try
             {
