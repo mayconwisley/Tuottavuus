@@ -1,17 +1,24 @@
 ﻿using Controle;
 using Modelo;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tuottavuus
 {
-    public partial class FrmCadastroAtividade : Form
+    public partial class FrmCadastroIndicador : Form
     {
-        Atividade atividade;
-        AtividadeControle atividadeControle;
-        int idAtividade = 0;
+        Indicador indicador;
+        IndicadorControle indicadorControle;
+        int idIndicador = 0;
 
-        public FrmCadastroAtividade()
+        public FrmCadastroIndicador()
         {
             InitializeComponent();
         }
@@ -25,15 +32,15 @@ namespace Tuottavuus
             TxtDescricao.Focus();
         }
 
-        private bool ListaAtividade()
+        private bool ListaIndicador()
         {
-            atividadeControle = new AtividadeControle();
-            int totalAtividade = 0;
+            indicadorControle = new IndicadorControle();
+            int totalIndicador = 0;
             try
             {
-                DgvAtividades.DataSource = atividadeControle.AtividadeTabela();
-                totalAtividade = DgvAtividades.Rows.Count;
-                LblInfoAtividade.Text = "Atividades - " + totalAtividade.ToString("00");
+                DgvIndicadors.DataSource = indicadorControle.IndicadorTabela();
+                totalIndicador = DgvIndicadors.Rows.Count;
+                LblInfoIndicador.Text = "Indicadores - " + totalIndicador.ToString("00");
                 return true;
             }
             catch (Exception ex)
@@ -45,35 +52,35 @@ namespace Tuottavuus
 
         private bool Manipular(TipoManipulacao tipoManipulacao)
         {
-            atividade = new Atividade();
-            atividadeControle = new AtividadeControle();
+            indicador = new Indicador();
+            indicadorControle = new IndicadorControle();
 
             try
             {
-                atividade.Id = idAtividade;
-                atividade.Descricao = TxtDescricao.Text.Trim();
+                indicador.Id = idIndicador;
+                indicador.Descricao = TxtDescricao.Text.Trim();
                 if (CbAtivo.Checked)
                 {
-                    atividade.Ativo = true;
+                    indicador.Ativo = true;
                 }
                 else
                 {
-                    atividade.Ativo = false;
+                    indicador.Ativo = false;
                 }
 
                 if (tipoManipulacao == TipoManipulacao.Gravar)
                 {
-                    atividadeControle.Gravar(atividade);
+                    indicadorControle.Gravar(indicador);
                 }
                 else if (tipoManipulacao == TipoManipulacao.Alterar)
                 {
-                    atividadeControle.Alterar(atividade);
+                    indicadorControle.Alterar(indicador);
                 }
                 else if (tipoManipulacao == TipoManipulacao.Excluir)
                 {
-                    atividadeControle.Excluir(atividade);
+                    indicadorControle.Excluir(indicador);
                 }
-                ListaAtividade();
+                ListaIndicador();
                 Reset();
                 return true;
             }
@@ -85,18 +92,18 @@ namespace Tuottavuus
 
         }
 
-        private void FrmCadastroAtividade_Load(object sender, EventArgs e)
+        private void FrmCadastroIndicador_Load(object sender, EventArgs e)
         {
-            ListaAtividade();
+            ListaIndicador();
         }
 
-        private void DgvAtividades_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvIndicadors_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                idAtividade = int.Parse(DgvAtividades.Rows[e.RowIndex].Cells["Id"].Value.ToString());
-                TxtDescricao.Text = DgvAtividades.Rows[e.RowIndex].Cells["Descricao"].Value.ToString();
-                bool ativo = bool.Parse(DgvAtividades.Rows[e.RowIndex].Cells["Ativo"].Value.ToString());
+                idIndicador = int.Parse(DgvIndicadors.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                TxtDescricao.Text = DgvIndicadors.Rows[e.RowIndex].Cells["Descricao"].Value.ToString();
+                bool ativo = bool.Parse(DgvIndicadors.Rows[e.RowIndex].Cells["Ativo"].Value.ToString());
                 if (ativo == true)
                 {
                     CbAtivo.Checked = true;

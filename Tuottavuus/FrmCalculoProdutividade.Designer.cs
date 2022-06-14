@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblCompetencia = new System.Windows.Forms.Label();
             this.LblInfo = new System.Windows.Forms.Label();
             this.BtnCalcular = new System.Windows.Forms.Button();
@@ -63,7 +63,7 @@
             this.LblCompetencia.Name = "LblCompetencia";
             this.LblCompetencia.Size = new System.Drawing.Size(116, 13);
             this.LblCompetencia.TabIndex = 0;
-            this.LblCompetencia.Text = "Competencia: 00/0000";
+            this.LblCompetencia.Text = "Competência: 00/0000";
             // 
             // LblInfo
             // 
@@ -139,10 +139,10 @@
             // 
             this.Media_Avaliacao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Media_Avaliacao.DataPropertyName = "Media_Avaliacao";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Media_Avaliacao.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.Media_Avaliacao.DefaultCellStyle = dataGridViewCellStyle5;
             this.Media_Avaliacao.HeaderText = "Média Avaliação";
             this.Media_Avaliacao.Name = "Media_Avaliacao";
             this.Media_Avaliacao.ReadOnly = true;
@@ -152,9 +152,9 @@
             // 
             this.Produtividade_Valorr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Produtividade_Valorr.DataPropertyName = "Produtividade_Valor";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this.Produtividade_Valorr.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            this.Produtividade_Valorr.DefaultCellStyle = dataGridViewCellStyle6;
             this.Produtividade_Valorr.HeaderText = "Valor";
             this.Produtividade_Valorr.Name = "Produtividade_Valorr";
             this.Produtividade_Valorr.ReadOnly = true;
@@ -164,9 +164,9 @@
             // 
             this.Produtividade_Reflexoo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Produtividade_Reflexoo.DataPropertyName = "Produtividade_Reflexo";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Produtividade_Reflexoo.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            this.Produtividade_Reflexoo.DefaultCellStyle = dataGridViewCellStyle7;
             this.Produtividade_Reflexoo.HeaderText = "Reflexo";
             this.Produtividade_Reflexoo.Name = "Produtividade_Reflexoo";
             this.Produtividade_Reflexoo.ReadOnly = true;
@@ -176,9 +176,9 @@
             // 
             this.Total_Geral.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Total_Geral.DataPropertyName = "Total_Geral";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "N2";
-            this.Total_Geral.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N2";
+            this.Total_Geral.DefaultCellStyle = dataGridViewCellStyle8;
             this.Total_Geral.HeaderText = "Total Geral";
             this.Total_Geral.Name = "Total_Geral";
             this.Total_Geral.ReadOnly = true;
@@ -274,7 +274,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(260, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Dois cliques sobre o item para exlcuir individualmente.";
+            this.label2.Text = "Dois cliques sobre o item para excluir individualmente.";
             // 
             // FrmCalculoProdutividade
             // 

@@ -5,11 +5,6 @@ namespace Tuottavuus
 {
     public partial class FrmPrincipal : Form
     {
-        public FrmPrincipal()
-        {
-            InitializeComponent();
-        }
-
         #region Formularios
         FrmCadastroEmpresa cadastroEmpresa;  // 0
         FrmCadastroEmpregado cadastroEmpregado; // 1
@@ -24,7 +19,14 @@ namespace Tuottavuus
         FrmConsultaAvaliacao consultaAvaliacao; // 10
         FrmConsultaProdutividade consultaProdutividade; //11
         FrmConsultaAtividade consultaAtividade; //12
+        FrmCadastroIndicador cadastroIndicador; //13
         bool aberto = true;
+
+        public FrmPrincipal()
+        {
+            InitializeComponent();
+        }
+
         private void AbrirFormulario(int formulario)
         {
             foreach (Form item in Application.OpenForms)
@@ -148,6 +150,15 @@ namespace Tuottavuus
                             aberto = false;
                         }
                         break;
+                    case 13:
+                        cadastroIndicador = new FrmCadastroIndicador();
+                        cadastroIndicador.MdiParent = this;
+                        if (item is FrmCadastroIndicador)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -194,6 +205,9 @@ namespace Tuottavuus
                         break;
                     case 12:
                         consultaAtividade.Show();
+                        break;
+                    case 13:
+                        cadastroIndicador.Show();
                         break;
                     default:
                         break;
@@ -282,6 +296,11 @@ namespace Tuottavuus
         private void SubMenuAvaliacaoConsultaAtividade_Click(object sender, EventArgs e)
         {
             AbrirFormulario(12);
+        }
+
+        private void SubMenuCadastroIndicador_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(13);
         }
     }
 }
