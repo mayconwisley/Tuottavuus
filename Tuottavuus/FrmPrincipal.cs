@@ -20,6 +20,7 @@ namespace Tuottavuus
         FrmConsultaProdutividade consultaProdutividade; //11
         FrmConsultaAtividade consultaAtividade; //12
         FrmCadastroIndicador cadastroIndicador; //13
+        FrmCadastroMetaPeso cadastroMetaPeso; //14
         bool aberto = true;
 
         public FrmPrincipal()
@@ -159,6 +160,17 @@ namespace Tuottavuus
                             aberto = false;
                         }
                         break;
+                    case 14:
+                        cadastroMetaPeso = new FrmCadastroMetaPeso();
+                        cadastroMetaPeso.MdiParent = this;
+                        if (item is FrmCadastroMetaPeso)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+
+                        break;
+
                     default:
                         break;
                 }
@@ -208,6 +220,9 @@ namespace Tuottavuus
                         break;
                     case 13:
                         cadastroIndicador.Show();
+                        break;
+                    case 14:
+                        cadastroMetaPeso.Show();
                         break;
                     default:
                         break;
@@ -301,6 +316,11 @@ namespace Tuottavuus
         private void SubMenuCadastroIndicador_Click(object sender, EventArgs e)
         {
             AbrirFormulario(13);
+        }
+
+        private void SubMenuCadastroMetaPeso_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(14);
         }
     }
 }

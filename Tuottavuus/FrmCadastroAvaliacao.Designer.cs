@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblCompetencia = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CbxEmpresa = new System.Windows.Forms.ComboBox();
@@ -154,10 +154,10 @@
             // 
             this.Notaa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Notaa.DataPropertyName = "Nota";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Notaa.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Notaa.DefaultCellStyle = dataGridViewCellStyle4;
             this.Notaa.HeaderText = "Nota";
             this.Notaa.Name = "Notaa";
             this.Notaa.ReadOnly = true;

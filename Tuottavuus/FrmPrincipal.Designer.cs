@@ -33,11 +33,12 @@
             this.MenuCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuCadastroEmpresa = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuCadastroDepartamento = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuCadastroCompetencia = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuCadastroEmpregado = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.SubMenuCadastroIndicador = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuCadastroAtividade = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.SubMenuCadastroCompetencia = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuCadastroFeriado = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuCadastroValorBaseProdutividade = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuAvaliacao = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +53,7 @@
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusPrincipal = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.SubMenuCadastroIndicador = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuCadastroMetaPeso = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuPrincipal.SuspendLayout();
             this.StatusPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +85,8 @@
             this.SubMenuCadastroAtividade,
             this.toolStripSeparator2,
             this.SubMenuCadastroFeriado,
-            this.SubMenuCadastroValorBaseProdutividade});
+            this.SubMenuCadastroValorBaseProdutividade,
+            this.SubMenuCadastroMetaPeso});
             this.MenuCadastro.Name = "MenuCadastro";
             this.MenuCadastro.Size = new System.Drawing.Size(66, 20);
             this.MenuCadastro.Text = "Cadastro";
@@ -103,6 +105,13 @@
             this.SubMenuCadastroDepartamento.Text = "Departamento";
             this.SubMenuCadastroDepartamento.Click += new System.EventHandler(this.SubMenuCadastroDepartamento_Click);
             // 
+            // SubMenuCadastroCompetencia
+            // 
+            this.SubMenuCadastroCompetencia.Name = "SubMenuCadastroCompetencia";
+            this.SubMenuCadastroCompetencia.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroCompetencia.Text = "Competência";
+            this.SubMenuCadastroCompetencia.Click += new System.EventHandler(this.SubMenuCadastroCompetencia_Click);
+            // 
             // SubMenuCadastroEmpregado
             // 
             this.SubMenuCadastroEmpregado.Name = "SubMenuCadastroEmpregado";
@@ -115,6 +124,13 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(201, 6);
             // 
+            // SubMenuCadastroIndicador
+            // 
+            this.SubMenuCadastroIndicador.Name = "SubMenuCadastroIndicador";
+            this.SubMenuCadastroIndicador.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroIndicador.Text = "Indicadores";
+            this.SubMenuCadastroIndicador.Click += new System.EventHandler(this.SubMenuCadastroIndicador_Click);
+            // 
             // SubMenuCadastroAtividade
             // 
             this.SubMenuCadastroAtividade.Name = "SubMenuCadastroAtividade";
@@ -126,13 +142,6 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(201, 6);
-            // 
-            // SubMenuCadastroCompetencia
-            // 
-            this.SubMenuCadastroCompetencia.Name = "SubMenuCadastroCompetencia";
-            this.SubMenuCadastroCompetencia.Size = new System.Drawing.Size(204, 22);
-            this.SubMenuCadastroCompetencia.Text = "Competência";
-            this.SubMenuCadastroCompetencia.Click += new System.EventHandler(this.SubMenuCadastroCompetencia_Click);
             // 
             // SubMenuCadastroFeriado
             // 
@@ -241,12 +250,12 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(217, 17);
             this.toolStripStatusLabel1.Text = "Desenvolvido por: Maycon Wisley - v1.0";
             // 
-            // SubMenuCadastroIndicador
+            // SubMenuCadastroMetaPeso
             // 
-            this.SubMenuCadastroIndicador.Name = "SubMenuCadastroIndicador";
-            this.SubMenuCadastroIndicador.Size = new System.Drawing.Size(204, 22);
-            this.SubMenuCadastroIndicador.Text = "Indicadores";
-            this.SubMenuCadastroIndicador.Click += new System.EventHandler(this.SubMenuCadastroIndicador_Click);
+            this.SubMenuCadastroMetaPeso.Name = "SubMenuCadastroMetaPeso";
+            this.SubMenuCadastroMetaPeso.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroMetaPeso.Text = "Valor Meta/Peso";
+            this.SubMenuCadastroMetaPeso.Click += new System.EventHandler(this.SubMenuCadastroMetaPeso_Click);
             // 
             // FrmPrincipal
             // 
@@ -300,6 +309,7 @@
         private System.Windows.Forms.ToolStripMenuItem SubMenuProdutividadeConsultar;
         private System.Windows.Forms.ToolStripMenuItem SubMenuAvaliacaoConsultaAtividade;
         private System.Windows.Forms.ToolStripMenuItem SubMenuCadastroIndicador;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuCadastroMetaPeso;
     }
 }
 

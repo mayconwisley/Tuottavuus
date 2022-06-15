@@ -87,7 +87,7 @@ namespace Controle
         public DataTable IndicadorComboBox()
         {
             crud = new CRUD();
-            SQL = "SELECT Descricao " +
+            SQL = "SELECT Id, Descricao " +
                 "FROM Indicador " +
                 "WHERE Ativo = Yes " +
                 "ORDER BY Descricao ";

@@ -70,6 +70,7 @@
     <Compile Include="EmpresaControle.cs" />
     <Compile Include="FeriadoControle.cs" />
     <Compile Include="IndicadorControle.cs" />
+    <Compile Include="MetaPesoControle.cs" />
     <Compile Include="ProdutividadeControle.cs" />
     <Compile Include="ProdutividadeValorBaseControle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
