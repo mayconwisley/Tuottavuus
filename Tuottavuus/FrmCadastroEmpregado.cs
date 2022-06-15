@@ -219,7 +219,7 @@ namespace Tuottavuus
             try
             {
                 empresa.Nome = CbxEmpresa.Text;
-                idEmpresa = int.Parse(CbxEmpresa.Text.Substring(0, CbxEmpresa.Text.IndexOf(' ')));
+                idEmpresa = int.Parse(CbxEmpresa.SelectedValue.ToString());
             }
             catch (Exception ex)
             {
@@ -229,12 +229,9 @@ namespace Tuottavuus
 
         private void CbxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            departamento = new Departamento();
-            departamentoControle = new DepartamentoControle();
             try
             {
-                departamento.Descricao = CbxDepartamento.Text;
-                idDepartamento = departamentoControle.Id(departamento);
+                idDepartamento = int.Parse(CbxDepartamento.SelectedValue.ToString());
             }
             catch (Exception ex)
             {

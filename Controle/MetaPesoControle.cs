@@ -1,11 +1,7 @@
 ﻿using Banco_De_Dados;
 using Modelo;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Controle
 {
@@ -13,7 +9,11 @@ namespace Controle
     {
         CRUD crud;
         string SQL;
-
+        public MetaPesoControle()
+        {
+            crud = new CRUD();
+            SQL = String.Empty;
+        }
         public bool Gravar(MetaPeso metaPeso)
         {
             crud = new CRUD();
@@ -34,7 +34,6 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
         public bool Alterar(MetaPeso metaPeso)
         {
             crud = new CRUD();
@@ -55,8 +54,6 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
-
         public bool Excluir(MetaPeso metaPeso)
         {
             crud = new CRUD();
@@ -80,7 +77,7 @@ namespace Controle
             crud = new CRUD();
             SQL = "SELECT MP.Id, MP.Meta, MP.Peso, MP.Id_Indicador, Ind.Descricao " +
                 "FROM MetaPeso MP " +
-                "INNER JOIN Indicador Ind ON MP.Id_Indicador = Ind.Id "+
+                "INNER JOIN Indicador Ind ON MP.Id_Indicador = Ind.Id " +
                 "ORDER BY Ind.Descricao ";
             try
             {

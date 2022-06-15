@@ -124,7 +124,7 @@
             this.CbxDepartamento.Name = "CbxDepartamento";
             this.CbxDepartamento.Size = new System.Drawing.Size(310, 21);
             this.CbxDepartamento.TabIndex = 10;
-            this.CbxDepartamento.ValueMember = "Descricao";
+            this.CbxDepartamento.ValueMember = "Id";
             this.CbxDepartamento.SelectedIndexChanged += new System.EventHandler(this.CbxDepartamento_SelectedIndexChanged);
             // 
             // label4
@@ -146,7 +146,7 @@
             this.CbxEmpregado.Name = "CbxEmpregado";
             this.CbxEmpregado.Size = new System.Drawing.Size(310, 21);
             this.CbxEmpregado.TabIndex = 8;
-            this.CbxEmpregado.ValueMember = "Nome";
+            this.CbxEmpregado.ValueMember = "Id";
             this.CbxEmpregado.SelectedIndexChanged += new System.EventHandler(this.CbxEmpregado_SelectedIndexChanged);
             // 
             // label3
@@ -196,7 +196,7 @@
             this.CbxEmpresa.Name = "CbxEmpresa";
             this.CbxEmpresa.Size = new System.Drawing.Size(310, 21);
             this.CbxEmpresa.TabIndex = 5;
-            this.CbxEmpresa.ValueMember = "Nome";
+            this.CbxEmpresa.ValueMember = "Id";
             this.CbxEmpresa.SelectedIndexChanged += new System.EventHandler(this.CbxEmpresa_SelectedIndexChanged);
             // 
             // RbDepartamento

@@ -16,5 +16,10 @@ namespace Tuottavuus
         {
             InitializeComponent();
         }
+
+        private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

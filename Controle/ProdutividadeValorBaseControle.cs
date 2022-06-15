@@ -9,6 +9,11 @@ namespace Controle
     {
         CRUD crud;
         string SQL;
+        public ProdutividadeValorBaseControle()
+        {
+            crud = new CRUD();
+            SQL = String.Empty;
+        }
 
         public bool Gravar(ProdutividadeValorBase produtividadeValorBases)
         {

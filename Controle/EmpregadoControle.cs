@@ -9,7 +9,11 @@ namespace Controle
     {
         CRUD crud;
         string SQL;
-
+        public EmpregadoControle()
+        {
+            crud = new CRUD();
+            SQL = String.Empty;
+        }
         public bool Gravar(Empregado empregado)
         {
             crud = new CRUD();
@@ -89,7 +93,7 @@ namespace Controle
         public DataTable EmpregadoComboBox(int empresaId)
         {
             crud = new CRUD();
-            SQL = "SELECT Empregado.Id & ' - ' & Empregado.Nome AS Nome " +
+            SQL = "SELECT Empregado.Id, Empregado.Id & ' - ' & Empregado.Nome AS Nome " +
             "FROM (Empregado " +
             "INNER JOIN Empresa ON Empregado.Id_Empresa = Empresa.Id) " +
             "WHERE Empregado.Ativo = Yes AND Empresa.Id = @EmpresaId " +
@@ -124,20 +128,20 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-         public DataTable EmpregadoTabelaCalculo(int empresaId)
+        public DataTable EmpregadoTabelaCalculo(int empresaId)
         {
             crud = new CRUD();
             SQL = "SELECT Empregado.Id " +
             "FROM ((Empregado " +
             "INNER JOIN Empresa ON Empregado.Id_Empresa = Empresa.Id) " +
             "INNER JOIN Departamento ON Empregado.Id_Departamento = Departamento.Id) " +
-            "WHERE Empregado.Ativo = Yes AND Empregado.Id_Empresa = @Id_Empresa "+
+            "WHERE Empregado.Ativo = Yes AND Empregado.Id_Empresa = @Id_Empresa " +
             "ORDER BY Empregado.Nome ";
             try
             {
-            	crud.LimparParametros();
-				crud.AdicionarParametros("Id_Empresa", empresaId);
-            	DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id_Empresa", empresaId);
+                DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
                 return dataTable;
             }
             catch (Exception ex)

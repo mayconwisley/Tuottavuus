@@ -9,7 +9,11 @@ namespace Controle
     {
         CRUD crud;
         string SQL;
-
+        public IndicadorControle()
+        {
+            crud = new CRUD();
+            SQL = String.Empty;
+        }
         public bool Gravar(Indicador indicador)
         {
             crud = new CRUD();
@@ -82,8 +86,6 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
-
         public DataTable IndicadorComboBox()
         {
             crud = new CRUD();

@@ -97,7 +97,7 @@
             this.CbxEmpresa.Name = "CbxEmpresa";
             this.CbxEmpresa.Size = new System.Drawing.Size(281, 21);
             this.CbxEmpresa.TabIndex = 1;
-            this.CbxEmpresa.ValueMember = "Nome";
+            this.CbxEmpresa.ValueMember = "Id";
             this.CbxEmpresa.SelectedIndexChanged += new System.EventHandler(this.CbxEmpresa_SelectedIndexChanged);
             // 
             // BtnGravar
@@ -228,7 +228,7 @@
             this.CbxDepartamento.Name = "CbxDepartamento";
             this.CbxDepartamento.Size = new System.Drawing.Size(281, 21);
             this.CbxDepartamento.TabIndex = 10;
-            this.CbxDepartamento.ValueMember = "Descricao";
+            this.CbxDepartamento.ValueMember = "Id";
             this.CbxDepartamento.SelectedIndexChanged += new System.EventHandler(this.CbxDepartamento_SelectedIndexChanged);
             // 
             // label2

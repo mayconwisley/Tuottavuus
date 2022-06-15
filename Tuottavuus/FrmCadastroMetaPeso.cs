@@ -38,9 +38,11 @@ namespace Tuottavuus
         private bool ListaIndicador()
         {
             indicadorControle = new IndicadorControle();
+
             try
             {
                 CbxIndicador.DataSource = indicadorControle.IndicadorComboBox();
+
                 return true;
             }
             catch (Exception ex)
@@ -52,9 +54,12 @@ namespace Tuottavuus
         private void ListarMetaPeso()
         {
             metaPesoControle = new MetaPesoControle();
+            int totalMetaPeso = 0;
             try
             {
                 DgvMetaPeso.DataSource = metaPesoControle.MetaPesoTabela();
+                totalMetaPeso = DgvMetaPeso.Rows.Count;
+                LblInfoMetaPeso.Text = "Meta/Peso - " + totalMetaPeso.ToString("00");
             }
             catch (Exception ex)
             {
@@ -124,8 +129,11 @@ namespace Tuottavuus
             {
 
                 idMetaPeso = int.Parse(DgvMetaPeso.Rows[e.RowIndex].Cells["Id"].Value.ToString());
-                TxtMeta.Text = DgvMetaPeso.Rows[e.RowIndex].Cells["Meta"].Value.ToString();
-                TxtPeso.Text = DgvMetaPeso.Rows[e.RowIndex].Cells["Peso"].Value.ToString();
+                double dMeta, dPeso;
+                dMeta = double.Parse(DgvMetaPeso.Rows[e.RowIndex].Cells["Meta"].Value.ToString());
+                dPeso = double.Parse(DgvMetaPeso.Rows[e.RowIndex].Cells["Peso"].Value.ToString());
+                TxtMeta.Text = dMeta.ToString("#,##0.00");
+                TxtPeso.Text = dPeso.ToString("#,##0.00");
                 BtnAlterar.Enabled = true;
                 BtnExcluir.Enabled = true;
                 BtnGravar.Enabled = false;

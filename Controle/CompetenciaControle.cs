@@ -10,6 +10,11 @@ namespace Controle
         CRUD crud;
         string SQL;
 
+        public CompetenciaControle()
+        {
+            crud = new CRUD();
+            SQL = String.Empty;
+        }
         public bool Gravar(Competencia competencia)
         {
             crud = new CRUD();

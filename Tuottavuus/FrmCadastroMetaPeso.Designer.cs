@@ -40,12 +40,12 @@
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.DgvMetaPeso = new System.Windows.Forms.DataGridView();
-            this.LblInfoMetaPeso = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Indicador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Meta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LblInfoMetaPeso = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvMetaPeso)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,15 +164,6 @@
             this.DgvMetaPeso.TabIndex = 6;
             this.DgvMetaPeso.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMetaPeso_CellDoubleClick);
             // 
-            // LblInfoMetaPeso
-            // 
-            this.LblInfoMetaPeso.AutoSize = true;
-            this.LblInfoMetaPeso.Location = new System.Drawing.Point(12, 130);
-            this.LblInfoMetaPeso.Name = "LblInfoMetaPeso";
-            this.LblInfoMetaPeso.Size = new System.Drawing.Size(81, 13);
-            this.LblInfoMetaPeso.TabIndex = 6;
-            this.LblInfoMetaPeso.Text = "Meta/Peso - 00";
-            // 
             // Id
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -199,7 +190,6 @@
             this.Id_Indicador.Name = "Id_Indicador";
             this.Id_Indicador.ReadOnly = true;
             this.Id_Indicador.Visible = false;
-            this.Id_Indicador.Width = 91;
             // 
             // Meta
             // 
@@ -227,6 +217,15 @@
             this.Peso.ReadOnly = true;
             this.Peso.Width = 56;
             // 
+            // LblInfoMetaPeso
+            // 
+            this.LblInfoMetaPeso.AutoSize = true;
+            this.LblInfoMetaPeso.Location = new System.Drawing.Point(12, 130);
+            this.LblInfoMetaPeso.Name = "LblInfoMetaPeso";
+            this.LblInfoMetaPeso.Size = new System.Drawing.Size(81, 13);
+            this.LblInfoMetaPeso.TabIndex = 6;
+            this.LblInfoMetaPeso.Text = "Meta/Peso - 00";
+            // 
             // FrmCadastroMetaPeso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,7 +242,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CbxIndicador);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmCadastroMetaPeso";

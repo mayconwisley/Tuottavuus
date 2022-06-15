@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.LblValorBase = new System.Windows.Forms.Label();
             this.DgvCalculo = new System.Windows.Forms.DataGridView();
-            this.LblInfo = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Empregadoo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +48,7 @@
             this.Total_Geral = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Dias_Apurados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fer_Dom_Aputadoss = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LblInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCalculo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +90,7 @@
             this.CbxEmpresa.Name = "CbxEmpresa";
             this.CbxEmpresa.Size = new System.Drawing.Size(372, 21);
             this.CbxEmpresa.TabIndex = 13;
-            this.CbxEmpresa.ValueMember = "Nome";
+            this.CbxEmpresa.ValueMember = "Id";
             this.CbxEmpresa.SelectedIndexChanged += new System.EventHandler(this.CbxEmpresa_SelectedIndexChanged);
             // 
             // label2
@@ -135,15 +135,6 @@
             this.DgvCalculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvCalculo.Size = new System.Drawing.Size(637, 287);
             this.DgvCalculo.TabIndex = 10;
-            // 
-            // LblInfo
-            // 
-            this.LblInfo.AutoSize = true;
-            this.LblInfo.Location = new System.Drawing.Point(12, 48);
-            this.LblInfo.Name = "LblInfo";
-            this.LblInfo.Size = new System.Drawing.Size(214, 13);
-            this.LblInfo.TabIndex = 9;
-            this.LblInfo.Text = "Dias Uteis: 00 - Domingos: 00 - Feriados: 00";
             // 
             // Id
             // 
@@ -236,6 +227,15 @@
             this.Fer_Dom_Aputadoss.ReadOnly = true;
             this.Fer_Dom_Aputadoss.Visible = false;
             this.Fer_Dom_Aputadoss.Width = 132;
+            // 
+            // LblInfo
+            // 
+            this.LblInfo.AutoSize = true;
+            this.LblInfo.Location = new System.Drawing.Point(12, 48);
+            this.LblInfo.Name = "LblInfo";
+            this.LblInfo.Size = new System.Drawing.Size(214, 13);
+            this.LblInfo.TabIndex = 9;
+            this.LblInfo.Text = "Dias Uteis: 00 - Domingos: 00 - Feriados: 00";
             // 
             // FrmConsultaProdutividade
             // 

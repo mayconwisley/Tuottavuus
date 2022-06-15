@@ -420,16 +420,9 @@ namespace Tuottavuus
         }
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                idEmpresa = int.Parse(CbxEmpresa.Text.Substring(0, CbxEmpresa.Text.IndexOf(' ')));
-                ListaCalculo(idCompetencia, idEmpresa);
-                CompararCalculoEmpregado();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            idEmpresa = int.Parse(CbxEmpresa.SelectedValue.ToString());
+            ListaCalculo(idCompetencia, idEmpresa);
+            CompararCalculoEmpregado();
         }
         private void BwProcesso_DoWork(object sender, DoWorkEventArgs e)
         {

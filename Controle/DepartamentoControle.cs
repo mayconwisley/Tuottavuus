@@ -9,7 +9,11 @@ namespace Controle
     {
         CRUD crud;
         string SQL;
-
+        public DepartamentoControle()
+        {
+            crud = new CRUD();
+            SQL = String.Empty;
+        }
         public bool Gravar(Departamento departamento)
         {
             crud = new CRUD();

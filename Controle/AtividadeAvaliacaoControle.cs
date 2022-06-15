@@ -10,6 +10,12 @@ namespace Controle
         CRUD crud;
         string SQL;
 
+        public AtividadeAvaliacaoControle()
+        {
+            crud = new CRUD();
+            SQL = String.Empty;
+        }
+
         public bool Gravar(AtividadeAvaliacao atividadeAvaliacao)
         {
             crud = new CRUD();

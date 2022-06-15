@@ -9,7 +9,11 @@ namespace Controle
     {
         CRUD crud;
         string SQL;
-
+        public FeriadoControle()
+        {
+            crud = new CRUD();
+            SQL = String.Empty;
+        }
         public bool Gravar(Feriado feriado)
         {
             crud = new CRUD();

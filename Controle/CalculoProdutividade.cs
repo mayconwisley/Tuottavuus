@@ -6,8 +6,11 @@ namespace Controle
     {
         double valor, domingoFeriados;
 
-
-
+        public CalculoProdutividade()
+        {
+            valor = 0.0;
+            domingoFeriados = 0.0;
+        }
         //Calcula o valor do pagamento referente a nota lançada
         public double Valor(double vlrBase, double vlrMedia)
         {
@@ -34,8 +37,5 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
-
-
     }
 }

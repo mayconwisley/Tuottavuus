@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.MktCompetencia = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@
             this.CbxEmpresa.Name = "CbxEmpresa";
             this.CbxEmpresa.Size = new System.Drawing.Size(397, 21);
             this.CbxEmpresa.TabIndex = 3;
-            this.CbxEmpresa.ValueMember = "Nome";
+            this.CbxEmpresa.ValueMember = "Id";
             this.CbxEmpresa.SelectedIndexChanged += new System.EventHandler(this.CbxEmpresa_SelectedIndexChanged);
             // 
             // label3
@@ -106,7 +106,7 @@
             this.CbxEmpregado.Name = "CbxEmpregado";
             this.CbxEmpregado.Size = new System.Drawing.Size(397, 21);
             this.CbxEmpregado.TabIndex = 5;
-            this.CbxEmpregado.ValueMember = "Nome";
+            this.CbxEmpregado.ValueMember = "Id";
             this.CbxEmpregado.SelectedIndexChanged += new System.EventHandler(this.CbxEmpregado_SelectedIndexChanged);
             // 
             // DgvAvaliacao
@@ -153,10 +153,10 @@
             // 
             this.Nota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Nota.DataPropertyName = "Nota";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Nota.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Nota.DefaultCellStyle = dataGridViewCellStyle2;
             this.Nota.HeaderText = "Nota";
             this.Nota.Name = "Nota";
             this.Nota.ReadOnly = true;

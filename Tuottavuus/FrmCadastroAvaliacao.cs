@@ -416,7 +416,7 @@ namespace Tuottavuus
         {
             try
             {
-                idEmpresa = int.Parse(CbxEmpresa.Text.Substring(0, CbxEmpresa.Text.IndexOf(' ')));
+                idEmpresa = int.Parse(CbxEmpresa.SelectedValue.ToString());
                 ListaEmpregado(idEmpresa);
                 VerificarCalculoProdutividade();
             }
@@ -430,7 +430,7 @@ namespace Tuottavuus
         {
             try
             {
-                idEmpregado = int.Parse(CbxEmpregado.Text.Substring(0, CbxEmpregado.Text.IndexOf(' ')));
+                idEmpregado = int.Parse(CbxEmpregado.SelectedValue.ToString());
                 VerificarEmpregado(idEmpregado);
                 ListaAtividadeAvaliacao(idEmpresa, idEmpregado, idCompetencia);
                 aux1 = CbxEmpregado.SelectedIndex;

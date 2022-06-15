@@ -10,6 +10,12 @@ namespace Controle
         CRUD crud;
         string SQL;
 
+        public AtividadeControle()
+        {
+            crud = new CRUD();
+            SQL = String.Empty;
+        }
+
         public bool Gravar(Atividade atividade)
         {
             crud = new CRUD();
@@ -82,12 +88,10 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
-      
         public DataTable AtividadeComboBox()
         {
             crud = new CRUD();
-            SQL = "SELECT Descricao " +
+            SQL = "SELECT Id, Descricao " +
                 "FROM Atividade " +
                 "WHERE Ativo = Yes " +
                 "ORDER BY Descricao ";

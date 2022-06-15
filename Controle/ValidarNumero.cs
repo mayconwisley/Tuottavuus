@@ -36,7 +36,6 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
         public string Formatar(string valor)
         {
             decimal formatar = decimal.Parse(valor);
@@ -47,7 +46,6 @@ namespace Controle
             }
             return strValor;
         }
-
         public string Zero(string valor)
         {
             strValor = valor;

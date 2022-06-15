@@ -9,7 +9,11 @@ namespace Controle
     {
         CRUD crud;
         string SQL;
-
+        public EmpresaControle()
+        {
+            crud = new CRUD();
+            SQL = String.Empty;
+        }
         public bool Gravar(Empresa empresa)
         {
             crud = new CRUD();
@@ -84,7 +88,7 @@ namespace Controle
         public DataTable EmpresaComboBox()
         {
             crud = new CRUD();
-            SQL = "SELECT Id & ' - '&  Nome AS Nome " +
+            SQL = "SELECT Id, Id & ' - '&  Nome AS Nome " +
                   "FROM Empresa " +
                   "WHERE Ativo = Yes " +
                   "ORDER BY Nome ";

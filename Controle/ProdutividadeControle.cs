@@ -9,6 +9,11 @@ namespace Controle
     {
         CRUD crud;
         string SQL;
+        public ProdutividadeControle()
+        {
+            crud = new CRUD();
+            SQL = String.Empty;
+        }
 
         public bool Gravar(Produtividade produtividade)
         {
@@ -53,7 +58,6 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
         public bool Excluir(Produtividade produtividade)
         {
             crud = new CRUD();
@@ -90,7 +94,6 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
         public DataTable ProdutividadeTabela(int competenciaId, int empresaId)
         {
             crud = new CRUD();

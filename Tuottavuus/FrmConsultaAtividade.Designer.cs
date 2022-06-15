@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.RbDepartamento = new System.Windows.Forms.RadioButton();
             this.RbEmpregado = new System.Windows.Forms.RadioButton();
@@ -41,6 +41,9 @@
             this.CbxEmpregado = new System.Windows.Forms.ComboBox();
             this.CbxEmpresa = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -59,23 +62,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Período";
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(6, 19);
-            this.maskedTextBox1.Mask = "00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(63, 20);
-            this.maskedTextBox1.TabIndex = 0;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(94, 19);
-            this.maskedTextBox2.Mask = "00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(60, 20);
-            this.maskedTextBox2.TabIndex = 0;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -85,12 +71,29 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "a";
             // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Location = new System.Drawing.Point(94, 19);
+            this.maskedTextBox2.Mask = "00/0000";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(60, 20);
+            this.maskedTextBox2.TabIndex = 0;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(6, 19);
+            this.maskedTextBox1.Mask = "00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(63, 20);
+            this.maskedTextBox1.TabIndex = 0;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.RbDepartamento);
             this.groupBox2.Controls.Add(this.RbEmpregado);
             this.groupBox2.Controls.Add(this.RbEmpresa);
-            this.groupBox2.Location = new System.Drawing.Point(12, 96);
+            this.groupBox2.Location = new System.Drawing.Point(12, 108);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(264, 52);
             this.groupBox2.TabIndex = 1;
@@ -131,12 +134,15 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.CbxDepartamento);
             this.groupBox3.Controls.Add(this.CbxEmpregado);
             this.groupBox3.Controls.Add(this.CbxEmpresa);
             this.groupBox3.Location = new System.Drawing.Point(282, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(333, 136);
+            this.groupBox3.Size = new System.Drawing.Size(325, 148);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             // 
@@ -146,11 +152,11 @@
             this.CbxDepartamento.Enabled = false;
             this.CbxDepartamento.FormattingEnabled = true;
             this.CbxDepartamento.IntegralHeight = false;
-            this.CbxDepartamento.Location = new System.Drawing.Point(6, 99);
+            this.CbxDepartamento.Location = new System.Drawing.Point(6, 115);
             this.CbxDepartamento.Name = "CbxDepartamento";
             this.CbxDepartamento.Size = new System.Drawing.Size(310, 21);
             this.CbxDepartamento.TabIndex = 13;
-            this.CbxDepartamento.ValueMember = "Descricao";
+            this.CbxDepartamento.ValueMember = "Id";
             // 
             // CbxEmpregado
             // 
@@ -158,22 +164,23 @@
             this.CbxEmpregado.Enabled = false;
             this.CbxEmpregado.FormattingEnabled = true;
             this.CbxEmpregado.IntegralHeight = false;
-            this.CbxEmpregado.Location = new System.Drawing.Point(6, 59);
+            this.CbxEmpregado.Location = new System.Drawing.Point(6, 72);
             this.CbxEmpregado.Name = "CbxEmpregado";
             this.CbxEmpregado.Size = new System.Drawing.Size(310, 21);
             this.CbxEmpregado.TabIndex = 12;
-            this.CbxEmpregado.ValueMember = "Nome";
+            this.CbxEmpregado.ValueMember = "Id";
             // 
             // CbxEmpresa
             // 
             this.CbxEmpresa.DisplayMember = "Nome";
             this.CbxEmpresa.FormattingEnabled = true;
             this.CbxEmpresa.IntegralHeight = false;
-            this.CbxEmpresa.Location = new System.Drawing.Point(6, 19);
+            this.CbxEmpresa.Location = new System.Drawing.Point(6, 32);
             this.CbxEmpresa.Name = "CbxEmpresa";
             this.CbxEmpresa.Size = new System.Drawing.Size(310, 21);
             this.CbxEmpresa.TabIndex = 11;
-            this.CbxEmpresa.ValueMember = "Nome";
+            this.CbxEmpresa.ValueMember = "Id";
+            this.CbxEmpresa.SelectedIndexChanged += new System.EventHandler(this.CbxEmpresa_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -186,6 +193,33 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(862, 252);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Empresa";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 56);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Empregado";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 96);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Departamento";
             // 
             // FrmConsultaAtividade
             // 
@@ -209,6 +243,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -229,5 +264,8 @@
         private System.Windows.Forms.ComboBox CbxEmpregado;
         private System.Windows.Forms.ComboBox CbxEmpresa;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
