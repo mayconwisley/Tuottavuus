@@ -171,7 +171,7 @@ namespace Controle
 
                     if (idEmpregado == 0)
                     {
-                        itensErro.Add("Linha: " + i + " - " + linhaArquivo[i]);
+                        itensErro.Add("Linha: " + (i + 1) + " - " + linhaArquivo[i]);
 
                         continue;
                     }

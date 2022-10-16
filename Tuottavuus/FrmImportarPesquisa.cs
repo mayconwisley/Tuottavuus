@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Diagnostics;
 
 namespace Tuottavuus
 {
@@ -89,10 +91,42 @@ namespace Tuottavuus
         private void BtnImportar_Click(object sender, EventArgs e)
         {
             pesquisaControle = new PesquisaControle();
-            ArrayList teste = new ArrayList();
+            ArrayList itensErros = new ArrayList();
+            string caminhoErro;
+            caminhoErro = Application.StartupPath + @"\ErroImportacao\" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + ".txt";
             try
             {
-                pesquisaControle.ImportarAquivo(idCompetencia, idEmpresa, TxtCaminhoArquivo.Text, out teste);
+                pesquisaControle.ImportarAquivo(idCompetencia, idEmpresa, TxtCaminhoArquivo.Text, out itensErros);
+
+                if (itensErros.Count > 0)
+                {
+
+                    string diretorio = Application.StartupPath + @"\ErroImportacao";
+
+                    if (!Directory.Exists(diretorio))
+                    {
+                        Directory.CreateDirectory(diretorio);
+                    }
+
+                    StreamWriter sw = File.CreateText(caminhoErro);
+
+                    sw.WriteLine("Erro: Codigo do atendente não encontrado no sistema");
+                    for (int i = 0; i < itensErros.Count; i++)
+                    {
+                        sw.WriteLine(itensErros[i].ToString());
+
+                    }
+
+                    sw.Close();
+                    MessageBox.Show("Houve erros de importação","Erro");
+
+                }
+                else
+                {
+                    MessageBox.Show("Arquivo importado com sucesso", "Sucesso");
+                }
+
+                Process.Start(caminhoErro);
             }
             catch (Exception ex)
             {
