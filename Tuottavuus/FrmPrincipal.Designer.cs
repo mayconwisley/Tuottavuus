@@ -41,6 +41,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.SubMenuCadastroFeriado = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuCadastroValorBaseProdutividade = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuCadastroMetaPeso = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuAvaliacao = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuAvaliacaoAvaliar = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuAvaliacaoConsultar = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,12 +49,15 @@
             this.MenuProdutividade = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuProdutividadeCalcular = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuProdutividadeConsultar = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuPesquisa = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuPesquisaImportar = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuPesquisaCadastrar = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuPesquisaConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuRelatorio = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuRelatoriosRelatorio = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusPrincipal = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.SubMenuCadastroMetaPeso = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuPrincipal.SuspendLayout();
             this.StatusPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +69,7 @@
             this.MenuCadastro,
             this.MenuAvaliacao,
             this.MenuProdutividade,
+            this.MenuPesquisa,
             this.MenuRelatorio,
             this.MenuSair});
             this.MenuPrincipal.Location = new System.Drawing.Point(0, 0);
@@ -157,6 +162,13 @@
             this.SubMenuCadastroValorBaseProdutividade.Text = "Valor Base Produtividade";
             this.SubMenuCadastroValorBaseProdutividade.Click += new System.EventHandler(this.SubMenuCadastroValorBaseProdutividade_Click);
             // 
+            // SubMenuCadastroMetaPeso
+            // 
+            this.SubMenuCadastroMetaPeso.Name = "SubMenuCadastroMetaPeso";
+            this.SubMenuCadastroMetaPeso.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroMetaPeso.Text = "Valor Meta/Peso";
+            this.SubMenuCadastroMetaPeso.Click += new System.EventHandler(this.SubMenuCadastroMetaPeso_Click);
+            // 
             // MenuAvaliacao
             // 
             this.MenuAvaliacao.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -211,6 +223,37 @@
             this.SubMenuProdutividadeConsultar.Text = "Consultar";
             this.SubMenuProdutividadeConsultar.Click += new System.EventHandler(this.SubMenuProdutividadeConsultar_Click);
             // 
+            // MenuPesquisa
+            // 
+            this.MenuPesquisa.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuPesquisaImportar,
+            this.SubMenuPesquisaCadastrar,
+            this.SubMenuPesquisaConsultar});
+            this.MenuPesquisa.Name = "MenuPesquisa";
+            this.MenuPesquisa.Size = new System.Drawing.Size(65, 20);
+            this.MenuPesquisa.Text = "Pesquisa";
+            // 
+            // SubMenuPesquisaImportar
+            // 
+            this.SubMenuPesquisaImportar.Name = "SubMenuPesquisaImportar";
+            this.SubMenuPesquisaImportar.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuPesquisaImportar.Text = "Importar";
+            this.SubMenuPesquisaImportar.Click += new System.EventHandler(this.SubMenuPesquisaImportar_Click);
+            // 
+            // SubMenuPesquisaCadastrar
+            // 
+            this.SubMenuPesquisaCadastrar.Name = "SubMenuPesquisaCadastrar";
+            this.SubMenuPesquisaCadastrar.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuPesquisaCadastrar.Text = "Cadastrar";
+            this.SubMenuPesquisaCadastrar.Click += new System.EventHandler(this.SubMenuPesquisaCadastrar_Click);
+            // 
+            // SubMenuPesquisaConsultar
+            // 
+            this.SubMenuPesquisaConsultar.Name = "SubMenuPesquisaConsultar";
+            this.SubMenuPesquisaConsultar.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuPesquisaConsultar.Text = "Consultar";
+            this.SubMenuPesquisaConsultar.Click += new System.EventHandler(this.SubMenuPesquisaConsultar_Click);
+            // 
             // MenuRelatorio
             // 
             this.MenuRelatorio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -249,13 +292,6 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(217, 17);
             this.toolStripStatusLabel1.Text = "Desenvolvido por: Maycon Wisley - v1.0";
-            // 
-            // SubMenuCadastroMetaPeso
-            // 
-            this.SubMenuCadastroMetaPeso.Name = "SubMenuCadastroMetaPeso";
-            this.SubMenuCadastroMetaPeso.Size = new System.Drawing.Size(204, 22);
-            this.SubMenuCadastroMetaPeso.Text = "Valor Meta/Peso";
-            this.SubMenuCadastroMetaPeso.Click += new System.EventHandler(this.SubMenuCadastroMetaPeso_Click);
             // 
             // FrmPrincipal
             // 
@@ -310,6 +346,10 @@
         private System.Windows.Forms.ToolStripMenuItem SubMenuAvaliacaoConsultaAtividade;
         private System.Windows.Forms.ToolStripMenuItem SubMenuCadastroIndicador;
         private System.Windows.Forms.ToolStripMenuItem SubMenuCadastroMetaPeso;
+        private System.Windows.Forms.ToolStripMenuItem MenuPesquisa;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuPesquisaImportar;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuPesquisaCadastrar;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuPesquisaConsultar;
     }
 }
 

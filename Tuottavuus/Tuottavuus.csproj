@@ -188,6 +188,24 @@
     <Compile Include="FrmConsultaProdutividade.Designer.cs">
       <DependentUpon>FrmConsultaProdutividade.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmImportarPesquisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImportarPesquisa.Designer.cs">
+      <DependentUpon>FrmImportarPesquisa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPesquisaAvaliacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPesquisaAvaliacao.Designer.cs">
+      <DependentUpon>FrmPesquisaAvaliacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPesquisaConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPesquisaConsulta.Designer.cs">
+      <DependentUpon>FrmPesquisaConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +277,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaProdutividade.resx">
       <DependentUpon>FrmConsultaProdutividade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImportarPesquisa.resx">
+      <DependentUpon>FrmImportarPesquisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPesquisaAvaliacao.resx">
+      <DependentUpon>FrmPesquisaAvaliacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPesquisaConsulta.resx">
+      <DependentUpon>FrmPesquisaConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>

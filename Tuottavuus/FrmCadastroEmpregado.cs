@@ -12,7 +12,7 @@ namespace Tuottavuus
         EmpregadoControle empregadoControle;
         Empresa empresa;
         EmpresaControle empresaControle;
-        Departamento departamento;
+
         DepartamentoControle departamentoControle;
         AtividadeAvaliacao atividadeAvaliacao;
         AtividadeAvaliacaoControle atividadeAvaliacaoControle;
@@ -30,6 +30,7 @@ namespace Tuottavuus
         private void Reset()
         {
             TxtNome.Clear();
+            TxtCodigo.Clear();
             BtnAlterar.Enabled = false;
             BtnExcluir.Enabled = false;
             BtnGravar.Enabled = true;
@@ -106,7 +107,7 @@ namespace Tuottavuus
                     return false;
                 }
 
-                //Trava a manutencao para que o usuario exclua o calcul da produtividade antes de alterar qualquer dados.
+                //Trava a manutencao para que o usuario exclua o calculo da produtividade antes de alterar qualquer dados.
                 int numCalculo = produtividadeControle.NumCalculados(idCompetencia, idEmpresa);
                 int numEmpregados = DgvEmpregado.Rows.Count;
                 if (numCalculo == numEmpregados && numEmpregados != 0)
@@ -119,6 +120,7 @@ namespace Tuottavuus
 
                 empregado.Id = idEmpregado;
                 empregado.Nome = TxtNome.Text.Trim();
+                empregado.Codigo = TxtCodigo.Text.Trim();
                 if (CbxAtivo.Checked)
                 {
                     empregado.Ativo = true;
@@ -142,10 +144,18 @@ namespace Tuottavuus
                 produtividade.Empregado = new Empregado();
                 produtividade.Empregado.Id = idEmpregado;
 
+                bool isCodigo = empregadoControle.IsCodigo(int.Parse(TxtCodigo.Text), idEmpregado);
+
+                if (isCodigo)
+                {
+                    MessageBox.Show("Código de Empregado já informado para outro Empregado.\nRevise as informações", "Aviso");
+                    return false;
+                }
+
+
                 if (tipoManipulacao == TipoManipulacao.Gravar)
                 {
                     empregadoControle.Gravar(empregado);
-
                 }
                 else if (tipoManipulacao == TipoManipulacao.Alterar)
                 {
@@ -193,6 +203,7 @@ namespace Tuottavuus
                 TxtNome.Text = DgvEmpregado.Rows[e.RowIndex].Cells["Nome"].Value.ToString();
                 CbxEmpresa.Text = DgvEmpregado.Rows[e.RowIndex].Cells["NomeEmpresa"].Value.ToString();
                 CbxDepartamento.Text = DgvEmpregado.Rows[e.RowIndex].Cells["DepartamentoDescricao"].Value.ToString();
+                TxtCodigo.Text = DgvEmpregado.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
                 bool ativo = bool.Parse(DgvEmpregado.Rows[e.RowIndex].Cells["Ativo"].Value.ToString());
 
                 if (ativo)

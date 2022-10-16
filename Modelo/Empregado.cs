@@ -2,7 +2,6 @@
 
 namespace Modelo
 {
-
     public class Empregado
     {
         public int Id { get; set; }
@@ -10,5 +9,6 @@ namespace Modelo
         public bool Ativo { get; set; }
         public Empresa Empresa { get; set; }
         public Departamento Departamento { get; set; }
+        public string Codigo { get; set; }
     }
 }

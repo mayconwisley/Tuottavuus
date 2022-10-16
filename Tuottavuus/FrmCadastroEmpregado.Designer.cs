@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtNome = new System.Windows.Forms.TextBox();
             this.CbxAtivo = new System.Windows.Forms.CheckBox();
@@ -37,15 +39,18 @@
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.DgvEmpregado = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DepartamentoDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.NomeEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LblInfoEmpregado = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.CbxDepartamento = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DepartamentoDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.NomeEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEmpregado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +69,7 @@
             this.TxtNome.Location = new System.Drawing.Point(14, 123);
             this.TxtNome.MaxLength = 255;
             this.TxtNome.Name = "TxtNome";
-            this.TxtNome.Size = new System.Drawing.Size(281, 20);
+            this.TxtNome.Size = new System.Drawing.Size(226, 20);
             this.TxtNome.TabIndex = 2;
             // 
             // CbxAtivo
@@ -136,6 +141,7 @@
             // 
             this.DgvEmpregado.AllowUserToAddRows = false;
             this.DgvEmpregado.AllowUserToDeleteRows = false;
+            this.DgvEmpregado.AllowUserToOrderColumns = true;
             this.DgvEmpregado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DgvEmpregado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DgvEmpregado.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -143,6 +149,7 @@
             this.DgvEmpregado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvEmpregado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
+            this.Codigo,
             this.Nome,
             this.DepartamentoDescricao,
             this.Ativo,
@@ -156,50 +163,6 @@
             this.DgvEmpregado.Size = new System.Drawing.Size(375, 150);
             this.DgvEmpregado.TabIndex = 7;
             this.DgvEmpregado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEmpregado_CellDoubleClick);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 41;
-            // 
-            // Nome
-            // 
-            this.Nome.DataPropertyName = "Nome";
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 60;
-            // 
-            // DepartamentoDescricao
-            // 
-            this.DepartamentoDescricao.DataPropertyName = "DepartamentoDescricao";
-            this.DepartamentoDescricao.HeaderText = "Departamento";
-            this.DepartamentoDescricao.Name = "DepartamentoDescricao";
-            this.DepartamentoDescricao.ReadOnly = true;
-            this.DepartamentoDescricao.Width = 99;
-            // 
-            // Ativo
-            // 
-            this.Ativo.DataPropertyName = "Ativo";
-            this.Ativo.FalseValue = "Não";
-            this.Ativo.HeaderText = "Ativo";
-            this.Ativo.Name = "Ativo";
-            this.Ativo.ReadOnly = true;
-            this.Ativo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Ativo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Ativo.TrueValue = "Sim";
-            this.Ativo.Width = 56;
-            // 
-            // NomeEmpresa
-            // 
-            this.NomeEmpresa.DataPropertyName = "EmpresaNome";
-            this.NomeEmpresa.HeaderText = "Empresa";
-            this.NomeEmpresa.Name = "NomeEmpresa";
-            this.NomeEmpresa.ReadOnly = true;
-            this.NomeEmpresa.Width = 73;
             // 
             // LblInfoEmpregado
             // 
@@ -240,11 +203,85 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Dois cliques sobre o item para alterar ou excluir";
             // 
+            // TxtCodigo
+            // 
+            this.TxtCodigo.Location = new System.Drawing.Point(246, 123);
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.Size = new System.Drawing.Size(49, 20);
+            this.TxtCodigo.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(247, 107);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Código";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Id.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 41;
+            // 
+            // Codigo
+            // 
+            this.Codigo.DataPropertyName = "Codigo";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Codigo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 65;
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 60;
+            // 
+            // DepartamentoDescricao
+            // 
+            this.DepartamentoDescricao.DataPropertyName = "DepartamentoDescricao";
+            this.DepartamentoDescricao.HeaderText = "Departamento";
+            this.DepartamentoDescricao.Name = "DepartamentoDescricao";
+            this.DepartamentoDescricao.ReadOnly = true;
+            this.DepartamentoDescricao.Width = 99;
+            // 
+            // Ativo
+            // 
+            this.Ativo.DataPropertyName = "Ativo";
+            this.Ativo.FalseValue = "Não";
+            this.Ativo.HeaderText = "Ativo";
+            this.Ativo.Name = "Ativo";
+            this.Ativo.ReadOnly = true;
+            this.Ativo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Ativo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Ativo.TrueValue = "Sim";
+            this.Ativo.Width = 56;
+            // 
+            // NomeEmpresa
+            // 
+            this.NomeEmpresa.DataPropertyName = "EmpresaNome";
+            this.NomeEmpresa.HeaderText = "Empresa";
+            this.NomeEmpresa.Name = "NomeEmpresa";
+            this.NomeEmpresa.ReadOnly = true;
+            this.NomeEmpresa.Width = 73;
+            // 
             // FrmCadastroEmpregado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 374);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.TxtCodigo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CbxDepartamento);
             this.Controls.Add(this.label4);
@@ -285,11 +322,14 @@
         private System.Windows.Forms.Label LblInfoEmpregado;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox CbxDepartamento;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtCodigo;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn DepartamentoDescricao;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Ativo;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeEmpresa;
-        private System.Windows.Forms.Label label2;
     }
 }

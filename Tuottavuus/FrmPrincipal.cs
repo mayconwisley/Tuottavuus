@@ -21,6 +21,9 @@ namespace Tuottavuus
         FrmConsultaAtividade consultaAtividade; //12
         FrmCadastroIndicador cadastroIndicador; //13
         FrmCadastroMetaPeso cadastroMetaPeso; //14
+        FrmPesquisaAvaliacao pesquisaAvaliacao; //15
+        FrmImportarPesquisa importarPesquisa; //16
+        FrmPesquisaConsulta pesquisaConsulta; //17
         bool aberto = true;
 
         public FrmPrincipal()
@@ -170,6 +173,36 @@ namespace Tuottavuus
                         }
 
                         break;
+                    case 15:
+                        pesquisaAvaliacao = new FrmPesquisaAvaliacao();
+                        pesquisaAvaliacao.MdiParent = this;
+                        if (item is FrmPesquisaAvaliacao)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+
+                        break;
+                    case 16:
+                        importarPesquisa = new FrmImportarPesquisa();
+                        importarPesquisa.MdiParent = this;
+                        if (item is FrmImportarPesquisa)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+                        break;
+                    case 17:
+                        pesquisaConsulta = new FrmPesquisaConsulta();
+                        pesquisaConsulta.MdiParent = this;
+                        if (item is FrmPesquisaConsulta)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+
+
+                        break;
 
                     default:
                         break;
@@ -223,6 +256,15 @@ namespace Tuottavuus
                         break;
                     case 14:
                         cadastroMetaPeso.Show();
+                        break;
+                    case 15:
+                        pesquisaAvaliacao.Show();
+                        break;
+                    case 16:
+                        importarPesquisa.Show();
+                        break;
+                    case 17:
+                        pesquisaConsulta.Show();
                         break;
                     default:
                         break;
@@ -321,6 +363,21 @@ namespace Tuottavuus
         private void SubMenuCadastroMetaPeso_Click(object sender, EventArgs e)
         {
             AbrirFormulario(14);
+        }
+
+        private void SubMenuPesquisaCadastrar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(15);
+        }
+
+        private void SubMenuPesquisaImportar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(16);
+        }
+
+        private void SubMenuPesquisaConsultar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(17);
         }
     }
 }
