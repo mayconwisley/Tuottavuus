@@ -3,7 +3,6 @@ using Modelo;
 using System;
 using System.Windows.Forms;
 
-
 namespace Tuottavuus
 {
     public partial class FrmCadastroEmpregado : Form
@@ -12,6 +11,7 @@ namespace Tuottavuus
         EmpregadoControle empregadoControle;
         Empresa empresa;
         EmpresaControle empresaControle;
+        Utilitarios utilitarios;
 
         DepartamentoControle departamentoControle;
         AtividadeAvaliacao atividadeAvaliacao;
@@ -50,7 +50,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -65,7 +65,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -80,7 +80,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -174,7 +174,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -220,7 +220,27 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
+            }
+        }
+
+        private void BtnImportar_Click(object sender, EventArgs e)
+        {
+            utilitarios = new Utilitarios();
+            empregadoControle = new EmpregadoControle();
+            int qtdAtualizados = 0, qtdGravados = 0;
+            try
+            {
+                string caminhoArquivo = utilitarios.CaminhoArquivo();
+                empregadoControle.ImportarEmpregado(idEmpresa, idDepartamento, caminhoArquivo, out qtdAtualizados, out qtdGravados);
+                MessageBox.Show($"Gravados: {qtdGravados.ToString("00")} empregado(s).\n" +
+                                $"Atualizados: {qtdAtualizados.ToString("00")} empregado(s)", "Aviso");
+
+                ListaEmpregado();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
 
@@ -234,7 +254,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
 
@@ -246,7 +266,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
 

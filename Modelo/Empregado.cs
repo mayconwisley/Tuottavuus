@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Modelo
+﻿namespace Modelo
 {
     public class Empregado
     {

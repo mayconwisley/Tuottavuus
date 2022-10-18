@@ -104,6 +104,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comentario.cs" />
+    <Compile Include="FrmBarraCarregamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBarraCarregamento.Designer.cs">
+      <DependentUpon>FrmBarraCarregamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCadastroAtividade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,9 @@
       <DependentUpon>RelatoriosTuottavuus.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="FrmBarraCarregamento.resx">
+      <DependentUpon>FrmBarraCarregamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroAtividade.resx">
       <DependentUpon>FrmCadastroAtividade.cs</DependentUpon>
     </EmbeddedResource>

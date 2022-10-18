@@ -2,14 +2,9 @@
 using Modelo;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Controle
 {
@@ -18,6 +13,7 @@ namespace Controle
         CRUD crud;
         string SQL;
         EmpregadoControle empregadoControle;
+        Utilitarios utilitarios;
 
         public PesquisaControle()
         {
@@ -33,7 +29,6 @@ namespace Controle
 
             try
             {
-
                 crud.LimparParametros();
                 crud.AdicionarParametros("Id_Competencia", pesquisa.Competencia.Id);
                 crud.AdicionarParametros("Id_Empresa", pesquisa.Empresa.Id);
@@ -137,6 +132,7 @@ namespace Controle
             int idEmpregado = 0;
 
             empregadoControle = new EmpregadoControle();
+            utilitarios = new Utilitarios();
 
             Pesquisa pesquisa = new Pesquisa();
             pesquisa.Competencia = new Competencia();
@@ -144,47 +140,37 @@ namespace Controle
             pesquisa.Empresa = new Empresa();
             pesquisa.Empresa.Id = idEmpresa;
 
+            ArrayList arquivo = utilitarios.LerArquivo(caminhoArquivo);
 
             ArrayList linhaArquivo = new ArrayList();
-            ArrayList itensLinha = new ArrayList();
             itensErro = new ArrayList();
-
-            using (var arquivo = new StreamReader(caminhoArquivo))
-            {
-                string linha = string.Empty;
-
-                while ((linha = arquivo.ReadLine()) != null)
-                {
-                    linhaArquivo.Add(linha);
-                }
-            }
 
             try
             {
-                for (int i = 1; i < linhaArquivo.Count; i++)
+                for (int i = 1; i < arquivo.Count; i++)
                 {
-                    itensLinha.Clear();
-                    foreach (var item in linhaArquivo[i].ToString().Split(';'))
+                    linhaArquivo.Clear();
+                    foreach (var item in arquivo[i].ToString().Split(';'))
                     {
-                        itensLinha.Add(item);
+                        linhaArquivo.Add(item);
                     }
 
-                    idEmpregado = empregadoControle.IdPorCodigo(int.Parse(itensLinha[1].ToString()));
+                    idEmpregado = empregadoControle.IdPorCodigo(int.Parse(linhaArquivo[1].ToString()));
 
                     if (idEmpregado == 0)
                     {
-                        itensErro.Add("Linha: " + (i + 1) + " - " + linhaArquivo[i]);
+                        itensErro.Add("Linha: " + (i + 1) + " - " + arquivo[i]);
 
                         continue;
                     }
 
                     pesquisa.Empregado = new Empregado();
                     pesquisa.Empregado.Id = idEmpregado;
-                    pesquisa.DataAbertura = DateTime.Parse(itensLinha[0].ToString());
-                    pesquisa.CodigoAtendente = int.Parse(itensLinha[1].ToString());
-                    pesquisa.NomeAtendente = itensLinha[2].ToString().Replace("\"", "");
-                    pesquisa.NotaConceito = int.Parse(itensLinha[3].ToString());
-                    pesquisa.Chamado = int.Parse(itensLinha[4].ToString());
+                    pesquisa.DataAbertura = DateTime.Parse(linhaArquivo[0].ToString());
+                    pesquisa.CodigoAtendente = int.Parse(linhaArquivo[1].ToString());
+                    pesquisa.NomeAtendente = linhaArquivo[2].ToString().Replace("\"", "");
+                    pesquisa.NotaConceito = int.Parse(linhaArquivo[3].ToString());
+                    pesquisa.Chamado = int.Parse(linhaArquivo[4].ToString());
 
                     Gravar(pesquisa);
                 }
@@ -201,9 +187,6 @@ namespace Controle
         {
             if (arrayList.Count > 0)
             {
-
-
-
                 if (!Directory.Exists(diretorio))
                 {
                     Directory.CreateDirectory(diretorio);
@@ -217,22 +200,17 @@ namespace Controle
                 for (int i = 0; i < arrayList.Count; i++)
                 {
                     sw.WriteLine(arrayList[i].ToString());
-
                 }
 
                 sw.Close();
                 Process.Start(caminhoErro);
 
-
                 throw new Exception("Erro ao importar aquivos...");
-              
-
             }
             else
             {
                 throw new Exception("Arquivo importado com sucesso");
             }
-
         }
     }
 }

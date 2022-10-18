@@ -38,7 +38,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -78,7 +78,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -119,7 +119,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
 

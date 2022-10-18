@@ -1,6 +1,7 @@
 ﻿using Banco_De_Dados;
 using Modelo;
 using System;
+using System.Collections;
 using System.Data;
 
 namespace Controle
@@ -9,6 +10,10 @@ namespace Controle
     {
         CRUD crud;
         string SQL;
+        Empregado empregado;
+        Utilitarios utilitarios;
+        int idEmpregado = 0;
+
         public EmpregadoControle()
         {
             crud = new CRUD();
@@ -92,7 +97,6 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
         public int IdPorCodigo(int codigo)
         {
             crud = new CRUD();
@@ -150,7 +154,6 @@ namespace Controle
 
             }
         }
-
         public DataTable EmpregadoComboBox(int empresaId)
         {
             crud = new CRUD();
@@ -209,6 +212,58 @@ namespace Controle
             {
                 throw new Exception(ex.Message);
             }
+        }
+        public bool ImportarEmpregado(int idEmpresa, int idDepartamento, string caminhoArquivo, out int qtdAtualizados, out int qtdGravados)
+        {
+            empregado = new Empregado();
+            utilitarios = new Utilitarios();
+
+            ArrayList arquivo = utilitarios.LerArquivo(caminhoArquivo);
+            ArrayList linhaArquivo = new ArrayList();
+            qtdAtualizados = 0;
+            qtdGravados = 0;
+            try
+            {
+                for (int i = 1; i < arquivo.Count; i++)
+                {
+                    linhaArquivo.Clear();
+                    foreach (var item in arquivo[i].ToString().Split(';'))
+                    {
+                        linhaArquivo.Add(item);
+                    }
+
+                    int codigoEmpregado = int.Parse(linhaArquivo[1].ToString());
+
+                    idEmpregado = IdPorCodigo(codigoEmpregado);
+                    empregado.Id = idEmpregado;
+                    empregado.Empresa = new Empresa();
+                    empregado.Empresa.Id = idEmpresa;
+                    empregado.Departamento = new Departamento();
+                    empregado.Departamento.Id = idDepartamento;
+                    empregado.Nome = linhaArquivo[0].ToString().Trim().Replace("\"", "").ToUpper();
+                    empregado.Codigo = linhaArquivo[1].ToString().Trim();
+                    empregado.Ativo = true;
+
+                    if (idEmpregado != 0)
+                    {
+                        Alterar(empregado);
+                        qtdAtualizados++;
+                    }
+                    else
+                    {
+                        Gravar(empregado);
+                        qtdGravados++;
+                    }
+
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+
         }
     }
 }

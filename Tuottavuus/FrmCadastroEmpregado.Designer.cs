@@ -39,18 +39,20 @@
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.DgvEmpregado = new System.Windows.Forms.DataGridView();
-            this.LblInfoEmpregado = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.CbxDepartamento = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtCodigo = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DepartamentoDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.NomeEmpresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LblInfoEmpregado = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.CbxDepartamento = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.BtnImportar = new System.Windows.Forms.Button();
+            this.BwProcessando = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEmpregado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,7 +103,7 @@
             this.CbxEmpresa.Location = new System.Drawing.Point(14, 27);
             this.CbxEmpresa.Name = "CbxEmpresa";
             this.CbxEmpresa.Size = new System.Drawing.Size(281, 21);
-            this.CbxEmpresa.TabIndex = 1;
+            this.CbxEmpresa.TabIndex = 0;
             this.CbxEmpresa.ValueMember = "Id";
             this.CbxEmpresa.SelectedIndexChanged += new System.EventHandler(this.CbxEmpresa_SelectedIndexChanged);
             // 
@@ -110,7 +112,7 @@
             this.BtnGravar.Location = new System.Drawing.Point(314, 25);
             this.BtnGravar.Name = "BtnGravar";
             this.BtnGravar.Size = new System.Drawing.Size(75, 23);
-            this.BtnGravar.TabIndex = 4;
+            this.BtnGravar.TabIndex = 5;
             this.BtnGravar.Text = "&Gravar";
             this.BtnGravar.UseVisualStyleBackColor = true;
             this.BtnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
@@ -121,7 +123,7 @@
             this.BtnAlterar.Location = new System.Drawing.Point(314, 54);
             this.BtnAlterar.Name = "BtnAlterar";
             this.BtnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.BtnAlterar.TabIndex = 5;
+            this.BtnAlterar.TabIndex = 6;
             this.BtnAlterar.Text = "&Alterar";
             this.BtnAlterar.UseVisualStyleBackColor = true;
             this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
@@ -132,7 +134,7 @@
             this.BtnExcluir.Location = new System.Drawing.Point(314, 83);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.BtnExcluir.TabIndex = 6;
+            this.BtnExcluir.TabIndex = 7;
             this.BtnExcluir.Text = "&Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = true;
             this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
@@ -161,63 +163,8 @@
             this.DgvEmpregado.RowHeadersWidth = 5;
             this.DgvEmpregado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvEmpregado.Size = new System.Drawing.Size(375, 150);
-            this.DgvEmpregado.TabIndex = 7;
+            this.DgvEmpregado.TabIndex = 9;
             this.DgvEmpregado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEmpregado_CellDoubleClick);
-            // 
-            // LblInfoEmpregado
-            // 
-            this.LblInfoEmpregado.AutoSize = true;
-            this.LblInfoEmpregado.Location = new System.Drawing.Point(14, 179);
-            this.LblInfoEmpregado.Name = "LblInfoEmpregado";
-            this.LblInfoEmpregado.Size = new System.Drawing.Size(148, 13);
-            this.LblInfoEmpregado.TabIndex = 8;
-            this.LblInfoEmpregado.Text = "Empregados cadastrados - 00";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 54);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Departamento";
-            // 
-            // CbxDepartamento
-            // 
-            this.CbxDepartamento.DisplayMember = "Descricao";
-            this.CbxDepartamento.FormattingEnabled = true;
-            this.CbxDepartamento.IntegralHeight = false;
-            this.CbxDepartamento.Location = new System.Drawing.Point(14, 70);
-            this.CbxDepartamento.Name = "CbxDepartamento";
-            this.CbxDepartamento.Size = new System.Drawing.Size(281, 21);
-            this.CbxDepartamento.TabIndex = 10;
-            this.CbxDepartamento.ValueMember = "Id";
-            this.CbxDepartamento.SelectedIndexChanged += new System.EventHandler(this.CbxDepartamento_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 352);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(228, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Dois cliques sobre o item para alterar ou excluir";
-            // 
-            // TxtCodigo
-            // 
-            this.TxtCodigo.Location = new System.Drawing.Point(246, 123);
-            this.TxtCodigo.Name = "TxtCodigo";
-            this.TxtCodigo.Size = new System.Drawing.Size(49, 20);
-            this.TxtCodigo.TabIndex = 12;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(247, 107);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Código";
             // 
             // Id
             // 
@@ -275,11 +222,77 @@
             this.NomeEmpresa.ReadOnly = true;
             this.NomeEmpresa.Width = 73;
             // 
+            // LblInfoEmpregado
+            // 
+            this.LblInfoEmpregado.AutoSize = true;
+            this.LblInfoEmpregado.Location = new System.Drawing.Point(14, 179);
+            this.LblInfoEmpregado.Name = "LblInfoEmpregado";
+            this.LblInfoEmpregado.Size = new System.Drawing.Size(148, 13);
+            this.LblInfoEmpregado.TabIndex = 8;
+            this.LblInfoEmpregado.Text = "Empregados cadastrados - 00";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Departamento";
+            // 
+            // CbxDepartamento
+            // 
+            this.CbxDepartamento.DisplayMember = "Descricao";
+            this.CbxDepartamento.FormattingEnabled = true;
+            this.CbxDepartamento.IntegralHeight = false;
+            this.CbxDepartamento.Location = new System.Drawing.Point(14, 70);
+            this.CbxDepartamento.Name = "CbxDepartamento";
+            this.CbxDepartamento.Size = new System.Drawing.Size(281, 21);
+            this.CbxDepartamento.TabIndex = 1;
+            this.CbxDepartamento.ValueMember = "Id";
+            this.CbxDepartamento.SelectedIndexChanged += new System.EventHandler(this.CbxDepartamento_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 352);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(228, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Dois cliques sobre o item para alterar ou excluir";
+            // 
+            // TxtCodigo
+            // 
+            this.TxtCodigo.Location = new System.Drawing.Point(246, 123);
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.Size = new System.Drawing.Size(49, 20);
+            this.TxtCodigo.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(247, 107);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Código";
+            // 
+            // BtnImportar
+            // 
+            this.BtnImportar.Location = new System.Drawing.Point(315, 112);
+            this.BtnImportar.Name = "BtnImportar";
+            this.BtnImportar.Size = new System.Drawing.Size(75, 23);
+            this.BtnImportar.TabIndex = 8;
+            this.BtnImportar.Text = "Importar";
+            this.BtnImportar.UseVisualStyleBackColor = true;
+            this.BtnImportar.Click += new System.EventHandler(this.BtnImportar_Click);
+            // 
             // FrmCadastroEmpregado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 374);
+            this.Controls.Add(this.BtnImportar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TxtCodigo);
             this.Controls.Add(this.label2);
@@ -331,5 +344,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DepartamentoDescricao;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Ativo;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeEmpresa;
+        private System.Windows.Forms.Button BtnImportar;
+        private System.ComponentModel.BackgroundWorker BwProcessando;
     }
 }

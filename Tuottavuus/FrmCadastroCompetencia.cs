@@ -3,7 +3,6 @@ using Modelo;
 using System;
 using System.Windows.Forms;
 
-
 namespace Tuottavuus
 {
     public partial class FrmCadastroCompetencia : Form
@@ -40,7 +39,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -93,7 +92,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -125,7 +124,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
 

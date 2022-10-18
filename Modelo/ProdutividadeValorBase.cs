@@ -2,7 +2,7 @@
 
 namespace Modelo
 {
-    public  class ProdutividadeValorBase
+    public class ProdutividadeValorBase
     {
         public int Id { get; set; }
         public DateTime DataCadastro { get; set; }

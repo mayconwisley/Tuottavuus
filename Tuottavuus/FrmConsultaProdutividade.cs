@@ -43,7 +43,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
 
@@ -64,7 +64,7 @@ namespace Tuottavuus
                 " - Domingos: 00" +
                 " - Feriados: 00";
                 LblValorBase.Text = "Valor Base: 0,00";
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
 
@@ -78,7 +78,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -106,7 +106,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -121,7 +121,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
 
@@ -137,7 +137,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
 
@@ -149,7 +149,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
         private void MktCompetencia_KeyDown(object sender, KeyEventArgs e)

@@ -1,8 +1,8 @@
 ﻿using Controle;
 using Modelo;
 using System;
-using System.Data;
 using System.ComponentModel;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Tuottavuus
@@ -56,7 +56,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
         private void ValorBase(DateTime competencia)
@@ -69,7 +69,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
         private bool ListaEmpresa()
@@ -82,7 +82,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -124,7 +124,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
 
         }
@@ -156,7 +156,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -172,7 +172,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
         private bool CalculoIndividual()
@@ -256,7 +256,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -327,7 +327,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -381,7 +381,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -460,7 +460,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
     }

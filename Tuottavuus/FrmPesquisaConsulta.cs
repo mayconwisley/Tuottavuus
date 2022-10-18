@@ -1,12 +1,5 @@
 ﻿using Controle;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tuottavuus
@@ -36,7 +29,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -53,11 +46,11 @@ namespace Tuottavuus
             {
                 idEmpresa = int.Parse(CbxEmpresa.SelectedValue.ToString());
                 ListaEmpregado(idEmpresa);
-               
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
 
@@ -66,11 +59,11 @@ namespace Tuottavuus
             try
             {
                 idEmpregado = int.Parse(CbxEmpregado.SelectedValue.ToString());
-               
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
             }
         }
 
@@ -85,7 +78,7 @@ namespace Tuottavuus
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
@@ -96,12 +89,12 @@ namespace Tuottavuus
             {
                 dtCompetencia = competenciaControle.CompetenciaAtiva();
                 idCompetencia = competenciaControle.Id(dtCompetencia);
-                MktCompetencia.Text =  dtCompetencia.ToString("MM/yyyy");
+                MktCompetencia.Text = dtCompetencia.ToString("MM/yyyy");
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Erro");
                 return false;
             }
         }
