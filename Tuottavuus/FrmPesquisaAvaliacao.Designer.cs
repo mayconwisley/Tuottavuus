@@ -35,8 +35,6 @@
             this.CbxEmpregado = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.MktDataAbertura = new System.Windows.Forms.MaskedTextBox();
-            this.TxtCodigoAtendente = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.TxtNota = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.TxtChamado = new System.Windows.Forms.TextBox();
@@ -56,6 +54,7 @@
             this.Chamado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.LblInfoPesquisa = new System.Windows.Forms.Label();
+            this.LblInfoCodigoAtendente = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPesquisa)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,28 +124,9 @@
             this.MktDataAbertura.Size = new System.Drawing.Size(88, 20);
             this.MktDataAbertura.TabIndex = 2;
             // 
-            // TxtCodigoAtendente
-            // 
-            this.TxtCodigoAtendente.Enabled = false;
-            this.TxtCodigoAtendente.Location = new System.Drawing.Point(106, 161);
-            this.TxtCodigoAtendente.Name = "TxtCodigoAtendente";
-            this.TxtCodigoAtendente.Size = new System.Drawing.Size(72, 20);
-            this.TxtCodigoAtendente.TabIndex = 3;
-            this.TxtCodigoAtendente.Text = "0";
-            this.TxtCodigoAtendente.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(107, 145);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Código Atent.";
-            // 
             // TxtNota
             // 
-            this.TxtNota.Location = new System.Drawing.Point(184, 161);
+            this.TxtNota.Location = new System.Drawing.Point(106, 161);
             this.TxtNota.Name = "TxtNota";
             this.TxtNota.Size = new System.Drawing.Size(49, 20);
             this.TxtNota.TabIndex = 4;
@@ -156,7 +136,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(184, 145);
+            this.label6.Location = new System.Drawing.Point(106, 145);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 8;
@@ -164,7 +144,7 @@
             // 
             // TxtChamado
             // 
-            this.TxtChamado.Location = new System.Drawing.Point(239, 161);
+            this.TxtChamado.Location = new System.Drawing.Point(161, 161);
             this.TxtChamado.Name = "TxtChamado";
             this.TxtChamado.Size = new System.Drawing.Size(72, 20);
             this.TxtChamado.TabIndex = 5;
@@ -174,7 +154,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(239, 145);
+            this.label7.Location = new System.Drawing.Point(161, 145);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 8;
@@ -324,11 +304,21 @@
             this.LblInfoPesquisa.TabIndex = 12;
             this.LblInfoPesquisa.Text = "Pesquisas - 00";
             // 
+            // LblInfoCodigoAtendente
+            // 
+            this.LblInfoCodigoAtendente.AutoSize = true;
+            this.LblInfoCodigoAtendente.Location = new System.Drawing.Point(12, 125);
+            this.LblInfoCodigoAtendente.Name = "LblInfoCodigoAtendente";
+            this.LblInfoCodigoAtendente.Size = new System.Drawing.Size(116, 13);
+            this.LblInfoCodigoAtendente.TabIndex = 13;
+            this.LblInfoCodigoAtendente.Text = "Código Atendente: 000";
+            // 
             // FrmPesquisaAvaliacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(447, 455);
+            this.Controls.Add(this.LblInfoCodigoAtendente);
             this.Controls.Add(this.LblInfoPesquisa);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.DgvPesquisa);
@@ -339,8 +329,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.TxtChamado);
             this.Controls.Add(this.TxtNota);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.TxtCodigoAtendente);
             this.Controls.Add(this.MktDataAbertura);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CbxEmpregado);
@@ -372,8 +360,6 @@
         private System.Windows.Forms.ComboBox CbxEmpregado;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox MktDataAbertura;
-        private System.Windows.Forms.TextBox TxtCodigoAtendente;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtNota;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtChamado;
@@ -393,5 +379,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeAtendente;
         private System.Windows.Forms.DataGridViewTextBoxColumn NotaConceito;
         private System.Windows.Forms.DataGridViewTextBoxColumn Chamado;
+        private System.Windows.Forms.Label LblInfoCodigoAtendente;
     }
 }

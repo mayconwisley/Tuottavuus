@@ -80,6 +80,32 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
+        public string NomePorId(int id)
+        {
+            crud = new CRUD();
+            SQL = "SELECT Nome FROM Empregado " +
+                  "WHERE Id = @Id";
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id", id);
+
+                var nome = crud.Executar(CommandType.Text, SQL);
+
+                if (nome is null)
+                {
+                    return string.Empty;
+                }
+                else
+                {
+                    return nome.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public int Id(string empregadoNome)
         {
             crud = new CRUD();
@@ -109,6 +135,32 @@ namespace Controle
 
                 var idEmpregado = crud.Executar(CommandType.Text, SQL);
 
+
+                if (idEmpregado is null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return int.Parse(idEmpregado.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public int CodigoPorId(int id)
+        {
+            crud = new CRUD();
+            SQL = "SELECT Codigo FROM Empregado " +
+            "WHERE Id = @Id";
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id", id);
+
+                var idEmpregado = crud.Executar(CommandType.Text, SQL);
 
                 if (idEmpregado is null)
                 {

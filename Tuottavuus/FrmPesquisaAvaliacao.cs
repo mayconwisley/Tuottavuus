@@ -12,7 +12,8 @@ namespace Tuottavuus
         CompetenciaControle competenciaControle;
         Pesquisa pesquisa;
         PesquisaControle pesquisaControle;
-        int idEmpregado = 0, idEmpresa = 0, idCompetencia = 0, idPesquisa = 0;
+        int idEmpregado = 0, idEmpresa = 0, idCompetencia = 0, idPesquisa = 0, codigoEmpregado;
+        string nomeEmpregado = string.Empty;
 
         DateTime dtCompetencia;
 
@@ -28,7 +29,6 @@ namespace Tuottavuus
             BtnGravar.Enabled = true;
             TxtNota.Text = "0";
             TxtChamado.Text = "0";
-            TxtCodigoAtendente.Text = "0";
             MktDataAbertura.Text = "";
         }
         private bool ListaEmpresa()
@@ -59,7 +59,6 @@ namespace Tuottavuus
             {
                 idEmpresa = int.Parse(CbxEmpresa.SelectedValue.ToString());
                 ListaEmpregado(idEmpresa);
-
             }
             catch (Exception ex)
             {
@@ -69,9 +68,14 @@ namespace Tuottavuus
 
         private void CbxEmpregado_SelectedIndexChanged(object sender, EventArgs e)
         {
+            empregadoControle = new EmpregadoControle();
             try
             {
                 idEmpregado = int.Parse(CbxEmpregado.SelectedValue.ToString());
+                codigoEmpregado = empregadoControle.CodigoPorId(idEmpregado);
+                nomeEmpregado = empregadoControle.NomePorId(idEmpregado);
+
+                LblInfoCodigoAtendente.Text = "Código Atendente: " + codigoEmpregado.ToString("00");
 
             }
             catch (Exception ex)
@@ -93,7 +97,6 @@ namespace Tuottavuus
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro");
-
             }
         }
 
@@ -103,7 +106,6 @@ namespace Tuottavuus
             {
                 idPesquisa = int.Parse(DgvPesquisa.Rows[e.RowIndex].Cells["Id"].Value.ToString());
                 TxtChamado.Text = DgvPesquisa.Rows[e.RowIndex].Cells["Chamado"].Value.ToString();
-                TxtCodigoAtendente.Text = DgvPesquisa.Rows[e.RowIndex].Cells["CodigoAtendente"].Value.ToString();
                 TxtNota.Text = DgvPesquisa.Rows[e.RowIndex].Cells["NotaConceito"].Value.ToString();
                 MktDataAbertura.Text = DgvPesquisa.Rows[e.RowIndex].Cells["DataAbertura"].Value.ToString();
 
@@ -114,10 +116,7 @@ namespace Tuottavuus
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro");
-
             }
-
-
         }
 
         private void BtnGravar_Click(object sender, EventArgs e)
@@ -166,11 +165,8 @@ namespace Tuottavuus
                 return false;
             }
         }
-
-
         private void Maninupar(TipoManipulacao tipoManipulacao)
         {
-
             pesquisa = new Pesquisa();
             pesquisaControle = new PesquisaControle();
 
@@ -190,12 +186,13 @@ namespace Tuottavuus
                 pesquisa.Competencia = new Competencia();
                 pesquisa.Competencia.Id = idCompetencia;
                 pesquisa.Empresa = new Empresa();
-                pesquisa.Empresa.Id = idEmpregado;
+                pesquisa.Empresa.Id = idEmpresa;
                 pesquisa.Empregado = new Empregado();
                 pesquisa.Empregado.Id = idEmpregado;
+                pesquisa.CodigoAtendente = codigoEmpregado;
+                pesquisa.NomeAtendente = nomeEmpregado;
 
                 pesquisa.DataAbertura = DateTime.Parse(MktDataAbertura.Text);
-                pesquisa.CodigoAtendente = int.Parse(TxtCodigoAtendente.Text.Trim());
                 pesquisa.NomeAtendente = "";
                 pesquisa.NotaConceito = int.Parse(TxtNota.Text.Trim());
                 pesquisa.Chamado = int.Parse(TxtChamado.Text.Trim());
@@ -215,12 +212,9 @@ namespace Tuottavuus
 
                 ListaPesquisa();
                 Reset();
-
-
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message, "Erro");
             }
         }

@@ -244,6 +244,11 @@ namespace Tuottavuus
             }
         }
 
+        private void LblLayoutImportacao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("Laytou de importação\n\nNome;Codigo\n\nSalvar no formato .csv");
+        }
+
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             empresa = new Empresa();

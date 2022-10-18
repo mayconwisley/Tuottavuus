@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtNome = new System.Windows.Forms.TextBox();
             this.CbxAtivo = new System.Windows.Forms.CheckBox();
@@ -53,6 +53,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.BtnImportar = new System.Windows.Forms.Button();
             this.BwProcessando = new System.ComponentModel.BackgroundWorker();
+            this.LblLayoutImportacao = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEmpregado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,8 +170,8 @@
             // Id
             // 
             this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Id.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Id.DefaultCellStyle = dataGridViewCellStyle3;
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
@@ -179,8 +180,8 @@
             // Codigo
             // 
             this.Codigo.DataPropertyName = "Codigo";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Codigo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Codigo.DefaultCellStyle = dataGridViewCellStyle4;
             this.Codigo.HeaderText = "Código";
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
@@ -287,11 +288,23 @@
             this.BtnImportar.UseVisualStyleBackColor = true;
             this.BtnImportar.Click += new System.EventHandler(this.BtnImportar_Click);
             // 
+            // LblLayoutImportacao
+            // 
+            this.LblLayoutImportacao.AutoSize = true;
+            this.LblLayoutImportacao.Location = new System.Drawing.Point(281, 352);
+            this.LblLayoutImportacao.Name = "LblLayoutImportacao";
+            this.LblLayoutImportacao.Size = new System.Drawing.Size(109, 13);
+            this.LblLayoutImportacao.TabIndex = 14;
+            this.LblLayoutImportacao.TabStop = true;
+            this.LblLayoutImportacao.Text = "Layout de importação";
+            this.LblLayoutImportacao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblLayoutImportacao_LinkClicked);
+            // 
             // FrmCadastroEmpregado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 374);
+            this.Controls.Add(this.LblLayoutImportacao);
             this.Controls.Add(this.BtnImportar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TxtCodigo);
@@ -346,5 +359,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeEmpresa;
         private System.Windows.Forms.Button BtnImportar;
         private System.ComponentModel.BackgroundWorker BwProcessando;
+        private System.Windows.Forms.LinkLabel LblLayoutImportacao;
     }
 }
