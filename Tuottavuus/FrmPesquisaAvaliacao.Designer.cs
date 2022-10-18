@@ -45,8 +45,6 @@
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.DgvPesquisa = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.LblInfoPesquisa = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +54,8 @@
             this.NomeAtendente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NotaConceito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Chamado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.LblInfoPesquisa = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPesquisa)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,6 +127,7 @@
             // 
             // TxtCodigoAtendente
             // 
+            this.TxtCodigoAtendente.Enabled = false;
             this.TxtCodigoAtendente.Location = new System.Drawing.Point(106, 161);
             this.TxtCodigoAtendente.Name = "TxtCodigoAtendente";
             this.TxtCodigoAtendente.Size = new System.Drawing.Size(72, 20);
@@ -238,24 +239,6 @@
             this.DgvPesquisa.TabIndex = 6;
             this.DgvPesquisa.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPesquisa_CellDoubleClick);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 433);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(228, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Dois cliques sobre o item para alterar ou excluir";
-            // 
-            // LblInfoPesquisa
-            // 
-            this.LblInfoPesquisa.AutoSize = true;
-            this.LblInfoPesquisa.Location = new System.Drawing.Point(12, 207);
-            this.LblInfoPesquisa.Name = "LblInfoPesquisa";
-            this.LblInfoPesquisa.Size = new System.Drawing.Size(76, 13);
-            this.LblInfoPesquisa.TabIndex = 12;
-            this.LblInfoPesquisa.Text = "Pesquisas - 00";
-            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -322,6 +305,24 @@
             this.Chamado.HeaderText = "Chamado";
             this.Chamado.Name = "Chamado";
             this.Chamado.ReadOnly = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 433);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(228, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Dois cliques sobre o item para alterar ou excluir";
+            // 
+            // LblInfoPesquisa
+            // 
+            this.LblInfoPesquisa.AutoSize = true;
+            this.LblInfoPesquisa.Location = new System.Drawing.Point(12, 207);
+            this.LblInfoPesquisa.Name = "LblInfoPesquisa";
+            this.LblInfoPesquisa.Size = new System.Drawing.Size(76, 13);
+            this.LblInfoPesquisa.TabIndex = 12;
+            this.LblInfoPesquisa.Text = "Pesquisas - 00";
             // 
             // FrmPesquisaAvaliacao
             // 

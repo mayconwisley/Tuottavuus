@@ -4,10 +4,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Controle
 {
@@ -193,6 +195,44 @@ namespace Controle
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public void ErroLista(string diretorio, ArrayList arrayList)
+        {
+            if (arrayList.Count > 0)
+            {
+
+
+
+                if (!Directory.Exists(diretorio))
+                {
+                    Directory.CreateDirectory(diretorio);
+                }
+
+                string caminhoErro = diretorio + "\\" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + ".txt";
+
+                StreamWriter sw = File.CreateText(caminhoErro);
+
+                sw.WriteLine("Erro: Codigo do atendente não encontrado no sistema");
+                for (int i = 0; i < arrayList.Count; i++)
+                {
+                    sw.WriteLine(arrayList[i].ToString());
+
+                }
+
+                sw.Close();
+                Process.Start(caminhoErro);
+
+
+                throw new Exception("Erro ao importar aquivos...");
+              
+
+            }
+            else
+            {
+                throw new Exception("Arquivo importado com sucesso");
+            }
+
         }
     }
 }
