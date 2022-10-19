@@ -10,6 +10,7 @@ namespace Tuottavuus
         EmpregadoControle empregadoControle;
         EmpresaControle empresaControle;
         CompetenciaControle competenciaControle;
+        PesquisaControle pesquisaControle;
         int idEmpregado = 0, idEmpresa = 0, idCompetencia = 0;
 
         DateTime dtCompetencia;
@@ -34,55 +35,68 @@ namespace Tuottavuus
             }
         }
 
+        private void ListaPesquisa(int idCompetencia, int idEmpresa)
+        {
+            pesquisaControle = new PesquisaControle();
+            try
+            {
+                DgvPesquisa.DataSource = pesquisaControle.PesquisaTabelaEmpresa(idCompetencia, idEmpresa);
+                int totalPesquisa = DgvPesquisa.Rows.Count;
+                LblInfoPesquisa.Text = "Pesquisa - " + totalPesquisa.ToString("00");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro");
+            }
+
+        }
+
         private void FrmPesquisaConsulta_Load(object sender, EventArgs e)
         {
-            ListaCompetencia();
+            ListaCompetenciaAtiva();
             ListaEmpresa();
         }
 
+        private void MktCompetencia_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                ListaCompetenciaId();
+                ListaPesquisa(idCompetencia, idEmpresa);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro");
+                ListaPesquisa(0, 0);
+            }
+        }
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 idEmpresa = int.Parse(CbxEmpresa.SelectedValue.ToString());
-                ListaEmpregado(idEmpresa);
-
+                ListaCompetenciaId();
+                ListaPesquisa(idCompetencia, idEmpresa);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro");
             }
         }
-
-        private void CbxEmpregado_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListaCompetenciaId()
         {
+            competenciaControle = new CompetenciaControle();
+            DateTime competencia = DateTime.Parse(MktCompetencia.Text);
             try
             {
-                idEmpregado = int.Parse(CbxEmpregado.SelectedValue.ToString());
-
+                idCompetencia = competenciaControle.Id(competencia);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro");
             }
         }
-
-        private bool ListaEmpregado(int empresaId)
-        {
-            empregadoControle = new EmpregadoControle();
-
-            try
-            {
-                CbxEmpregado.DataSource = empregadoControle.EmpregadoComboBox(empresaId);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro");
-                return false;
-            }
-        }
-        private bool ListaCompetencia()
+        private bool ListaCompetenciaAtiva()
         {
             competenciaControle = new CompetenciaControle();
             try
@@ -98,6 +112,5 @@ namespace Tuottavuus
                 return false;
             }
         }
-
     }
 }

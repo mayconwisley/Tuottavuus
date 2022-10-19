@@ -11,6 +11,8 @@ namespace Tuottavuus
         Empresa empresa;
         EmpresaControle empresaControle;
         CompetenciaControle competenciaControle;
+        Utilitarios utilitarios;
+        LayoutImportacao layoutImportacao;
 
         PesquisaControle pesquisaControle;
         private int idCompetencia = 0, idEmpresa = 0;
@@ -20,7 +22,6 @@ namespace Tuottavuus
         {
             InitializeComponent();
         }
-
 
         private bool ListaEmpresa()
         {
@@ -52,8 +53,6 @@ namespace Tuottavuus
                 return false;
             }
         }
-
-
         private void ProcurarArquivo()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -67,35 +66,59 @@ namespace Tuottavuus
                 TxtCaminhoArquivo.Text = openFileDialog.FileName;
             }
         }
-
         private void FrmImportarPesquisa_Load(object sender, EventArgs e)
         {
             ListaCompetencia();
             ListaEmpresa();
         }
-
         private void BtnProcurar_Click(object sender, EventArgs e)
         {
             ProcurarArquivo();
         }
-
         private void BtnImportar_Click(object sender, EventArgs e)
         {
             pesquisaControle = new PesquisaControle();
             ArrayList itensErros = new ArrayList();
+            int qtdAtualizados = 0, qtdGravados = 0;
 
             try
             {
-                pesquisaControle.ImportarAquivo(idCompetencia, idEmpresa, TxtCaminhoArquivo.Text, out itensErros);
+                pesquisaControle.ImportarAquivo(idCompetencia, idEmpresa, TxtCaminhoArquivo.Text, out itensErros, out qtdAtualizados, out qtdGravados);
                 string diretorio = Application.StartupPath + @"\ErroImportacao";
-                pesquisaControle.ErroLista(diretorio, itensErros);
+
+                bool pesquisa = pesquisaControle.ErroLista(diretorio, itensErros);
+
+                if (pesquisa)
+                {
+                    MessageBox.Show($"Alguns dados não foram importado\n\n\nGravados: {qtdGravados.ToString("00")} pesquisa(s).\n" +
+                               $"Atualizados: {qtdAtualizados.ToString("00")} pesquisa(s)", "Aviso");
+                }
+                else
+                {
+                    MessageBox.Show($"Gravados: {qtdGravados.ToString("00")} pesquisa(s).\n" +
+                                   $"Atualizados: {qtdAtualizados.ToString("00")} pesquisa(s)", "Aviso");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro");
             }
         }
+        private void LblLayoutImportacao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            utilitarios = new Utilitarios();
+            layoutImportacao = new LayoutImportacao();
 
+            try
+            {
+                utilitarios.SalvarArquivo(layoutImportacao.Pesquisa);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             empresa = new Empresa();

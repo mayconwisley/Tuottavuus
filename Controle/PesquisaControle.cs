@@ -5,6 +5,7 @@ using System.Collections;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Controle
 {
@@ -20,7 +21,6 @@ namespace Controle
             crud = new CRUD();
             SQL = string.Empty;
         }
-
         public bool Gravar(Pesquisa pesquisa)
         {
             crud = new CRUD();
@@ -49,7 +49,6 @@ namespace Controle
             }
 
         }
-
         public bool Alterar(Pesquisa pesquisa)
         {
             crud = new CRUD();
@@ -103,8 +102,90 @@ namespace Controle
             }
 
         }
+        public double NotaAvaliacaoAtendente(int codigoAtendente)
+        {
+            crud = new CRUD();
+            SQL = "SELECT SUM(NotaConceito) " +
+                  "FROM PesquisaAvaliacao" +
+                  "WHERE CodigoAtendente = @CodigoAtendente";
 
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("CodigoAtendente", codigoAtendente);
 
+                var totalNota = crud.Executar(CommandType.Text, SQL);
+
+                if (totalNota is null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return double.Parse(totalNota.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public int QtdAvaliacaoAtendente(int codigoAtendente)
+        {
+            crud = new CRUD();
+            SQL = "SELECT COUNT(Id) " +
+                  "FROM PesquisaAvaliacao" +
+                  "WHERE CodigoAtendente = @CodigoAtendente";
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("CodigoAtendente", codigoAtendente);
+
+                var countAvaliacao = crud.Executar(CommandType.Text, SQL);
+
+                if (countAvaliacao is null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return int.Parse(countAvaliacao.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public int IdPorChamado(int codigoChamado)
+        {
+            crud = new CRUD();
+            SQL = "SELECT Id " +
+                  "FROM PesquisaAvaliacao " +
+                  "WHERE Chamado = @Chamado";
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Chamado", codigoChamado);
+
+                var idPesquisa = crud.Executar(CommandType.Text, SQL);
+
+                if (idPesquisa is null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return int.Parse(idPesquisa.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public DataTable PesquisaTabela()
         {
             crud = new CRUD();
@@ -125,11 +206,35 @@ namespace Controle
             }
 
         }
+        public DataTable PesquisaTabelaEmpresa(int idCompetencia, int idEmpresa)
+        {
+            crud = new CRUD();
+            SQL = "SELECT PA.Id_Competencia, PA.Id_Empresa, PA.Id_Empregado, PA.CodigoAtendente, PA.NomeAtendente, COUNT(PA.Id) AS QtdChamado, SUM(PA.NotaConceito) AS NotaConceito, SUM(PA.NotaConceito) / COUNT(PA.Id) AS AvaliacaoMedia " +
+                  "FROM PesquisaAvaliacao PA " +
+                  "WHERE PA.Id_Competencia = @Id_Competencia AND PA.Id_Empresa = @Id_Empresa " +
+                  "GROUP BY PA.Id_Competencia, PA.Id_Empresa, PA.Id_Empregado, PA.CodigoAtendente, PA.NomeAtendente " +
+                  "ORDER BY PA.NomeAtendente ASC";
 
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id_Competencia", idCompetencia);
+                crud.AdicionarParametros("Id_Empresa", idEmpresa);
 
-        public bool ImportarAquivo(int idCompetencia, int idEmpresa, string caminhoArquivo, out ArrayList itensErro)
+                DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
+                return dataTable;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+        public bool ImportarAquivo(int idCompetencia, int idEmpresa, string caminhoArquivo, out ArrayList itensErro, out int qtdAtualizados, out int qtdGravados)
         {
             int idEmpregado = 0;
+            qtdAtualizados = 0; qtdGravados = 0;
 
             empregadoControle = new EmpregadoControle();
             utilitarios = new Utilitarios();
@@ -164,6 +269,9 @@ namespace Controle
                         continue;
                     }
 
+                    int idPesquisa = IdPorChamado(int.Parse(linhaArquivo[4].ToString()));
+
+                    pesquisa.Id = idPesquisa;
                     pesquisa.Empregado = new Empregado();
                     pesquisa.Empregado.Id = idEmpregado;
                     pesquisa.DataAbertura = DateTime.Parse(linhaArquivo[0].ToString());
@@ -172,9 +280,17 @@ namespace Controle
                     pesquisa.NotaConceito = int.Parse(linhaArquivo[3].ToString());
                     pesquisa.Chamado = int.Parse(linhaArquivo[4].ToString());
 
-                    Gravar(pesquisa);
+                    if (idPesquisa != 0)
+                    {
+                        Alterar(pesquisa);
+                        qtdAtualizados++;
+                    }
+                    else
+                    {
+                        Gravar(pesquisa);
+                        qtdGravados++;
+                    }
                 }
-
                 return true;
             }
             catch (Exception ex)
@@ -182,8 +298,7 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
-        public void ErroLista(string diretorio, ArrayList arrayList)
+        public bool ErroLista(string diretorio, ArrayList arrayList)
         {
             if (arrayList.Count > 0)
             {
@@ -205,11 +320,11 @@ namespace Controle
                 sw.Close();
                 Process.Start(caminhoErro);
 
-                throw new Exception("Erro ao importar aquivos...");
+                return true;
             }
             else
             {
-                throw new Exception("Arquivo importado com sucesso");
+                return false;
             }
         }
     }

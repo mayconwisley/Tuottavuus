@@ -99,11 +99,21 @@ namespace Controle
             {
                 crud.LimparParametros();
                 crud.AdicionarParametros("Competencia", dtCompetencia);
-                return int.Parse(crud.Executar(CommandType.Text, SQL).ToString());
+
+                var idCompetencia = crud.Executar(CommandType.Text, SQL);
+
+                if (idCompetencia is null)
+                {
+                    throw new Exception("Competência não cadastrada");
+                }
+                else
+                {
+                    return int.Parse(idCompetencia.ToString());
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                return 0;
+                throw new Exception(ex.Message);
             }
         }
         public int DiasUteis(DateTime dtPrimeiroDia, DateTime dtUltimoDia, int numFeriados)

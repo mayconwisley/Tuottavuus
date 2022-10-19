@@ -1,6 +1,8 @@
 ﻿using Controle;
 using Modelo;
 using System;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Tuottavuus
@@ -12,7 +14,7 @@ namespace Tuottavuus
         Empresa empresa;
         EmpresaControle empresaControle;
         Utilitarios utilitarios;
-
+        LayoutImportacao layoutImportacao;
         DepartamentoControle departamentoControle;
         AtividadeAvaliacao atividadeAvaliacao;
         AtividadeAvaliacaoControle atividadeAvaliacaoControle;
@@ -246,7 +248,17 @@ namespace Tuottavuus
 
         private void LblLayoutImportacao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("Laytou de importação\n\nNome;Codigo\n\nSalvar no formato .csv");
+            utilitarios = new Utilitarios();
+            layoutImportacao = new LayoutImportacao();
+
+            try
+            {
+                utilitarios.SalvarArquivo(layoutImportacao.Empregado);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro");
+            }
         }
 
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)

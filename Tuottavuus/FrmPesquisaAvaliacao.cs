@@ -21,7 +21,6 @@ namespace Tuottavuus
         {
             InitializeComponent();
         }
-
         private void Reset()
         {
             BtnAlterar.Enabled = false;
@@ -45,14 +44,12 @@ namespace Tuottavuus
                 return false;
             }
         }
-
         private void FrmPesquisaAvaliacao_Load(object sender, EventArgs e)
         {
             ListaCompetencia();
             ListaEmpresa();
             ListaPesquisa();
         }
-
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -65,7 +62,6 @@ namespace Tuottavuus
                 MessageBox.Show(ex.Message, "Erro");
             }
         }
-
         private void CbxEmpregado_SelectedIndexChanged(object sender, EventArgs e)
         {
             empregadoControle = new EmpregadoControle();
@@ -83,7 +79,6 @@ namespace Tuottavuus
                 MessageBox.Show(ex.Message, "Erro");
             }
         }
-
         private void ListaPesquisa()
         {
             pesquisaControle = new PesquisaControle();
@@ -99,15 +94,17 @@ namespace Tuottavuus
                 MessageBox.Show(ex.Message, "Erro");
             }
         }
-
         private void DgvPesquisa_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 idPesquisa = int.Parse(DgvPesquisa.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                idEmpregado = int.Parse(DgvPesquisa.Rows[e.RowIndex].Cells["Id_Empregado"].Value.ToString());
                 TxtChamado.Text = DgvPesquisa.Rows[e.RowIndex].Cells["Chamado"].Value.ToString();
                 TxtNota.Text = DgvPesquisa.Rows[e.RowIndex].Cells["NotaConceito"].Value.ToString();
                 MktDataAbertura.Text = DgvPesquisa.Rows[e.RowIndex].Cells["DataAbertura"].Value.ToString();
+
+                CbxEmpregado.SelectedValue = idEmpregado;
 
                 BtnAlterar.Enabled = true;
                 BtnExcluir.Enabled = true;
@@ -118,22 +115,18 @@ namespace Tuottavuus
                 MessageBox.Show(ex.Message, "Erro");
             }
         }
-
         private void BtnGravar_Click(object sender, EventArgs e)
         {
             Maninupar(TipoManipulacao.Gravar);
         }
-
         private void BtnAlterar_Click(object sender, EventArgs e)
         {
             Maninupar(TipoManipulacao.Alterar);
         }
-
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             Maninupar(TipoManipulacao.Excluir);
         }
-
         private bool ListaEmpregado(int empresaId)
         {
             empregadoControle = new EmpregadoControle();

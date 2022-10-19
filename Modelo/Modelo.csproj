@@ -69,6 +69,7 @@
     <Compile Include="Empresa.cs" />
     <Compile Include="Feriado.cs" />
     <Compile Include="Indicador.cs" />
+    <Compile Include="LayoutImportacao.cs" />
     <Compile Include="MetaPeso.cs" />
     <Compile Include="Pesquisa.cs" />
     <Compile Include="Produtividade.cs" />

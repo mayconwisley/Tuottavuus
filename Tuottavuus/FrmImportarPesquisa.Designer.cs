@@ -35,6 +35,7 @@
             this.TxtCaminhoArquivo = new System.Windows.Forms.TextBox();
             this.BtnProcurar = new System.Windows.Forms.Button();
             this.BtnImportar = new System.Windows.Forms.Button();
+            this.LblLayoutImportacao = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // LblCompetencia
@@ -102,11 +103,23 @@
             this.BtnImportar.UseVisualStyleBackColor = true;
             this.BtnImportar.Click += new System.EventHandler(this.BtnImportar_Click);
             // 
+            // LblLayoutImportacao
+            // 
+            this.LblLayoutImportacao.AutoSize = true;
+            this.LblLayoutImportacao.Location = new System.Drawing.Point(192, 171);
+            this.LblLayoutImportacao.Name = "LblLayoutImportacao";
+            this.LblLayoutImportacao.Size = new System.Drawing.Size(109, 13);
+            this.LblLayoutImportacao.TabIndex = 15;
+            this.LblLayoutImportacao.TabStop = true;
+            this.LblLayoutImportacao.Text = "Layout de importação";
+            this.LblLayoutImportacao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblLayoutImportacao_LinkClicked);
+            // 
             // FrmImportarPesquisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(313, 196);
+            this.Controls.Add(this.LblLayoutImportacao);
             this.Controls.Add(this.BtnImportar);
             this.Controls.Add(this.BtnProcurar);
             this.Controls.Add(this.TxtCaminhoArquivo);
@@ -137,5 +150,6 @@
         private System.Windows.Forms.TextBox TxtCaminhoArquivo;
         private System.Windows.Forms.Button BtnProcurar;
         private System.Windows.Forms.Button BtnImportar;
+        private System.Windows.Forms.LinkLabel LblLayoutImportacao;
     }
 }

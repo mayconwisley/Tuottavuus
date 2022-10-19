@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Controle
@@ -25,8 +27,6 @@ namespace Controle
                 return null;
             }
         }
-
-
         public ArrayList LerArquivo(string caminhoArquivo)
         {
             ArrayList linhaArquivo = new ArrayList();
@@ -47,6 +47,19 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
+        public void SalvarArquivo(string dados)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog()
+            {
+                Filter = "Arquivo CSV (*.csv)|*.csv",
+                Title = "Salvar arquivo CSV",
+                FilterIndex = 1,
+            };
 
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllText(saveFileDialog.FileName, dados, Encoding.UTF8);
+            }
+        }
     }
 }
