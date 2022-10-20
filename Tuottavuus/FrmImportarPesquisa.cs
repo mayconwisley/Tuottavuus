@@ -119,6 +119,19 @@ namespace Tuottavuus
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FrmBarraCarregamento frm = new FrmBarraCarregamento(idEmpresa, 1, TxtCaminhoArquivo.Text);
+            frm.MdiParent = FrmPrincipal.ActiveForm;
+            frm.Show();
+        }
+
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             empresa = new Empresa();

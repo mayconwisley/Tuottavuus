@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Atividade.cs" />
     <Compile Include="AtividadeAvaliacao.cs" />
+    <Compile Include="Chamado.cs" />
     <Compile Include="Competencia.cs" />
     <Compile Include="Departamento.cs" />
     <Compile Include="Empregado.cs" />

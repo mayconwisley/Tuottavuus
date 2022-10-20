@@ -58,6 +58,10 @@
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusPrincipal = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.MenuChamados = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuChamadosImportar = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuChamadosCadastrar = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuChamadosConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuPrincipal.SuspendLayout();
             this.StatusPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +73,7 @@
             this.MenuCadastro,
             this.MenuAvaliacao,
             this.MenuProdutividade,
+            this.MenuChamados,
             this.MenuPesquisa,
             this.MenuRelatorio,
             this.MenuSair});
@@ -293,6 +298,34 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(217, 17);
             this.toolStripStatusLabel1.Text = "Desenvolvido por: Maycon Wisley - v1.0";
             // 
+            // MenuChamados
+            // 
+            this.MenuChamados.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuChamadosImportar,
+            this.SubMenuChamadosCadastrar,
+            this.SubMenuChamadosConsultar});
+            this.MenuChamados.Name = "MenuChamados";
+            this.MenuChamados.Size = new System.Drawing.Size(76, 20);
+            this.MenuChamados.Text = "Chamados";
+            // 
+            // SubMenuChamadosImportar
+            // 
+            this.SubMenuChamadosImportar.Name = "SubMenuChamadosImportar";
+            this.SubMenuChamadosImportar.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuChamadosImportar.Text = "Importar";
+            // 
+            // SubMenuChamadosCadastrar
+            // 
+            this.SubMenuChamadosCadastrar.Name = "SubMenuChamadosCadastrar";
+            this.SubMenuChamadosCadastrar.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuChamadosCadastrar.Text = "Cadastrar";
+            // 
+            // SubMenuChamadosConsultar
+            // 
+            this.SubMenuChamadosConsultar.Name = "SubMenuChamadosConsultar";
+            this.SubMenuChamadosConsultar.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuChamadosConsultar.Text = "Consultar";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,6 +383,10 @@
         private System.Windows.Forms.ToolStripMenuItem SubMenuPesquisaImportar;
         private System.Windows.Forms.ToolStripMenuItem SubMenuPesquisaCadastrar;
         private System.Windows.Forms.ToolStripMenuItem SubMenuPesquisaConsultar;
+        private System.Windows.Forms.ToolStripMenuItem MenuChamados;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuChamadosImportar;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuChamadosCadastrar;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuChamadosConsultar;
     }
 }
 

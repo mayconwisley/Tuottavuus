@@ -36,6 +36,7 @@
             this.BtnProcurar = new System.Windows.Forms.Button();
             this.BtnImportar = new System.Windows.Forms.Button();
             this.LblLayoutImportacao = new System.Windows.Forms.LinkLabel();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblCompetencia
@@ -114,11 +115,22 @@
             this.LblLayoutImportacao.Text = "Layout de importação";
             this.LblLayoutImportacao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblLayoutImportacao_LinkClicked);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(157, 148);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FrmImportarPesquisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(313, 196);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.LblLayoutImportacao);
             this.Controls.Add(this.BtnImportar);
             this.Controls.Add(this.BtnProcurar);
@@ -151,5 +163,6 @@
         private System.Windows.Forms.Button BtnProcurar;
         private System.Windows.Forms.Button BtnImportar;
         private System.Windows.Forms.LinkLabel LblLayoutImportacao;
+        private System.Windows.Forms.Button button1;
     }
 }

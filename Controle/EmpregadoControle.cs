@@ -274,6 +274,7 @@ namespace Controle
             ArrayList linhaArquivo = new ArrayList();
             qtdAtualizados = 0;
             qtdGravados = 0;
+
             try
             {
                 for (int i = 1; i < arquivo.Count; i++)
@@ -306,7 +307,6 @@ namespace Controle
                         Gravar(empregado);
                         qtdGravados++;
                     }
-
                 }
                 return true;
             }

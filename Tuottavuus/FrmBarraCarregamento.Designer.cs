@@ -79,6 +79,9 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barra Carregamento";
+            this.Activated += new System.EventHandler(this.FrmBarraCarregamento_Activated);
+            this.VisibleChanged += new System.EventHandler(this.FrmBarraCarregamento_VisibleChanged);
+            this.Enter += new System.EventHandler(this.FrmBarraCarregamento_Enter);
             this.ResumeLayout(false);
             this.PerformLayout();
 

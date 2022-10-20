@@ -1,6 +1,7 @@
 ﻿using Banco_De_Dados;
 using Modelo;
 using System;
+using System.CodeDom;
 using System.Collections;
 using System.Data;
 using System.Diagnostics;
@@ -16,11 +17,25 @@ namespace Controle
         EmpregadoControle empregadoControle;
         Utilitarios utilitarios;
 
+        private Label LblProcessLinha { get; set; }
+        private Label LblPorcentagem { get; set; }
+        private ProgressBar PbCarregamento { get; set; }
+
+
         public PesquisaControle()
         {
             crud = new CRUD();
             SQL = string.Empty;
         }
+
+        public PesquisaControle(ref Label lblProcessLinha, ref Label lblPorcentagem, ref ProgressBar pbCarregamento)
+        {
+           
+            LblProcessLinha = lblProcessLinha;
+            LblPorcentagem = lblPorcentagem;
+            PbCarregamento = pbCarregamento;
+        }
+
         public bool Gravar(Pesquisa pesquisa)
         {
             crud = new CRUD();
@@ -252,9 +267,15 @@ namespace Controle
 
             try
             {
+                PbCarregamento.Maximum = arquivo.Count;
+               
                 for (int i = 1; i < arquivo.Count; i++)
                 {
                     linhaArquivo.Clear();
+
+                    PbCarregamento.Value = i+1;
+                    LblProcessLinha.Text = $"Processando linha {i.ToString("00")} do arquivo";
+
                     foreach (var item in arquivo[i].ToString().Split(';'))
                     {
                         linhaArquivo.Add(item);
@@ -276,7 +297,7 @@ namespace Controle
                     pesquisa.Empregado.Id = idEmpregado;
                     pesquisa.DataAbertura = DateTime.Parse(linhaArquivo[0].ToString());
                     pesquisa.CodigoAtendente = int.Parse(linhaArquivo[1].ToString());
-                    pesquisa.NomeAtendente = linhaArquivo[2].ToString().Replace("\"", "");
+                    pesquisa.NomeAtendente = linhaArquivo[2].ToString().Replace("\"", "").ToUpper();
                     pesquisa.NotaConceito = int.Parse(linhaArquivo[3].ToString());
                     pesquisa.Chamado = int.Parse(linhaArquivo[4].ToString());
 
@@ -290,6 +311,8 @@ namespace Controle
                         Gravar(pesquisa);
                         qtdGravados++;
                     }
+
+                  
                 }
                 return true;
             }

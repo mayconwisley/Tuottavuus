@@ -261,6 +261,11 @@ namespace Tuottavuus
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             empresa = new Empresa();
