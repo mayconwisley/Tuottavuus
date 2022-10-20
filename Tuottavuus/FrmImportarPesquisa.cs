@@ -83,6 +83,12 @@ namespace Tuottavuus
 
             try
             {
+
+                //FrmBarraCarregamento frm = new FrmBarraCarregamento(idEmpresa, 1, TxtCaminhoArquivo.Text);
+                ////frm.MdiParent = FrmPrincipal.ActiveForm;
+                //frm.ShowDialog();
+
+
                 pesquisaControle.ImportarAquivo(idCompetencia, idEmpresa, TxtCaminhoArquivo.Text, out itensErros, out qtdAtualizados, out qtdGravados);
                 string diretorio = Application.StartupPath + @"\ErroImportacao";
 
@@ -127,9 +133,9 @@ namespace Tuottavuus
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            FrmBarraCarregamento frm = new FrmBarraCarregamento(idEmpresa, 1, TxtCaminhoArquivo.Text);
-            frm.MdiParent = FrmPrincipal.ActiveForm;
-            frm.Show();
+            //FrmBarraCarregamento frm = new FrmBarraCarregamento(idEmpresa, 1, TxtCaminhoArquivo.Text);
+            ////frm.MdiParent = FrmPrincipal.ActiveForm;
+            //frm.ShowDialog();
         }
 
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)

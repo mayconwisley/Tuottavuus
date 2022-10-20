@@ -20,7 +20,7 @@ namespace Tuottavuus
 
         PesquisaControle pesquisaControle;
 
-        int idEmpresa = 0, idDepartamento = 0;
+        int idCompetencia = 0, idEmpresa = 0, idDepartamento = 0;
         string strCaminho;
         public FrmBarraCarregamento()
         {
@@ -28,8 +28,9 @@ namespace Tuottavuus
           
         }
 
-        public FrmBarraCarregamento(int empresaId, int departamentoId, string caminho) : this()
+        public FrmBarraCarregamento(int competenciaId, int empresaId, int departamentoId, string caminho) : this()
         {
+            idCompetencia = competenciaId;
             idEmpresa = empresaId;
             idDepartamento = departamentoId;
             strCaminho = caminho;
@@ -57,14 +58,14 @@ namespace Tuottavuus
 
         private void FrmBarraCarregamento_Activated(object sender, EventArgs e)
         {
-          
-           
+            ImportarEmpregado();
+            this.Close();
         }
 
         private void FrmBarraCarregamento_Enter(object sender, EventArgs e)
         {
            
-            ImportarEmpregado();
+           
           
 
         }
@@ -73,7 +74,7 @@ namespace Tuottavuus
         {
             utilitarios = new Utilitarios();
             empregadoControle = new EmpregadoControle();
-            pesquisaControle = new PesquisaControle(ref LblRegistro, ref LblPorcentagem, ref PbBarraCarregamento);
+            pesquisaControle = new PesquisaControle(ref PbBarraCarregamento);
             ArrayList arquivo = new ArrayList();
             int qtdAtualizados = 0, qtdGravados = 0;
 
@@ -81,6 +82,7 @@ namespace Tuottavuus
             {
 
                 pesquisaControle.ImportarAquivo(idEmpresa, idDepartamento, strCaminho, out arquivo, out qtdAtualizados, out qtdGravados);
+                //pesquisaControle.ImportarAquivo(idCompetencia, idEmpresa, strCaminho, out itensErros, out qtdAtualizados, out qtdGravados);
 
                 MessageBox.Show($"Gravados: {qtdGravados.ToString("00")} empregado(s).\n" +
                 $"Atualizados: {qtdAtualizados.ToString("00")} empregado(s)", "Aviso");

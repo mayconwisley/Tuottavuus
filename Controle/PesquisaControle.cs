@@ -16,9 +16,6 @@ namespace Controle
         string SQL;
         EmpregadoControle empregadoControle;
         Utilitarios utilitarios;
-
-        private Label LblProcessLinha { get; set; }
-        private Label LblPorcentagem { get; set; }
         private ProgressBar PbCarregamento { get; set; }
 
 
@@ -28,11 +25,8 @@ namespace Controle
             SQL = string.Empty;
         }
 
-        public PesquisaControle(ref Label lblProcessLinha, ref Label lblPorcentagem, ref ProgressBar pbCarregamento)
+        public PesquisaControle(ref ProgressBar pbCarregamento)
         {
-           
-            LblProcessLinha = lblProcessLinha;
-            LblPorcentagem = lblPorcentagem;
             PbCarregamento = pbCarregamento;
         }
 
@@ -268,14 +262,12 @@ namespace Controle
             try
             {
                 PbCarregamento.Maximum = arquivo.Count;
-               
+
                 for (int i = 1; i < arquivo.Count; i++)
                 {
                     linhaArquivo.Clear();
 
-                    PbCarregamento.Value = i+1;
-                    LblProcessLinha.Text = $"Processando linha {i.ToString("00")} do arquivo";
-
+                    PbCarregamento.Value = i + 1;
                     foreach (var item in arquivo[i].ToString().Split(';'))
                     {
                         linhaArquivo.Add(item);
@@ -311,8 +303,6 @@ namespace Controle
                         Gravar(pesquisa);
                         qtdGravados++;
                     }
-
-                  
                 }
                 return true;
             }

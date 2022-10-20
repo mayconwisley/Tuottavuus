@@ -29,34 +29,15 @@
         private void InitializeComponent()
         {
             this.PbBarraCarregamento = new System.Windows.Forms.ProgressBar();
-            this.LblRegistro = new System.Windows.Forms.Label();
-            this.LblPorcentagem = new System.Windows.Forms.Label();
             this.BWProcessamento = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // PbBarraCarregamento
             // 
-            this.PbBarraCarregamento.Location = new System.Drawing.Point(12, 28);
+            this.PbBarraCarregamento.Location = new System.Drawing.Point(12, 26);
             this.PbBarraCarregamento.Name = "PbBarraCarregamento";
             this.PbBarraCarregamento.Size = new System.Drawing.Size(473, 23);
             this.PbBarraCarregamento.TabIndex = 0;
-            // 
-            // LblRegistro
-            // 
-            this.LblRegistro.AutoSize = true;
-            this.LblRegistro.Location = new System.Drawing.Point(12, 54);
-            this.LblRegistro.Name = "LblRegistro";
-            this.LblRegistro.Size = new System.Drawing.Size(162, 13);
-            this.LblRegistro.TabIndex = 1;
-            this.LblRegistro.Text = "Processando linha 00 do arquivo";
-            // 
-            // LblPorcentagem
-            // 
-            this.LblPorcentagem.Location = new System.Drawing.Point(450, 53);
-            this.LblPorcentagem.Name = "LblPorcentagem";
-            this.LblPorcentagem.Size = new System.Drawing.Size(35, 14);
-            this.LblPorcentagem.TabIndex = 2;
-            this.LblPorcentagem.Text = "000%";
             // 
             // BWProcessamento
             // 
@@ -67,9 +48,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 85);
-            this.Controls.Add(this.LblPorcentagem);
-            this.Controls.Add(this.LblRegistro);
+            this.ClientSize = new System.Drawing.Size(497, 75);
             this.Controls.Add(this.PbBarraCarregamento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -83,15 +62,12 @@
             this.VisibleChanged += new System.EventHandler(this.FrmBarraCarregamento_VisibleChanged);
             this.Enter += new System.EventHandler(this.FrmBarraCarregamento_Enter);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ProgressBar PbBarraCarregamento;
-        private System.Windows.Forms.Label LblRegistro;
-        private System.Windows.Forms.Label LblPorcentagem;
         private System.ComponentModel.BackgroundWorker BWProcessamento;
     }
 }
