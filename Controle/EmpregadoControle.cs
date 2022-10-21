@@ -3,6 +3,7 @@ using Modelo;
 using System;
 using System.Collections;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Controle
 {
@@ -13,11 +14,17 @@ namespace Controle
         Empregado empregado;
         Utilitarios utilitarios;
         int idEmpregado = 0;
+        private ProgressBar PbCarregamento { get; set; }
 
         public EmpregadoControle()
         {
             crud = new CRUD();
             SQL = String.Empty;
+        }
+
+        public EmpregadoControle(ref ProgressBar progressBar)
+        {
+            PbCarregamento = progressBar;
         }
         public bool Gravar(Empregado empregado)
         {
@@ -277,9 +284,12 @@ namespace Controle
 
             try
             {
+                PbCarregamento.Maximum = arquivo.Count;
+
                 for (int i = 1; i < arquivo.Count; i++)
                 {
                     linhaArquivo.Clear();
+                    PbCarregamento.Value = i + 1;
                     foreach (var item in arquivo[i].ToString().Split(';'))
                     {
                         linhaArquivo.Add(item);

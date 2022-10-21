@@ -228,22 +228,13 @@ namespace Tuottavuus
 
         private void BtnImportar_Click(object sender, EventArgs e)
         {
-            utilitarios = new Utilitarios();
-            empregadoControle = new EmpregadoControle();
-            int qtdAtualizados = 0, qtdGravados = 0;
-            try
-            {
-                string caminhoArquivo = utilitarios.CaminhoArquivo();
-                empregadoControle.ImportarEmpregado(idEmpresa, idDepartamento, caminhoArquivo, out qtdAtualizados, out qtdGravados);
-                MessageBox.Show($"Gravados: {qtdGravados.ToString("00")} empregado(s).\n" +
-                                $"Atualizados: {qtdAtualizados.ToString("00")} empregado(s)", "Aviso");
 
-                ListaEmpregado();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro");
-            }
+            utilitarios = new Utilitarios();
+            string caminhoArquivo = utilitarios.CaminhoArquivo();
+
+            FrmBarraCarregamento frm = new FrmBarraCarregamento('E', 0, idEmpresa, idDepartamento, caminhoArquivo.Trim());
+            frm.MdiParent = FrmPrincipal.ActiveForm;
+            frm.Show();
         }
 
         private void LblLayoutImportacao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -263,7 +254,7 @@ namespace Tuottavuus
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)

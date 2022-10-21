@@ -17,75 +17,65 @@ namespace Tuottavuus
     {
         Utilitarios utilitarios;
         EmpregadoControle empregadoControle;
-
         PesquisaControle pesquisaControle;
 
         int idCompetencia = 0, idEmpresa = 0, idDepartamento = 0;
+
         string strCaminho;
+        char opc;
+
+        bool booImportar = true;
+
         public FrmBarraCarregamento()
         {
             InitializeComponent();
-          
+
         }
 
-        public FrmBarraCarregamento(int competenciaId, int empresaId, int departamentoId, string caminho) : this()
+        public FrmBarraCarregamento(char impOpc, int competenciaId = 0, int empresaId = 0, int departamentoId = 0, string caminho = "") : this()
         {
+            opc = impOpc;
             idCompetencia = competenciaId;
             idEmpresa = empresaId;
             idDepartamento = departamentoId;
             strCaminho = caminho;
         }
 
-        private void BWProcessamento_DoWork(object sender, DoWorkEventArgs e)
-        {
-            ImportarEmpregado();
-        }
-
-        private void BWProcessamento_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-
-        }
-
-        private void FrmBarraCarregamento_Load(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void FrmBarraCarregamento_VisibleChanged(object sender, EventArgs e)
-        {
-           
-        }
-
         private void FrmBarraCarregamento_Activated(object sender, EventArgs e)
         {
-            ImportarEmpregado();
+            Importar();
+        }
+
+        public void Fechar()
+        {
             this.Close();
         }
 
-        private void FrmBarraCarregamento_Enter(object sender, EventArgs e)
-        {
-           
-           
-          
-
-        }
-
-        private void ImportarEmpregado()
+        private void Importar()
         {
             utilitarios = new Utilitarios();
-            empregadoControle = new EmpregadoControle();
+            empregadoControle = new EmpregadoControle(ref PbBarraCarregamento);
             pesquisaControle = new PesquisaControle(ref PbBarraCarregamento);
-            ArrayList arquivo = new ArrayList();
+            ArrayList itensErros = new ArrayList();
             int qtdAtualizados = 0, qtdGravados = 0;
+
 
             try
             {
 
-                pesquisaControle.ImportarAquivo(idEmpresa, idDepartamento, strCaminho, out arquivo, out qtdAtualizados, out qtdGravados);
-                //pesquisaControle.ImportarAquivo(idCompetencia, idEmpresa, strCaminho, out itensErros, out qtdAtualizados, out qtdGravados);
+                if (opc == 'P')
+                {
+                    booImportar = pesquisaControle.ImportarAquivo(idCompetencia, idEmpresa, strCaminho, out itensErros, out qtdAtualizados, out qtdGravados);
+
+                }
+                else if (opc == 'E')
+                {
+                    booImportar = empregadoControle.ImportarEmpregado(idEmpresa, idDepartamento, strCaminho, out qtdAtualizados, out qtdGravados);
+                }
 
                 MessageBox.Show($"Gravados: {qtdGravados.ToString("00")} empregado(s).\n" +
                 $"Atualizados: {qtdAtualizados.ToString("00")} empregado(s)", "Aviso");
+
 
             }
             catch (Exception ex)
@@ -93,5 +83,7 @@ namespace Tuottavuus
                 MessageBox.Show(ex.Message, "Erro");
             }
         }
+
+
     }
 }

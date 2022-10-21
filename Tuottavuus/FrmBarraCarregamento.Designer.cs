@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.PbBarraCarregamento = new System.Windows.Forms.ProgressBar();
-            this.BWProcessamento = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // PbBarraCarregamento
@@ -38,11 +37,6 @@
             this.PbBarraCarregamento.Name = "PbBarraCarregamento";
             this.PbBarraCarregamento.Size = new System.Drawing.Size(473, 23);
             this.PbBarraCarregamento.TabIndex = 0;
-            // 
-            // BWProcessamento
-            // 
-            this.BWProcessamento.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BWProcessamento_DoWork);
-            this.BWProcessamento.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BWProcessamento_ProgressChanged);
             // 
             // FrmBarraCarregamento
             // 
@@ -59,8 +53,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Barra Carregamento";
             this.Activated += new System.EventHandler(this.FrmBarraCarregamento_Activated);
-            this.VisibleChanged += new System.EventHandler(this.FrmBarraCarregamento_VisibleChanged);
-            this.Enter += new System.EventHandler(this.FrmBarraCarregamento_Enter);
             this.ResumeLayout(false);
 
         }
@@ -68,6 +60,5 @@
         #endregion
 
         private System.Windows.Forms.ProgressBar PbBarraCarregamento;
-        private System.ComponentModel.BackgroundWorker BWProcessamento;
     }
 }

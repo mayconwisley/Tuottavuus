@@ -77,38 +77,9 @@ namespace Tuottavuus
         }
         private void BtnImportar_Click(object sender, EventArgs e)
         {
-            pesquisaControle = new PesquisaControle();
-            ArrayList itensErros = new ArrayList();
-            int qtdAtualizados = 0, qtdGravados = 0;
-
-            try
-            {
-
-                //FrmBarraCarregamento frm = new FrmBarraCarregamento(idEmpresa, 1, TxtCaminhoArquivo.Text);
-                ////frm.MdiParent = FrmPrincipal.ActiveForm;
-                //frm.ShowDialog();
-
-
-                pesquisaControle.ImportarAquivo(idCompetencia, idEmpresa, TxtCaminhoArquivo.Text, out itensErros, out qtdAtualizados, out qtdGravados);
-                string diretorio = Application.StartupPath + @"\ErroImportacao";
-
-                bool pesquisa = pesquisaControle.ErroLista(diretorio, itensErros);
-
-                if (pesquisa)
-                {
-                    MessageBox.Show($"Alguns dados não foram importado\n\n\nGravados: {qtdGravados.ToString("00")} pesquisa(s).\n" +
-                               $"Atualizados: {qtdAtualizados.ToString("00")} pesquisa(s)", "Aviso");
-                }
-                else
-                {
-                    MessageBox.Show($"Gravados: {qtdGravados.ToString("00")} pesquisa(s).\n" +
-                                   $"Atualizados: {qtdAtualizados.ToString("00")} pesquisa(s)", "Aviso");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro");
-            }
+            FrmBarraCarregamento frm = new FrmBarraCarregamento('P', idCompetencia, idEmpresa, 0, TxtCaminhoArquivo.Text.Trim());
+            frm.MdiParent = FrmPrincipal.ActiveForm;
+            frm.Show();
         }
         private void LblLayoutImportacao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -125,19 +96,6 @@ namespace Tuottavuus
             }
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            //FrmBarraCarregamento frm = new FrmBarraCarregamento(idEmpresa, 1, TxtCaminhoArquivo.Text);
-            ////frm.MdiParent = FrmPrincipal.ActiveForm;
-            //frm.ShowDialog();
-        }
-
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             empresa = new Empresa();
