@@ -21,9 +21,10 @@ namespace Tuottavuus
         FrmConsultaAtividade consultaAtividade; //12
         FrmCadastroIndicador cadastroIndicador; //13
         FrmCadastroMetaPeso cadastroMetaPeso; //14
-        FrmPesquisaAvaliacao pesquisaAvaliacao; //15
-        FrmImportarPesquisa importarPesquisa; //16
-        FrmPesquisaConsulta pesquisaConsulta; //17
+        FrmCadastroPesquisaAvaliacao cadastroPesquisaAvaliacao; //15
+        FrmImportar importar; //16,18
+        FrmConsultaPesquisa consultaPesquisa; //17
+        FrmCadastroChamado cadastroChamado;
         bool aberto = true;
 
         public FrmPrincipal()
@@ -174,9 +175,9 @@ namespace Tuottavuus
 
                         break;
                     case 15:
-                        pesquisaAvaliacao = new FrmPesquisaAvaliacao();
-                        pesquisaAvaliacao.MdiParent = this;
-                        if (item is FrmPesquisaAvaliacao)
+                        cadastroPesquisaAvaliacao = new FrmCadastroPesquisaAvaliacao();
+                        cadastroPesquisaAvaliacao.MdiParent = this;
+                        if (item is FrmCadastroPesquisaAvaliacao)
                         {
                             item.Focus();
                             aberto = false;
@@ -184,26 +185,41 @@ namespace Tuottavuus
 
                         break;
                     case 16:
-                        importarPesquisa = new FrmImportarPesquisa();
-                        importarPesquisa.MdiParent = this;
-                        if (item is FrmImportarPesquisa)
+                        importar = new FrmImportar('P');
+                        importar.MdiParent = this;
+                        if (item is FrmImportar)
                         {
                             item.Focus();
                             aberto = false;
                         }
                         break;
                     case 17:
-                        pesquisaConsulta = new FrmPesquisaConsulta();
-                        pesquisaConsulta.MdiParent = this;
-                        if (item is FrmPesquisaConsulta)
+                        consultaPesquisa = new FrmConsultaPesquisa();
+                        consultaPesquisa.MdiParent = this;
+                        if (item is FrmConsultaPesquisa)
                         {
                             item.Focus();
                             aberto = false;
                         }
-
-
                         break;
-
+                    case 18:
+                        importar = new FrmImportar('C');
+                        importar.MdiParent = this;
+                        if (item is FrmImportar)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+                        break;
+                    case 19:
+                        cadastroChamado = new FrmCadastroChamado();
+                        cadastroChamado.MdiParent = this;
+                        if (item is FrmCadastroChamado)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -258,13 +274,19 @@ namespace Tuottavuus
                         cadastroMetaPeso.Show();
                         break;
                     case 15:
-                        pesquisaAvaliacao.Show();
+                        cadastroPesquisaAvaliacao.Show();
                         break;
                     case 16:
-                        importarPesquisa.Show();
+                        importar.Show();
                         break;
                     case 17:
-                        pesquisaConsulta.Show();
+                        consultaPesquisa.Show();
+                        break;
+                    case 18:
+                        importar.Show();
+                        break;
+                    case 19:
+                        cadastroChamado.Show();
                         break;
                     default:
                         break;
@@ -378,6 +400,16 @@ namespace Tuottavuus
         private void SubMenuPesquisaConsultar_Click(object sender, EventArgs e)
         {
             AbrirFormulario(17);
+        }
+
+        private void SubMenuChamadosImportar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(18);
+        }
+
+        private void SubMenuChamadosCadastrar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(19);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Tuottavuus
 {
-    partial class FrmImportarPesquisa
+    partial class FrmImportar
     {
         /// <summary>
         /// Required designer variable.
@@ -114,7 +114,7 @@
             this.LblLayoutImportacao.Text = "Layout de importação";
             this.LblLayoutImportacao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblLayoutImportacao_LinkClicked);
             // 
-            // FrmImportarPesquisa
+            // FrmImportar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -130,11 +130,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmImportarPesquisa";
+            this.Name = "FrmImportar";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Importar Pesquisa";
+            this.Text = "Importar Dados";
             this.Load += new System.EventHandler(this.FrmImportarPesquisa_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

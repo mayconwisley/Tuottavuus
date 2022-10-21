@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Tuottavuus
 {
-    public partial class FrmImportarPesquisa : Form
+    public partial class FrmImportar : Form
     {
         Empresa empresa;
         EmpresaControle empresaControle;
@@ -17,10 +17,12 @@ namespace Tuottavuus
         PesquisaControle pesquisaControle;
         private int idCompetencia = 0, idEmpresa = 0;
         DateTime dtCompetencia;
+        char opcForm;
 
-        public FrmImportarPesquisa()
+        public FrmImportar(char formOpc)
         {
             InitializeComponent();
+            opcForm = formOpc;
         }
 
         private bool ListaEmpresa()
@@ -68,6 +70,15 @@ namespace Tuottavuus
         }
         private void FrmImportarPesquisa_Load(object sender, EventArgs e)
         {
+            if (opcForm == 'P')
+            {
+                this.Text = "Importar Dados - Pesquisa";
+            }
+            else if (opcForm == 'C')
+            {
+                this.Text = "Importar Dados - Chamado";
+            }
+
             ListaCompetencia();
             ListaEmpresa();
         }
@@ -77,7 +88,7 @@ namespace Tuottavuus
         }
         private void BtnImportar_Click(object sender, EventArgs e)
         {
-            FrmBarraCarregamento frm = new FrmBarraCarregamento('P', idCompetencia, idEmpresa, 0, TxtCaminhoArquivo.Text.Trim());
+            FrmBarraCarregamento frm = new FrmBarraCarregamento(opcForm, idCompetencia, idEmpresa, 0, TxtCaminhoArquivo.Text.Trim());
             frm.MdiParent = FrmPrincipal.ActiveForm;
             frm.Show();
         }
@@ -88,7 +99,14 @@ namespace Tuottavuus
 
             try
             {
-                utilitarios.SalvarArquivo(layoutImportacao.Pesquisa);
+                if (opcForm == 'P')
+                {
+                    utilitarios.SalvarArquivo(layoutImportacao.Pesquisa);
+                }
+                else if (opcForm == 'C')
+                {
+                    utilitarios.SalvarArquivo(layoutImportacao.Chamado);
+                }
             }
             catch (Exception ex)
             {

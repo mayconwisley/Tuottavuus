@@ -1,6 +1,6 @@
 ﻿namespace Tuottavuus
 {
-    partial class FrmPesquisaAvaliacao
+    partial class FrmCadastroPesquisaAvaliacao
     {
         /// <summary>
         /// Required designer variable.

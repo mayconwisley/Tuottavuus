@@ -122,6 +122,12 @@
     <Compile Include="FrmCadastroAvaliacao.Designer.cs">
       <DependentUpon>FrmCadastroAvaliacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadastroChamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastroChamado.Designer.cs">
+      <DependentUpon>FrmCadastroChamado.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCadastroCompetencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,23 +200,23 @@
     <Compile Include="FrmConsultaProdutividade.Designer.cs">
       <DependentUpon>FrmConsultaProdutividade.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmImportarPesquisa.cs">
+    <Compile Include="FrmImportar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmImportarPesquisa.Designer.cs">
-      <DependentUpon>FrmImportarPesquisa.cs</DependentUpon>
+    <Compile Include="FrmImportar.Designer.cs">
+      <DependentUpon>FrmImportar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPesquisaAvaliacao.cs">
+    <Compile Include="FrmCadastroPesquisaAvaliacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPesquisaAvaliacao.Designer.cs">
-      <DependentUpon>FrmPesquisaAvaliacao.cs</DependentUpon>
+    <Compile Include="FrmCadastroPesquisaAvaliacao.Designer.cs">
+      <DependentUpon>FrmCadastroPesquisaAvaliacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPesquisaConsulta.cs">
+    <Compile Include="FrmConsultaPesquisa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPesquisaConsulta.Designer.cs">
-      <DependentUpon>FrmPesquisaConsulta.cs</DependentUpon>
+    <Compile Include="FrmConsultaPesquisa.Designer.cs">
+      <DependentUpon>FrmConsultaPesquisa.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -251,6 +257,9 @@
     <EmbeddedResource Include="FrmCadastroAvaliacao.resx">
       <DependentUpon>FrmCadastroAvaliacao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastroChamado.resx">
+      <DependentUpon>FrmCadastroChamado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroCompetencia.resx">
       <DependentUpon>FrmCadastroCompetencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,14 +296,14 @@
     <EmbeddedResource Include="FrmConsultaProdutividade.resx">
       <DependentUpon>FrmConsultaProdutividade.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmImportarPesquisa.resx">
-      <DependentUpon>FrmImportarPesquisa.cs</DependentUpon>
+    <EmbeddedResource Include="FrmImportar.resx">
+      <DependentUpon>FrmImportar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPesquisaAvaliacao.resx">
-      <DependentUpon>FrmPesquisaAvaliacao.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCadastroPesquisaAvaliacao.resx">
+      <DependentUpon>FrmCadastroPesquisaAvaliacao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPesquisaConsulta.resx">
-      <DependentUpon>FrmPesquisaConsulta.cs</DependentUpon>
+    <EmbeddedResource Include="FrmConsultaPesquisa.resx">
+      <DependentUpon>FrmConsultaPesquisa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>

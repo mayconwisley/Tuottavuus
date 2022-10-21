@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Tuottavuus
 {
-    public partial class FrmPesquisaConsulta : Form
+    public partial class FrmConsultaPesquisa : Form
     {
 
         EmpregadoControle empregadoControle;
@@ -15,7 +15,7 @@ namespace Tuottavuus
 
         DateTime dtCompetencia;
 
-        public FrmPesquisaConsulta()
+        public FrmConsultaPesquisa()
         {
             InitializeComponent();
         }

@@ -18,6 +18,7 @@ namespace Tuottavuus
         Utilitarios utilitarios;
         EmpregadoControle empregadoControle;
         PesquisaControle pesquisaControle;
+        ChamadoControle chamadoControle;
 
         int idCompetencia = 0, idEmpresa = 0, idDepartamento = 0;
 
@@ -44,13 +45,8 @@ namespace Tuottavuus
         private void FrmBarraCarregamento_Activated(object sender, EventArgs e)
         {
             Importar();
-        }
 
-        public void Fechar()
-        {
-            this.Close();
         }
-
         private void Importar()
         {
             utilitarios = new Utilitarios();
@@ -59,31 +55,29 @@ namespace Tuottavuus
             ArrayList itensErros = new ArrayList();
             int qtdAtualizados = 0, qtdGravados = 0;
 
-
             try
             {
-
                 if (opc == 'P')
                 {
                     booImportar = pesquisaControle.ImportarAquivo(idCompetencia, idEmpresa, strCaminho, out itensErros, out qtdAtualizados, out qtdGravados);
-
                 }
                 else if (opc == 'E')
                 {
                     booImportar = empregadoControle.ImportarEmpregado(idEmpresa, idDepartamento, strCaminho, out qtdAtualizados, out qtdGravados);
                 }
+                else if (opc == 'C')
+                {
+                    booImportar = chamadoControle.ImportarAquivo(idCompetencia, idEmpresa, strCaminho, out itensErros, out qtdAtualizados, out qtdGravados);
+                }
 
                 MessageBox.Show($"Gravados: {qtdGravados.ToString("00")} empregado(s).\n" +
                 $"Atualizados: {qtdAtualizados.ToString("00")} empregado(s)", "Aviso");
-
-
+                this.BeginInvoke(new MethodInvoker(Close));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro");
             }
         }
-
-
     }
 }

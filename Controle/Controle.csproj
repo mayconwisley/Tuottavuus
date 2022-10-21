@@ -65,6 +65,7 @@
     <Compile Include="AtividadeAvaliacaoControle.cs" />
     <Compile Include="AtividadeControle.cs" />
     <Compile Include="CalculoProdutividade.cs" />
+    <Compile Include="ChamadoControle.cs" />
     <Compile Include="CompetenciaControle.cs" />
     <Compile Include="DepartamentoControle.cs" />
     <Compile Include="EmpregadoControle.cs" />
