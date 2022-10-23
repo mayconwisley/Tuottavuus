@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblInfoCodigoAtendente = new System.Windows.Forms.Label();
             this.LblInfoChamado = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -55,10 +54,6 @@
             this.LblCompetencia = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtDescGrupoSolucao = new System.Windows.Forms.TextBox();
-            this.TxtCodArea = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.TxtDescArea = new System.Windows.Forms.TextBox();
             this.TxtCodNatureza = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -72,13 +67,11 @@
             this.Id_Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Empregado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataAbertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Chamado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoAtendente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeAtendente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoChamado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoGrupoSolucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescGrupoSolucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoNatureza = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescNatureza = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoTpAtividade = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,7 +100,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(319, 348);
+            this.label8.Location = new System.Drawing.Point(316, 309);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(228, 13);
             this.label8.TabIndex = 29;
@@ -118,6 +111,8 @@
             this.DgvChamado.AllowUserToAddRows = false;
             this.DgvChamado.AllowUserToDeleteRows = false;
             this.DgvChamado.AllowUserToOrderColumns = true;
+            this.DgvChamado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DgvChamado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DgvChamado.BackgroundColor = System.Drawing.SystemColors.Control;
             this.DgvChamado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgvChamado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -127,13 +122,11 @@
             this.Id_Empresa,
             this.Id_Empregado,
             this.DataAbertura,
-            this.Chamado,
             this.CodigoAtendente,
             this.NomeAtendente,
+            this.CodigoChamado,
             this.CodigoGrupoSolucao,
             this.DescGrupoSolucao,
-            this.CodigoArea,
-            this.DescArea,
             this.CodigoNatureza,
             this.DescNatureza,
             this.CodigoTpAtividade,
@@ -143,7 +136,7 @@
             this.DgvChamado.Name = "DgvChamado";
             this.DgvChamado.ReadOnly = true;
             this.DgvChamado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvChamado.Size = new System.Drawing.Size(469, 207);
+            this.DgvChamado.Size = new System.Drawing.Size(469, 168);
             this.DgvChamado.TabIndex = 23;
             this.DgvChamado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvChamado_CellDoubleClick);
             // 
@@ -156,6 +149,7 @@
             this.BtnExcluir.TabIndex = 28;
             this.BtnExcluir.Text = "&Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = true;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // BtnAlterar
             // 
@@ -166,6 +160,7 @@
             this.BtnAlterar.TabIndex = 26;
             this.BtnAlterar.Text = "&Alterar";
             this.BtnAlterar.UseVisualStyleBackColor = true;
+            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // BtnGravar
             // 
@@ -175,6 +170,7 @@
             this.BtnGravar.TabIndex = 24;
             this.BtnGravar.Text = "&Gravar";
             this.BtnGravar.UseVisualStyleBackColor = true;
+            this.BtnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
             // 
             // label7
             // 
@@ -295,44 +291,9 @@
             this.TxtDescGrupoSolucao.Size = new System.Drawing.Size(205, 20);
             this.TxtDescGrupoSolucao.TabIndex = 33;
             // 
-            // TxtCodArea
-            // 
-            this.TxtCodArea.Location = new System.Drawing.Point(12, 247);
-            this.TxtCodArea.Name = "TxtCodArea";
-            this.TxtCodArea.Size = new System.Drawing.Size(88, 20);
-            this.TxtCodArea.TabIndex = 21;
-            this.TxtCodArea.Text = "0";
-            this.TxtCodArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(106, 231);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 13);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Desc. Área";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 231);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 13);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "Cód. Área";
-            // 
-            // TxtDescArea
-            // 
-            this.TxtDescArea.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtDescArea.Location = new System.Drawing.Point(106, 247);
-            this.TxtDescArea.Name = "TxtDescArea";
-            this.TxtDescArea.Size = new System.Drawing.Size(205, 20);
-            this.TxtDescArea.TabIndex = 33;
-            // 
             // TxtCodNatureza
             // 
-            this.TxtCodNatureza.Location = new System.Drawing.Point(12, 286);
+            this.TxtCodNatureza.Location = new System.Drawing.Point(12, 247);
             this.TxtCodNatureza.Name = "TxtCodNatureza";
             this.TxtCodNatureza.Size = new System.Drawing.Size(88, 20);
             this.TxtCodNatureza.TabIndex = 21;
@@ -342,7 +303,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(106, 270);
+            this.label10.Location = new System.Drawing.Point(106, 231);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(81, 13);
             this.label10.TabIndex = 25;
@@ -351,7 +312,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 270);
+            this.label11.Location = new System.Drawing.Point(12, 231);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(75, 13);
             this.label11.TabIndex = 32;
@@ -360,14 +321,14 @@
             // TxtDescNatureza
             // 
             this.TxtDescNatureza.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtDescNatureza.Location = new System.Drawing.Point(106, 286);
+            this.TxtDescNatureza.Location = new System.Drawing.Point(106, 247);
             this.TxtDescNatureza.Name = "TxtDescNatureza";
             this.TxtDescNatureza.Size = new System.Drawing.Size(205, 20);
             this.TxtDescNatureza.TabIndex = 33;
             // 
             // TxtCodTpAtividade
             // 
-            this.TxtCodTpAtividade.Location = new System.Drawing.Point(12, 325);
+            this.TxtCodTpAtividade.Location = new System.Drawing.Point(12, 286);
             this.TxtCodTpAtividade.Name = "TxtCodTpAtividade";
             this.TxtCodTpAtividade.Size = new System.Drawing.Size(88, 20);
             this.TxtCodTpAtividade.TabIndex = 21;
@@ -377,7 +338,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(106, 309);
+            this.label12.Location = new System.Drawing.Point(106, 270);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(98, 13);
             this.label12.TabIndex = 25;
@@ -386,7 +347,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(12, 309);
+            this.label13.Location = new System.Drawing.Point(12, 270);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(92, 13);
             this.label13.TabIndex = 32;
@@ -395,7 +356,7 @@
             // TxtDescTpAtividade
             // 
             this.TxtDescTpAtividade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtDescTpAtividade.Location = new System.Drawing.Point(106, 325);
+            this.TxtDescTpAtividade.Location = new System.Drawing.Point(106, 286);
             this.TxtDescTpAtividade.Name = "TxtDescTpAtividade";
             this.TxtDescTpAtividade.Size = new System.Drawing.Size(205, 20);
             this.TxtDescTpAtividade.TabIndex = 33;
@@ -407,6 +368,7 @@
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
+            this.Id.Width = 41;
             // 
             // Id_Competencia
             // 
@@ -415,6 +377,7 @@
             this.Id_Competencia.Name = "Id_Competencia";
             this.Id_Competencia.ReadOnly = true;
             this.Id_Competencia.Visible = false;
+            this.Id_Competencia.Width = 103;
             // 
             // Id_Empresa
             // 
@@ -423,6 +386,7 @@
             this.Id_Empresa.Name = "Id_Empresa";
             this.Id_Empresa.ReadOnly = true;
             this.Id_Empresa.Visible = false;
+            this.Id_Empresa.Width = 82;
             // 
             // Id_Empregado
             // 
@@ -431,35 +395,29 @@
             this.Id_Empregado.Name = "Id_Empregado";
             this.Id_Empregado.ReadOnly = true;
             this.Id_Empregado.Visible = false;
+            this.Id_Empregado.Width = 95;
             // 
             // DataAbertura
             // 
             this.DataAbertura.DataPropertyName = "DataAbertura";
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle29.Format = "d";
-            dataGridViewCellStyle29.NullValue = null;
-            this.DataAbertura.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.DataAbertura.DefaultCellStyle = dataGridViewCellStyle1;
             this.DataAbertura.HeaderText = "Data Abertura";
             this.DataAbertura.Name = "DataAbertura";
             this.DataAbertura.ReadOnly = true;
-            // 
-            // Chamado
-            // 
-            this.Chamado.DataPropertyName = "Chamado";
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Chamado.DefaultCellStyle = dataGridViewCellStyle30;
-            this.Chamado.HeaderText = "Chamado";
-            this.Chamado.Name = "Chamado";
-            this.Chamado.ReadOnly = true;
+            this.DataAbertura.Width = 98;
             // 
             // CodigoAtendente
             // 
             this.CodigoAtendente.DataPropertyName = "CodigoAtendente";
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoAtendente.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoAtendente.DefaultCellStyle = dataGridViewCellStyle2;
             this.CodigoAtendente.HeaderText = "Cód. Atendente";
             this.CodigoAtendente.Name = "CodigoAtendente";
             this.CodigoAtendente.ReadOnly = true;
+            this.CodigoAtendente.Width = 97;
             // 
             // NomeAtendente
             // 
@@ -467,15 +425,27 @@
             this.NomeAtendente.HeaderText = "Nome";
             this.NomeAtendente.Name = "NomeAtendente";
             this.NomeAtendente.ReadOnly = true;
+            this.NomeAtendente.Width = 60;
+            // 
+            // CodigoChamado
+            // 
+            this.CodigoChamado.DataPropertyName = "Chamado";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoChamado.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CodigoChamado.HeaderText = "Chamado";
+            this.CodigoChamado.Name = "CodigoChamado";
+            this.CodigoChamado.ReadOnly = true;
+            this.CodigoChamado.Width = 77;
             // 
             // CodigoGrupoSolucao
             // 
             this.CodigoGrupoSolucao.DataPropertyName = "CodigoGrupoSolucao";
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoGrupoSolucao.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoGrupoSolucao.DefaultCellStyle = dataGridViewCellStyle4;
             this.CodigoGrupoSolucao.HeaderText = "Cód Grupo Solução";
             this.CodigoGrupoSolucao.Name = "CodigoGrupoSolucao";
             this.CodigoGrupoSolucao.ReadOnly = true;
+            this.CodigoGrupoSolucao.Width = 115;
             // 
             // DescGrupoSolucao
             // 
@@ -483,31 +453,17 @@
             this.DescGrupoSolucao.HeaderText = "Desc. Grupo Solução";
             this.DescGrupoSolucao.Name = "DescGrupoSolucao";
             this.DescGrupoSolucao.ReadOnly = true;
-            // 
-            // CodigoArea
-            // 
-            this.CodigoArea.DataPropertyName = "CodigoArea";
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoArea.DefaultCellStyle = dataGridViewCellStyle33;
-            this.CodigoArea.HeaderText = "Cód. Área";
-            this.CodigoArea.Name = "CodigoArea";
-            this.CodigoArea.ReadOnly = true;
-            // 
-            // DescArea
-            // 
-            this.DescArea.DataPropertyName = "DescArea";
-            this.DescArea.HeaderText = "Desc. Área";
-            this.DescArea.Name = "DescArea";
-            this.DescArea.ReadOnly = true;
+            this.DescGrupoSolucao.Width = 123;
             // 
             // CodigoNatureza
             // 
             this.CodigoNatureza.DataPropertyName = "CodigoNatureza";
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoNatureza.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoNatureza.DefaultCellStyle = dataGridViewCellStyle5;
             this.CodigoNatureza.HeaderText = "Cód. Natureza";
             this.CodigoNatureza.Name = "CodigoNatureza";
             this.CodigoNatureza.ReadOnly = true;
+            this.CodigoNatureza.Width = 92;
             // 
             // DescNatureza
             // 
@@ -515,15 +471,17 @@
             this.DescNatureza.HeaderText = "Desc. Natureza";
             this.DescNatureza.Name = "DescNatureza";
             this.DescNatureza.ReadOnly = true;
+            this.DescNatureza.Width = 97;
             // 
             // CodigoTpAtividade
             // 
             this.CodigoTpAtividade.DataPropertyName = "CodigoTpAtividade";
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoTpAtividade.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoTpAtividade.DefaultCellStyle = dataGridViewCellStyle6;
             this.CodigoTpAtividade.HeaderText = "Cód. Tp Atividade";
             this.CodigoTpAtividade.Name = "CodigoTpAtividade";
             this.CodigoTpAtividade.ReadOnly = true;
+            this.CodigoTpAtividade.Width = 107;
             // 
             // DescTpAtividade
             // 
@@ -531,19 +489,18 @@
             this.DescTpAtividade.HeaderText = "Desc. Tp Atividade";
             this.DescTpAtividade.Name = "DescTpAtividade";
             this.DescTpAtividade.ReadOnly = true;
+            this.DescTpAtividade.Width = 113;
             // 
             // FrmCadastroChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 372);
+            this.ClientSize = new System.Drawing.Size(800, 328);
             this.Controls.Add(this.TxtDescTpAtividade);
             this.Controls.Add(this.TxtDescNatureza);
-            this.Controls.Add(this.TxtDescArea);
             this.Controls.Add(this.TxtDescGrupoSolucao);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LblInfoCodigoAtendente);
             this.Controls.Add(this.LblInfoChamado);
@@ -554,12 +511,10 @@
             this.Controls.Add(this.BtnAlterar);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.BtnGravar);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.TxtCodTpAtividade);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.TxtCodNatureza);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.TxtCodArea);
             this.Controls.Add(this.TxtChamado);
             this.Controls.Add(this.TxtCodGpSolucao);
             this.Controls.Add(this.MktDataAbertura);
@@ -606,10 +561,6 @@
         private System.Windows.Forms.Label LblCompetencia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtDescGrupoSolucao;
-        private System.Windows.Forms.TextBox TxtCodArea;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox TxtDescArea;
         private System.Windows.Forms.TextBox TxtCodNatureza;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -623,13 +574,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Empresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Empregado;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataAbertura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Chamado;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoAtendente;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeAtendente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoChamado;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoGrupoSolucao;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescGrupoSolucao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoArea;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DescArea;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoNatureza;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescNatureza;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoTpAtividade;

@@ -52,26 +52,50 @@ namespace Tuottavuus
             utilitarios = new Utilitarios();
             empregadoControle = new EmpregadoControle(ref PbBarraCarregamento);
             pesquisaControle = new PesquisaControle(ref PbBarraCarregamento);
+            chamadoControle = new ChamadoControle(ref PbBarraCarregamento);
             ArrayList itensErros = new ArrayList();
             int qtdAtualizados = 0, qtdGravados = 0;
-
+            string caminhoErro = Application.StartupPath + @"\ErroImportacao";
             try
             {
                 if (opc == 'P')
                 {
                     booImportar = pesquisaControle.ImportarAquivo(idCompetencia, idEmpresa, strCaminho, out itensErros, out qtdAtualizados, out qtdGravados);
+                    if (pesquisaControle.ErroLista(caminhoErro, itensErros))
+                    {
+                        MessageBox.Show($"Erros ao gravar arquivo\n\n\nGravados: {qtdGravados.ToString("00")} empregado(s).\n" +
+                                        $"Atualizados: {qtdAtualizados.ToString("00")} empregado(s)", "Aviso");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Gravados: {qtdGravados.ToString("00")} empregado(s).\n" +
+                                        $"Atualizados: {qtdAtualizados.ToString("00")} empregado(s)", "Aviso");
+
+                    }
                 }
                 else if (opc == 'E')
                 {
                     booImportar = empregadoControle.ImportarEmpregado(idEmpresa, idDepartamento, strCaminho, out qtdAtualizados, out qtdGravados);
+
+                    MessageBox.Show($"Gravados: {qtdGravados.ToString("00")} empregado(s).\n" +
+                                    $"Atualizados: {qtdAtualizados.ToString("00")} empregado(s)", "Aviso");
+
                 }
                 else if (opc == 'C')
                 {
                     booImportar = chamadoControle.ImportarAquivo(idCompetencia, idEmpresa, strCaminho, out itensErros, out qtdAtualizados, out qtdGravados);
-                }
+                    if (chamadoControle.ErroLista(caminhoErro, itensErros))
+                    {
+                        MessageBox.Show($"Erros ao gravar arquivo\n\n\nGravados: {qtdGravados.ToString("00")} empregado(s).\n" +
+                                        $"Atualizados: {qtdAtualizados.ToString("00")} empregado(s)", "Aviso");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Gravados: {qtdGravados.ToString("00")} empregado(s).\n" +
+                                        $"Atualizados: {qtdAtualizados.ToString("00")} empregado(s)", "Aviso");
 
-                MessageBox.Show($"Gravados: {qtdGravados.ToString("00")} empregado(s).\n" +
-                $"Atualizados: {qtdAtualizados.ToString("00")} empregado(s)", "Aviso");
+                    }
+                }
                 this.BeginInvoke(new MethodInvoker(Close));
             }
             catch (Exception ex)

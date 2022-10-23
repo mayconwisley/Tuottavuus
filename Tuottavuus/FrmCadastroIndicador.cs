@@ -61,6 +61,15 @@ namespace Tuottavuus
                     indicador.Ativo = false;
                 }
 
+                if (CbPesquisa.Checked)
+                {
+                    indicador.Pesquisa = true;
+                }
+                else
+                {
+                    indicador.Pesquisa = false;
+                }
+
                 if (tipoManipulacao == TipoManipulacao.Gravar)
                 {
                     indicadorControle.Gravar(indicador);
@@ -97,6 +106,7 @@ namespace Tuottavuus
                 idIndicador = int.Parse(DgvIndicadors.Rows[e.RowIndex].Cells["Id"].Value.ToString());
                 TxtDescricao.Text = DgvIndicadors.Rows[e.RowIndex].Cells["Descricao"].Value.ToString();
                 bool ativo = bool.Parse(DgvIndicadors.Rows[e.RowIndex].Cells["Ativo"].Value.ToString());
+                bool pesquisa = bool.Parse(DgvIndicadors.Rows[e.RowIndex].Cells["PesquisaIndicador"].Value.ToString());
                 if (ativo == true)
                 {
                     CbAtivo.Checked = true;
@@ -104,6 +114,15 @@ namespace Tuottavuus
                 else
                 {
                     CbAtivo.Checked = false;
+                }
+
+                if (pesquisa)
+                {
+                    CbPesquisa.Checked = true;
+                }
+                else
+                {
+                    CbPesquisa.Checked = false;
                 }
 
                 BtnAlterar.Enabled = true;

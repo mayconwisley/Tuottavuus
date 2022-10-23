@@ -74,6 +74,8 @@
     <Compile Include="IndicadorControle.cs" />
     <Compile Include="MetaPesoControle.cs" />
     <Compile Include="PesquisaControle.cs" />
+    <Compile Include="PesquisaNotaControle.cs" />
+    <Compile Include="PossoMaisControle.cs" />
     <Compile Include="ProdutividadeControle.cs" />
     <Compile Include="ProdutividadeValorBaseControle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

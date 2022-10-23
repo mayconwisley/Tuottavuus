@@ -22,12 +22,12 @@ namespace Modelo
 
         private void LayoutPesquisa()
         {
-            this.Pesquisa = "Data de abertura;Código do atendente;Nome;Nota do conceito;Código do chamado";
+            this.Pesquisa = "Data do fechamento;Código do atendente;Nome;Nota do conceito;Código do chamado";
         }
 
         private void LayoutChamado()
         {
-            this.Chamado = "Data de abertura;Código do chamado;Código do grupo de solução;Descrição do grupo de solução;Código do atendente;Nome do atendente;Código da natureza;Descrição da natureza;Código do tipo da atividade;Descrição do tipo da atividade";
+            this.Chamado = "Data da atividade;Código do chamado;Código do grupo de solução;Descrição do grupo de solução;Código do atendente;Nome;Código da natureza;Descrição da natureza;Código do tipo da atividade;Descrição do tipo da atividade";
         }
 
         private void LayoutEmpregado()

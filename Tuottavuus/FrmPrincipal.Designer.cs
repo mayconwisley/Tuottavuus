@@ -57,11 +57,16 @@
             this.SubMenuPesquisaImportar = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuPesquisaCadastrar = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuPesquisaConsultar = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuPremiacao = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuPremiacaoPossoMais = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuPossoMaisCalcular = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuPossoMaisConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuRelatorio = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuRelatoriosRelatorio = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusPrincipal = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.SubMenuCadastroPesqNota = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuPrincipal.SuspendLayout();
             this.StatusPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +80,7 @@
             this.MenuProdutividade,
             this.MenuChamados,
             this.MenuPesquisa,
+            this.MenuPremiacao,
             this.MenuRelatorio,
             this.MenuSair});
             this.MenuPrincipal.Location = new System.Drawing.Point(0, 0);
@@ -96,7 +102,8 @@
             this.toolStripSeparator2,
             this.SubMenuCadastroFeriado,
             this.SubMenuCadastroValorBaseProdutividade,
-            this.SubMenuCadastroMetaPeso});
+            this.SubMenuCadastroMetaPeso,
+            this.SubMenuCadastroPesqNota});
             this.MenuCadastro.Name = "MenuCadastro";
             this.MenuCadastro.Size = new System.Drawing.Size(66, 20);
             this.MenuCadastro.Text = "Cadastro";
@@ -241,22 +248,23 @@
             // SubMenuChamadosImportar
             // 
             this.SubMenuChamadosImportar.Name = "SubMenuChamadosImportar";
-            this.SubMenuChamadosImportar.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuChamadosImportar.Size = new System.Drawing.Size(125, 22);
             this.SubMenuChamadosImportar.Text = "Importar";
             this.SubMenuChamadosImportar.Click += new System.EventHandler(this.SubMenuChamadosImportar_Click);
             // 
             // SubMenuChamadosCadastrar
             // 
             this.SubMenuChamadosCadastrar.Name = "SubMenuChamadosCadastrar";
-            this.SubMenuChamadosCadastrar.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuChamadosCadastrar.Size = new System.Drawing.Size(125, 22);
             this.SubMenuChamadosCadastrar.Text = "Cadastrar";
             this.SubMenuChamadosCadastrar.Click += new System.EventHandler(this.SubMenuChamadosCadastrar_Click);
             // 
             // SubMenuChamadosConsultar
             // 
             this.SubMenuChamadosConsultar.Name = "SubMenuChamadosConsultar";
-            this.SubMenuChamadosConsultar.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuChamadosConsultar.Size = new System.Drawing.Size(125, 22);
             this.SubMenuChamadosConsultar.Text = "Consultar";
+            this.SubMenuChamadosConsultar.Click += new System.EventHandler(this.SubMenuChamadosConsultar_Click);
             // 
             // MenuPesquisa
             // 
@@ -288,6 +296,35 @@
             this.SubMenuPesquisaConsultar.Size = new System.Drawing.Size(125, 22);
             this.SubMenuPesquisaConsultar.Text = "Consultar";
             this.SubMenuPesquisaConsultar.Click += new System.EventHandler(this.SubMenuPesquisaConsultar_Click);
+            // 
+            // MenuPremiacao
+            // 
+            this.MenuPremiacao.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuPremiacaoPossoMais});
+            this.MenuPremiacao.Name = "MenuPremiacao";
+            this.MenuPremiacao.Size = new System.Drawing.Size(75, 20);
+            this.MenuPremiacao.Text = "Premiação";
+            // 
+            // SubMenuPremiacaoPossoMais
+            // 
+            this.SubMenuPremiacaoPossoMais.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuPossoMaisCalcular,
+            this.SubMenuPossoMaisConsultar});
+            this.SubMenuPremiacaoPossoMais.Name = "SubMenuPremiacaoPossoMais";
+            this.SubMenuPremiacaoPossoMais.Size = new System.Drawing.Size(133, 22);
+            this.SubMenuPremiacaoPossoMais.Text = "Posso Mais";
+            // 
+            // SubMenuPossoMaisCalcular
+            // 
+            this.SubMenuPossoMaisCalcular.Name = "SubMenuPossoMaisCalcular";
+            this.SubMenuPossoMaisCalcular.Size = new System.Drawing.Size(125, 22);
+            this.SubMenuPossoMaisCalcular.Text = "Calcular";
+            // 
+            // SubMenuPossoMaisConsultar
+            // 
+            this.SubMenuPossoMaisConsultar.Name = "SubMenuPossoMaisConsultar";
+            this.SubMenuPossoMaisConsultar.Size = new System.Drawing.Size(125, 22);
+            this.SubMenuPossoMaisConsultar.Text = "Consultar";
             // 
             // MenuRelatorio
             // 
@@ -327,6 +364,13 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(217, 17);
             this.toolStripStatusLabel1.Text = "Desenvolvido por: Maycon Wisley - v1.0";
+            // 
+            // SubMenuCadastroPesqNota
+            // 
+            this.SubMenuCadastroPesqNota.Name = "SubMenuCadastroPesqNota";
+            this.SubMenuCadastroPesqNota.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroPesqNota.Text = "Pesquisa Nota";
+            this.SubMenuCadastroPesqNota.Click += new System.EventHandler(this.SubMenuCadastroPesqNota_Click);
             // 
             // FrmPrincipal
             // 
@@ -389,6 +433,11 @@
         private System.Windows.Forms.ToolStripMenuItem SubMenuChamadosImportar;
         private System.Windows.Forms.ToolStripMenuItem SubMenuChamadosCadastrar;
         private System.Windows.Forms.ToolStripMenuItem SubMenuChamadosConsultar;
+        private System.Windows.Forms.ToolStripMenuItem MenuPremiacao;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuPremiacaoPossoMais;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuPossoMaisCalcular;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuPossoMaisConsultar;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuCadastroPesqNota;
     }
 }
 

@@ -111,7 +111,7 @@ namespace Controle
             }
 
         }
-        public double NotaAvaliacaoAtendente(int codigoAtendente)
+        public decimal NotaAvaliacaoAtendente(int codigoAtendente)
         {
             crud = new CRUD();
             SQL = "SELECT SUM(NotaConceito) " +
@@ -131,7 +131,7 @@ namespace Controle
                 }
                 else
                 {
-                    return double.Parse(totalNota.ToString());
+                    return decimal.Parse(totalNota.ToString());
                 }
             }
             catch (Exception ex)

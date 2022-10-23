@@ -31,15 +31,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.LblInfoIndicador = new System.Windows.Forms.Label();
             this.DgvIndicadors = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnGravar = new System.Windows.Forms.Button();
             this.CbAtivo = new System.Windows.Forms.CheckBox();
             this.TxtDescricao = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.CbPesquisa = new System.Windows.Forms.CheckBox();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PesquisaIndicador = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvIndicadors)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,13 +67,15 @@
             // 
             this.DgvIndicadors.AllowUserToAddRows = false;
             this.DgvIndicadors.AllowUserToDeleteRows = false;
+            this.DgvIndicadors.AllowUserToOrderColumns = true;
             this.DgvIndicadors.BackgroundColor = System.Drawing.SystemColors.Control;
             this.DgvIndicadors.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgvIndicadors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvIndicadors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Descricao,
-            this.Ativo});
+            this.Ativo,
+            this.PesquisaIndicador});
             this.DgvIndicadors.Location = new System.Drawing.Point(12, 121);
             this.DgvIndicadors.MultiSelect = false;
             this.DgvIndicadors.Name = "DgvIndicadors";
@@ -81,36 +85,6 @@
             this.DgvIndicadors.Size = new System.Drawing.Size(296, 128);
             this.DgvIndicadors.TabIndex = 13;
             this.DgvIndicadors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvIndicadors_CellDoubleClick);
-            // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 41;
-            // 
-            // Descricao
-            // 
-            this.Descricao.DataPropertyName = "Descricao";
-            this.Descricao.HeaderText = "Descrição";
-            this.Descricao.Name = "Descricao";
-            this.Descricao.ReadOnly = true;
-            this.Descricao.Width = 190;
-            // 
-            // Ativo
-            // 
-            this.Ativo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Ativo.DataPropertyName = "Ativo";
-            this.Ativo.FalseValue = "Não";
-            this.Ativo.HeaderText = "Ativo";
-            this.Ativo.Name = "Ativo";
-            this.Ativo.ReadOnly = true;
-            this.Ativo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Ativo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Ativo.TrueValue = "Sim";
-            this.Ativo.Width = 56;
             // 
             // BtnExcluir
             // 
@@ -174,11 +148,59 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Descrição";
             // 
+            // CbPesquisa
+            // 
+            this.CbPesquisa.AutoSize = true;
+            this.CbPesquisa.Location = new System.Drawing.Point(68, 51);
+            this.CbPesquisa.Name = "CbPesquisa";
+            this.CbPesquisa.Size = new System.Drawing.Size(69, 17);
+            this.CbPesquisa.TabIndex = 16;
+            this.CbPesquisa.Text = "Pesquisa";
+            this.CbPesquisa.UseVisualStyleBackColor = true;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 41;
+            // 
+            // Descricao
+            // 
+            this.Descricao.DataPropertyName = "Descricao";
+            this.Descricao.HeaderText = "Descrição";
+            this.Descricao.Name = "Descricao";
+            this.Descricao.ReadOnly = true;
+            this.Descricao.Width = 190;
+            // 
+            // Ativo
+            // 
+            this.Ativo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Ativo.DataPropertyName = "Ativo";
+            this.Ativo.FalseValue = "Não";
+            this.Ativo.HeaderText = "Ativo";
+            this.Ativo.Name = "Ativo";
+            this.Ativo.ReadOnly = true;
+            this.Ativo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Ativo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Ativo.TrueValue = "Sim";
+            this.Ativo.Width = 56;
+            // 
+            // PesquisaIndicador
+            // 
+            this.PesquisaIndicador.DataPropertyName = "Pesquisa";
+            this.PesquisaIndicador.HeaderText = "Pesquisa";
+            this.PesquisaIndicador.Name = "PesquisaIndicador";
+            this.PesquisaIndicador.ReadOnly = true;
+            // 
             // FrmCadastroIndicador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(320, 282);
+            this.Controls.Add(this.CbPesquisa);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LblInfoIndicador);
             this.Controls.Add(this.DgvIndicadors);
@@ -208,14 +230,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LblInfoIndicador;
         private System.Windows.Forms.DataGridView DgvIndicadors;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Ativo;
         private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Button BtnAlterar;
         private System.Windows.Forms.Button BtnGravar;
         private System.Windows.Forms.CheckBox CbAtivo;
         private System.Windows.Forms.TextBox TxtDescricao;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox CbPesquisa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Ativo;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn PesquisaIndicador;
     }
 }

@@ -183,6 +183,34 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
+        public int TotalEmpregadoPorDepartamento(int idDepartamento)
+        {
+            crud = new CRUD();
+            SQL = "SELECT Count(Id) AS Total " +
+                    "FROM Empregado " +
+                    "WHERE Id_Departamento = @Id_Departamento";
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id_Departamento", idDepartamento);
+
+                var totalEmpregado = crud.Executar(CommandType.Text, SQL);
+
+                if (totalEmpregado is null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return int.Parse(totalEmpregado.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public bool IsCodigo(int codigo, int idEmpregado)
         {
 

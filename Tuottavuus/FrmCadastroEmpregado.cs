@@ -231,10 +231,19 @@ namespace Tuottavuus
 
             utilitarios = new Utilitarios();
             string caminhoArquivo = utilitarios.CaminhoArquivo();
+            try
+            {
 
-            FrmBarraCarregamento frm = new FrmBarraCarregamento('E', 0, idEmpresa, idDepartamento, caminhoArquivo.Trim());
-            frm.MdiParent = FrmPrincipal.ActiveForm;
-            frm.Show();
+                FrmBarraCarregamento frm = new FrmBarraCarregamento('E', 0, idEmpresa, idDepartamento, caminhoArquivo.Trim());
+                frm.MdiParent = FrmPrincipal.ActiveForm;
+                frm.Show();
+                ListaEmpregado();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void LblLayoutImportacao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

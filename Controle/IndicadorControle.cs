@@ -17,13 +17,14 @@ namespace Controle
         public bool Gravar(Indicador indicador)
         {
             crud = new CRUD();
-            SQL = "INSERT INTO Indicador (Descricao, Ativo) " +
-                "VALUES (@Descricao, @Ativo)";
+            SQL = "INSERT INTO Indicador (Descricao, Ativo, Pesquisa) " +
+                "VALUES (@Descricao, @Ativo, @Pesquisa)";
             try
             {
                 crud.LimparParametros();
                 crud.AdicionarParametros("Descricao", indicador.Descricao);
                 crud.AdicionarParametros("Ativo", indicador.Ativo);
+                crud.AdicionarParametros("Pesquisa", indicador.Pesquisa);
                 crud.Executar(CommandType.Text, SQL);
                 return true;
             }
@@ -35,13 +36,14 @@ namespace Controle
         public bool Alterar(Indicador indicador)
         {
             crud = new CRUD();
-            SQL = "UPDATE Indicador SET Descricao = @Descricao, Ativo = @Ativo " +
+            SQL = "UPDATE Indicador SET Descricao = @Descricao, Ativo = @Ativo, Pesquisa = @Pesquisa " +
                 "WHERE Id = @Id";
             try
             {
                 crud.LimparParametros();
                 crud.AdicionarParametros("Descricao", indicador.Descricao);
                 crud.AdicionarParametros("Ativo", indicador.Ativo);
+                crud.AdicionarParametros("Pesquisa", indicador.Pesquisa);
                 crud.AdicionarParametros("Id", indicador.Id);
 
                 crud.Executar(CommandType.Text, SQL);
@@ -106,7 +108,7 @@ namespace Controle
         public DataTable IndicadorTabela()
         {
             crud = new CRUD();
-            SQL = "SELECT Id, Descricao, Ativo " +
+            SQL = "SELECT Id, Descricao, Ativo, Pesquisa " +
                 "FROM Indicador " +
                 "ORDER BY Descricao ";
             try

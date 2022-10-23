@@ -73,6 +73,8 @@
     <Compile Include="LayoutImportacao.cs" />
     <Compile Include="MetaPeso.cs" />
     <Compile Include="Pesquisa.cs" />
+    <Compile Include="PesquisaNota.cs" />
+    <Compile Include="PossoMais.cs" />
     <Compile Include="Produtividade.cs" />
     <Compile Include="ProdutividadeValorBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

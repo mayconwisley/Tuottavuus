@@ -9,8 +9,6 @@ namespace Modelo
         public int CodigoChamado { get; set; }
         public int CodigoGrupoSolucao { get; set; }
         public string DescGrupoSolucao { get; set; }
-        public int CodigoArea { get; set; }
-        public string DescArea { get; set; }
         public int CodigoAtendente { get; set; }
         public string NomeAtendente { get; set; }
         public int CodigoNatureza { get; set; }

@@ -24,7 +24,9 @@ namespace Tuottavuus
         FrmCadastroPesquisaAvaliacao cadastroPesquisaAvaliacao; //15
         FrmImportar importar; //16,18
         FrmConsultaPesquisa consultaPesquisa; //17
-        FrmCadastroChamado cadastroChamado;
+        FrmCadastroChamado cadastroChamado; //19
+        FrmConsultaChamado consultaChamado; //20
+        FrmPesquisaNota pesquisaNota; //21
         bool aberto = true;
 
         public FrmPrincipal()
@@ -220,6 +222,25 @@ namespace Tuottavuus
                             aberto = false;
                         }
                         break;
+                    case 20:
+                        consultaChamado = new FrmConsultaChamado();
+                        consultaChamado.MdiParent = this;
+                        if (item is FrmConsultaChamado)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+                        break;
+                    case 21:
+                        pesquisaNota = new FrmPesquisaNota();
+                        pesquisaNota.MdiParent = this;
+                        if (item is FrmPesquisaNota)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+
+                        break;
                     default:
                         break;
                 }
@@ -287,6 +308,12 @@ namespace Tuottavuus
                         break;
                     case 19:
                         cadastroChamado.Show();
+                        break;
+                    case 20:
+                        consultaChamado.Show();
+                        break;
+                    case 21:
+                        pesquisaNota.Show();
                         break;
                     default:
                         break;
@@ -410,6 +437,16 @@ namespace Tuottavuus
         private void SubMenuChamadosCadastrar_Click(object sender, EventArgs e)
         {
             AbrirFormulario(19);
+        }
+
+        private void SubMenuChamadosConsultar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(20);
+        }
+
+        private void SubMenuCadastroPesqNota_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(21);
         }
     }
 }

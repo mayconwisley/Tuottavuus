@@ -92,6 +92,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -194,6 +195,12 @@
     <Compile Include="FrmConsultaAvaliacao.Designer.cs">
       <DependentUpon>FrmConsultaAvaliacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsultaChamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaChamado.Designer.cs">
+      <DependentUpon>FrmConsultaChamado.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConsultaProdutividade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +224,12 @@
     </Compile>
     <Compile Include="FrmConsultaPesquisa.Designer.cs">
       <DependentUpon>FrmConsultaPesquisa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPesquisaNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPesquisaNota.Designer.cs">
+      <DependentUpon>FrmPesquisaNota.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -293,6 +306,9 @@
     <EmbeddedResource Include="FrmConsultaAvaliacao.resx">
       <DependentUpon>FrmConsultaAvaliacao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaChamado.resx">
+      <DependentUpon>FrmConsultaChamado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaProdutividade.resx">
       <DependentUpon>FrmConsultaProdutividade.cs</DependentUpon>
     </EmbeddedResource>
@@ -304,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaPesquisa.resx">
       <DependentUpon>FrmConsultaPesquisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPesquisaNota.resx">
+      <DependentUpon>FrmPesquisaNota.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
