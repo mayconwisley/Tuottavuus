@@ -29,13 +29,13 @@ namespace Controle
 
             if (opcMeta == 'Q')
             {
-                totalChamado = chamadoControle.QuantidadePorGrupoSolucao(idCompetencia, idEmpresa, idEmpregado, codigoGrupo);
-                totalChamdadoAtendente = chamadoControle.QuantidadeChamadoAtendente(idCompetencia, idEmpresa, idEmpregado);
+                totalChamado = chamadoControle.QtdPorGrupoSolucao(idCompetencia, idEmpresa, codigoGrupo);
+                totalChamdadoAtendente = chamadoControle.QtdChamadoAtendente(idCompetencia, idEmpresa, idEmpregado);
             }
             else if (opcMeta == 'C')
             {
-                totalChamado = chamadoControle.QuantidadePorGrupoSolucaoCapturado(idCompetencia, idEmpresa, idEmpregado, codigoGrupo);
-                totalChamdadoAtendente = chamadoControle.QuantidadeCapturadoAtendente(idCompetencia, idEmpresa, idEmpregado);
+                totalChamado = chamadoControle.QtdPorGrupoSolucaoCapturado(idCompetencia, idEmpresa, codigoGrupo);
+                totalChamdadoAtendente = chamadoControle.QtdCapturadoAtendente(idCompetencia, idEmpresa, idEmpregado);
             }
 
             decimal media = totalChamado / totalEmpregado;

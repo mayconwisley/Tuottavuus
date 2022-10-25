@@ -28,36 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.CbxEmpresa = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.MktCompetencia = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.DgvTotalChamados = new System.Windows.Forms.DataGridView();
-            this.LblInfoTotalChamado = new System.Windows.Forms.Label();
-            this.DgvTotalChamadosCap = new System.Windows.Forms.DataGridView();
-            this.LblInfoTotalCaptura = new System.Windows.Forms.Label();
-            this.DgvTotalChamadoFeed = new System.Windows.Forms.DataGridView();
-            this.LblInfoTotalFeed = new System.Windows.Forms.Label();
-            this.CharCapEnc = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label6 = new System.Windows.Forms.Label();
             this.CodigoAtendenteChamado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeAtendenteChamado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalChamado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LblInfoTotalChamado = new System.Windows.Forms.Label();
+            this.DgvTotalChamadosCap = new System.Windows.Forms.DataGridView();
             this.CodigoAtendenteCapturado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeAtendenteCapturado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCapturado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LblInfoTotalCaptura = new System.Windows.Forms.Label();
+            this.DgvTotalChamadoFeed = new System.Windows.Forms.DataGridView();
             this.CodigoAtendenteFeedback = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeAtendenteFeedback = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalFeedback = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LblInfoTotalFeed = new System.Windows.Forms.Label();
+            this.CharCapEnc = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label6 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTotalChamados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTotalChamadosCap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTotalChamadoFeed)).BeginInit();
@@ -122,6 +123,34 @@
             this.DgvTotalChamados.Size = new System.Drawing.Size(422, 188);
             this.DgvTotalChamados.TabIndex = 8;
             // 
+            // CodigoAtendenteChamado
+            // 
+            this.CodigoAtendenteChamado.DataPropertyName = "CodigoAtendente";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoAtendenteChamado.DefaultCellStyle = dataGridViewCellStyle7;
+            this.CodigoAtendenteChamado.HeaderText = "Cód. Atendente";
+            this.CodigoAtendenteChamado.Name = "CodigoAtendenteChamado";
+            this.CodigoAtendenteChamado.ReadOnly = true;
+            this.CodigoAtendenteChamado.Width = 80;
+            // 
+            // NomeAtendenteChamado
+            // 
+            this.NomeAtendenteChamado.DataPropertyName = "NomeAtendente";
+            this.NomeAtendenteChamado.HeaderText = "Nome Atendente";
+            this.NomeAtendenteChamado.Name = "NomeAtendenteChamado";
+            this.NomeAtendenteChamado.ReadOnly = true;
+            this.NomeAtendenteChamado.Width = 200;
+            // 
+            // TotalChamado
+            // 
+            this.TotalChamado.DataPropertyName = "Total";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TotalChamado.DefaultCellStyle = dataGridViewCellStyle8;
+            this.TotalChamado.HeaderText = "Total";
+            this.TotalChamado.Name = "TotalChamado";
+            this.TotalChamado.ReadOnly = true;
+            this.TotalChamado.Width = 80;
+            // 
             // LblInfoTotalChamado
             // 
             this.LblInfoTotalChamado.AutoSize = true;
@@ -150,6 +179,34 @@
             this.DgvTotalChamadosCap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvTotalChamadosCap.Size = new System.Drawing.Size(422, 188);
             this.DgvTotalChamadosCap.TabIndex = 8;
+            // 
+            // CodigoAtendenteCapturado
+            // 
+            this.CodigoAtendenteCapturado.DataPropertyName = "CodigoAtendente";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoAtendenteCapturado.DefaultCellStyle = dataGridViewCellStyle9;
+            this.CodigoAtendenteCapturado.HeaderText = "Cód. Atendente";
+            this.CodigoAtendenteCapturado.Name = "CodigoAtendenteCapturado";
+            this.CodigoAtendenteCapturado.ReadOnly = true;
+            this.CodigoAtendenteCapturado.Width = 80;
+            // 
+            // NomeAtendenteCapturado
+            // 
+            this.NomeAtendenteCapturado.DataPropertyName = "NomeAtendente";
+            this.NomeAtendenteCapturado.HeaderText = "Nome Atendente";
+            this.NomeAtendenteCapturado.Name = "NomeAtendenteCapturado";
+            this.NomeAtendenteCapturado.ReadOnly = true;
+            this.NomeAtendenteCapturado.Width = 200;
+            // 
+            // TotalCapturado
+            // 
+            this.TotalCapturado.DataPropertyName = "Total";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TotalCapturado.DefaultCellStyle = dataGridViewCellStyle10;
+            this.TotalCapturado.HeaderText = "Total";
+            this.TotalCapturado.Name = "TotalCapturado";
+            this.TotalCapturado.ReadOnly = true;
+            this.TotalCapturado.Width = 80;
             // 
             // LblInfoTotalCaptura
             // 
@@ -180,103 +237,11 @@
             this.DgvTotalChamadoFeed.Size = new System.Drawing.Size(422, 188);
             this.DgvTotalChamadoFeed.TabIndex = 8;
             // 
-            // LblInfoTotalFeed
-            // 
-            this.LblInfoTotalFeed.AutoSize = true;
-            this.LblInfoTotalFeed.Location = new System.Drawing.Point(12, 336);
-            this.LblInfoTotalFeed.Name = "LblInfoTotalFeed";
-            this.LblInfoTotalFeed.Size = new System.Drawing.Size(150, 13);
-            this.LblInfoTotalFeed.TabIndex = 9;
-            this.LblInfoTotalFeed.Text = "Total de Chamados Feedback";
-            // 
-            // CharCapEnc
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.CharCapEnc.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.CharCapEnc.Legends.Add(legend1);
-            this.CharCapEnc.Location = new System.Drawing.Point(440, 352);
-            this.CharCapEnc.Name = "CharCapEnc";
-            this.CharCapEnc.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.CharCapEnc.Series.Add(series1);
-            this.CharCapEnc.Size = new System.Drawing.Size(422, 188);
-            this.CharCapEnc.TabIndex = 10;
-            this.CharCapEnc.Text = "chart1";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(440, 336);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Captura x Encaminhado";
-            // 
-            // CodigoAtendenteChamado
-            // 
-            this.CodigoAtendenteChamado.DataPropertyName = "CodigoAtendente";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoAtendenteChamado.DefaultCellStyle = dataGridViewCellStyle1;
-            this.CodigoAtendenteChamado.HeaderText = "Cód. Atendente";
-            this.CodigoAtendenteChamado.Name = "CodigoAtendenteChamado";
-            this.CodigoAtendenteChamado.ReadOnly = true;
-            this.CodigoAtendenteChamado.Width = 80;
-            // 
-            // NomeAtendenteChamado
-            // 
-            this.NomeAtendenteChamado.DataPropertyName = "NomeAtendente";
-            this.NomeAtendenteChamado.HeaderText = "Nome Atendente";
-            this.NomeAtendenteChamado.Name = "NomeAtendenteChamado";
-            this.NomeAtendenteChamado.ReadOnly = true;
-            this.NomeAtendenteChamado.Width = 200;
-            // 
-            // TotalChamado
-            // 
-            this.TotalChamado.DataPropertyName = "Total";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TotalChamado.DefaultCellStyle = dataGridViewCellStyle2;
-            this.TotalChamado.HeaderText = "Total";
-            this.TotalChamado.Name = "TotalChamado";
-            this.TotalChamado.ReadOnly = true;
-            this.TotalChamado.Width = 80;
-            // 
-            // CodigoAtendenteCapturado
-            // 
-            this.CodigoAtendenteCapturado.DataPropertyName = "CodigoAtendente";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoAtendenteCapturado.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CodigoAtendenteCapturado.HeaderText = "Cód. Atendente";
-            this.CodigoAtendenteCapturado.Name = "CodigoAtendenteCapturado";
-            this.CodigoAtendenteCapturado.ReadOnly = true;
-            this.CodigoAtendenteCapturado.Width = 80;
-            // 
-            // NomeAtendenteCapturado
-            // 
-            this.NomeAtendenteCapturado.DataPropertyName = "NomeAtendente";
-            this.NomeAtendenteCapturado.HeaderText = "Nome Atendente";
-            this.NomeAtendenteCapturado.Name = "NomeAtendenteCapturado";
-            this.NomeAtendenteCapturado.ReadOnly = true;
-            this.NomeAtendenteCapturado.Width = 200;
-            // 
-            // TotalCapturado
-            // 
-            this.TotalCapturado.DataPropertyName = "Total";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TotalCapturado.DefaultCellStyle = dataGridViewCellStyle4;
-            this.TotalCapturado.HeaderText = "Total";
-            this.TotalCapturado.Name = "TotalCapturado";
-            this.TotalCapturado.ReadOnly = true;
-            this.TotalCapturado.Width = 80;
-            // 
             // CodigoAtendenteFeedback
             // 
             this.CodigoAtendenteFeedback.DataPropertyName = "CodigoAtendente";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoAtendenteFeedback.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoAtendenteFeedback.DefaultCellStyle = dataGridViewCellStyle11;
             this.CodigoAtendenteFeedback.HeaderText = "Cód. Atendente";
             this.CodigoAtendenteFeedback.Name = "CodigoAtendenteFeedback";
             this.CodigoAtendenteFeedback.ReadOnly = true;
@@ -293,18 +258,66 @@
             // TotalFeedback
             // 
             this.TotalFeedback.DataPropertyName = "Total";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TotalFeedback.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TotalFeedback.DefaultCellStyle = dataGridViewCellStyle12;
             this.TotalFeedback.HeaderText = "Total";
             this.TotalFeedback.Name = "TotalFeedback";
             this.TotalFeedback.ReadOnly = true;
             this.TotalFeedback.Width = 80;
+            // 
+            // LblInfoTotalFeed
+            // 
+            this.LblInfoTotalFeed.AutoSize = true;
+            this.LblInfoTotalFeed.Location = new System.Drawing.Point(12, 336);
+            this.LblInfoTotalFeed.Name = "LblInfoTotalFeed";
+            this.LblInfoTotalFeed.Size = new System.Drawing.Size(150, 13);
+            this.LblInfoTotalFeed.TabIndex = 9;
+            this.LblInfoTotalFeed.Text = "Total de Chamados Feedback";
+            // 
+            // CharCapEnc
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.CharCapEnc.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.CharCapEnc.Legends.Add(legend2);
+            this.CharCapEnc.Location = new System.Drawing.Point(440, 352);
+            this.CharCapEnc.Name = "CharCapEnc";
+            this.CharCapEnc.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.CharCapEnc.Series.Add(series2);
+            this.CharCapEnc.Size = new System.Drawing.Size(422, 188);
+            this.CharCapEnc.TabIndex = 10;
+            this.CharCapEnc.Text = "chart1";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(440, 336);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(120, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Captura x Encaminhado";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(667, 52);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(30, 13);
+            this.linkLabel1.TabIndex = 11;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "teste";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // FrmConsultaChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 556);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.CharCapEnc);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.LblInfoTotalFeed);
@@ -358,5 +371,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoAtendenteFeedback;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeAtendenteFeedback;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalFeedback;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

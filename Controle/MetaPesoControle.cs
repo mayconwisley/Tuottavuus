@@ -72,6 +72,35 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
+        public int IdPorMeta(decimal porcMeta)
+        {
+
+            crud = new CRUD();
+            SQL = "SELECT MAX(Id) " +
+                  "FROM MetaPeso " +
+                  "WHERE Meta <= @Meta";
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Meta", porcMeta);
+                var idMeta = crud.Executar(CommandType.Text, SQL);
+
+                if (String.IsNullOrEmpty(idMeta.ToString()))
+                {
+                    return 0;
+                }
+                else
+                {
+                    return int.Parse(idMeta.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public DataTable MetaPesoTabela()
         {
             crud = new CRUD();

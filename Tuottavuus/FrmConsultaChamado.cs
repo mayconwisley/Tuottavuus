@@ -18,6 +18,9 @@ namespace Tuottavuus
         EmpresaControle empresaControle;
         CompetenciaControle competenciaControle;
         ChamadoControle chamadoControle;
+        PossoMaisControle possoMaisControle;
+        MetaPesoControle metaPesoControle;
+
         int idEmpregado = 0, idEmpresa = 0, idCompetencia = 0;
 
         DateTime dtCompetencia;
@@ -40,13 +43,12 @@ namespace Tuottavuus
                 return false;
             }
         }
-
-        private void ListaQuantidadeChamado(int idCompetencia, int idEmpresa)
+        private void ListaQtdChamado(int idCompetencia, int idEmpresa)
         {
             chamadoControle = new ChamadoControle();
             try
             {
-                DgvTotalChamados.DataSource = chamadoControle.QuantidadeChamadoTabela(idCompetencia, idEmpresa);
+                DgvTotalChamados.DataSource = chamadoControle.QtdChamadoTabela(idCompetencia, idEmpresa);
                 int totalChamado = DgvTotalChamados.Rows.Count;
                 LblInfoTotalChamado.Text = "Total de Chamados  - " + totalChamado.ToString("00");
             }
@@ -56,12 +58,12 @@ namespace Tuottavuus
             }
 
         }
-        private void ListaQuantidadeChamadoCaptura(int idCompetencia, int idEmpresa)
+        private void ListaQtdChamadoCaptura(int idCompetencia, int idEmpresa)
         {
             chamadoControle = new ChamadoControle();
             try
             {
-                DgvTotalChamadosCap.DataSource = chamadoControle.QuantidadeChamadoCapturadoTabela(idCompetencia, idEmpresa);
+                DgvTotalChamadosCap.DataSource = chamadoControle.QtdChamadoCapturadoTabela(idCompetencia, idEmpresa);
                 int totalChamado = DgvTotalChamadosCap.Rows.Count;
                 LblInfoTotalCaptura.Text = "Total de Chamados Capturados - " + totalChamado.ToString("00");
             }
@@ -71,13 +73,12 @@ namespace Tuottavuus
             }
 
         }
-
-        private void ListaQuantidadeChamadoFeedback(int idCompetencia, int idEmpresa)
+        private void ListaQtdChamadoFeedback(int idCompetencia, int idEmpresa)
         {
             chamadoControle = new ChamadoControle();
             try
             {
-                DgvTotalChamadoFeed.DataSource = chamadoControle.QuantidadeFeedbackTabela(idCompetencia, idEmpresa);
+                DgvTotalChamadoFeed.DataSource = chamadoControle.QtdFeedbackTabela(idCompetencia, idEmpresa);
                 int totalChamado = DgvTotalChamadoFeed.Rows.Count;
                 LblInfoTotalFeed.Text = "Total de Chamados Feedback - " + totalChamado.ToString("00");
             }
@@ -87,48 +88,55 @@ namespace Tuottavuus
             }
 
         }
-
         private void FrmConsultaChamado_Load(object sender, EventArgs e)
         {
             ListaCompetenciaAtiva();
             ListaEmpresa();
         }
-
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 idEmpresa = int.Parse(CbxEmpresa.SelectedValue.ToString());
                 ListaCompetenciaId();
-                ListaQuantidadeChamado(idCompetencia, idEmpresa);
-                ListaQuantidadeChamadoCaptura(idCompetencia, idEmpresa);
-                ListaQuantidadeChamadoFeedback(idCompetencia, idEmpresa);
+                ListaQtdChamado(idCompetencia, idEmpresa);
+                ListaQtdChamadoCaptura(idCompetencia, idEmpresa);
+                ListaQtdChamadoFeedback(idCompetencia, idEmpresa);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro");
             }
         }
-
         private void MktCompetencia_Leave(object sender, EventArgs e)
         {
             try
             {
                 ListaCompetenciaId();
-                ListaQuantidadeChamado(idCompetencia, idEmpresa);
-                ListaQuantidadeChamadoCaptura(idCompetencia, idEmpresa);
-                ListaQuantidadeChamadoFeedback(idCompetencia, idEmpresa);
+                ListaQtdChamado(idCompetencia, idEmpresa);
+                ListaQtdChamadoCaptura(idCompetencia, idEmpresa);
+                ListaQtdChamadoFeedback(idCompetencia, idEmpresa);
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro");
-                ListaQuantidadeChamado(0, 0);
-                ListaQuantidadeChamadoCaptura(0, 0);
-                ListaQuantidadeChamadoFeedback(0, 0);
+                ListaQtdChamado(0, 0);
+                ListaQtdChamadoCaptura(0, 0);
+                ListaQtdChamadoFeedback(0, 0);
             }
         }
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            possoMaisControle = new PossoMaisControle();
+            metaPesoControle = new MetaPesoControle();
 
+            decimal teste1 = possoMaisControle.PorcentagemChamado('C', idCompetencia, idEmpresa, 28, 3, 1);
+            int testeId = metaPesoControle.IdPorMeta(teste1);
+            
+            
+            linkLabel1.Text = $"Id: {testeId.ToString("00")} Porcentagem: {teste1.ToString("#,###,##0.00")}%" ;
+        }
         private void ListaCompetenciaId()
         {
             competenciaControle = new CompetenciaControle();

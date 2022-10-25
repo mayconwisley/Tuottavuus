@@ -12,7 +12,7 @@ namespace Controle
         public IndicadorControle()
         {
             crud = new CRUD();
-            SQL = String.Empty;
+            SQL = string.Empty;
         }
         public bool Gravar(Indicador indicador)
         {

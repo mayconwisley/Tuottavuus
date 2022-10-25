@@ -148,14 +148,14 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public int QuantidadeChamadoAtendente(int idCompetencia, int idEmpresa, int idEmpregado)
+        public int QtdChamadoAtendente(int idCompetencia, int idEmpresa, int idEmpregado)
         {
             crud = new CRUD();
             SQL = "SELECT COUNT(Id) AS Total " +
-                    "FROM Chamados " +
-                    "WHERE Id_Competencia = @Id_Competencia " +
-                    "AND Id_Empresa = @Id_Empresa " +
-                    "AND Id_Empregado = @Id_Empregado";
+                  "FROM Chamados " +
+                  "WHERE Id_Competencia = @Id_Competencia " +
+                  "AND Id_Empresa = @Id_Empresa " +
+                  "AND Id_Empregado = @Id_Empregado";
 
             try
             {
@@ -181,15 +181,15 @@ namespace Controle
             }
 
         }
-        public int QuantidadeCapturadoAtendente(int idCompetencia, int idEmpresa, int idEmpregado)
+        public int QtdCapturadoAtendente(int idCompetencia, int idEmpresa, int idEmpregado)
         {
             crud = new CRUD();
             SQL = "SELECT COUNT(Id) AS Total " +
-                    "FROM Chamados " +
-                    "WHERE Id_Competencia = @Id_Competencia " +
-                    "AND CodigoNatureza = 5 " +
-                    "AND Id_Empresa = @Id_Empresa " +
-                    "AND Id_Empregado = @Id_Empregado";
+                  "FROM Chamados " +
+                  "WHERE Id_Competencia = @Id_Competencia " +
+                  "AND CodigoNatureza = 5 " +
+                  "AND Id_Empresa = @Id_Empresa " +
+                  "AND Id_Empregado = @Id_Empregado";
 
             try
             {
@@ -215,15 +215,15 @@ namespace Controle
             }
 
         }
-        public int QuantidadeFeedbackAtendente(int idCompetencia, int idEmpresa, int idEmpregado)
+        public int QtdFeedbackAtendente(int idCompetencia, int idEmpresa, int idEmpregado)
         {
             crud = new CRUD();
             SQL = "SELECT COUNT(Id) AS Total " +
-                    "FROM Chamados " +
-                    "WHERE Id_Competencia = @Id_Competencia " +
-                    "AND CodigoTpAtividade = 22 " +
-                    "AND Id_Empresa = @Id_Empresa " +
-                    "AND Id_Empregado = @Id_Empregado";
+                  "FROM Chamados " +
+                  "WHERE Id_Competencia = @Id_Competencia " +
+                  "AND CodigoTpAtividade = 22 " +
+                  "AND Id_Empresa = @Id_Empresa " +
+                  "AND Id_Empregado = @Id_Empregado";
 
             try
             {
@@ -249,24 +249,23 @@ namespace Controle
             }
 
         }
-        public int QuantidadePorGrupoSolucao(int idCompetencia, int idEmpresa, int idEmpregado, int codigoGrupo)
+        public int QtdPorGrupoSolucao(int idCompetencia, int idEmpresa, int codigoGrupo)
         {
             crud = new CRUD();
-            SQL = "SELECT COUNT(Id) AS Total " +
-                    "FROM Chamados " +
-                    "WHERE Id_Competencia = @Id_Competencia " +
-                    "AND CodigoGrupo = @CodigoGrupo " +
-                    "AND Id_Empresa = @Id_Empresa " +
-                    "AND Id_Empregado = @Id_Empregado " +
-                    "AND CodigoNatureza IN (5,8)";
+            SQL = "SELECT COUNT(*) " +
+                  "FROM Chamados " +
+                  "WHERE Id_Competencia = @Id_Competencia " +
+                  "AND CodigoGrupoSolucao = @CodigoGrupoSolucao " +
+                  "AND Id_Empresa = @Id_Empresa " +
+                  "AND CodigoNatureza IN (5,8)";
 
             try
             {
                 crud.LimparParametros();
                 crud.AdicionarParametros("Id_Competencia", idCompetencia);
+                crud.AdicionarParametros("CodigoGrupoSolucao", codigoGrupo);
                 crud.AdicionarParametros("Id_Empresa", idEmpresa);
-                crud.AdicionarParametros("Id_Empregado", idEmpregado);
-                crud.AdicionarParametros("CodigoGrupo", codigoGrupo);
+
 
                 var qtdChamado = crud.Executar(CommandType.Text, SQL);
 
@@ -285,24 +284,22 @@ namespace Controle
             }
 
         }
-        public int QuantidadePorGrupoSolucaoCapturado(int idCompetencia, int idEmpresa, int idEmpregado, int codigoGrupo)
+        public int QtdPorGrupoSolucaoCapturado(int idCompetencia, int idEmpresa, int codigoGrupo)
         {
             crud = new CRUD();
-            SQL = "SELECT COUNT(Id) AS Total " +
-                    "FROM Chamados " +
-                    "WHERE Id_Competencia = @Id_Competencia " +
-                    "AND CodigoGrupo = @CodigoGrupo " +
-                    "AND Id_Empresa = @Id_Empresa " +
-                    "AND Id_Empregado = @Id_Empregado " +
-                    "AND CodigoNatureza IN (5)";
+            SQL = "SELECT COUNT(*) AS Total " +
+                  "FROM Chamados " +
+                  "WHERE CodigoNatureza = 5 " +
+                  "AND CodigoGrupoSolucao = @CodigoGrupoSolucao " +
+                  "AND Id_Empresa = @Id_Empresa " +
+                  "AND Id_Competencia = @Id_Competencia";
 
             try
             {
                 crud.LimparParametros();
-                crud.AdicionarParametros("Id_Competencia", idCompetencia);
+                crud.AdicionarParametros("CodigoGrupoSolucao", codigoGrupo);
                 crud.AdicionarParametros("Id_Empresa", idEmpresa);
-                crud.AdicionarParametros("Id_Empregado", idEmpregado);
-                crud.AdicionarParametros("CodigoGrupo", codigoGrupo);
+                crud.AdicionarParametros("Id_Competencia", idCompetencia);
 
                 var qtdChamado = crud.Executar(CommandType.Text, SQL);
 
@@ -321,8 +318,6 @@ namespace Controle
             }
 
         }
-
-
         public DataTable ChamadoTabela()
         {
             crud = new CRUD();
@@ -345,7 +340,7 @@ namespace Controle
             }
 
         }
-        public DataTable QuantidadeChamadoTabela(int idCompetencia, int idEmpresa)
+        public DataTable QtdChamadoTabela(int idCompetencia, int idEmpresa)
         {
             crud = new CRUD();
             SQL = "SELECT CodigoAtendente, NomeAtendente, COUNT(CodigoNatureza) AS Total " +
@@ -369,7 +364,7 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public DataTable QuantidadeChamadoCapturadoTabela(int idCompetencia, int idEmpresa)
+        public DataTable QtdChamadoCapturadoTabela(int idCompetencia, int idEmpresa)
         {
             crud = new CRUD();
             SQL = "SELECT CodigoAtendente, NomeAtendente, COUNT(CodigoNatureza) AS Total " +
@@ -393,7 +388,7 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public DataTable QuantidadeFeedbackTabela(int idCompetencia, int idEmpresa)
+        public DataTable QtdFeedbackTabela(int idCompetencia, int idEmpresa)
         {
             crud = new CRUD();
             SQL = "SELECT CodigoAtendente, NomeAtendente, COUNT(CodigoNatureza) AS Total " +
@@ -417,7 +412,7 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public DataTable QuantidadeCapEncTabela(int idCompetencia, int idEmpresa)
+        public DataTable QtdCapEncTabela(int idCompetencia, int idEmpresa)
         {
             crud = new CRUD();
             SQL = "SELECT SELECT DescNatureza, COUNT(CodigoNatureza) AS Total " +

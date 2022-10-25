@@ -9,7 +9,7 @@ namespace Banco_De_Dados
  
         protected bool Conectar()
         {
-            string conexao = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Banco de Dados\tuottavuus.mdb ";
+            string conexao = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Banco de Dados\tuottavuus.mde";
             dbConnection = new OleDbConnection(conexao);
             try
             {
