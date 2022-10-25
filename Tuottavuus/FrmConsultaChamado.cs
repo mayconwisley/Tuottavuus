@@ -131,7 +131,7 @@ namespace Tuottavuus
             possoMaisControle = new PossoMaisControle();
             metaPesoControle = new MetaPesoControle();
 
-            decimal teste1 = possoMaisControle.PorcentagemChamado('C', idCompetencia, idEmpresa, 28, 3, 1);
+            decimal teste1 = possoMaisControle.PorcentagemChamado('C', idCompetencia, idEmpresa, 9, 3, 1);
             int testeId = metaPesoControle.IdPorMeta(teste1);
             
             

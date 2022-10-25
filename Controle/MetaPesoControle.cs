@@ -76,9 +76,10 @@ namespace Controle
         {
 
             crud = new CRUD();
-            SQL = "SELECT MAX(Id) " +
+            SQL = "SELECT TOP 1 Id " +
                   "FROM MetaPeso " +
-                  "WHERE Meta <= @Meta";
+                  "WHERE @Meta >= Meta " +
+                  "ORDER BY Meta DESC";
 
             try
             {
@@ -93,6 +94,58 @@ namespace Controle
                 else
                 {
                     return int.Parse(idMeta.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public decimal Meta(int idMeta)
+        {
+            crud = new CRUD();
+            SQL = "SELECT Meta " +
+                  "FROM MetaPeso " +
+                  "WHERE Id = @Id";
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id", idMeta);
+                var valorMeta = crud.Executar(CommandType.Text, SQL);
+
+                if (String.IsNullOrEmpty(valorMeta.ToString()))
+                {
+                    return 0;
+                }
+                else
+                {
+                    return decimal.Parse(valorMeta.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public decimal Peso(int idMeta)
+        {
+            crud = new CRUD();
+            SQL = "SELECT Peso " +
+                  "FROM MetaPeso " +
+                  "WHERE Id = @Id";
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id", idMeta);
+                var valorPeso = crud.Executar(CommandType.Text, SQL);
+
+                if (String.IsNullOrEmpty(valorPeso.ToString()))
+                {
+                    return 0;
+                }
+                else
+                {
+                    return decimal.Parse(valorPeso.ToString());
                 }
             }
             catch (Exception ex)
