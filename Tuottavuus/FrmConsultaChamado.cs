@@ -133,9 +133,12 @@ namespace Tuottavuus
 
             decimal teste1 = possoMaisControle.PorcentagemChamado('C', idCompetencia, idEmpresa, 9, 3, 1);
             int testeId = metaPesoControle.IdPorMeta(teste1);
+            decimal meta = metaPesoControle.Meta(testeId);
+            decimal peso = metaPesoControle.Peso(testeId);
             
             
-            linkLabel1.Text = $"Id: {testeId.ToString("00")} Porcentagem: {teste1.ToString("#,###,##0.00")}%" ;
+            linkLabel1.Text = $"Id: {testeId.ToString("00")} Porcentagem: {teste1.ToString("#,##0.00")}%\n" +
+                $"Meta {meta.ToString("#,###0.00")} Peso: {peso.ToString("#,##0.00")}" ;
         }
         private void ListaCompetenciaId()
         {

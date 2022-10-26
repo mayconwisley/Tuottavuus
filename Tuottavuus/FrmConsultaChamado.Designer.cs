@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.CbxEmpresa = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.MktCompetencia = new System.Windows.Forms.MaskedTextBox();
@@ -126,8 +126,8 @@
             // CodigoAtendenteChamado
             // 
             this.CodigoAtendenteChamado.DataPropertyName = "CodigoAtendente";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoAtendenteChamado.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoAtendenteChamado.DefaultCellStyle = dataGridViewCellStyle1;
             this.CodigoAtendenteChamado.HeaderText = "Cód. Atendente";
             this.CodigoAtendenteChamado.Name = "CodigoAtendenteChamado";
             this.CodigoAtendenteChamado.ReadOnly = true;
@@ -144,8 +144,8 @@
             // TotalChamado
             // 
             this.TotalChamado.DataPropertyName = "Total";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TotalChamado.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TotalChamado.DefaultCellStyle = dataGridViewCellStyle2;
             this.TotalChamado.HeaderText = "Total";
             this.TotalChamado.Name = "TotalChamado";
             this.TotalChamado.ReadOnly = true;
@@ -183,8 +183,8 @@
             // CodigoAtendenteCapturado
             // 
             this.CodigoAtendenteCapturado.DataPropertyName = "CodigoAtendente";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoAtendenteCapturado.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoAtendenteCapturado.DefaultCellStyle = dataGridViewCellStyle3;
             this.CodigoAtendenteCapturado.HeaderText = "Cód. Atendente";
             this.CodigoAtendenteCapturado.Name = "CodigoAtendenteCapturado";
             this.CodigoAtendenteCapturado.ReadOnly = true;
@@ -201,8 +201,8 @@
             // TotalCapturado
             // 
             this.TotalCapturado.DataPropertyName = "Total";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TotalCapturado.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TotalCapturado.DefaultCellStyle = dataGridViewCellStyle4;
             this.TotalCapturado.HeaderText = "Total";
             this.TotalCapturado.Name = "TotalCapturado";
             this.TotalCapturado.ReadOnly = true;
@@ -240,8 +240,8 @@
             // CodigoAtendenteFeedback
             // 
             this.CodigoAtendenteFeedback.DataPropertyName = "CodigoAtendente";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoAtendenteFeedback.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoAtendenteFeedback.DefaultCellStyle = dataGridViewCellStyle5;
             this.CodigoAtendenteFeedback.HeaderText = "Cód. Atendente";
             this.CodigoAtendenteFeedback.Name = "CodigoAtendenteFeedback";
             this.CodigoAtendenteFeedback.ReadOnly = true;
@@ -258,8 +258,8 @@
             // TotalFeedback
             // 
             this.TotalFeedback.DataPropertyName = "Total";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.TotalFeedback.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.TotalFeedback.DefaultCellStyle = dataGridViewCellStyle6;
             this.TotalFeedback.HeaderText = "Total";
             this.TotalFeedback.Name = "TotalFeedback";
             this.TotalFeedback.ReadOnly = true;
@@ -276,18 +276,18 @@
             // 
             // CharCapEnc
             // 
-            chartArea2.Name = "ChartArea1";
-            this.CharCapEnc.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.CharCapEnc.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.CharCapEnc.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.CharCapEnc.Legends.Add(legend1);
             this.CharCapEnc.Location = new System.Drawing.Point(440, 352);
             this.CharCapEnc.Name = "CharCapEnc";
             this.CharCapEnc.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.CharCapEnc.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.CharCapEnc.Series.Add(series1);
             this.CharCapEnc.Size = new System.Drawing.Size(422, 188);
             this.CharCapEnc.TabIndex = 10;
             this.CharCapEnc.Text = "chart1";
@@ -304,7 +304,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(667, 52);
+            this.linkLabel1.Location = new System.Drawing.Point(375, 9);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(30, 13);
             this.linkLabel1.TabIndex = 11;

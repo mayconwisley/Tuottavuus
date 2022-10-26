@@ -416,37 +416,67 @@ namespace Tuottavuus
 
         private void SubMenuPesquisaCadastrar_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(15);
+           
         }
 
         private void SubMenuPesquisaImportar_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(16);
+           
         }
 
         private void SubMenuPesquisaConsultar_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(17);
+           
         }
 
         private void SubMenuChamadosImportar_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(18);
+          
         }
 
         private void SubMenuChamadosCadastrar_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(19);
+           
         }
 
         private void SubMenuChamadosConsultar_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(20);
+           
         }
 
         private void SubMenuCadastroPesqNota_Click(object sender, EventArgs e)
         {
             AbrirFormulario(21);
+        }
+
+        private void SubPesquisaImportar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(16);
+        }
+
+        private void SubPesquisaCadastrar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(15);
+        }
+
+        private void SubPesquisaConsultar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(17);
+        }
+
+        private void SubChamadoImportar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(18);
+        }
+
+        private void SubChamadoCadastrar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(19);
+        }
+
+        private void SubChamadoConsultar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(20);
         }
     }
 }

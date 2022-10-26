@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assiduidade.cs" />
     <Compile Include="Atividade.cs" />
     <Compile Include="AtividadeAvaliacao.cs" />
     <Compile Include="Chamado.cs" />

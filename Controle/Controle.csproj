@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssiduidadeControle.cs" />
     <Compile Include="AtividadeAvaliacaoControle.cs" />
     <Compile Include="AtividadeControle.cs" />
     <Compile Include="CalculoProdutividade.cs" />
