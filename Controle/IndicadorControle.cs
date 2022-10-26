@@ -17,14 +17,16 @@ namespace Controle
         public bool Gravar(Indicador indicador)
         {
             crud = new CRUD();
-            SQL = "INSERT INTO Indicador (Descricao, Ativo, Pesquisa) " +
-                "VALUES (@Descricao, @Ativo, @Pesquisa)";
+            SQL = "INSERT INTO Indicador (Descricao, Ativo, Pesquisa, Chamado, Assiduidade) " +
+                  "VALUES (@Descricao, @Ativo, @Pesquisa, @Chamado, @Assiduidade)";
             try
             {
                 crud.LimparParametros();
                 crud.AdicionarParametros("Descricao", indicador.Descricao);
                 crud.AdicionarParametros("Ativo", indicador.Ativo);
                 crud.AdicionarParametros("Pesquisa", indicador.Pesquisa);
+                crud.AdicionarParametros("Chamado", indicador.Chamado);
+                crud.AdicionarParametros("Assiduidade", indicador.Assiduidade);
                 crud.Executar(CommandType.Text, SQL);
                 return true;
             }
@@ -37,13 +39,17 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "UPDATE Indicador SET Descricao = @Descricao, Ativo = @Ativo, Pesquisa = @Pesquisa " +
-                "WHERE Id = @Id";
+                  "Chamado = @Chamado, Assiduidade = @Assiduidade" +
+                  "WHERE Id = @Id";
             try
             {
                 crud.LimparParametros();
                 crud.AdicionarParametros("Descricao", indicador.Descricao);
                 crud.AdicionarParametros("Ativo", indicador.Ativo);
                 crud.AdicionarParametros("Pesquisa", indicador.Pesquisa);
+                crud.AdicionarParametros("Chamado", indicador.Chamado);
+                crud.AdicionarParametros("Assiduidade", indicador.Assiduidade);
+
                 crud.AdicionarParametros("Id", indicador.Id);
 
                 crud.Executar(CommandType.Text, SQL);
@@ -108,9 +114,9 @@ namespace Controle
         public DataTable IndicadorTabela()
         {
             crud = new CRUD();
-            SQL = "SELECT Id, Descricao, Ativo, Pesquisa " +
-                "FROM Indicador " +
-                "ORDER BY Descricao ";
+            SQL = "SELECT Id, Descricao, Ativo, Pesquisa, Chamado, Assiduidade " +
+                  "FROM Indicador " +
+                  "ORDER BY Descricao ";
             try
             {
                 DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);

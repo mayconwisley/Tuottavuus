@@ -38,6 +38,20 @@
             this.LblInfoChamado = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.DgvChamado = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Empregado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataAbertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoAtendente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeAtendente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoChamado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoGrupoSolucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescGrupoSolucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoNatureza = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescNatureza = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoTpAtividade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescTpAtividade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnGravar = new System.Windows.Forms.Button();
@@ -62,20 +76,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.TxtDescTpAtividade = new System.Windows.Forms.TextBox();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Empregado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataAbertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoAtendente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeAtendente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoChamado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoGrupoSolucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescGrupoSolucao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoNatureza = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescNatureza = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoTpAtividade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescTpAtividade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvChamado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,229 +137,8 @@
             this.DgvChamado.ReadOnly = true;
             this.DgvChamado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvChamado.Size = new System.Drawing.Size(469, 168);
-            this.DgvChamado.TabIndex = 23;
+            this.DgvChamado.TabIndex = 13;
             this.DgvChamado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvChamado_CellDoubleClick);
-            // 
-            // BtnExcluir
-            // 
-            this.BtnExcluir.Enabled = false;
-            this.BtnExcluir.Location = new System.Drawing.Point(684, 85);
-            this.BtnExcluir.Name = "BtnExcluir";
-            this.BtnExcluir.Size = new System.Drawing.Size(104, 29);
-            this.BtnExcluir.TabIndex = 28;
-            this.BtnExcluir.Text = "&Excluir";
-            this.BtnExcluir.UseVisualStyleBackColor = true;
-            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
-            // 
-            // BtnAlterar
-            // 
-            this.BtnAlterar.Enabled = false;
-            this.BtnAlterar.Location = new System.Drawing.Point(684, 50);
-            this.BtnAlterar.Name = "BtnAlterar";
-            this.BtnAlterar.Size = new System.Drawing.Size(104, 29);
-            this.BtnAlterar.TabIndex = 26;
-            this.BtnAlterar.Text = "&Alterar";
-            this.BtnAlterar.UseVisualStyleBackColor = true;
-            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
-            // 
-            // BtnGravar
-            // 
-            this.BtnGravar.Location = new System.Drawing.Point(684, 15);
-            this.BtnGravar.Name = "BtnGravar";
-            this.BtnGravar.Size = new System.Drawing.Size(104, 29);
-            this.BtnGravar.TabIndex = 24;
-            this.BtnGravar.Text = "&Gravar";
-            this.BtnGravar.UseVisualStyleBackColor = true;
-            this.BtnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(106, 148);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "Chamado";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(106, 192);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 13);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Desc. Grupo Solução";
-            // 
-            // TxtChamado
-            // 
-            this.TxtChamado.Location = new System.Drawing.Point(106, 164);
-            this.TxtChamado.Name = "TxtChamado";
-            this.TxtChamado.Size = new System.Drawing.Size(52, 20);
-            this.TxtChamado.TabIndex = 22;
-            this.TxtChamado.Text = "0";
-            this.TxtChamado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // TxtCodGpSolucao
-            // 
-            this.TxtCodGpSolucao.Location = new System.Drawing.Point(12, 208);
-            this.TxtCodGpSolucao.Name = "TxtCodGpSolucao";
-            this.TxtCodGpSolucao.Size = new System.Drawing.Size(88, 20);
-            this.TxtCodGpSolucao.TabIndex = 21;
-            this.TxtCodGpSolucao.Text = "0";
-            this.TxtCodGpSolucao.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // MktDataAbertura
-            // 
-            this.MktDataAbertura.Location = new System.Drawing.Point(12, 164);
-            this.MktDataAbertura.Mask = "00/00/0000";
-            this.MktDataAbertura.Name = "MktDataAbertura";
-            this.MktDataAbertura.Size = new System.Drawing.Size(88, 20);
-            this.MktDataAbertura.TabIndex = 19;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 148);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 13);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Data de Abertura";
-            // 
-            // CbxEmpregado
-            // 
-            this.CbxEmpregado.DisplayMember = "Nome";
-            this.CbxEmpregado.FormattingEnabled = true;
-            this.CbxEmpregado.Location = new System.Drawing.Point(12, 104);
-            this.CbxEmpregado.Name = "CbxEmpregado";
-            this.CbxEmpregado.Size = new System.Drawing.Size(299, 21);
-            this.CbxEmpregado.TabIndex = 17;
-            this.CbxEmpregado.ValueMember = "Id";
-            this.CbxEmpregado.SelectedIndexChanged += new System.EventHandler(this.CbxEmpregado_SelectedIndexChanged);
-            // 
-            // CbxEmpresa
-            // 
-            this.CbxEmpresa.DisplayMember = "Nome";
-            this.CbxEmpresa.FormattingEnabled = true;
-            this.CbxEmpresa.Location = new System.Drawing.Point(12, 64);
-            this.CbxEmpresa.Name = "CbxEmpresa";
-            this.CbxEmpresa.Size = new System.Drawing.Size(299, 21);
-            this.CbxEmpresa.TabIndex = 15;
-            this.CbxEmpresa.ValueMember = "Id";
-            this.CbxEmpresa.SelectedIndexChanged += new System.EventHandler(this.CbxEmpresa_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Empregado";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Empresa";
-            // 
-            // LblCompetencia
-            // 
-            this.LblCompetencia.AutoSize = true;
-            this.LblCompetencia.Location = new System.Drawing.Point(12, 12);
-            this.LblCompetencia.Name = "LblCompetencia";
-            this.LblCompetencia.Size = new System.Drawing.Size(116, 13);
-            this.LblCompetencia.TabIndex = 14;
-            this.LblCompetencia.Text = "Competência: 00/0000";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 192);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Cod. Gp Solução";
-            // 
-            // TxtDescGrupoSolucao
-            // 
-            this.TxtDescGrupoSolucao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtDescGrupoSolucao.Location = new System.Drawing.Point(106, 208);
-            this.TxtDescGrupoSolucao.Name = "TxtDescGrupoSolucao";
-            this.TxtDescGrupoSolucao.Size = new System.Drawing.Size(205, 20);
-            this.TxtDescGrupoSolucao.TabIndex = 33;
-            // 
-            // TxtCodNatureza
-            // 
-            this.TxtCodNatureza.Location = new System.Drawing.Point(12, 247);
-            this.TxtCodNatureza.Name = "TxtCodNatureza";
-            this.TxtCodNatureza.Size = new System.Drawing.Size(88, 20);
-            this.TxtCodNatureza.TabIndex = 21;
-            this.TxtCodNatureza.Text = "0";
-            this.TxtCodNatureza.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(106, 231);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(81, 13);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "Desc. Natureza";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 231);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 13);
-            this.label11.TabIndex = 32;
-            this.label11.Text = "Cód. Natureza";
-            // 
-            // TxtDescNatureza
-            // 
-            this.TxtDescNatureza.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtDescNatureza.Location = new System.Drawing.Point(106, 247);
-            this.TxtDescNatureza.Name = "TxtDescNatureza";
-            this.TxtDescNatureza.Size = new System.Drawing.Size(205, 20);
-            this.TxtDescNatureza.TabIndex = 33;
-            // 
-            // TxtCodTpAtividade
-            // 
-            this.TxtCodTpAtividade.Location = new System.Drawing.Point(12, 286);
-            this.TxtCodTpAtividade.Name = "TxtCodTpAtividade";
-            this.TxtCodTpAtividade.Size = new System.Drawing.Size(88, 20);
-            this.TxtCodTpAtividade.TabIndex = 21;
-            this.TxtCodTpAtividade.Text = "0";
-            this.TxtCodTpAtividade.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(106, 270);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(98, 13);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Desc. Tp Atividade";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(12, 270);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(92, 13);
-            this.label13.TabIndex = 32;
-            this.label13.Text = "Cód. Tp Atividade";
-            // 
-            // TxtDescTpAtividade
-            // 
-            this.TxtDescTpAtividade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.TxtDescTpAtividade.Location = new System.Drawing.Point(106, 286);
-            this.TxtDescTpAtividade.Name = "TxtDescTpAtividade";
-            this.TxtDescTpAtividade.Size = new System.Drawing.Size(205, 20);
-            this.TxtDescTpAtividade.TabIndex = 33;
             // 
             // Id
             // 
@@ -407,7 +186,7 @@
             this.DataAbertura.HeaderText = "Data Abertura";
             this.DataAbertura.Name = "DataAbertura";
             this.DataAbertura.ReadOnly = true;
-            this.DataAbertura.Width = 98;
+            this.DataAbertura.Width = 90;
             // 
             // CodigoAtendente
             // 
@@ -490,6 +269,227 @@
             this.DescTpAtividade.Name = "DescTpAtividade";
             this.DescTpAtividade.ReadOnly = true;
             this.DescTpAtividade.Width = 113;
+            // 
+            // BtnExcluir
+            // 
+            this.BtnExcluir.Enabled = false;
+            this.BtnExcluir.Location = new System.Drawing.Point(684, 85);
+            this.BtnExcluir.Name = "BtnExcluir";
+            this.BtnExcluir.Size = new System.Drawing.Size(104, 29);
+            this.BtnExcluir.TabIndex = 12;
+            this.BtnExcluir.Text = "&Excluir";
+            this.BtnExcluir.UseVisualStyleBackColor = true;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
+            // 
+            // BtnAlterar
+            // 
+            this.BtnAlterar.Enabled = false;
+            this.BtnAlterar.Location = new System.Drawing.Point(684, 50);
+            this.BtnAlterar.Name = "BtnAlterar";
+            this.BtnAlterar.Size = new System.Drawing.Size(104, 29);
+            this.BtnAlterar.TabIndex = 11;
+            this.BtnAlterar.Text = "&Alterar";
+            this.BtnAlterar.UseVisualStyleBackColor = true;
+            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
+            // 
+            // BtnGravar
+            // 
+            this.BtnGravar.Location = new System.Drawing.Point(684, 15);
+            this.BtnGravar.Name = "BtnGravar";
+            this.BtnGravar.Size = new System.Drawing.Size(104, 29);
+            this.BtnGravar.TabIndex = 10;
+            this.BtnGravar.Text = "&Gravar";
+            this.BtnGravar.UseVisualStyleBackColor = true;
+            this.BtnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(106, 148);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Chamado";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(106, 192);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(109, 13);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Desc. Grupo Solução";
+            // 
+            // TxtChamado
+            // 
+            this.TxtChamado.Location = new System.Drawing.Point(106, 164);
+            this.TxtChamado.Name = "TxtChamado";
+            this.TxtChamado.Size = new System.Drawing.Size(52, 20);
+            this.TxtChamado.TabIndex = 3;
+            this.TxtChamado.Text = "0";
+            this.TxtChamado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TxtCodGpSolucao
+            // 
+            this.TxtCodGpSolucao.Location = new System.Drawing.Point(12, 208);
+            this.TxtCodGpSolucao.Name = "TxtCodGpSolucao";
+            this.TxtCodGpSolucao.Size = new System.Drawing.Size(88, 20);
+            this.TxtCodGpSolucao.TabIndex = 4;
+            this.TxtCodGpSolucao.Text = "0";
+            this.TxtCodGpSolucao.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // MktDataAbertura
+            // 
+            this.MktDataAbertura.Location = new System.Drawing.Point(12, 164);
+            this.MktDataAbertura.Mask = "00/00/0000";
+            this.MktDataAbertura.Name = "MktDataAbertura";
+            this.MktDataAbertura.Size = new System.Drawing.Size(88, 20);
+            this.MktDataAbertura.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 148);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 13);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Data de Abertura";
+            // 
+            // CbxEmpregado
+            // 
+            this.CbxEmpregado.DisplayMember = "Nome";
+            this.CbxEmpregado.FormattingEnabled = true;
+            this.CbxEmpregado.Location = new System.Drawing.Point(12, 104);
+            this.CbxEmpregado.Name = "CbxEmpregado";
+            this.CbxEmpregado.Size = new System.Drawing.Size(299, 21);
+            this.CbxEmpregado.TabIndex = 1;
+            this.CbxEmpregado.ValueMember = "Id";
+            this.CbxEmpregado.SelectedIndexChanged += new System.EventHandler(this.CbxEmpregado_SelectedIndexChanged);
+            // 
+            // CbxEmpresa
+            // 
+            this.CbxEmpresa.DisplayMember = "Nome";
+            this.CbxEmpresa.FormattingEnabled = true;
+            this.CbxEmpresa.Location = new System.Drawing.Point(12, 64);
+            this.CbxEmpresa.Name = "CbxEmpresa";
+            this.CbxEmpresa.Size = new System.Drawing.Size(299, 21);
+            this.CbxEmpresa.TabIndex = 0;
+            this.CbxEmpresa.ValueMember = "Id";
+            this.CbxEmpresa.SelectedIndexChanged += new System.EventHandler(this.CbxEmpresa_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Empregado";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Empresa";
+            // 
+            // LblCompetencia
+            // 
+            this.LblCompetencia.AutoSize = true;
+            this.LblCompetencia.Location = new System.Drawing.Point(12, 12);
+            this.LblCompetencia.Name = "LblCompetencia";
+            this.LblCompetencia.Size = new System.Drawing.Size(116, 13);
+            this.LblCompetencia.TabIndex = 14;
+            this.LblCompetencia.Text = "Competência: 00/0000";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 192);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Cod. Gp Solução";
+            // 
+            // TxtDescGrupoSolucao
+            // 
+            this.TxtDescGrupoSolucao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtDescGrupoSolucao.Location = new System.Drawing.Point(106, 208);
+            this.TxtDescGrupoSolucao.Name = "TxtDescGrupoSolucao";
+            this.TxtDescGrupoSolucao.Size = new System.Drawing.Size(205, 20);
+            this.TxtDescGrupoSolucao.TabIndex = 5;
+            // 
+            // TxtCodNatureza
+            // 
+            this.TxtCodNatureza.Location = new System.Drawing.Point(12, 247);
+            this.TxtCodNatureza.Name = "TxtCodNatureza";
+            this.TxtCodNatureza.Size = new System.Drawing.Size(88, 20);
+            this.TxtCodNatureza.TabIndex = 6;
+            this.TxtCodNatureza.Text = "0";
+            this.TxtCodNatureza.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(106, 231);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(81, 13);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Desc. Natureza";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 231);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(75, 13);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Cód. Natureza";
+            // 
+            // TxtDescNatureza
+            // 
+            this.TxtDescNatureza.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtDescNatureza.Location = new System.Drawing.Point(106, 247);
+            this.TxtDescNatureza.Name = "TxtDescNatureza";
+            this.TxtDescNatureza.Size = new System.Drawing.Size(205, 20);
+            this.TxtDescNatureza.TabIndex = 7;
+            // 
+            // TxtCodTpAtividade
+            // 
+            this.TxtCodTpAtividade.Location = new System.Drawing.Point(12, 286);
+            this.TxtCodTpAtividade.Name = "TxtCodTpAtividade";
+            this.TxtCodTpAtividade.Size = new System.Drawing.Size(88, 20);
+            this.TxtCodTpAtividade.TabIndex = 8;
+            this.TxtCodTpAtividade.Text = "0";
+            this.TxtCodTpAtividade.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(106, 270);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(98, 13);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Desc. Tp Atividade";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(12, 270);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(92, 13);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "Cód. Tp Atividade";
+            // 
+            // TxtDescTpAtividade
+            // 
+            this.TxtDescTpAtividade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtDescTpAtividade.Location = new System.Drawing.Point(106, 286);
+            this.TxtDescTpAtividade.Name = "TxtDescTpAtividade";
+            this.TxtDescTpAtividade.Size = new System.Drawing.Size(205, 20);
+            this.TxtDescTpAtividade.TabIndex = 9;
             // 
             // FrmCadastroChamado
             // 

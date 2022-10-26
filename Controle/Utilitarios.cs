@@ -1,5 +1,4 @@
-﻿using Modelo;
-using System;
+﻿using System;
 using System.Collections;
 using System.IO;
 using System.Text;

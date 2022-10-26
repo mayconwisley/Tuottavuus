@@ -153,7 +153,6 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
         public DataTable MetaPesoTabela()
         {
             crud = new CRUD();

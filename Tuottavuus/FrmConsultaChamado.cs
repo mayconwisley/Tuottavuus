@@ -1,12 +1,5 @@
 ﻿using Controle;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tuottavuus
@@ -14,14 +7,14 @@ namespace Tuottavuus
     public partial class FrmConsultaChamado : Form
     {
 
-        EmpregadoControle empregadoControle;
+        
         EmpresaControle empresaControle;
         CompetenciaControle competenciaControle;
         ChamadoControle chamadoControle;
         PossoMaisControle possoMaisControle;
         MetaPesoControle metaPesoControle;
 
-        int idEmpregado = 0, idEmpresa = 0, idCompetencia = 0;
+        int idEmpresa = 0, idCompetencia = 0;
 
         DateTime dtCompetencia;
 
@@ -135,10 +128,10 @@ namespace Tuottavuus
             int testeId = metaPesoControle.IdPorMeta(teste1);
             decimal meta = metaPesoControle.Meta(testeId);
             decimal peso = metaPesoControle.Peso(testeId);
-            
-            
+
+
             linkLabel1.Text = $"Id: {testeId.ToString("00")} Porcentagem: {teste1.ToString("#,##0.00")}%\n" +
-                $"Meta {meta.ToString("#,###0.00")} Peso: {peso.ToString("#,##0.00")}" ;
+                $"Meta {meta.ToString("#,###0.00")} Peso: {peso.ToString("#,##0.00")}";
         }
         private void ListaCompetenciaId()
         {

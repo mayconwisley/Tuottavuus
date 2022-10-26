@@ -1,11 +1,4 @@
 ﻿using Modelo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Schema;
 
 namespace Controle
 {
@@ -14,6 +7,7 @@ namespace Controle
         ChamadoControle chamadoControle;
         EmpregadoControle empregadoControle;
         PesquisaControle pesquisaControle;
+        AssiduidadeControle assiduidadeControle;
 
         int totalChamado = 0, totalEmpregado = 0, totalChamdadoAtendente = 0;
         decimal notaConceito = 0;
@@ -23,40 +17,65 @@ namespace Controle
             chamadoControle = new ChamadoControle();
             empregadoControle = new EmpregadoControle();
 
-
-            totalEmpregado = empregadoControle.TotalEmpregadoPorDepartamento(idDepartamento);
-
-
-            if (opcMeta == 'Q')
+            try
             {
-                totalChamado = chamadoControle.QtdPorGrupoSolucao(idCompetencia, idEmpresa, codigoGrupo);
-                totalChamdadoAtendente = chamadoControle.QtdChamadoAtendente(idCompetencia, idEmpresa, idEmpregado);
+
+                totalEmpregado = empregadoControle.TotalEmpregadoPorDepartamento(idDepartamento);
+
+                if (opcMeta == 'Q')
+                {
+                    totalChamado = chamadoControle.QtdPorGrupoSolucao(idCompetencia, idEmpresa, codigoGrupo);
+                    totalChamdadoAtendente = chamadoControle.QtdChamadoAtendente(idCompetencia, idEmpresa, idEmpregado);
+                }
+                else if (opcMeta == 'C')
+                {
+                    totalChamado = chamadoControle.QtdPorGrupoSolucaoCapturado(idCompetencia, idEmpresa, codigoGrupo);
+                    totalChamdadoAtendente = chamadoControle.QtdCapturadoAtendente(idCompetencia, idEmpresa, idEmpregado);
+                }
+
+                decimal media = totalChamado / totalEmpregado;
+                decimal porcentagem = (totalChamdadoAtendente * 100) / media;
+
+                return porcentagem;
             }
-            else if (opcMeta == 'C')
+            catch (System.Exception ex)
             {
-                totalChamado = chamadoControle.QtdPorGrupoSolucaoCapturado(idCompetencia, idEmpresa, codigoGrupo);
-                totalChamdadoAtendente = chamadoControle.QtdCapturadoAtendente(idCompetencia, idEmpresa, idEmpregado);
+                throw new System.Exception(ex.Message);
             }
-
-            decimal media = totalChamado / totalEmpregado;
-            decimal porcentagem = (totalChamdadoAtendente * 100) / media;
-
-            return porcentagem;
         }
         public decimal PorcentagemPesquisa(int codigoAtendente, int notaFinal)
         {
             pesquisaControle = new PesquisaControle();
             empregadoControle = new EmpregadoControle();
 
-            totalEmpregado = pesquisaControle.QtdAvaliacaoAtendente(codigoAtendente);
-            notaConceito = pesquisaControle.NotaAvaliacaoAtendente(codigoAtendente);
+            try
+            {
+                totalEmpregado = pesquisaControle.QtdAvaliacaoAtendente(codigoAtendente);
+                notaConceito = pesquisaControle.NotaAvaliacaoAtendente(codigoAtendente);
 
+                decimal media = notaConceito / totalEmpregado;
+                decimal porcentagem = (media * 100) / notaFinal;
 
+                return porcentagem;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+        }
+        public decimal QuantidadeAssiduidade(Assiduidade assiduidade)
+        {
+            assiduidadeControle = new AssiduidadeControle();
 
-            decimal media = notaConceito / totalEmpregado;
-            decimal porcentagem = (media * 100) / notaFinal;
-
-            return porcentagem;
+            try
+            {
+                decimal qtdAssiduidade = assiduidadeControle.AtrasoFalta(assiduidade);
+                return qtdAssiduidade;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
         }
     }
 }

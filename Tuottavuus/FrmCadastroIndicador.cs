@@ -70,6 +70,25 @@ namespace Tuottavuus
                     indicador.Pesquisa = false;
                 }
 
+                if (CbChamado.Checked)
+                {
+                    indicador.Chamado = true;
+                }
+                else
+                {
+                    indicador.Chamado = false;
+                }
+
+                if (CbAssiduidade.Checked)
+                {
+                    indicador.Assiduidade = true;
+                }
+                else
+                {
+                    indicador.Assiduidade = false;
+                }
+
+
                 if (tipoManipulacao == TipoManipulacao.Gravar)
                 {
                     indicadorControle.Gravar(indicador);
@@ -107,6 +126,10 @@ namespace Tuottavuus
                 TxtDescricao.Text = DgvIndicadors.Rows[e.RowIndex].Cells["Descricao"].Value.ToString();
                 bool ativo = bool.Parse(DgvIndicadors.Rows[e.RowIndex].Cells["Ativo"].Value.ToString());
                 bool pesquisa = bool.Parse(DgvIndicadors.Rows[e.RowIndex].Cells["PesquisaIndicador"].Value.ToString());
+                bool chamado = bool.Parse(DgvIndicadors.Rows[e.RowIndex].Cells["Chamado"].Value.ToString());
+                bool assiduidade = bool.Parse(DgvIndicadors.Rows[e.RowIndex].Cells["Assiduidade"].Value.ToString());
+
+
                 if (ativo == true)
                 {
                     CbAtivo.Checked = true;
@@ -123,6 +146,22 @@ namespace Tuottavuus
                 else
                 {
                     CbPesquisa.Checked = false;
+                }
+                if (chamado)
+                {
+                    CbChamado.Checked = true;
+                }
+                else
+                {
+                    CbChamado.Checked = false;
+                }
+                if (assiduidade)
+                {
+                    CbAssiduidade.Checked = true;
+                }
+                else
+                {
+                    CbAssiduidade.Checked = false;
                 }
 
                 BtnAlterar.Enabled = true;

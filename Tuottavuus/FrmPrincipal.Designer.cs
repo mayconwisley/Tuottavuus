@@ -60,16 +60,16 @@
             this.SubChamadoImportar = new System.Windows.Forms.ToolStripMenuItem();
             this.SubChamadoCadastrar = new System.Windows.Forms.ToolStripMenuItem();
             this.SubChamadoConsultar = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuRelatorio = new System.Windows.Forms.ToolStripMenuItem();
-            this.SubMenuRelatoriosRelatorio = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
-            this.StatusPrincipal = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.SubAssiduidade = new System.Windows.Forms.ToolStripMenuItem();
             this.SubAssiduidadeCadastrar = new System.Windows.Forms.ToolStripMenuItem();
             this.SubAssiduidadeConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.calcularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuRelatorio = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuRelatoriosRelatorio = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
+            this.StatusPrincipal = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.MenuPrincipal.SuspendLayout();
             this.StatusPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -276,21 +276,21 @@
             // SubPesquisaImportar
             // 
             this.SubPesquisaImportar.Name = "SubPesquisaImportar";
-            this.SubPesquisaImportar.Size = new System.Drawing.Size(180, 22);
+            this.SubPesquisaImportar.Size = new System.Drawing.Size(125, 22);
             this.SubPesquisaImportar.Text = "Importar";
             this.SubPesquisaImportar.Click += new System.EventHandler(this.SubPesquisaImportar_Click);
             // 
             // SubPesquisaCadastrar
             // 
             this.SubPesquisaCadastrar.Name = "SubPesquisaCadastrar";
-            this.SubPesquisaCadastrar.Size = new System.Drawing.Size(180, 22);
+            this.SubPesquisaCadastrar.Size = new System.Drawing.Size(125, 22);
             this.SubPesquisaCadastrar.Text = "Cadastrar";
             this.SubPesquisaCadastrar.Click += new System.EventHandler(this.SubPesquisaCadastrar_Click);
             // 
             // SubPesquisaConsultar
             // 
             this.SubPesquisaConsultar.Name = "SubPesquisaConsultar";
-            this.SubPesquisaConsultar.Size = new System.Drawing.Size(180, 22);
+            this.SubPesquisaConsultar.Size = new System.Drawing.Size(125, 22);
             this.SubPesquisaConsultar.Text = "Consultar";
             this.SubPesquisaConsultar.Click += new System.EventHandler(this.SubPesquisaConsultar_Click);
             // 
@@ -307,23 +307,58 @@
             // SubChamadoImportar
             // 
             this.SubChamadoImportar.Name = "SubChamadoImportar";
-            this.SubChamadoImportar.Size = new System.Drawing.Size(180, 22);
+            this.SubChamadoImportar.Size = new System.Drawing.Size(125, 22);
             this.SubChamadoImportar.Text = "Importar";
             this.SubChamadoImportar.Click += new System.EventHandler(this.SubChamadoImportar_Click);
             // 
             // SubChamadoCadastrar
             // 
             this.SubChamadoCadastrar.Name = "SubChamadoCadastrar";
-            this.SubChamadoCadastrar.Size = new System.Drawing.Size(180, 22);
+            this.SubChamadoCadastrar.Size = new System.Drawing.Size(125, 22);
             this.SubChamadoCadastrar.Text = "Cadastrar";
             this.SubChamadoCadastrar.Click += new System.EventHandler(this.SubChamadoCadastrar_Click);
             // 
             // SubChamadoConsultar
             // 
             this.SubChamadoConsultar.Name = "SubChamadoConsultar";
-            this.SubChamadoConsultar.Size = new System.Drawing.Size(180, 22);
+            this.SubChamadoConsultar.Size = new System.Drawing.Size(125, 22);
             this.SubChamadoConsultar.Text = "Consultar";
             this.SubChamadoConsultar.Click += new System.EventHandler(this.SubChamadoConsultar_Click);
+            // 
+            // SubAssiduidade
+            // 
+            this.SubAssiduidade.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubAssiduidadeCadastrar,
+            this.SubAssiduidadeConsultar});
+            this.SubAssiduidade.Name = "SubAssiduidade";
+            this.SubAssiduidade.Size = new System.Drawing.Size(180, 22);
+            this.SubAssiduidade.Text = "Assiduidade";
+            // 
+            // SubAssiduidadeCadastrar
+            // 
+            this.SubAssiduidadeCadastrar.Name = "SubAssiduidadeCadastrar";
+            this.SubAssiduidadeCadastrar.Size = new System.Drawing.Size(180, 22);
+            this.SubAssiduidadeCadastrar.Text = "Cadastrar";
+            this.SubAssiduidadeCadastrar.Click += new System.EventHandler(this.SubAssiduidadeCadastrar_Click);
+            // 
+            // SubAssiduidadeConsultar
+            // 
+            this.SubAssiduidadeConsultar.Name = "SubAssiduidadeConsultar";
+            this.SubAssiduidadeConsultar.Size = new System.Drawing.Size(180, 22);
+            this.SubAssiduidadeConsultar.Text = "Consultar";
+            this.SubAssiduidadeConsultar.Click += new System.EventHandler(this.SubAssiduidadeConsultar_Click);
+            // 
+            // calcularToolStripMenuItem
+            // 
+            this.calcularToolStripMenuItem.Name = "calcularToolStripMenuItem";
+            this.calcularToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.calcularToolStripMenuItem.Text = "Calcular";
+            // 
+            // consultarToolStripMenuItem
+            // 
+            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultarToolStripMenuItem.Text = "Consultar";
             // 
             // MenuRelatorio
             // 
@@ -363,39 +398,6 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(217, 17);
             this.toolStripStatusLabel1.Text = "Desenvolvido por: Maycon Wisley - v1.0";
-            // 
-            // SubAssiduidade
-            // 
-            this.SubAssiduidade.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubAssiduidadeCadastrar,
-            this.SubAssiduidadeConsultar});
-            this.SubAssiduidade.Name = "SubAssiduidade";
-            this.SubAssiduidade.Size = new System.Drawing.Size(180, 22);
-            this.SubAssiduidade.Text = "Assiduidade";
-            // 
-            // SubAssiduidadeCadastrar
-            // 
-            this.SubAssiduidadeCadastrar.Name = "SubAssiduidadeCadastrar";
-            this.SubAssiduidadeCadastrar.Size = new System.Drawing.Size(180, 22);
-            this.SubAssiduidadeCadastrar.Text = "Cadastrar";
-            // 
-            // SubAssiduidadeConsultar
-            // 
-            this.SubAssiduidadeConsultar.Name = "SubAssiduidadeConsultar";
-            this.SubAssiduidadeConsultar.Size = new System.Drawing.Size(180, 22);
-            this.SubAssiduidadeConsultar.Text = "Consultar";
-            // 
-            // calcularToolStripMenuItem
-            // 
-            this.calcularToolStripMenuItem.Name = "calcularToolStripMenuItem";
-            this.calcularToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.calcularToolStripMenuItem.Text = "Calcular";
-            // 
-            // consultarToolStripMenuItem
-            // 
-            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.consultarToolStripMenuItem.Text = "Consultar";
             // 
             // FrmPrincipal
             // 

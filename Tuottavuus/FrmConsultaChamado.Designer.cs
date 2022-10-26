@@ -72,7 +72,7 @@
             this.CbxEmpresa.Location = new System.Drawing.Point(12, 77);
             this.CbxEmpresa.Name = "CbxEmpresa";
             this.CbxEmpresa.Size = new System.Drawing.Size(276, 21);
-            this.CbxEmpresa.TabIndex = 7;
+            this.CbxEmpresa.TabIndex = 1;
             this.CbxEmpresa.ValueMember = "Id";
             this.CbxEmpresa.SelectedIndexChanged += new System.EventHandler(this.CbxEmpresa_SelectedIndexChanged);
             // 
@@ -91,7 +91,7 @@
             this.MktCompetencia.Mask = "00/0000";
             this.MktCompetencia.Name = "MktCompetencia";
             this.MktCompetencia.Size = new System.Drawing.Size(69, 20);
-            this.MktCompetencia.TabIndex = 5;
+            this.MktCompetencia.TabIndex = 0;
             this.MktCompetencia.Leave += new System.EventHandler(this.MktCompetencia_Leave);
             // 
             // label1
@@ -121,7 +121,7 @@
             this.DgvTotalChamados.ReadOnly = true;
             this.DgvTotalChamados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvTotalChamados.Size = new System.Drawing.Size(422, 188);
-            this.DgvTotalChamados.TabIndex = 8;
+            this.DgvTotalChamados.TabIndex = 2;
             // 
             // CodigoAtendenteChamado
             // 
@@ -178,7 +178,7 @@
             this.DgvTotalChamadosCap.ReadOnly = true;
             this.DgvTotalChamadosCap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvTotalChamadosCap.Size = new System.Drawing.Size(422, 188);
-            this.DgvTotalChamadosCap.TabIndex = 8;
+            this.DgvTotalChamadosCap.TabIndex = 3;
             // 
             // CodigoAtendenteCapturado
             // 
@@ -235,7 +235,7 @@
             this.DgvTotalChamadoFeed.ReadOnly = true;
             this.DgvTotalChamadoFeed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvTotalChamadoFeed.Size = new System.Drawing.Size(422, 188);
-            this.DgvTotalChamadoFeed.TabIndex = 8;
+            this.DgvTotalChamadoFeed.TabIndex = 4;
             // 
             // CodigoAtendenteFeedback
             // 
@@ -289,7 +289,7 @@
             series1.Name = "Series1";
             this.CharCapEnc.Series.Add(series1);
             this.CharCapEnc.Size = new System.Drawing.Size(422, 188);
-            this.CharCapEnc.TabIndex = 10;
+            this.CharCapEnc.TabIndex = 5;
             this.CharCapEnc.Text = "chart1";
             // 
             // label6

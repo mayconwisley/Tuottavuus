@@ -1,21 +1,29 @@
 ﻿using Controle;
+using Modelo;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tuottavuus
 {
-    public partial class FrmConsultaPesquisa : Form
+    public partial class FrmConsultaAssiduidade : Form
     {
-
         
         EmpresaControle empresaControle;
         CompetenciaControle competenciaControle;
-        PesquisaControle pesquisaControle;
+        AssiduidadeControle assiduidadeControle;
+
         int idEmpresa = 0, idCompetencia = 0;
 
         DateTime dtCompetencia;
 
-        public FrmConsultaPesquisa()
+        public FrmConsultaAssiduidade()
         {
             InitializeComponent();
         }
@@ -34,15 +42,15 @@ namespace Tuottavuus
                 return false;
             }
         }
-
-        private void ListaPesquisa(int idCompetencia, int idEmpresa)
+        private void ListaAssiduidade()
         {
-            pesquisaControle = new PesquisaControle();
+            assiduidadeControle = new AssiduidadeControle();
+
             try
             {
-                DgvPesquisa.DataSource = pesquisaControle.PesquisaTabelaEmpresa(idCompetencia, idEmpresa);
-                int totalPesquisa = DgvPesquisa.Rows.Count;
-                LblInfoPesquisa.Text = "Pesquisa - " + totalPesquisa.ToString("00");
+                DgvAssiduidade.DataSource = assiduidadeControle.AssiduidadeTabelaConsulta(idCompetencia, idEmpresa);
+                int totalChamado = DgvAssiduidade.Rows.Count;
+                LblInfoAssiduidade.Text = "Assiduidade - " + totalChamado.ToString("00");
             }
             catch (Exception ex)
             {
@@ -51,10 +59,11 @@ namespace Tuottavuus
 
         }
 
-        private void FrmPesquisaConsulta_Load(object sender, EventArgs e)
+        private void FrmConsultaAssiduidade_Load(object sender, EventArgs e)
         {
             ListaCompetenciaAtiva();
             ListaEmpresa();
+            ListaAssiduidade();
         }
 
         private void MktCompetencia_Leave(object sender, EventArgs e)
@@ -62,27 +71,28 @@ namespace Tuottavuus
             try
             {
                 ListaCompetenciaId();
-                ListaPesquisa(idCompetencia, idEmpresa);
+                ListaAssiduidade();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro");
-                ListaPesquisa(0, 0);
+
             }
         }
+
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 idEmpresa = int.Parse(CbxEmpresa.SelectedValue.ToString());
                 ListaCompetenciaId();
-                ListaPesquisa(idCompetencia, idEmpresa);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro");
             }
         }
+
         private void ListaCompetenciaId()
         {
             competenciaControle = new CompetenciaControle();

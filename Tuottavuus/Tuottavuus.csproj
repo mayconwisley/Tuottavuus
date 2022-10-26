@@ -111,6 +111,12 @@
     <Compile Include="FrmBarraCarregamento.Designer.cs">
       <DependentUpon>FrmBarraCarregamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadastroAssiduidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastroAssiduidade.Designer.cs">
+      <DependentUpon>FrmCadastroAssiduidade.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCadastroAtividade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,12 @@
     </Compile>
     <Compile Include="FrmCalculoProdutividade.Designer.cs">
       <DependentUpon>FrmCalculoProdutividade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultaAssiduidade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaAssiduidade.Designer.cs">
+      <DependentUpon>FrmConsultaAssiduidade.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmConsultaAtividade.cs">
       <SubType>Form</SubType>
@@ -264,6 +276,9 @@
     <EmbeddedResource Include="FrmBarraCarregamento.resx">
       <DependentUpon>FrmBarraCarregamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastroAssiduidade.resx">
+      <DependentUpon>FrmCadastroAssiduidade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroAtividade.resx">
       <DependentUpon>FrmCadastroAtividade.cs</DependentUpon>
     </EmbeddedResource>
@@ -299,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCalculoProdutividade.resx">
       <DependentUpon>FrmCalculoProdutividade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaAssiduidade.resx">
+      <DependentUpon>FrmConsultaAssiduidade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaAtividade.resx">
       <DependentUpon>FrmConsultaAtividade.cs</DependentUpon>

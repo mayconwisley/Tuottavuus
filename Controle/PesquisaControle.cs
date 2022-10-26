@@ -1,7 +1,6 @@
 ﻿using Banco_De_Dados;
 using Modelo;
 using System;
-using System.CodeDom;
 using System.Collections;
 using System.Data;
 using System.Diagnostics;
@@ -304,7 +303,7 @@ namespace Controle
                         qtdGravados++;
                     }
                 }
-                
+
                 return true;
             }
             catch (Exception ex)

@@ -1,7 +1,6 @@
 ﻿using Controle;
 using Modelo;
 using System;
-using System.Collections;
 using System.Windows.Forms;
 
 namespace Tuottavuus
@@ -13,11 +12,9 @@ namespace Tuottavuus
         CompetenciaControle competenciaControle;
         Utilitarios utilitarios;
         LayoutImportacao layoutImportacao;
-
-        PesquisaControle pesquisaControle;
         private int idCompetencia = 0, idEmpresa = 0;
         DateTime dtCompetencia;
-        char opcForm;
+        private readonly char opcForm;
 
         public FrmImportar(char formOpc)
         {
@@ -57,11 +54,13 @@ namespace Tuottavuus
         }
         private void ProcurarArquivo()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.CheckFileExists = true;
-            openFileDialog.Multiselect = false;
-            openFileDialog.Title = "Selecione um arquivo";
-            openFileDialog.Filter = "Arquivo CSV (*.csv)|*.csv";
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                CheckFileExists = true,
+                Multiselect = false,
+                Title = "Selecione um arquivo",
+                Filter = "Arquivo CSV (*.csv)|*.csv"
+            };
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -88,8 +87,10 @@ namespace Tuottavuus
         }
         private void BtnImportar_Click(object sender, EventArgs e)
         {
-            FrmBarraCarregamento frm = new FrmBarraCarregamento(opcForm, idCompetencia, idEmpresa, 0, TxtCaminhoArquivo.Text.Trim());
-            frm.MdiParent = FrmPrincipal.ActiveForm;
+            FrmBarraCarregamento frm = new FrmBarraCarregamento(opcForm, idCompetencia, idEmpresa, 0, TxtCaminhoArquivo.Text.Trim())
+            {
+                MdiParent = FrmPrincipal.ActiveForm
+            };
             frm.Show();
         }
         private void LblLayoutImportacao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

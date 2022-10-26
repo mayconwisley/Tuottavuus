@@ -27,6 +27,8 @@ namespace Tuottavuus
         FrmCadastroChamado cadastroChamado; //19
         FrmConsultaChamado consultaChamado; //20
         FrmPesquisaNota pesquisaNota; //21
+        FrmCadastroAssiduidade cadastroAssiduidade; //22
+        FrmConsultaAssiduidade consultaAssiduidade; //23
         bool aberto = true;
 
         public FrmPrincipal()
@@ -239,7 +241,24 @@ namespace Tuottavuus
                             item.Focus();
                             aberto = false;
                         }
-
+                        break;
+                    case 22:
+                        cadastroAssiduidade = new FrmCadastroAssiduidade();
+                        cadastroAssiduidade.MdiParent = this;
+                        if (item is FrmCadastroAssiduidade)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+                        break;
+                    case 23:
+                        consultaAssiduidade = new FrmConsultaAssiduidade();
+                        consultaAssiduidade.MdiParent = this;
+                        if (item is FrmConsultaAssiduidade)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
                         break;
                     default:
                         break;
@@ -314,6 +333,12 @@ namespace Tuottavuus
                         break;
                     case 21:
                         pesquisaNota.Show();
+                        break;
+                    case 22:
+                        cadastroAssiduidade.Show();
+                        break;
+                    case 23:
+                        consultaAssiduidade.Show();
                         break;
                     default:
                         break;
@@ -414,36 +439,6 @@ namespace Tuottavuus
             AbrirFormulario(14);
         }
 
-        private void SubMenuPesquisaCadastrar_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void SubMenuPesquisaImportar_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void SubMenuPesquisaConsultar_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void SubMenuChamadosImportar_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void SubMenuChamadosCadastrar_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void SubMenuChamadosConsultar_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void SubMenuCadastroPesqNota_Click(object sender, EventArgs e)
         {
             AbrirFormulario(21);
@@ -477,6 +472,16 @@ namespace Tuottavuus
         private void SubChamadoConsultar_Click(object sender, EventArgs e)
         {
             AbrirFormulario(20);
+        }
+
+        private void SubAssiduidadeCadastrar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(22);
+        }
+
+        private void SubAssiduidadeConsultar_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(23);
         }
     }
 }
