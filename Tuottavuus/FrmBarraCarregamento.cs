@@ -34,10 +34,9 @@ namespace Tuottavuus
             strCaminho = caminho;
         }
 
-        private void FrmBarraCarregamento_Activated(object sender, EventArgs e)
+        private void FrmBarraCarregamento_Enter(object sender, EventArgs e)
         {
             Importar();
-
         }
         private void Importar()
         {
