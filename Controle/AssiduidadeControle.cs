@@ -117,8 +117,9 @@ namespace Controle
         public DataTable AssiduidadeTabela()
         {
             crud = new CRUD();
-            SQL = "SELECT Id, Id_Competencia, Id_Empresa, Id_Empregado, AtrasoFalta " +
-                  "FROM Assiduidade";
+            SQL = "SELECT A.Id, A.Id_Competencia, A.Id_Empresa, A.Id_Empregado, E.Nome, A.AtrasoFalta " +
+                  "FROM Assiduidade A " +
+                  "INNER JOIN Empregado E ON A.Id_Empregado = E.Id";
 
             try
             {

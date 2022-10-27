@@ -37,15 +37,16 @@
             this.BtnGravar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.DgvAssiduidade = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Empregado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AtrasoFalta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtAtrasoFalta = new System.Windows.Forms.TextBox();
             this.LblInfoAssiduidade = new System.Windows.Forms.Label();
             this.LblInfoCodigoAtendente = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Empregado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AtrasoFalta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAssiduidade)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,6 +144,7 @@
             this.Id_Competencia,
             this.Id_Empresa,
             this.Id_Empregado,
+            this.Nome,
             this.AtrasoFalta});
             this.DgvAssiduidade.Location = new System.Drawing.Point(13, 182);
             this.DgvAssiduidade.MultiSelect = false;
@@ -152,46 +154,6 @@
             this.DgvAssiduidade.Size = new System.Drawing.Size(440, 142);
             this.DgvAssiduidade.TabIndex = 6;
             this.DgvAssiduidade.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAssiduidade_CellDoubleClick);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // Id_Competencia
-            // 
-            this.Id_Competencia.DataPropertyName = "Id_Competencia";
-            this.Id_Competencia.HeaderText = "Id_Competencia";
-            this.Id_Competencia.Name = "Id_Competencia";
-            this.Id_Competencia.ReadOnly = true;
-            this.Id_Competencia.Visible = false;
-            // 
-            // Id_Empresa
-            // 
-            this.Id_Empresa.DataPropertyName = "Id_Empresa";
-            this.Id_Empresa.HeaderText = "Id_Empresa";
-            this.Id_Empresa.Name = "Id_Empresa";
-            this.Id_Empresa.ReadOnly = true;
-            this.Id_Empresa.Visible = false;
-            // 
-            // Id_Empregado
-            // 
-            this.Id_Empregado.DataPropertyName = "Id_Empregado";
-            this.Id_Empregado.HeaderText = "Id_Empregado";
-            this.Id_Empregado.Name = "Id_Empregado";
-            this.Id_Empregado.ReadOnly = true;
-            this.Id_Empregado.Visible = false;
-            // 
-            // AtrasoFalta
-            // 
-            this.AtrasoFalta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AtrasoFalta.DataPropertyName = "AtrasoFalta";
-            this.AtrasoFalta.HeaderText = "Atraso/Falta";
-            this.AtrasoFalta.Name = "AtrasoFalta";
-            this.AtrasoFalta.ReadOnly = true;
             // 
             // label1
             // 
@@ -228,6 +190,53 @@
             this.LblInfoCodigoAtendente.Size = new System.Drawing.Size(116, 13);
             this.LblInfoCodigoAtendente.TabIndex = 37;
             this.LblInfoCodigoAtendente.Text = "Codigo Atendente: 000";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Id_Competencia
+            // 
+            this.Id_Competencia.DataPropertyName = "Id_Competencia";
+            this.Id_Competencia.HeaderText = "Id_Competencia";
+            this.Id_Competencia.Name = "Id_Competencia";
+            this.Id_Competencia.ReadOnly = true;
+            this.Id_Competencia.Visible = false;
+            // 
+            // Id_Empresa
+            // 
+            this.Id_Empresa.DataPropertyName = "Id_Empresa";
+            this.Id_Empresa.HeaderText = "Id_Empresa";
+            this.Id_Empresa.Name = "Id_Empresa";
+            this.Id_Empresa.ReadOnly = true;
+            this.Id_Empresa.Visible = false;
+            // 
+            // Id_Empregado
+            // 
+            this.Id_Empregado.DataPropertyName = "Id_Empregado";
+            this.Id_Empregado.HeaderText = "Id_Empregado";
+            this.Id_Empregado.Name = "Id_Empregado";
+            this.Id_Empregado.ReadOnly = true;
+            this.Id_Empregado.Visible = false;
+            // 
+            // Nome
+            // 
+            this.Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            // 
+            // AtrasoFalta
+            // 
+            this.AtrasoFalta.DataPropertyName = "AtrasoFalta";
+            this.AtrasoFalta.HeaderText = "Atraso/Falta";
+            this.AtrasoFalta.Name = "AtrasoFalta";
+            this.AtrasoFalta.ReadOnly = true;
             // 
             // FrmCadastroAssiduidade
             // 
@@ -276,11 +285,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtAtrasoFalta;
         private System.Windows.Forms.Label LblInfoAssiduidade;
+        private System.Windows.Forms.Label LblInfoCodigoAtendente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Competencia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Empresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_Empregado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn AtrasoFalta;
-        private System.Windows.Forms.Label LblInfoCodigoAtendente;
     }
 }

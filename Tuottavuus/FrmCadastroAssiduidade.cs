@@ -120,6 +120,9 @@ namespace Tuottavuus
 
                 TxtAtrasoFalta.Text = DgvAssiduidade.Rows[e.RowIndex].Cells["AtrasoFalta"].Value.ToString();
 
+                CbxEmpresa.SelectedValue = idEmpresa;
+                CbxEmpregado.SelectedValue = idEmpregado;
+
                 BtnAlterar.Enabled = true;
                 BtnExcluir.Enabled = true;
                 BtnGravar.Enabled = false;

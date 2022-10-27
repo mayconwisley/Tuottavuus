@@ -9,10 +9,9 @@ namespace Controle
         PesquisaControle pesquisaControle;
         AssiduidadeControle assiduidadeControle;
 
-        int totalChamado = 0, totalEmpregado = 0, totalChamdadoAtendente = 0;
-        decimal notaConceito = 0;
-
-        public decimal PorcentagemChamado(char opcMeta, int idCompetencia, int idEmpresa, int idEmpregado, int codigoGrupo, int idDepartamento)
+        double totalChamado = 0, totalEmpregado = 0, totalChamdadoAtendente = 0, notaConceito = 0;
+        
+        public double PorcentagemChamado(char opcMeta, int idCompetencia, int idEmpresa, int idEmpregado, int codigoGrupo, int idDepartamento)
         {
             chamadoControle = new ChamadoControle();
             empregadoControle = new EmpregadoControle();
@@ -33,8 +32,8 @@ namespace Controle
                     totalChamdadoAtendente = chamadoControle.QtdCapturadoAtendente(idCompetencia, idEmpresa, idEmpregado);
                 }
 
-                decimal media = totalChamado / totalEmpregado;
-                decimal porcentagem = (totalChamdadoAtendente * 100) / media;
+                double media = totalChamado / totalEmpregado;
+                double porcentagem = (totalChamdadoAtendente * 100) / media;
 
                 return porcentagem;
             }
@@ -43,7 +42,7 @@ namespace Controle
                 throw new System.Exception(ex.Message);
             }
         }
-        public decimal PorcentagemPesquisa(int codigoAtendente, int notaFinal)
+        public double PorcentagemPesquisa(int codigoAtendente, int notaFinal)
         {
             pesquisaControle = new PesquisaControle();
             empregadoControle = new EmpregadoControle();
@@ -53,8 +52,8 @@ namespace Controle
                 totalEmpregado = pesquisaControle.QtdAvaliacaoAtendente(codigoAtendente);
                 notaConceito = pesquisaControle.NotaAvaliacaoAtendente(codigoAtendente);
 
-                decimal media = notaConceito / totalEmpregado;
-                decimal porcentagem = (media * 100) / notaFinal;
+                double media = notaConceito / totalEmpregado;
+                double porcentagem = (media * 100) / notaFinal;
 
                 return porcentagem;
             }

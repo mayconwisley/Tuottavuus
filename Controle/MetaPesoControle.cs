@@ -72,7 +72,7 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public int IdPorMeta(decimal porcMeta)
+        public int IdPorMeta(double porcMeta)
         {
 
             crud = new CRUD();
@@ -87,7 +87,7 @@ namespace Controle
                 crud.AdicionarParametros("Meta", porcMeta);
                 var idMeta = crud.Executar(CommandType.Text, SQL);
 
-                if (String.IsNullOrEmpty(idMeta.ToString()))
+                if (idMeta is null)
                 {
                     return 0;
                 }
@@ -113,7 +113,7 @@ namespace Controle
                 crud.AdicionarParametros("Id", idMeta);
                 var valorMeta = crud.Executar(CommandType.Text, SQL);
 
-                if (String.IsNullOrEmpty(valorMeta.ToString()))
+                if (valorMeta is null)
                 {
                     return 0;
                 }
@@ -139,7 +139,7 @@ namespace Controle
                 crud.AdicionarParametros("Id", idMeta);
                 var valorPeso = crud.Executar(CommandType.Text, SQL);
 
-                if (String.IsNullOrEmpty(valorPeso.ToString()))
+                if (valorPeso is null)
                 {
                     return 0;
                 }

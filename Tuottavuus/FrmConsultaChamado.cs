@@ -1,5 +1,6 @@
 ﻿using Controle;
 using System;
+using System.ComponentModel.Design;
 using System.Windows.Forms;
 
 namespace Tuottavuus
@@ -124,7 +125,7 @@ namespace Tuottavuus
             possoMaisControle = new PossoMaisControle();
             metaPesoControle = new MetaPesoControle();
 
-            decimal teste1 = possoMaisControle.PorcentagemChamado('Q', idCompetencia, idEmpresa, 9, 3, 1);
+            double teste1 = possoMaisControle.PorcentagemChamado('Q', idCompetencia, idEmpresa, 2, 3, 1);
             int testeId = metaPesoControle.IdPorMeta(teste1);
             decimal meta = metaPesoControle.Meta(testeId);
             decimal peso = metaPesoControle.Peso(testeId);

@@ -144,7 +144,7 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public int QtdChamadoAtendente(int idCompetencia, int idEmpresa, int idEmpregado)
+        public double QtdChamadoAtendente(int idCompetencia, int idEmpresa, int idEmpregado)
         {
             crud = new CRUD();
             SQL = "SELECT COUNT(Id) AS Total " +
@@ -168,7 +168,7 @@ namespace Controle
                 }
                 else
                 {
-                    return int.Parse(qtdChamado.ToString());
+                    return double.Parse(qtdChamado.ToString());
                 }
             }
             catch (Exception ex)
@@ -177,7 +177,7 @@ namespace Controle
             }
 
         }
-        public int QtdCapturadoAtendente(int idCompetencia, int idEmpresa, int idEmpregado)
+        public double QtdCapturadoAtendente(int idCompetencia, int idEmpresa, int idEmpregado)
         {
             crud = new CRUD();
             SQL = "SELECT COUNT(Id) AS Total " +
@@ -202,7 +202,7 @@ namespace Controle
                 }
                 else
                 {
-                    return int.Parse(qtdChamado.ToString());
+                    return double.Parse(qtdChamado.ToString());
                 }
             }
             catch (Exception ex)
@@ -211,7 +211,7 @@ namespace Controle
             }
 
         }
-        public int QtdFeedbackAtendente(int idCompetencia, int idEmpresa, int idEmpregado)
+        public double QtdFeedbackAtendente(int idCompetencia, int idEmpresa, int idEmpregado)
         {
             crud = new CRUD();
             SQL = "SELECT COUNT(Id) AS Total " +
@@ -236,7 +236,7 @@ namespace Controle
                 }
                 else
                 {
-                    return int.Parse(qtdChamado.ToString());
+                    return double.Parse(qtdChamado.ToString());
                 }
             }
             catch (Exception ex)
@@ -245,7 +245,7 @@ namespace Controle
             }
 
         }
-        public int QtdPorGrupoSolucao(int idCompetencia, int idEmpresa, int codigoGrupo)
+        public double QtdPorGrupoSolucao(int idCompetencia, int idEmpresa, int codigoGrupo)
         {
             crud = new CRUD();
             SQL = "SELECT COUNT(*) " +
@@ -271,7 +271,7 @@ namespace Controle
                 }
                 else
                 {
-                    return int.Parse(qtdChamado.ToString());
+                    return double.Parse(qtdChamado.ToString());
                 }
             }
             catch (Exception ex)
@@ -280,7 +280,7 @@ namespace Controle
             }
 
         }
-        public int QtdPorGrupoSolucaoCapturado(int idCompetencia, int idEmpresa, int codigoGrupo)
+        public double QtdPorGrupoSolucaoCapturado(int idCompetencia, int idEmpresa, int codigoGrupo)
         {
             crud = new CRUD();
             SQL = "SELECT COUNT(*) AS Total " +
@@ -305,7 +305,7 @@ namespace Controle
                 }
                 else
                 {
-                    return int.Parse(qtdChamado.ToString());
+                    return double.Parse(qtdChamado.ToString());
                 }
             }
             catch (Exception ex)
