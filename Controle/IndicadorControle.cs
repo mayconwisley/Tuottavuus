@@ -17,8 +17,8 @@ namespace Controle
         public bool Gravar(Indicador indicador)
         {
             crud = new CRUD();
-            SQL = "INSERT INTO Indicador (Descricao, Ativo, Pesquisa, Chamado, Assiduidade, Captura) " +
-                  "VALUES (@Descricao, @Ativo, @Pesquisa, @Chamado, @Assiduidade, @Captura)";
+            SQL = "INSERT INTO Indicador (Descricao, Ativo, Pesquisa, Chamado, Assiduidade, Captura, Feedback) " +
+                  "VALUES (@Descricao, @Ativo, @Pesquisa, @Chamado, @Assiduidade, @Captura, @Feedback)";
             try
             {
                 crud.LimparParametros();
@@ -27,7 +27,8 @@ namespace Controle
                 crud.AdicionarParametros("Pesquisa", indicador.Pesquisa);
                 crud.AdicionarParametros("Chamado", indicador.Chamado);
                 crud.AdicionarParametros("Assiduidade", indicador.Assiduidade);
-                crud.AdicionarParametros("Captura",indicador.Captura);
+                crud.AdicionarParametros("Captura", indicador.Captura);
+                crud.AdicionarParametros("Feedback", indicador.Feedback);
                 crud.Executar(CommandType.Text, SQL);
                 return true;
             }
@@ -39,8 +40,8 @@ namespace Controle
         public bool Alterar(Indicador indicador)
         {
             crud = new CRUD();
-            SQL = "UPDATE Indicador SET Descricao = @Descricao, Ativo = @Ativo, Pesquisa = @Pesquisa " +
-                  "Chamado = @Chamado, Assiduidade = @Assiduidade, Captura = @Captura" +
+            SQL = "UPDATE Indicador SET Descricao = @Descricao, Ativo = @Ativo, Pesquisa = @Pesquisa, " +
+                  "Chamado = @Chamado, Assiduidade = @Assiduidade, Captura = @Captura, Feedback = @Feedback " +
                   "WHERE Id = @Id";
             try
             {
@@ -50,8 +51,8 @@ namespace Controle
                 crud.AdicionarParametros("Pesquisa", indicador.Pesquisa);
                 crud.AdicionarParametros("Chamado", indicador.Chamado);
                 crud.AdicionarParametros("Assiduidade", indicador.Assiduidade);
-                crud.AdicionarParametros("Captura",indicador.Captura);
-
+                crud.AdicionarParametros("Captura", indicador.Captura);
+                crud.AdicionarParametros("Feedback", indicador.Feedback);
                 crud.AdicionarParametros("Id", indicador.Id);
 
                 crud.Executar(CommandType.Text, SQL);
@@ -116,7 +117,7 @@ namespace Controle
         public DataTable IndicadorTabela()
         {
             crud = new CRUD();
-            SQL = "SELECT Id, Descricao, Ativo, Pesquisa, Chamado, Assiduidade, Captura " +
+            SQL = "SELECT Id, Descricao, Ativo, Pesquisa, Chamado, Assiduidade, Captura, Feedback " +
                   "FROM Indicador " +
                   "ORDER BY Descricao ";
             try

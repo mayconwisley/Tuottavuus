@@ -21,7 +21,7 @@ namespace Controle
 
 
         double totalChamado = 0, totalEmpregado = 0, totalChamdadoAtendente = 0, notaConceito = 0;
-        bool ativo, pesquisa, chamado, assiduidade, captura;
+        bool ativo, pesquisa, chamado, assiduidade, captura, feedback;
         int indicadorId;
         double porc;
 
@@ -33,7 +33,7 @@ namespace Controle
 
 
 
-        public double PorcentagemChamado(char opcMeta, int idCompetencia, int idEmpresa, int idEmpregado, int codigoGrupo, int idDepartamento)
+        public double PorcentagemChamado(char opcMeta, int idCompetencia, int idEmpresa, int idEmpregado, int idDepartamento)
         {
             chamadoControle = new ChamadoControle();
             empregadoControle = new EmpregadoControle();
@@ -43,14 +43,14 @@ namespace Controle
 
                 totalEmpregado = empregadoControle.TotalEmpregadoPorDepartamento(idDepartamento);
 
-                if (opcMeta == 'A')
+                if (opcMeta == 'Q')
                 {
-                    totalChamado = chamadoControle.QtdPorGrupoSolucao(idCompetencia, idEmpresa, codigoGrupo);
+                    totalChamado = chamadoControle.QtdChamado(idCompetencia, idEmpresa, idDepartamento);
                     totalChamdadoAtendente = chamadoControle.QtdChamadoAtendente(idCompetencia, idEmpresa, idEmpregado);
                 }
                 else if (opcMeta == 'C')
                 {
-                    totalChamado = chamadoControle.QtdPorGrupoSolucaoCapturado(idCompetencia, idEmpresa, codigoGrupo);
+                    totalChamado = chamadoControle.QtdChamadoCapturado(idCompetencia, idEmpresa, idDepartamento);
                     totalChamdadoAtendente = chamadoControle.QtdCapturadoAtendente(idCompetencia, idEmpresa, idEmpregado);
                 }
 
@@ -84,6 +84,20 @@ namespace Controle
                 throw new System.Exception(ex.Message);
             }
         }
+        public double QuantidadeFeedback(int idCompetencia, int idEmpresa, int idEmpregado)
+        {
+            chamadoControle = new ChamadoControle();
+            try
+            {
+                double qtdFeed = chamadoControle.QtdFeedbackAtendente(idCompetencia, idEmpresa, idEmpregado);
+                return qtdFeed;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+        }
+
         public double QuantidadeAssiduidade(Assiduidade assiduidade)
         {
             assiduidadeControle = new AssiduidadeControle();
@@ -192,61 +206,62 @@ namespace Controle
                 int departamentoId = int.Parse(empregadoRow[2].ToString());
 
 
-                foreach (DataRow codigoGrupoSol in codigoGrupoSolucao.Rows)
+                foreach (DataRow item in indicador.Rows)
                 {
-                    int codGrupo = int.Parse(codigoGrupoSol[0].ToString());
+                    indicadorId = int.Parse(item[0].ToString());
+                    ativo = bool.Parse(item[2].ToString());
+                    pesquisa = bool.Parse(item[3].ToString());
+                    chamado = bool.Parse(item[4].ToString());
+                    assiduidade = bool.Parse(item[5].ToString());
+                    captura = bool.Parse(item[6].ToString());
+                    feedback = bool.Parse(item[7].ToString());
 
-                    foreach (DataRow item in indicador.Rows)
+                    if (pesquisa)
                     {
-                        indicadorId = int.Parse(item[0].ToString());
-                        ativo = bool.Parse(item[2].ToString());
-                        pesquisa = bool.Parse(item[3].ToString());
-                        chamado = bool.Parse(item[4].ToString());
-                        assiduidade = bool.Parse(item[5].ToString());
-                        captura = bool.Parse(item[5].ToString());
-
-                        if (pesquisa)
-                        {
-
-                        }
-                        if (chamado)
-                        {
-                            porc = PorcentagemChamado('Q', idCompetencia, empresaId, empregadoId, codGrupo, departamentoId);
-                        }
-                        if (captura)
-                        {
-                            porc = PorcentagemChamado('C', idCompetencia, empresaId, empregadoId, codGrupo, departamentoId);
-                        }
-                        if (assiduidade)
-                        {
-
-                        }
-
-                        int idMeta = metaPesoControle.IdPorMeta(porc, indicadorId);
-
-                        if (idMeta == 0)
-                        {
-                            continue;
-                        }
-
-                        possoMais.Competencia = new Competencia();
-                        possoMais.Competencia.Id = idCompetencia;
-                        possoMais.Empresa = new Empresa();
-                        possoMais.Empresa.Id = empresaId;
-                        possoMais.Empregado = new Empregado();
-                        possoMais.Empregado.Id = empregadoId;
-                        possoMais.MetaPeso = new MetaPeso();
-                        possoMais.MetaPeso.Id = idMeta;
-                        possoMais.Total = porc;
-
-                        Gravar(possoMais);
-
-
-
 
                     }
+                    if (chamado)
+                    {
+                        porc = PorcentagemChamado('Q', idCompetencia, empresaId, empregadoId, departamentoId);
+                    }
+                    if (captura)
+                    {
+                        porc = PorcentagemChamado('C', idCompetencia, empresaId, empregadoId, departamentoId);
+                    }
+                    if (assiduidade)
+                    {
+
+                    }
+                    if (feedback)
+                    {
+                        porc = QuantidadeFeedback(idCompetencia, empresaId, empregadoId);
+                    }
+
+                    int idMeta = metaPesoControle.IdPorMeta(porc, indicadorId);
+
+                    if (idMeta == 0)
+                    {
+                        continue;
+                    }
+
+                    possoMais.Competencia = new Competencia();
+                    possoMais.Competencia.Id = idCompetencia;
+                    possoMais.Empresa = new Empresa();
+                    possoMais.Empresa.Id = empresaId;
+                    possoMais.Empregado = new Empregado();
+                    possoMais.Empregado.Id = empregadoId;
+                    possoMais.MetaPeso = new MetaPeso();
+                    possoMais.MetaPeso.Id = idMeta;
+                    possoMais.Total = porc;
+
+                    Gravar(possoMais);
+
+
+
 
                 }
+
+
 
 
 

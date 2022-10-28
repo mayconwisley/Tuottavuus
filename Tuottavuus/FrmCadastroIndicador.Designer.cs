@@ -41,6 +41,7 @@
             this.CbChamado = new System.Windows.Forms.CheckBox();
             this.CbAssiduidade = new System.Windows.Forms.CheckBox();
             this.CbCaptura = new System.Windows.Forms.CheckBox();
+            this.CbFeedback = new System.Windows.Forms.CheckBox();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -48,6 +49,7 @@
             this.Chamado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Assiduidade = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Captura = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Feedback = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvIndicadors)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +86,8 @@
             this.PesquisaIndicador,
             this.Chamado,
             this.Assiduidade,
-            this.Captura});
+            this.Captura,
+            this.Feedback});
             this.DgvIndicadors.Location = new System.Drawing.Point(12, 121);
             this.DgvIndicadors.MultiSelect = false;
             this.DgvIndicadors.Name = "DgvIndicadors";
@@ -132,7 +135,7 @@
             this.CbAtivo.AutoSize = true;
             this.CbAtivo.Checked = true;
             this.CbAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CbAtivo.Location = new System.Drawing.Point(233, 28);
+            this.CbAtivo.Location = new System.Drawing.Point(164, 28);
             this.CbAtivo.Name = "CbAtivo";
             this.CbAtivo.Size = new System.Drawing.Size(50, 17);
             this.CbAtivo.TabIndex = 1;
@@ -145,7 +148,7 @@
             this.TxtDescricao.Location = new System.Drawing.Point(12, 25);
             this.TxtDescricao.MaxLength = 255;
             this.TxtDescricao.Name = "TxtDescricao";
-            this.TxtDescricao.Size = new System.Drawing.Size(215, 20);
+            this.TxtDescricao.Size = new System.Drawing.Size(146, 20);
             this.TxtDescricao.TabIndex = 0;
             // 
             // label1
@@ -196,6 +199,16 @@
             this.CbCaptura.TabIndex = 16;
             this.CbCaptura.Text = "Captura";
             this.CbCaptura.UseVisualStyleBackColor = true;
+            // 
+            // CbFeedback
+            // 
+            this.CbFeedback.AutoSize = true;
+            this.CbFeedback.Location = new System.Drawing.Point(233, 27);
+            this.CbFeedback.Name = "CbFeedback";
+            this.CbFeedback.Size = new System.Drawing.Size(74, 17);
+            this.CbFeedback.TabIndex = 1;
+            this.CbFeedback.Text = "Feedback";
+            this.CbFeedback.UseVisualStyleBackColor = true;
             // 
             // Id
             // 
@@ -259,6 +272,13 @@
             this.Captura.Name = "Captura";
             this.Captura.ReadOnly = true;
             // 
+            // Feedback
+            // 
+            this.Feedback.DataPropertyName = "Feedback";
+            this.Feedback.HeaderText = "Feedback";
+            this.Feedback.Name = "Feedback";
+            this.Feedback.ReadOnly = true;
+            // 
             // FrmCadastroIndicador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,6 +294,7 @@
             this.Controls.Add(this.BtnExcluir);
             this.Controls.Add(this.BtnAlterar);
             this.Controls.Add(this.BtnGravar);
+            this.Controls.Add(this.CbFeedback);
             this.Controls.Add(this.CbAtivo);
             this.Controls.Add(this.TxtDescricao);
             this.Controls.Add(this.label1);
@@ -307,6 +328,7 @@
         private System.Windows.Forms.CheckBox CbChamado;
         private System.Windows.Forms.CheckBox CbAssiduidade;
         private System.Windows.Forms.CheckBox CbCaptura;
+        private System.Windows.Forms.CheckBox CbFeedback;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Ativo;
@@ -314,5 +336,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Chamado;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Assiduidade;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Captura;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Feedback;
     }
 }

@@ -9,5 +9,6 @@
         public bool Chamado { get; set; }
         public bool Captura { get; set; }
         public bool Assiduidade { get; set; }
+        public bool Feedback { get; set; }
     }
 }

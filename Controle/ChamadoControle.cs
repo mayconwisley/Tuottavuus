@@ -185,7 +185,7 @@ namespace Controle
                   "WHERE CodigoNatureza = 5 " +
                   "AND Id_Competencia = @Id_Competencia " +
                   "AND Id_Empresa = @Id_Empresa " +
-                  "AND Id_Empregado = @Id_Empregado";
+                  "AND Id_Empregado = @Id_Empregado ";
 
             try
             {
@@ -245,23 +245,23 @@ namespace Controle
             }
 
         }
-        public double QtdPorGrupoSolucao(int idCompetencia, int idEmpresa, int codigoGrupo)
+        public double QtdChamado(int idCompetencia, int idEmpresa, int idDepartamento)
         {
             crud = new CRUD();
-            SQL = "SELECT COUNT(*) " +
-                  "FROM Chamados " +
-                  "WHERE Id_Competencia = @Id_Competencia " +
-                  "AND CodigoGrupoSolucao = @CodigoGrupoSolucao " +
-                  "AND Id_Empresa = @Id_Empresa " +
-                  "AND CodigoNatureza IN (5,8)";
+            SQL = "SELECT COUNT(C.Id) " +
+                  "FROM Chamados C " +
+                  "INNER JOIN Empregado E ON E.Id = C.Id_Empregado " +
+                  "WHERE C.Id_Competencia = @Id_Competencia " +
+                  "AND C.Id_Empresa = @Id_Empresa " +
+                  "AND E.Id_Departamento = @Id_Departamento " +
+                  "AND C.CodigoNatureza IN (5,8)";
 
             try
             {
                 crud.LimparParametros();
                 crud.AdicionarParametros("Id_Competencia", idCompetencia);
-                crud.AdicionarParametros("CodigoGrupoSolucao", codigoGrupo);
                 crud.AdicionarParametros("Id_Empresa", idEmpresa);
-
+                crud.AdicionarParametros("Id_Departamento", idDepartamento);
 
                 var qtdChamado = crud.Executar(CommandType.Text, SQL);
 
@@ -280,22 +280,23 @@ namespace Controle
             }
 
         }
-        public double QtdPorGrupoSolucaoCapturado(int idCompetencia, int idEmpresa, int codigoGrupo)
+        public double QtdChamadoCapturado(int idCompetencia, int idEmpresa, int idDepartamento)
         {
             crud = new CRUD();
-            SQL = "SELECT COUNT(*) AS Total " +
-                  "FROM Chamados " +
-                  "WHERE CodigoNatureza = 5 " +
-                  "AND CodigoGrupoSolucao = @CodigoGrupoSolucao " +
-                  "AND Id_Empresa = @Id_Empresa " +
-                  "AND Id_Competencia = @Id_Competencia";
+            SQL = "SELECT COUNT(C.Id) AS Total " +
+                  "FROM Chamados C " +
+                  "INNER JOIN Empregado E ON E.Id = C.Id_Empregado " +
+                  "WHERE C.CodigoNatureza = 5 " +
+                  "AND C.Id_Empresa = @Id_Empresa " +
+                  "AND C.Id_Competencia = @Id_Competencia " +
+                  "AND E.Id_Departamento = @Id_Departamento";
 
             try
             {
                 crud.LimparParametros();
-                crud.AdicionarParametros("CodigoGrupoSolucao", codigoGrupo);
                 crud.AdicionarParametros("Id_Empresa", idEmpresa);
                 crud.AdicionarParametros("Id_Competencia", idCompetencia);
+                crud.AdicionarParametros("Id_Departamento", idDepartamento);
 
                 var qtdChamado = crud.Executar(CommandType.Text, SQL);
 
