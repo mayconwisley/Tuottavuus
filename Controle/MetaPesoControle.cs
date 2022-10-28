@@ -72,19 +72,21 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public int IdPorMeta(double porcMeta)
+        public int IdPorMeta(double porcMeta, int idIndicado)
         {
 
             crud = new CRUD();
             SQL = "SELECT TOP 1 Id " +
                   "FROM MetaPeso " +
                   "WHERE @Meta >= Meta " +
+                  "AND Id_Indicador = @Id_Indicador " +
                   "ORDER BY Meta DESC";
 
             try
             {
                 crud.LimparParametros();
                 crud.AdicionarParametros("Meta", porcMeta);
+                crud.AdicionarParametros("Id_Indicador", idIndicado);
                 var idMeta = crud.Executar(CommandType.Text, SQL);
 
                 if (idMeta is null)

@@ -279,6 +279,22 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
+        public DataTable EmpregadoAtivoTabela()
+        {
+            crud = new CRUD();
+            SQL = "SELECT Id, Id_Empresa, Id_Departamento " +
+                    "FROM Empregado " +
+                    "WHERE Ativo = true";
+            try
+            {
+                DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public DataTable EmpregadoTabelaCalculo(int empresaId)
         {
             crud = new CRUD();

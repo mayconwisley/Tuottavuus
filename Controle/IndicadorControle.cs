@@ -17,8 +17,8 @@ namespace Controle
         public bool Gravar(Indicador indicador)
         {
             crud = new CRUD();
-            SQL = "INSERT INTO Indicador (Descricao, Ativo, Pesquisa, Chamado, Assiduidade) " +
-                  "VALUES (@Descricao, @Ativo, @Pesquisa, @Chamado, @Assiduidade)";
+            SQL = "INSERT INTO Indicador (Descricao, Ativo, Pesquisa, Chamado, Assiduidade, Captura) " +
+                  "VALUES (@Descricao, @Ativo, @Pesquisa, @Chamado, @Assiduidade, @Captura)";
             try
             {
                 crud.LimparParametros();
@@ -27,6 +27,7 @@ namespace Controle
                 crud.AdicionarParametros("Pesquisa", indicador.Pesquisa);
                 crud.AdicionarParametros("Chamado", indicador.Chamado);
                 crud.AdicionarParametros("Assiduidade", indicador.Assiduidade);
+                crud.AdicionarParametros("Captura",indicador.Captura);
                 crud.Executar(CommandType.Text, SQL);
                 return true;
             }
@@ -39,7 +40,7 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "UPDATE Indicador SET Descricao = @Descricao, Ativo = @Ativo, Pesquisa = @Pesquisa " +
-                  "Chamado = @Chamado, Assiduidade = @Assiduidade" +
+                  "Chamado = @Chamado, Assiduidade = @Assiduidade, Captura = @Captura" +
                   "WHERE Id = @Id";
             try
             {
@@ -49,6 +50,7 @@ namespace Controle
                 crud.AdicionarParametros("Pesquisa", indicador.Pesquisa);
                 crud.AdicionarParametros("Chamado", indicador.Chamado);
                 crud.AdicionarParametros("Assiduidade", indicador.Assiduidade);
+                crud.AdicionarParametros("Captura",indicador.Captura);
 
                 crud.AdicionarParametros("Id", indicador.Id);
 
@@ -114,7 +116,7 @@ namespace Controle
         public DataTable IndicadorTabela()
         {
             crud = new CRUD();
-            SQL = "SELECT Id, Descricao, Ativo, Pesquisa, Chamado, Assiduidade " +
+            SQL = "SELECT Id, Descricao, Ativo, Pesquisa, Chamado, Assiduidade, Captura " +
                   "FROM Indicador " +
                   "ORDER BY Descricao ";
             try

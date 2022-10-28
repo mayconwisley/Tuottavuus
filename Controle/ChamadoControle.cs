@@ -182,8 +182,8 @@ namespace Controle
             crud = new CRUD();
             SQL = "SELECT COUNT(Id) AS Total " +
                   "FROM Chamados " +
-                  "WHERE Id_Competencia = @Id_Competencia " +
-                  "AND CodigoNatureza = 5 " +
+                  "WHERE CodigoNatureza = 5 " +
+                  "AND Id_Competencia = @Id_Competencia " +
                   "AND Id_Empresa = @Id_Empresa " +
                   "AND Id_Empregado = @Id_Empregado";
 
@@ -325,6 +325,29 @@ namespace Controle
             try
             {
                 crud.LimparParametros();
+                DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
+                return dataTable;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
+        public DataTable CodigosGrupoSolucaoTabela(int idCompetencia)
+        {
+            crud = new CRUD();
+            SQL = "SELECT CodigoGrupoSolucao " +
+                  "FROM Chamados " +
+                  "WHERE Id_Competencia = @Id_Competencia " +
+                  "GROUP BY CodigoGrupoSolucao";
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id_Competencia", idCompetencia);
                 DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
                 return dataTable;
 

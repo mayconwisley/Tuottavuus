@@ -40,12 +40,14 @@
             this.CbPesquisa = new System.Windows.Forms.CheckBox();
             this.CbChamado = new System.Windows.Forms.CheckBox();
             this.CbAssiduidade = new System.Windows.Forms.CheckBox();
+            this.CbCaptura = new System.Windows.Forms.CheckBox();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ativo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.PesquisaIndicador = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Chamado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Assiduidade = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Captura = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvIndicadors)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +83,8 @@
             this.Ativo,
             this.PesquisaIndicador,
             this.Chamado,
-            this.Assiduidade});
+            this.Assiduidade,
+            this.Captura});
             this.DgvIndicadors.Location = new System.Drawing.Point(12, 121);
             this.DgvIndicadors.MultiSelect = false;
             this.DgvIndicadors.Name = "DgvIndicadors";
@@ -129,7 +132,7 @@
             this.CbAtivo.AutoSize = true;
             this.CbAtivo.Checked = true;
             this.CbAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CbAtivo.Location = new System.Drawing.Point(12, 51);
+            this.CbAtivo.Location = new System.Drawing.Point(233, 28);
             this.CbAtivo.Name = "CbAtivo";
             this.CbAtivo.Size = new System.Drawing.Size(50, 17);
             this.CbAtivo.TabIndex = 1;
@@ -142,7 +145,7 @@
             this.TxtDescricao.Location = new System.Drawing.Point(12, 25);
             this.TxtDescricao.MaxLength = 255;
             this.TxtDescricao.Name = "TxtDescricao";
-            this.TxtDescricao.Size = new System.Drawing.Size(296, 20);
+            this.TxtDescricao.Size = new System.Drawing.Size(215, 20);
             this.TxtDescricao.TabIndex = 0;
             // 
             // label1
@@ -157,7 +160,7 @@
             // CbPesquisa
             // 
             this.CbPesquisa.AutoSize = true;
-            this.CbPesquisa.Location = new System.Drawing.Point(68, 51);
+            this.CbPesquisa.Location = new System.Drawing.Point(12, 51);
             this.CbPesquisa.Name = "CbPesquisa";
             this.CbPesquisa.Size = new System.Drawing.Size(69, 17);
             this.CbPesquisa.TabIndex = 2;
@@ -167,7 +170,7 @@
             // CbChamado
             // 
             this.CbChamado.AutoSize = true;
-            this.CbChamado.Location = new System.Drawing.Point(143, 51);
+            this.CbChamado.Location = new System.Drawing.Point(87, 51);
             this.CbChamado.Name = "CbChamado";
             this.CbChamado.Size = new System.Drawing.Size(71, 17);
             this.CbChamado.TabIndex = 3;
@@ -177,12 +180,22 @@
             // CbAssiduidade
             // 
             this.CbAssiduidade.AutoSize = true;
-            this.CbAssiduidade.Location = new System.Drawing.Point(220, 51);
+            this.CbAssiduidade.Location = new System.Drawing.Point(233, 51);
             this.CbAssiduidade.Name = "CbAssiduidade";
             this.CbAssiduidade.Size = new System.Drawing.Size(83, 17);
             this.CbAssiduidade.TabIndex = 4;
             this.CbAssiduidade.Text = "Assiduidade";
             this.CbAssiduidade.UseVisualStyleBackColor = true;
+            // 
+            // CbCaptura
+            // 
+            this.CbCaptura.AutoSize = true;
+            this.CbCaptura.Location = new System.Drawing.Point(164, 51);
+            this.CbCaptura.Name = "CbCaptura";
+            this.CbCaptura.Size = new System.Drawing.Size(63, 17);
+            this.CbCaptura.TabIndex = 16;
+            this.CbCaptura.Text = "Captura";
+            this.CbCaptura.UseVisualStyleBackColor = true;
             // 
             // Id
             // 
@@ -239,11 +252,19 @@
             this.Assiduidade.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Assiduidade.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // Captura
+            // 
+            this.Captura.DataPropertyName = "Captura";
+            this.Captura.HeaderText = "Captura";
+            this.Captura.Name = "Captura";
+            this.Captura.ReadOnly = true;
+            // 
             // FrmCadastroIndicador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(320, 282);
+            this.Controls.Add(this.CbCaptura);
             this.Controls.Add(this.CbAssiduidade);
             this.Controls.Add(this.CbChamado);
             this.Controls.Add(this.CbPesquisa);
@@ -285,11 +306,13 @@
         private System.Windows.Forms.CheckBox CbPesquisa;
         private System.Windows.Forms.CheckBox CbChamado;
         private System.Windows.Forms.CheckBox CbAssiduidade;
+        private System.Windows.Forms.CheckBox CbCaptura;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Ativo;
         private System.Windows.Forms.DataGridViewCheckBoxColumn PesquisaIndicador;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Chamado;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Assiduidade;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Captura;
     }
 }

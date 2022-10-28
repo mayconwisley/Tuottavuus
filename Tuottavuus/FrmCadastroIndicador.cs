@@ -88,6 +88,14 @@ namespace Tuottavuus
                     indicador.Assiduidade = false;
                 }
 
+                if (CbCaptura.Checked)
+                {
+                    indicador.Captura = true;
+                }
+                else
+                {
+                    indicador.Captura = false;
+                }
 
                 if (tipoManipulacao == TipoManipulacao.Gravar)
                 {
