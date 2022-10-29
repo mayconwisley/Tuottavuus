@@ -35,10 +35,11 @@ namespace Tuottavuus
             strCaminho = caminho;
         }
 
-        public FrmBarraCarregamento(char impOpc, int competenciaId) : this()
+        public FrmBarraCarregamento(char impOpc, int competenciaId, int empresaId) : this()
         {
             opc = impOpc;
             idCompetencia = competenciaId;
+            idEmpresa = empresaId;
         }
 
         private void FrmBarraCarregamento_Enter(object sender, EventArgs e)
@@ -60,7 +61,7 @@ namespace Tuottavuus
 
             try
             {
-                possoMaisControle.Calcular(idCompetencia);
+                possoMaisControle.Calcular(idCompetencia, idEmpresa);
                 MessageBox.Show("Posso Mais Calculado.", "Aviso");
                 this.BeginInvoke(new MethodInvoker(Close));
             }

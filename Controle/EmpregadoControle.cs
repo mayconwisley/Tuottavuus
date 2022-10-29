@@ -279,14 +279,17 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public DataTable EmpregadoAtivoTabela()
+        public DataTable EmpregadoAtivoTabela(int idEmpresa)
         {
             crud = new CRUD();
             SQL = "SELECT Id, Id_Empresa, Id_Departamento, Codigo " +
                     "FROM Empregado " +
-                    "WHERE Ativo = true";
+                    "WHERE Ativo = true " +
+                    "AND Id_Empresa = @Id_Empresa";
             try
             {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id_Empresa", idEmpresa);
                 DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
                 return dataTable;
             }

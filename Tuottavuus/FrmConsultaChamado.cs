@@ -12,8 +12,7 @@ namespace Tuottavuus
         CompetenciaControle competenciaControle;
         ChamadoControle chamadoControle;
         PossoMaisControle possoMaisControle;
-        MetaPesoControle metaPesoControle;
-
+      
         int idEmpresa = 0, idCompetencia = 0;
 
         DateTime dtCompetencia;
@@ -119,12 +118,7 @@ namespace Tuottavuus
                 ListaQtdChamadoFeedback(0, 0);
             }
         }
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            possoMaisControle = new PossoMaisControle();
-
-            possoMaisControle.Calcular(1);
-        }
+       
         private void ListaCompetenciaId()
         {
             competenciaControle = new CompetenciaControle();

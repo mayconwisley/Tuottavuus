@@ -33,12 +33,10 @@ namespace Controle
             crud = new CRUD();
             SQL = string.Empty;
         }
-
         public PossoMaisControle(ref ProgressBar progressBar)
         {
             PbCarregamento = progressBar;
         }
-
         public double PorcentagemChamado(char opcMeta, int idCompetencia, int idEmpresa, int idEmpregado, int idDepartamento)
         {
             chamadoControle = new ChamadoControle();
@@ -103,14 +101,13 @@ namespace Controle
                 throw new System.Exception(ex.Message);
             }
         }
-
-        public double QuantidadeAssiduidade(Assiduidade assiduidade)
+        public double QuantidadeAssiduidade(int idCompetencia, int idEmpresa, int idEmpregado)
         {
             assiduidadeControle = new AssiduidadeControle();
 
             try
             {
-                double qtdAssiduidade = assiduidadeControle.AtrasoFalta(assiduidade);
+                double qtdAssiduidade = assiduidadeControle.AtrasoFalta(idCompetencia, idEmpresa, idEmpregado);
                 return qtdAssiduidade;
             }
             catch (System.Exception ex)
@@ -191,8 +188,82 @@ namespace Controle
                 throw new System.Exception(ex.Message);
             }
         }
+        public bool TemCalculo(int idCompetencia, int idEmpresa, int idEmpregado, int idMeta)
+        {
+            crud = new CRUD();
+            SQL = "SELECT COUNT(*) " +
+                    "FROM PossoMais " +
+                    "WHERE Id_Competencia = @Id_Competencia " +
+                    "AND Id_Empresa = @Id_Empresa " +
+                    "AND Id_Empregado = @Id_Empregado " +
+                    "AND Id_Meta = @Id_Meta";
 
-        public bool Calcular(int idCompetencia)
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id_Competencia", idCompetencia);
+                crud.AdicionarParametros("Id_Empresa", idEmpresa);
+                crud.AdicionarParametros("Id_Empregado", idEmpregado);
+                crud.AdicionarParametros("Id_Meta", idMeta);
+
+                var temCalculo = crud.Executar(CommandType.Text, SQL);
+                if (int.Parse(temCalculo.ToString()) > 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        public int Id(int idCompetencia, int idEmpresa, int idEmpregado, int idMeta, double total)
+        {
+            crud = new CRUD();
+            SQL = "SELECT Id " +
+                    "FROM PossoMais " +
+                    "WHERE Id_Competencia = @Id_Competencia " +
+                    "AND Id_Empresa = @Id_Empresa " +
+                    "AND Id_Empregado = @Id_Empregado " +
+                    "AND Id_Meta = @Id_Meta " +
+                    "AND Total = @Total";
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id_Competencia", idCompetencia);
+                crud.AdicionarParametros("Id_Empresa", idEmpresa);
+                crud.AdicionarParametros("Id_Empregado", idEmpregado);
+                crud.AdicionarParametros("Id_Meta", idMeta);
+                crud.AdicionarParametros("Total", total);
+
+                var id = crud.Executar(CommandType.Text, SQL);
+                if (id is null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return int.Parse(id.ToString());
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public bool Calcular(int idCompetencia, int idEmpresa)
         {
             possoMais = new PossoMais();
             indicadorControle = new IndicadorControle();
@@ -202,7 +273,7 @@ namespace Controle
             pesquisaNotaControle = new PesquisaNotaControle();
 
             DataTable indicador = indicadorControle.IndicadorTabela();
-            DataTable empregado = empregadoControle.EmpregadoAtivoTabela();
+            DataTable empregado = empregadoControle.EmpregadoAtivoTabela(idEmpresa);
             DataTable codigoGrupoSolucao = chamadoControle.CodigosGrupoSolucaoTabela(idCompetencia);
 
             int nota = pesquisaNotaControle.Nota(DateTime.Now.Date);
@@ -242,7 +313,7 @@ namespace Controle
                     }
                     if (assiduidade)
                     {
-
+                        porc = QuantidadeAssiduidade(idCompetencia, empresaId, empregadoId);
                     }
                     if (feedback)
                     {
@@ -255,7 +326,7 @@ namespace Controle
                     {
                         continue;
                     }
-
+                    possoMais.Id = Id(idCompetencia, empresaId, empregadoId, idMeta, porc);
                     possoMais.Competencia = new Competencia();
                     possoMais.Competencia.Id = idCompetencia;
                     possoMais.Empresa = new Empresa();
@@ -266,31 +337,54 @@ namespace Controle
                     possoMais.MetaPeso.Id = idMeta;
                     possoMais.Total = porc;
 
-                    Gravar(possoMais);
 
+                    bool temCalculo = TemCalculo(idCompetencia, empresaId, empregadoId, idMeta);
 
-
-
+                    if (temCalculo)
+                    {
+                        Gravar(possoMais);
+                    }
+                    else
+                    {
+                        Alterar(possoMais);
+                    }
                 }
-
-
-
-
-
-
-
             }
-
-
-
-
-
-
-
 
             return true;
 
         }
+        public DataTable PossoMaisTabela(int idCompetencia, int idEmpresa)
+        {
+            crud = new CRUD();
+            SQL = "SELECT PM.Id, EP.Codigo, EP.Nome, PM.Total, DP.Descricao AS Departamento, MP.Peso, IC.Descricao AS Indicador " +
+                    "FROM ((((((PossoMais PM " +
+                    "INNER JOIN Competencia CP ON CP.Id = PM.Id_Competencia) " +
+                    "INNER JOIN Empresa EM ON EM.Id = PM.Id_Empresa) " +
+                    "INNER JOIN Empregado EP ON EP.Id = PM.Id_Empregado) " +
+                    "INNER JOIN MetaPeso MP ON MP.Id = PM.Id_Meta) " +
+                    "INNER JOIN Departamento DP ON DP.Id = EP.Id_Departamento) " +
+                    "INNER JOIN Indicador  IC ON IC.Id = MP.Id_Indicador) " +
+                    "WHERE PM.Id_Competencia = @Id_Competencia " +
+                    "AND PM.Id_Empresa = @Id_Empresa " +
+                    "ORDER BY EP.Nome ASC";
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id_Competencia", idCompetencia);
+                crud.AdicionarParametros("Id_Empresa", idEmpresa);
+
+                DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
 
     }
 }

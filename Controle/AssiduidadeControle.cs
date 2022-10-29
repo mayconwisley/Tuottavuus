@@ -82,7 +82,7 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public int AtrasoFalta(Assiduidade assiduidade)
+        public int AtrasoFalta(int idCompetencia, int idEmpresa, int idEmpregado)
         {
             crud = new CRUD();
             SQL = "SELECT SUM(AtrasoFalta) AS Total " +
@@ -94,9 +94,9 @@ namespace Controle
             try
             {
                 crud.LimparParametros();
-                crud.AdicionarParametros("Id_Competencia", assiduidade.Competencia.Id);
-                crud.AdicionarParametros("Id_Empresa", assiduidade.Empresa.Id);
-                crud.AdicionarParametros("Id_Empregado", assiduidade.Empregado.Id);
+                crud.AdicionarParametros("Id_Competencia", idCompetencia);
+                crud.AdicionarParametros("Id_Empresa", idEmpresa);
+                crud.AdicionarParametros("Id_Empregado", idEmpregado);
 
                 var atrasoFalta = crud.Executar(CommandType.Text, SQL);
 
