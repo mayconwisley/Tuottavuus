@@ -282,7 +282,7 @@ namespace Controle
         public DataTable EmpregadoAtivoTabela()
         {
             crud = new CRUD();
-            SQL = "SELECT Id, Id_Empresa, Id_Departamento " +
+            SQL = "SELECT Id, Id_Empresa, Id_Departamento, Codigo " +
                     "FROM Empregado " +
                     "WHERE Ativo = true";
             try

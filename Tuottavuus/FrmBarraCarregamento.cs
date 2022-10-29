@@ -11,6 +11,7 @@ namespace Tuottavuus
         EmpregadoControle empregadoControle;
         PesquisaControle pesquisaControle;
         ChamadoControle chamadoControle;
+        PossoMaisControle possoMaisControle;
 
         int idCompetencia = 0, idEmpresa = 0, idDepartamento = 0;
 
@@ -34,9 +35,41 @@ namespace Tuottavuus
             strCaminho = caminho;
         }
 
+        public FrmBarraCarregamento(char impOpc, int competenciaId) : this()
+        {
+            opc = impOpc;
+            idCompetencia = competenciaId;
+        }
+
         private void FrmBarraCarregamento_Enter(object sender, EventArgs e)
         {
-            Importar();
+            if (opc == 'X')
+            {
+                this.Text = "Calculando Posso Mais";
+                CalculoPossoMais();
+            }
+            else
+            {
+                Importar();
+            }
+
+        }
+        private void CalculoPossoMais()
+        {
+            possoMaisControle = new PossoMaisControle(ref PbBarraCarregamento);
+
+            try
+            {
+                possoMaisControle.Calcular(idCompetencia);
+                MessageBox.Show("Posso Mais Calculado.", "Aviso");
+                this.BeginInvoke(new MethodInvoker(Close));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro");
+            }
+
+
         }
         private void Importar()
         {

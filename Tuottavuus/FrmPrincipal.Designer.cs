@@ -63,8 +63,8 @@
             this.SubAssiduidade = new System.Windows.Forms.ToolStripMenuItem();
             this.SubAssiduidadeCadastrar = new System.Windows.Forms.ToolStripMenuItem();
             this.SubAssiduidadeConsultar = new System.Windows.Forms.ToolStripMenuItem();
-            this.calcularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubPremiacaoCalcular = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubPremiacaoConsultar = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuRelatorio = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuRelatoriosRelatorio = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
@@ -247,8 +247,8 @@
             // 
             this.MenuPremiacao.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SubPremiacaoPossoMais,
-            this.calcularToolStripMenuItem,
-            this.consultarToolStripMenuItem});
+            this.SubPremiacaoCalcular,
+            this.SubPremiacaoConsultar});
             this.MenuPremiacao.Name = "MenuPremiacao";
             this.MenuPremiacao.Size = new System.Drawing.Size(75, 20);
             this.MenuPremiacao.Text = "Premiação";
@@ -337,28 +337,29 @@
             // SubAssiduidadeCadastrar
             // 
             this.SubAssiduidadeCadastrar.Name = "SubAssiduidadeCadastrar";
-            this.SubAssiduidadeCadastrar.Size = new System.Drawing.Size(180, 22);
+            this.SubAssiduidadeCadastrar.Size = new System.Drawing.Size(125, 22);
             this.SubAssiduidadeCadastrar.Text = "Cadastrar";
             this.SubAssiduidadeCadastrar.Click += new System.EventHandler(this.SubAssiduidadeCadastrar_Click);
             // 
             // SubAssiduidadeConsultar
             // 
             this.SubAssiduidadeConsultar.Name = "SubAssiduidadeConsultar";
-            this.SubAssiduidadeConsultar.Size = new System.Drawing.Size(180, 22);
+            this.SubAssiduidadeConsultar.Size = new System.Drawing.Size(125, 22);
             this.SubAssiduidadeConsultar.Text = "Consultar";
             this.SubAssiduidadeConsultar.Click += new System.EventHandler(this.SubAssiduidadeConsultar_Click);
             // 
-            // calcularToolStripMenuItem
+            // SubPremiacaoCalcular
             // 
-            this.calcularToolStripMenuItem.Name = "calcularToolStripMenuItem";
-            this.calcularToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.calcularToolStripMenuItem.Text = "Calcular";
+            this.SubPremiacaoCalcular.Name = "SubPremiacaoCalcular";
+            this.SubPremiacaoCalcular.Size = new System.Drawing.Size(180, 22);
+            this.SubPremiacaoCalcular.Text = "Calcular";
+            this.SubPremiacaoCalcular.Click += new System.EventHandler(this.SubPremiacaoCalcular_Click);
             // 
-            // consultarToolStripMenuItem
+            // SubPremiacaoConsultar
             // 
-            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.consultarToolStripMenuItem.Text = "Consultar";
+            this.SubPremiacaoConsultar.Name = "SubPremiacaoConsultar";
+            this.SubPremiacaoConsultar.Size = new System.Drawing.Size(180, 22);
+            this.SubPremiacaoConsultar.Text = "Consultar";
             // 
             // MenuRelatorio
             // 
@@ -466,8 +467,8 @@
         private System.Windows.Forms.ToolStripMenuItem SubAssiduidade;
         private System.Windows.Forms.ToolStripMenuItem SubAssiduidadeCadastrar;
         private System.Windows.Forms.ToolStripMenuItem SubAssiduidadeConsultar;
-        private System.Windows.Forms.ToolStripMenuItem calcularToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SubPremiacaoCalcular;
+        private System.Windows.Forms.ToolStripMenuItem SubPremiacaoConsultar;
     }
 }
 

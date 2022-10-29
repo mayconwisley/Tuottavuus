@@ -1,8 +1,10 @@
 ﻿using Banco_De_Dados;
 using Modelo;
+using System;
 using System.Data;
 using System.Security.Principal;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Controle
 {
@@ -18,6 +20,8 @@ namespace Controle
         IndicadorControle indicadorControle;
         PossoMais possoMais;
         MetaPesoControle metaPesoControle;
+        PesquisaNotaControle pesquisaNotaControle;
+        private ProgressBar PbCarregamento { get; set; }
 
 
         double totalChamado = 0, totalEmpregado = 0, totalChamdadoAtendente = 0, notaConceito = 0;
@@ -25,13 +29,17 @@ namespace Controle
         int indicadorId;
         double porc;
 
+
         public PossoMaisControle()
         {
             crud = new CRUD();
             SQL = string.Empty;
         }
 
-
+        public PossoMaisControle(ref ProgressBar progressBar)
+        {
+            PbCarregamento = progressBar;
+        }
 
         public double PorcentagemChamado(char opcMeta, int idCompetencia, int idEmpresa, int idEmpregado, int idDepartamento)
         {
@@ -193,19 +201,25 @@ namespace Controle
             empregadoControle = new EmpregadoControle();
             metaPesoControle = new MetaPesoControle();
             chamadoControle = new ChamadoControle();
+            pesquisaNotaControle = new PesquisaNotaControle();
 
             DataTable indicador = indicadorControle.IndicadorTabela();
             DataTable empregado = empregadoControle.EmpregadoAtivoTabela();
             DataTable codigoGrupoSolucao = chamadoControle.CodigosGrupoSolucaoTabela(idCompetencia);
 
+            int nota = pesquisaNotaControle.Nota(DateTime.Now.Date);
+            PbCarregamento.Maximum = empregado.Rows.Count;
+            int i = 0;
             /*Calcular porcentagem Chamado*/
             foreach (DataRow empregadoRow in empregado.Rows)
             {
                 int empregadoId = int.Parse(empregadoRow[0].ToString());
                 int empresaId = int.Parse(empregadoRow[1].ToString());
                 int departamentoId = int.Parse(empregadoRow[2].ToString());
-
-
+                int codigoEmpregado = int.Parse(empregadoRow[3].ToString());
+                i++;
+                PbCarregamento.Value = i;
+                
                 foreach (DataRow item in indicador.Rows)
                 {
                     indicadorId = int.Parse(item[0].ToString());
@@ -218,7 +232,7 @@ namespace Controle
 
                     if (pesquisa)
                     {
-
+                        porc = PorcentagemPesquisa(codigoEmpregado, nota);
                     }
                     if (chamado)
                     {

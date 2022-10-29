@@ -183,6 +183,12 @@
     <Compile Include="FrmCadastroProdutividadeBase.Designer.cs">
       <DependentUpon>FrmCadastroProdutividadeBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCalcularPossoMais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCalcularPossoMais.Designer.cs">
+      <DependentUpon>FrmCalcularPossoMais.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCalculoProdutividade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroProdutividadeBase.resx">
       <DependentUpon>FrmCadastroProdutividadeBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCalcularPossoMais.resx">
+      <DependentUpon>FrmCalcularPossoMais.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCalculoProdutividade.resx">
       <DependentUpon>FrmCalculoProdutividade.cs</DependentUpon>

@@ -29,6 +29,7 @@ namespace Tuottavuus
         FrmPesquisaNota pesquisaNota; //21
         FrmCadastroAssiduidade cadastroAssiduidade; //22
         FrmConsultaAssiduidade consultaAssiduidade; //23
+        FrmCalcularPossoMais calcularPossoMais; //24
         bool aberto = true;
 
         public FrmPrincipal()
@@ -260,6 +261,15 @@ namespace Tuottavuus
                             aberto = false;
                         }
                         break;
+                    case 24:
+                        calcularPossoMais = new FrmCalcularPossoMais();
+                        calcularPossoMais.MdiParent= this;
+                        if (item is FrmCalcularPossoMais)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -339,6 +349,9 @@ namespace Tuottavuus
                         break;
                     case 23:
                         consultaAssiduidade.Show();
+                        break;
+                    case 24:
+                        calcularPossoMais.Show();
                         break;
                     default:
                         break;
@@ -482,6 +495,11 @@ namespace Tuottavuus
         private void SubAssiduidadeConsultar_Click(object sender, EventArgs e)
         {
             AbrirFormulario(23);
+        }
+
+        private void SubPremiacaoCalcular_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(24);
         }
     }
 }

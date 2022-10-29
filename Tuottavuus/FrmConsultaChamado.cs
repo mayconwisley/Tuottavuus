@@ -123,8 +123,7 @@ namespace Tuottavuus
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             possoMaisControle = new PossoMaisControle();
-            metaPesoControle = new MetaPesoControle();
-
+           
             possoMaisControle.Calcular(1);
         }
         private void ListaCompetenciaId()

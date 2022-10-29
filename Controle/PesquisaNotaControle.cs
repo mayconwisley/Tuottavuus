@@ -2,6 +2,7 @@
 using Modelo;
 using System;
 using System.Data;
+using System.Diagnostics;
 
 namespace Controle
 {
@@ -37,7 +38,6 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
         public bool Alterar(PesquisaNota pesquisaNota)
         {
             crud = new CRUD();
@@ -80,6 +80,37 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
+
+        public int Nota(DateTime date)
+        {
+            crud = new CRUD();
+            SQL = "SELECT Nota " +
+                  "FROM PesquisaNota " +
+                  "WHERE @Data >= Data " +
+                  "ORDER BY Data DESC ";
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Data", date);
+                var nota = crud.Executar(CommandType.Text, SQL);
+
+                if (nota is null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return int.Parse(nota.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
 
         public DataTable PesquisaNotaTabela()
         {

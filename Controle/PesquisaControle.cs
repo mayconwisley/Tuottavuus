@@ -114,7 +114,7 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "SELECT SUM(NotaConceito) " +
-                  "FROM PesquisaAvaliacao" +
+                  "FROM PesquisaAvaliacao " +
                   "WHERE CodigoAtendente = @CodigoAtendente";
 
             try
@@ -142,7 +142,7 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "SELECT COUNT(Id) " +
-                  "FROM PesquisaAvaliacao" +
+                  "FROM PesquisaAvaliacao " +
                   "WHERE CodigoAtendente = @CodigoAtendente";
 
             try
