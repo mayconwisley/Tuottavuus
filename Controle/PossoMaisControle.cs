@@ -2,8 +2,6 @@
 using Modelo;
 using System;
 using System.Data;
-using System.Security.Principal;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Controle
@@ -219,7 +217,7 @@ namespace Controle
                 int codigoEmpregado = int.Parse(empregadoRow[3].ToString());
                 i++;
                 PbCarregamento.Value = i;
-                
+
                 foreach (DataRow item in indicador.Rows)
                 {
                     indicadorId = int.Parse(item[0].ToString());

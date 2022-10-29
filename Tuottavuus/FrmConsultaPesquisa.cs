@@ -7,7 +7,7 @@ namespace Tuottavuus
     public partial class FrmConsultaPesquisa : Form
     {
 
-        
+
         EmpresaControle empresaControle;
         CompetenciaControle competenciaControle;
         PesquisaControle pesquisaControle;

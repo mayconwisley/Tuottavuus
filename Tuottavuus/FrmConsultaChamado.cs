@@ -1,6 +1,5 @@
 ﻿using Controle;
 using System;
-using System.ComponentModel.Design;
 using System.Windows.Forms;
 
 namespace Tuottavuus
@@ -8,7 +7,7 @@ namespace Tuottavuus
     public partial class FrmConsultaChamado : Form
     {
 
-        
+
         EmpresaControle empresaControle;
         CompetenciaControle competenciaControle;
         ChamadoControle chamadoControle;
@@ -123,7 +122,7 @@ namespace Tuottavuus
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             possoMaisControle = new PossoMaisControle();
-           
+
             possoMaisControle.Calcular(1);
         }
         private void ListaCompetenciaId()

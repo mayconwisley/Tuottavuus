@@ -263,7 +263,7 @@ namespace Tuottavuus
                         break;
                     case 24:
                         calcularPossoMais = new FrmCalcularPossoMais();
-                        calcularPossoMais.MdiParent= this;
+                        calcularPossoMais.MdiParent = this;
                         if (item is FrmCalcularPossoMais)
                         {
                             item.Focus();
