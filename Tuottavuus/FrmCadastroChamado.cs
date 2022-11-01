@@ -21,14 +21,15 @@ namespace Tuottavuus
             InitializeComponent();
         }
 
-        private void ListaChamado()
+        private void ListaChamado(string nomeAtendente)
         {
             chamadoControle = new ChamadoControle();
-            int totalPesquisa = 0;
+
             try
             {
-                DgvChamado.DataSource = chamadoControle.ChamadoTabela();
-                totalPesquisa = DgvChamado.Rows.Count;
+                string strNomeAtendente = $"%{nomeAtendente}%";
+                DgvChamado.DataSource = chamadoControle.ChamadoTabela(strNomeAtendente);
+                int totalPesquisa = DgvChamado.Rows.Count;
                 LblInfoChamado.Text = "Chamados - " + totalPesquisa.ToString("00");
             }
             catch (Exception ex)
@@ -72,7 +73,7 @@ namespace Tuottavuus
         {
             ListaCompetencia();
             ListaEmpresa();
-            ListaChamado();
+            ListaChamado(TxtPesquisa.Text.Trim());
         }
 
         private void DgvChamado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -138,6 +139,11 @@ namespace Tuottavuus
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             Maninupar(TipoManipulacao.Excluir);
+        }
+
+        private void TxtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            ListaChamado(TxtPesquisa.Text.Trim());
         }
 
         private bool ListaEmpresa()
@@ -235,7 +241,7 @@ namespace Tuottavuus
                     chamadoControle.Excluir(chamado);
                 }
 
-                ListaChamado();
+                ListaChamado(TxtPesquisa.Text.Trim());
                 Reset();
             }
             catch (Exception ex)

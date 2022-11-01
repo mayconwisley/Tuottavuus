@@ -44,14 +44,13 @@ namespace Tuottavuus
                 return false;
             }
         }
-        private void ListarMetaPeso()
+        private void ListarMetaPeso(int idIndicador)
         {
             metaPesoControle = new MetaPesoControle();
-            int totalMetaPeso = 0;
             try
             {
-                DgvMetaPeso.DataSource = metaPesoControle.MetaPesoTabela();
-                totalMetaPeso = DgvMetaPeso.Rows.Count;
+                DgvMetaPeso.DataSource = metaPesoControle.MetaPesoTabela(idIndicador);
+                int totalMetaPeso = DgvMetaPeso.Rows.Count;
                 LblInfoMetaPeso.Text = "Meta/Peso - " + totalMetaPeso.ToString("00");
             }
             catch (Exception ex)
@@ -70,8 +69,10 @@ namespace Tuottavuus
                 metaPeso.Id = idMetaPeso;
                 metaPeso.Meta = double.Parse(TxtMeta.Text.Trim());
                 metaPeso.Peso = double.Parse(TxtPeso.Text.Trim());
-                metaPeso.Indicador = new Indicador();
-                metaPeso.Indicador.Id = idIndicador;
+                metaPeso.Indicador = new Indicador
+                {
+                    Id = idIndicador
+                };
 
                 if (tipoManipulacao == TipoManipulacao.Gravar)
                 {
@@ -85,7 +86,7 @@ namespace Tuottavuus
                 {
                     metaPesoControle.Excluir(metaPeso);
                 }
-                ListarMetaPeso();
+                ListarMetaPeso(idIndicador);
                 Reset();
             }
             catch (Exception ex)
@@ -97,7 +98,6 @@ namespace Tuottavuus
         private void FrmCadastroMetaPeso_Load(object sender, EventArgs e)
         {
             ListaIndicador();
-            ListarMetaPeso();
         }
 
         private void BtnAlterar_Click(object sender, EventArgs e)
@@ -114,6 +114,7 @@ namespace Tuottavuus
         private void CbxIndicador_SelectedIndexChanged(object sender, EventArgs e)
         {
             idIndicador = int.Parse(CbxIndicador.SelectedValue.ToString());
+            ListarMetaPeso(idIndicador);
         }
 
         private void DgvMetaPeso_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -181,6 +182,11 @@ namespace Tuottavuus
             {
                 TxtPeso.Text = "";
             }
+        }
+
+        private void TxtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            ListarMetaPeso(idIndicador);
         }
 
         private void BtnExcluir_Click(object sender, EventArgs e)

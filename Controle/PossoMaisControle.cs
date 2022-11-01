@@ -21,12 +21,10 @@ namespace Controle
         PesquisaNotaControle pesquisaNotaControle;
         private ProgressBar PbCarregamento { get; set; }
 
-
         double totalChamado = 0, totalEmpregado = 0, totalChamdadoAtendente = 0, notaConceito = 0;
         bool ativo, pesquisa, chamado, assiduidade, captura, feedback;
         int indicadorId;
         double porc;
-
 
         public PossoMaisControle()
         {
@@ -168,7 +166,7 @@ namespace Controle
                 throw new System.Exception(ex.Message);
             }
         }
-        public bool Excluir(PossoMais possoMais)
+        public bool Excluir(int idPossoMais)
         {
             crud = new CRUD();
             SQL = "DELETE FROM PossoMais " +
@@ -178,7 +176,7 @@ namespace Controle
             {
 
                 crud.LimparParametros();
-                crud.AdicionarParametros("Id", possoMais.Id);
+                crud.AdicionarParametros("Id", idPossoMais);
                 crud.Executar(CommandType.Text, SQL);
 
                 return true;
@@ -188,7 +186,26 @@ namespace Controle
                 throw new System.Exception(ex.Message);
             }
         }
-        public bool TemCalculo(int idCompetencia, int idEmpresa, int idEmpregado, int idMeta)
+        public bool ExcluirPorCompetencia(int idCompetencia)
+        {
+            crud = new CRUD();
+            SQL = "DELETE FROM PossoMais " +
+                  "WHERE Id_Competencia = @Id_Competencia";
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id_Competencia", idCompetencia);
+                crud.Executar(CommandType.Text, SQL);
+
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+        }
+        public bool IsCalculo(int idCompetencia, int idEmpresa, int idEmpregado, int idMeta)
         {
             crud = new CRUD();
             SQL = "SELECT COUNT(*) " +
@@ -224,7 +241,6 @@ namespace Controle
             }
 
         }
-
         public int Id(int idCompetencia, int idEmpresa, int idEmpregado, int idMeta, double total)
         {
             crud = new CRUD();
@@ -262,7 +278,6 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-
         public bool Calcular(int idCompetencia, int idEmpresa)
         {
             possoMais = new PossoMais();
@@ -272,7 +287,7 @@ namespace Controle
             chamadoControle = new ChamadoControle();
             pesquisaNotaControle = new PesquisaNotaControle();
 
-            DataTable indicador = indicadorControle.IndicadorTabela();
+            DataTable indicador = indicadorControle.IndicadorTabela("%%");
             DataTable empregado = empregadoControle.EmpregadoAtivoTabela(idEmpresa);
             DataTable codigoGrupoSolucao = chamadoControle.CodigosGrupoSolucaoTabela(idCompetencia);
 
@@ -338,7 +353,7 @@ namespace Controle
                     possoMais.Total = porc;
 
 
-                    bool temCalculo = TemCalculo(idCompetencia, empresaId, empregadoId, idMeta);
+                    bool temCalculo = IsCalculo(idCompetencia, empresaId, empregadoId, idMeta);
 
                     if (temCalculo)
                     {
@@ -354,7 +369,7 @@ namespace Controle
             return true;
 
         }
-        public DataTable PossoMaisTabela(int idCompetencia, int idEmpresa)
+        public DataTable PossoMaisTabela(int idCompetencia, int idEmpresa, string nomeEmpregado)
         {
             crud = new CRUD();
             SQL = "SELECT PM.Id, EP.Codigo, EP.Nome, PM.Total, DP.Descricao AS Departamento, MP.Peso, IC.Descricao AS Indicador " +
@@ -367,6 +382,7 @@ namespace Controle
                     "INNER JOIN Indicador  IC ON IC.Id = MP.Id_Indicador) " +
                     "WHERE PM.Id_Competencia = @Id_Competencia " +
                     "AND PM.Id_Empresa = @Id_Empresa " +
+                    "AND EP.Nome LIKE @Nome " +
                     "ORDER BY EP.Nome ASC";
 
             try
@@ -374,6 +390,7 @@ namespace Controle
                 crud.LimparParametros();
                 crud.AdicionarParametros("Id_Competencia", idCompetencia);
                 crud.AdicionarParametros("Id_Empresa", idEmpresa);
+                crud.AdicionarParametros("Nome", nomeEmpregado);
 
                 DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
                 return dataTable;

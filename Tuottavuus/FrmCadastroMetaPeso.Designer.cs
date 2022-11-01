@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CbxIndicador = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -160,7 +160,7 @@
             this.DgvMetaPeso.Name = "DgvMetaPeso";
             this.DgvMetaPeso.ReadOnly = true;
             this.DgvMetaPeso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvMetaPeso.Size = new System.Drawing.Size(287, 130);
+            this.DgvMetaPeso.Size = new System.Drawing.Size(287, 158);
             this.DgvMetaPeso.TabIndex = 6;
             this.DgvMetaPeso.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMetaPeso_CellDoubleClick);
             // 
@@ -195,10 +195,10 @@
             // 
             this.Meta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Meta.DataPropertyName = "Meta";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Meta.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.Meta.DefaultCellStyle = dataGridViewCellStyle9;
             this.Meta.HeaderText = "Meta";
             this.Meta.Name = "Meta";
             this.Meta.ReadOnly = true;
@@ -208,10 +208,10 @@
             // 
             this.Peso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Peso.DataPropertyName = "Peso";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Peso.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.Peso.DefaultCellStyle = dataGridViewCellStyle10;
             this.Peso.HeaderText = "Peso";
             this.Peso.Name = "Peso";
             this.Peso.ReadOnly = true;
@@ -220,7 +220,7 @@
             // LblInfoMetaPeso
             // 
             this.LblInfoMetaPeso.AutoSize = true;
-            this.LblInfoMetaPeso.Location = new System.Drawing.Point(12, 130);
+            this.LblInfoMetaPeso.Location = new System.Drawing.Point(9, 130);
             this.LblInfoMetaPeso.Name = "LblInfoMetaPeso";
             this.LblInfoMetaPeso.Size = new System.Drawing.Size(81, 13);
             this.LblInfoMetaPeso.TabIndex = 6;
@@ -230,7 +230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 289);
+            this.ClientSize = new System.Drawing.Size(311, 316);
             this.Controls.Add(this.LblInfoMetaPeso);
             this.Controls.Add(this.DgvMetaPeso);
             this.Controls.Add(this.BtnExcluir);

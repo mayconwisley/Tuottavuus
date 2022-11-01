@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblInfoCodigoAtendente = new System.Windows.Forms.Label();
             this.LblInfoChamado = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -76,6 +76,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.TxtDescTpAtividade = new System.Windows.Forms.TextBox();
+            this.TxtPesquisa = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvChamado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,10 +181,10 @@
             // DataAbertura
             // 
             this.DataAbertura.DataPropertyName = "DataAbertura";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.DataAbertura.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "d";
+            dataGridViewCellStyle13.NullValue = null;
+            this.DataAbertura.DefaultCellStyle = dataGridViewCellStyle13;
             this.DataAbertura.HeaderText = "Data Abertura";
             this.DataAbertura.Name = "DataAbertura";
             this.DataAbertura.ReadOnly = true;
@@ -191,8 +193,8 @@
             // CodigoAtendente
             // 
             this.CodigoAtendente.DataPropertyName = "CodigoAtendente";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoAtendente.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoAtendente.DefaultCellStyle = dataGridViewCellStyle14;
             this.CodigoAtendente.HeaderText = "Cód. Atendente";
             this.CodigoAtendente.Name = "CodigoAtendente";
             this.CodigoAtendente.ReadOnly = true;
@@ -209,8 +211,8 @@
             // CodigoChamado
             // 
             this.CodigoChamado.DataPropertyName = "Chamado";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoChamado.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoChamado.DefaultCellStyle = dataGridViewCellStyle15;
             this.CodigoChamado.HeaderText = "Chamado";
             this.CodigoChamado.Name = "CodigoChamado";
             this.CodigoChamado.ReadOnly = true;
@@ -219,8 +221,8 @@
             // CodigoGrupoSolucao
             // 
             this.CodigoGrupoSolucao.DataPropertyName = "CodigoGrupoSolucao";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoGrupoSolucao.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoGrupoSolucao.DefaultCellStyle = dataGridViewCellStyle16;
             this.CodigoGrupoSolucao.HeaderText = "Cód Grupo Solução";
             this.CodigoGrupoSolucao.Name = "CodigoGrupoSolucao";
             this.CodigoGrupoSolucao.ReadOnly = true;
@@ -237,8 +239,8 @@
             // CodigoNatureza
             // 
             this.CodigoNatureza.DataPropertyName = "CodigoNatureza";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoNatureza.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoNatureza.DefaultCellStyle = dataGridViewCellStyle17;
             this.CodigoNatureza.HeaderText = "Cód. Natureza";
             this.CodigoNatureza.Name = "CodigoNatureza";
             this.CodigoNatureza.ReadOnly = true;
@@ -255,8 +257,8 @@
             // CodigoTpAtividade
             // 
             this.CodigoTpAtividade.DataPropertyName = "CodigoTpAtividade";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoTpAtividade.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoTpAtividade.DefaultCellStyle = dataGridViewCellStyle18;
             this.CodigoTpAtividade.HeaderText = "Cód. Tp Atividade";
             this.CodigoTpAtividade.Name = "CodigoTpAtividade";
             this.CodigoTpAtividade.ReadOnly = true;
@@ -491,11 +493,31 @@
             this.TxtDescTpAtividade.Size = new System.Drawing.Size(205, 20);
             this.TxtDescTpAtividade.TabIndex = 9;
             // 
+            // TxtPesquisa
+            // 
+            this.TxtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtPesquisa.Location = new System.Drawing.Point(451, 112);
+            this.TxtPesquisa.Name = "TxtPesquisa";
+            this.TxtPesquisa.Size = new System.Drawing.Size(227, 20);
+            this.TxtPesquisa.TabIndex = 33;
+            this.TxtPesquisa.TextChanged += new System.EventHandler(this.TxtPesquisa_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(448, 96);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Pesquisa";
+            // 
             // FrmCadastroChamado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 328);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.TxtPesquisa);
             this.Controls.Add(this.TxtDescTpAtividade);
             this.Controls.Add(this.TxtDescNatureza);
             this.Controls.Add(this.TxtDescGrupoSolucao);
@@ -583,5 +605,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DescNatureza;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoTpAtividade;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescTpAtividade;
+        private System.Windows.Forms.TextBox TxtPesquisa;
+        private System.Windows.Forms.Label label5;
     }
 }

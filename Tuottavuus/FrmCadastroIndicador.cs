@@ -25,13 +25,14 @@ namespace Tuottavuus
             TxtDescricao.Focus();
         }
 
-        private bool ListaIndicador()
+        private bool ListaIndicador(string descricao)
         {
             indicadorControle = new IndicadorControle();
             int totalIndicador = 0;
             try
             {
-                DgvIndicadors.DataSource = indicadorControle.IndicadorTabela();
+                string strDecricao = $"%{descricao}%";
+                DgvIndicadors.DataSource = indicadorControle.IndicadorTabela(strDecricao);
                 totalIndicador = DgvIndicadors.Rows.Count;
                 LblInfoIndicador.Text = "Indicadores - " + totalIndicador.ToString("00");
                 return true;
@@ -118,7 +119,7 @@ namespace Tuottavuus
                 {
                     indicadorControle.Excluir(indicador);
                 }
-                ListaIndicador();
+                ListaIndicador(TxtPesquisa.Text.Trim());
                 Reset();
                 return true;
             }
@@ -132,7 +133,7 @@ namespace Tuottavuus
 
         private void FrmCadastroIndicador_Load(object sender, EventArgs e)
         {
-            ListaIndicador();
+            ListaIndicador(TxtPesquisa.Text.Trim());
         }
 
         private void DgvIndicadors_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -213,6 +214,11 @@ namespace Tuottavuus
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             Manipular(TipoManipulacao.Excluir);
+        }
+
+        private void TxtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            ListaIndicador(TxtPesquisa.Text.Trim());
         }
     }
 }

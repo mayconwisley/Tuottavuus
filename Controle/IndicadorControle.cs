@@ -114,14 +114,17 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public DataTable IndicadorTabela()
+        public DataTable IndicadorTabela(string descricao)
         {
             crud = new CRUD();
             SQL = "SELECT Id, Descricao, Ativo, Pesquisa, Chamado, Assiduidade, Captura, Feedback " +
                   "FROM Indicador " +
+                  "WHERE Descricao LIKE @Descricao " +
                   "ORDER BY Descricao ";
             try
             {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Descricao", descricao);
                 DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
                 return dataTable;
             }

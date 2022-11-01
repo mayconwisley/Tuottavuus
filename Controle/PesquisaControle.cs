@@ -194,15 +194,18 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public DataTable PesquisaTabela()
+        public DataTable PesquisaTabela(string nomeAtendente)
         {
             crud = new CRUD();
             SQL = "SELECT Id, Id_Competencia, Id_Empresa, Id_Empregado, DataAbertura, CodigoAtendente, NomeAtendente, NotaConceito, Chamado " +
-                "FROM PesquisaAvaliacao";
+                  "FROM PesquisaAvaliacao " +
+                  "WHERE NomeAtendente LIKE @NomeAtendente " +
+                  "ORDER BY NomeAtendente ASC, DataAbertura DESC";
 
             try
             {
                 crud.LimparParametros();
+                crud.AdicionarParametros("NomeAtendente", nomeAtendente);
                 DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
                 return dataTable;
 

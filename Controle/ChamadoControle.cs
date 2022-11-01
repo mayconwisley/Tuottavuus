@@ -315,17 +315,20 @@ namespace Controle
             }
 
         }
-        public DataTable ChamadoTabela()
+        public DataTable ChamadoTabela(string nomeAtendente)
         {
             crud = new CRUD();
             SQL = "SELECT Id, Id_Competencia, Id_Empresa, Id_Empregado, DataAbertura, " +
                     "Chamado, CodigoGrupoSolucao, DescGrupoSolucao, " +
                     "CodigoAtendente, NomeAtendente, CodigoNatureza, DescNatureza, CodigoTpAtividade, DescTpAtividade " +
-                  "FROM Chamados";
+                  "FROM Chamados " +
+                  "WHERE NomeAtendente LIKE @NomeAtendente " +
+                  "ORDER BY NomeAtendente ASC, DataAbertura DESC";
 
             try
             {
                 crud.LimparParametros();
+                crud.AdicionarParametros("NomeAtendente", nomeAtendente);
                 DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
                 return dataTable;
 
@@ -524,7 +527,7 @@ namespace Controle
                     }
                 }
 
-                ChamadoTabela();
+                // ChamadoTabela("%%");
                 return true;
             }
             catch (Exception ex)
@@ -561,6 +564,5 @@ namespace Controle
                 return false;
             }
         }
-
     }
 }

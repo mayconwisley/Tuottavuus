@@ -6,13 +6,10 @@ namespace Tuottavuus
 {
     public partial class FrmConsultaChamado : Form
     {
-
-
         EmpresaControle empresaControle;
         CompetenciaControle competenciaControle;
         ChamadoControle chamadoControle;
-        PossoMaisControle possoMaisControle;
-      
+
         int idEmpresa = 0, idCompetencia = 0;
 
         DateTime dtCompetencia;
@@ -118,7 +115,7 @@ namespace Tuottavuus
                 ListaQtdChamadoFeedback(0, 0);
             }
         }
-       
+
         private void ListaCompetenciaId()
         {
             competenciaControle = new CompetenciaControle();

@@ -155,15 +155,18 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
-        public DataTable MetaPesoTabela()
+        public DataTable MetaPesoTabela(int idIndicador)
         {
             crud = new CRUD();
             SQL = "SELECT MP.Id, MP.Meta, MP.Peso, MP.Id_Indicador, Ind.Descricao " +
                 "FROM MetaPeso MP " +
                 "INNER JOIN Indicador Ind ON MP.Id_Indicador = Ind.Id " +
+                "WHERE MP.Id_Indicador = @Id_Indicador " +
                 "ORDER BY Ind.Descricao ";
             try
             {
+                crud.LimparParametros();
+                crud.AdicionarParametros("Id_Indicador", idIndicador);
                 DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
                 return dataTable;
             }

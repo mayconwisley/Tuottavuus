@@ -30,7 +30,7 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "INSERT INTO Empregado (Nome,  Ativo, Id_Empresa, Id_Departamento, Codigo) " +
-            "VALUES (@Nome, @Ativo, @Id_Empresa, @Id_Departamento, @Codigo)";
+                  "VALUES (@Nome, @Ativo, @Id_Empresa, @Id_Departamento, @Codigo)";
             try
             {
                 crud.LimparParametros();
@@ -51,7 +51,7 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "UPDATE Empregado SET Nome = @Nome, Ativo = @Ativo, Id_Empresa = @Id_Empresa, Id_Departamento = @Id_Departamento, Codigo = @Codigo " +
-            "WHERE Id = @Id";
+                  "WHERE Id = @Id";
             try
             {
                 crud.LimparParametros();
@@ -74,7 +74,7 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "DELETE FROM Empregado " +
-            "WHERE Id = @Id";
+                  "WHERE Id = @Id";
             try
             {
                 crud.LimparParametros();
@@ -117,7 +117,7 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "SELECT Id FROM Empregado " +
-            "WHERE Nome = @Nome";
+                  "WHERE Nome = @Nome";
             try
             {
                 crud.LimparParametros();

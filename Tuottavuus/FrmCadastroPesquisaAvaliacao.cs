@@ -48,7 +48,7 @@ namespace Tuottavuus
         {
             ListaCompetencia();
             ListaEmpresa();
-            ListaPesquisa();
+            ListaPesquisa(TxtPesquisa.Text.Trim());
         }
         private void CbxEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -79,14 +79,14 @@ namespace Tuottavuus
                 MessageBox.Show(ex.Message, "Erro");
             }
         }
-        private void ListaPesquisa()
+        private void ListaPesquisa(string nomeAtendente)
         {
             pesquisaControle = new PesquisaControle();
-            int totalPesquisa = 0;
             try
             {
-                DgvPesquisa.DataSource = pesquisaControle.PesquisaTabela();
-                totalPesquisa = DgvPesquisa.Rows.Count;
+                string strNomeAtendente = $"%{nomeAtendente}%";
+                DgvPesquisa.DataSource = pesquisaControle.PesquisaTabela(strNomeAtendente);
+                int totalPesquisa = DgvPesquisa.Rows.Count;
                 LblInfoPesquisa.Text = "Pesquisas - " + totalPesquisa.ToString("00");
             }
             catch (Exception ex)
@@ -123,6 +123,12 @@ namespace Tuottavuus
         {
             Maninupar(TipoManipulacao.Alterar);
         }
+
+        private void TxtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            ListaPesquisa(TxtPesquisa.Text.Trim());
+        }
+
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
             Maninupar(TipoManipulacao.Excluir);
@@ -176,12 +182,18 @@ namespace Tuottavuus
                     return;
                 }
                 pesquisa.Id = idPesquisa;
-                pesquisa.Competencia = new Competencia();
-                pesquisa.Competencia.Id = idCompetencia;
-                pesquisa.Empresa = new Empresa();
-                pesquisa.Empresa.Id = idEmpresa;
-                pesquisa.Empregado = new Empregado();
-                pesquisa.Empregado.Id = idEmpregado;
+                pesquisa.Competencia = new Competencia
+                {
+                    Id = idCompetencia
+                };
+                pesquisa.Empresa = new Empresa
+                {
+                    Id = idEmpresa
+                };
+                pesquisa.Empregado = new Empregado
+                {
+                    Id = idEmpregado
+                };
                 pesquisa.CodigoAtendente = codigoEmpregado;
                 pesquisa.NomeAtendente = nomeEmpregado;
 
@@ -203,7 +215,7 @@ namespace Tuottavuus
                     pesquisaControle.Excluir(pesquisa);
                 }
 
-                ListaPesquisa();
+                ListaPesquisa(TxtPesquisa.Text.Trim());
                 Reset();
             }
             catch (Exception ex)

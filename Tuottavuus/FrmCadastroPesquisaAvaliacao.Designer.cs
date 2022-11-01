@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblCompetencia = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CbxEmpresa = new System.Windows.Forms.ComboBox();
@@ -47,9 +47,6 @@
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.DgvPesquisa = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.LblInfoPesquisa = new System.Windows.Forms.Label();
-            this.LblInfoCodigoAtendente = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Competencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id_Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +56,11 @@
             this.NomeAtendente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NotaConceito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Chamado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.LblInfoPesquisa = new System.Windows.Forms.Label();
+            this.LblInfoCodigoAtendente = new System.Windows.Forms.Label();
+            this.TxtPesquisa = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPesquisa)).BeginInit();
             this.SuspendLayout();
             // 
@@ -223,33 +225,6 @@
             this.DgvPesquisa.TabIndex = 6;
             this.DgvPesquisa.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPesquisa_CellDoubleClick);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 433);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(228, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Dois cliques sobre o item para alterar ou excluir";
-            // 
-            // LblInfoPesquisa
-            // 
-            this.LblInfoPesquisa.AutoSize = true;
-            this.LblInfoPesquisa.Location = new System.Drawing.Point(12, 207);
-            this.LblInfoPesquisa.Name = "LblInfoPesquisa";
-            this.LblInfoPesquisa.Size = new System.Drawing.Size(76, 13);
-            this.LblInfoPesquisa.TabIndex = 12;
-            this.LblInfoPesquisa.Text = "Pesquisas - 00";
-            // 
-            // LblInfoCodigoAtendente
-            // 
-            this.LblInfoCodigoAtendente.AutoSize = true;
-            this.LblInfoCodigoAtendente.Location = new System.Drawing.Point(12, 125);
-            this.LblInfoCodigoAtendente.Name = "LblInfoCodigoAtendente";
-            this.LblInfoCodigoAtendente.Size = new System.Drawing.Size(116, 13);
-            this.LblInfoCodigoAtendente.TabIndex = 13;
-            this.LblInfoCodigoAtendente.Text = "Código Atendente: 000";
-            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -285,8 +260,8 @@
             // DataAbertura
             // 
             this.DataAbertura.DataPropertyName = "DataAbertura";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.DataAbertura.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.DataAbertura.DefaultCellStyle = dataGridViewCellStyle5;
             this.DataAbertura.HeaderText = "Data Abertura";
             this.DataAbertura.Name = "DataAbertura";
             this.DataAbertura.ReadOnly = true;
@@ -294,8 +269,8 @@
             // CodigoAtendente
             // 
             this.CodigoAtendente.DataPropertyName = "CodigoAtendente";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.CodigoAtendente.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CodigoAtendente.DefaultCellStyle = dataGridViewCellStyle6;
             this.CodigoAtendente.HeaderText = "Código Atendente";
             this.CodigoAtendente.Name = "CodigoAtendente";
             this.CodigoAtendente.ReadOnly = true;
@@ -311,8 +286,8 @@
             // NotaConceito
             // 
             this.NotaConceito.DataPropertyName = "NotaConceito";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.NotaConceito.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.NotaConceito.DefaultCellStyle = dataGridViewCellStyle7;
             this.NotaConceito.HeaderText = "Nota";
             this.NotaConceito.Name = "NotaConceito";
             this.NotaConceito.ReadOnly = true;
@@ -320,17 +295,64 @@
             // Chamado
             // 
             this.Chamado.DataPropertyName = "Chamado";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Chamado.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Chamado.DefaultCellStyle = dataGridViewCellStyle8;
             this.Chamado.HeaderText = "Chamado";
             this.Chamado.Name = "Chamado";
             this.Chamado.ReadOnly = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 433);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(228, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Dois cliques sobre o item para alterar ou excluir";
+            // 
+            // LblInfoPesquisa
+            // 
+            this.LblInfoPesquisa.AutoSize = true;
+            this.LblInfoPesquisa.Location = new System.Drawing.Point(12, 207);
+            this.LblInfoPesquisa.Name = "LblInfoPesquisa";
+            this.LblInfoPesquisa.Size = new System.Drawing.Size(76, 13);
+            this.LblInfoPesquisa.TabIndex = 12;
+            this.LblInfoPesquisa.Text = "Pesquisas - 00";
+            // 
+            // LblInfoCodigoAtendente
+            // 
+            this.LblInfoCodigoAtendente.AutoSize = true;
+            this.LblInfoCodigoAtendente.Location = new System.Drawing.Point(12, 125);
+            this.LblInfoCodigoAtendente.Name = "LblInfoCodigoAtendente";
+            this.LblInfoCodigoAtendente.Size = new System.Drawing.Size(116, 13);
+            this.LblInfoCodigoAtendente.TabIndex = 13;
+            this.LblInfoCodigoAtendente.Text = "Código Atendente: 000";
+            // 
+            // TxtPesquisa
+            // 
+            this.TxtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtPesquisa.Location = new System.Drawing.Point(161, 197);
+            this.TxtPesquisa.Name = "TxtPesquisa";
+            this.TxtPesquisa.Size = new System.Drawing.Size(274, 20);
+            this.TxtPesquisa.TabIndex = 14;
+            this.TxtPesquisa.TextChanged += new System.EventHandler(this.TxtPesquisa_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(106, 200);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Pesquisa";
             // 
             // FrmCadastroPesquisaAvaliacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(447, 455);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TxtPesquisa);
             this.Controls.Add(this.LblInfoCodigoAtendente);
             this.Controls.Add(this.LblInfoPesquisa);
             this.Controls.Add(this.label8);
@@ -393,5 +415,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeAtendente;
         private System.Windows.Forms.DataGridViewTextBoxColumn NotaConceito;
         private System.Windows.Forms.DataGridViewTextBoxColumn Chamado;
+        private System.Windows.Forms.TextBox TxtPesquisa;
+        private System.Windows.Forms.Label label1;
     }
 }
