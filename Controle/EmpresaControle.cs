@@ -88,9 +88,9 @@ namespace Controle
         public DataTable EmpresaComboBox()
         {
             crud = new CRUD();
-            SQL = "SELECT Id, Id & ' - '&  Nome AS Nome " +
+            SQL = "SELECT Id, CONCAT(Id, ' - ', Nome) AS Nome " +
                   "FROM Empresa " +
-                  "WHERE Ativo = Yes " +
+                  "WHERE Ativo = 1 " +
                   "ORDER BY Nome ";
             try
             {

@@ -1,19 +1,34 @@
 ﻿using System;
 using System.Data.OleDb;
+using System.Data;
+using System.Data.SqlClient;
+using System.Reflection;
+
 namespace Banco_De_Dados
 {
     public class Conexao
     {
 
-        protected OleDbConnection dbConnection = new OleDbConnection();
+        //protected OleDbConnection dbConnection = new OleDbConnection();
+        protected SqlConnection sqlConnection = new SqlConnection();
+
+        private string StrConnectionSQLServer()
+        {
+            return $"Data Source=localhost\\SQLEXPRESS,1433; Initial Catalog = Tuottavuus; User Id = sa; Password = thugstools;";
+
+        }
+
 
         protected bool Conectar()
         {
-            string conexao = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Banco de Dados\tuottavuus.mdb";
-            dbConnection = new OleDbConnection(conexao);
+            //string conexao = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\Banco de Dados\tuottavuus.mdb";
+            //dbConnection = new OleDbConnection(conexao);
+
+            sqlConnection = new SqlConnection(StrConnectionSQLServer());
             try
             {
-                dbConnection.Open();
+                //dbConnection.Open();
+                sqlConnection.Open();
                 return true;
             }
             catch (Exception ex)
@@ -25,15 +40,27 @@ namespace Banco_De_Dados
         {
             try
             {
-                if (dbConnection.State == System.Data.ConnectionState.Closed)
+                //if (dbConnection.State == System.Data.ConnectionState.Closed)
+                //{
+                //    dbConnection.Close();
+                //    dbConnection.Dispose();
+                //    return true;
+                //}
+                //else
+                //{
+                //    dbConnection.Dispose();
+                //    return false;
+                //}
+
+                if (sqlConnection.State == ConnectionState.Closed)
                 {
-                    dbConnection.Close();
-                    dbConnection.Dispose();
+                    sqlConnection.Close();
+                    sqlConnection.Dispose();
                     return true;
                 }
                 else
                 {
-                    dbConnection.Dispose();
+                    sqlConnection.Dispose();
                     return false;
                 }
             }

@@ -100,11 +100,11 @@ namespace Controle
             int totalAvaliacaoEmpregado = 0;
             crud = new CRUD();
             SQL = "SELECT COUNT(AtividadeAvaliacao.Id) AS Quantidade " +
-                  "FROM ((((AtividadeAvaliacao " +
-                  "INNER JOIN Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id) " +
-                  "INNER JOIN Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id) " +
-                  "INNER JOIN Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id) " +
-                  "INNER JOIN Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id) " +
+                  "FROM AtividadeAvaliacao " +
+                  "INNER JOIN Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id " +
+                  "INNER JOIN Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id " +
+                  "INNER JOIN Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id " +
+                  "INNER JOIN Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id " +
                   "WHERE Empresa.Id = @EmpresaId AND Empregado.Id = @EmpregadoId AND Competencia.Id = @CompetenciaId";
             try
             {
@@ -127,11 +127,11 @@ namespace Controle
             int numLinhas = 0;
             crud = new CRUD();
             SQL = "SELECT AtividadeAvaliacao.Nota AS Nota " +
-                  "FROM ((((AtividadeAvaliacao " +
-                  "INNER JOIN Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id) " +
-                  "INNER JOIN Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id) " +
-                  "INNER JOIN Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id) " +
-                  "INNER JOIN Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id) " +
+                  "FROM AtividadeAvaliacao " +
+                  "INNER JOIN Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id " +
+                  "INNER JOIN Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id " +
+                  "INNER JOIN Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id " +
+                  "INNER JOIN Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id " +
                   "WHERE Empresa.Id = @EmpresaId AND Empregado.Id = @EmpregadoId AND Competencia.Id = @CompetenciaId";
 
             try
@@ -169,11 +169,11 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "SELECT AtividadeAvaliacao.Id AS Id, AtividadeAvaliacao.Nota, Competencia.Competencia AS DataCompetencia, Empresa.Nome AS NomeEmpresa, Empregado.Id As IdEmpregado, Empregado.Nome AS NomeEmpregado, Atividade.Descricao AS AtividadeDescricao " +
-                    "FROM ((((AtividadeAvaliacao " +
-                    "INNER JOIN Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id) " +
-                    "INNER JOIN Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id) " +
-                    "INNER JOIN Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id) " +
-                    "INNER JOIN Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id) " +
+                    "FROM AtividadeAvaliacao " +
+                    "INNER JOIN Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id " +
+                    "INNER JOIN Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id " +
+                    "INNER JOIN Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id " +
+                    "INNER JOIN Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id " +
                     "WHERE Empresa.Id = @EmpresaId AND Empregado.Id = @EmpregadoId AND Competencia.Id = @CompetenciaId " +
                     "ORDER BY Atividade.Descricao ASC ";
 

@@ -102,7 +102,7 @@ namespace Controle
             crud = new CRUD();
             SQL = "SELECT Id, Descricao " +
                 "FROM Indicador " +
-                "WHERE Ativo = Yes " +
+                "WHERE Ativo = 1 " +
                 "ORDER BY Descricao ";
             try
             {

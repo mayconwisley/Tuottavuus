@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace Banco_De_Dados
 {
     public class CRUD : Conexao
     {
-        OleDbCommand dbCommand;
-        OleDbParameterCollection parameterCollection = new OleDbCommand().Parameters;
+        //OleDbCommand dbCommand;
+        //OleDbParameterCollection parameterCollection = new OleDbCommand().Parameters;
+
+        SqlCommand sqlCommand;
+        readonly SqlParameterCollection parameterCollection = new SqlCommand().Parameters;
+
 
         public void LimparParametros()
         {
@@ -16,7 +21,7 @@ namespace Banco_De_Dados
 
         public void AdicionarParametros(string nome, object valor)
         {
-            parameterCollection.Add(new OleDbParameter(nome, valor));
+            parameterCollection.Add(new SqlParameter(nome, valor));
         }
 
         public object Executar(CommandType commandType, string SQL)
@@ -25,16 +30,16 @@ namespace Banco_De_Dados
             {
                 try
                 {
-                    dbCommand = dbConnection.CreateCommand();
-                    dbCommand.CommandType = commandType;
-                    dbCommand.CommandText = SQL;
-                    dbCommand.CommandTimeout = 7200;
+                    sqlCommand = sqlConnection.CreateCommand();
+                    sqlCommand.CommandType = commandType;
+                    sqlCommand.CommandText = SQL;
+                    sqlCommand.CommandTimeout = 7200;
 
-                    foreach (OleDbParameter dbParameter in parameterCollection)
+                    foreach (SqlParameter sqlParameter in parameterCollection)
                     {
-                        dbCommand.Parameters.Add(new OleDbParameter(dbParameter.ParameterName, dbParameter.Value));
+                        sqlCommand.Parameters.Add(new SqlParameter(sqlParameter.ParameterName, sqlParameter.Value));
                     }
-                    return dbCommand.ExecuteScalar();
+                    return sqlCommand.ExecuteScalar();
                 }
                 catch (Exception ex)
                 {
@@ -57,18 +62,18 @@ namespace Banco_De_Dados
             {
                 try
                 {
-                    dbCommand = dbConnection.CreateCommand();
-                    dbCommand.CommandType = commandType;
-                    dbCommand.CommandText = SQL;
-                    dbCommand.CommandTimeout = 7200;
+                    sqlCommand = sqlConnection.CreateCommand();
+                    sqlCommand.CommandType = commandType;
+                    sqlCommand.CommandText = SQL;
+                    sqlCommand.CommandTimeout = 7200;
 
-                    foreach (OleDbParameter dbParameter in parameterCollection)
+                    foreach (SqlParameter sqlParameter in parameterCollection)
                     {
-                        dbCommand.Parameters.Add(new OleDbParameter(dbParameter.ParameterName, dbParameter.Value));
+                        sqlCommand.Parameters.Add(new SqlParameter(sqlParameter.ParameterName, sqlParameter.Value));
                     }
-                    OleDbDataAdapter oleDbDataAdapter = new OleDbDataAdapter(dbCommand);
+                    SqlDataAdapter sqkDataAdapter = new SqlDataAdapter(sqlCommand);
                     DataTable dataTable = new DataTable();
-                    oleDbDataAdapter.Fill(dataTable);
+                    sqkDataAdapter.Fill(dataTable);
                     return dataTable;
                 }
                 catch (Exception ex)

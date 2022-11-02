@@ -244,10 +244,10 @@ namespace Controle
         public DataTable EmpregadoComboBox(int empresaId)
         {
             crud = new CRUD();
-            SQL = "SELECT Empregado.Id, Empregado.Id & ' - ' & Empregado.Nome AS Nome " +
+            SQL = "SELECT Empregado.Id, CONCAT(Empregado.Id, ' - ', Empregado.Nome) AS Nome " +
                     "FROM (Empregado " +
                     "INNER JOIN Empresa ON Empregado.Id_Empresa = Empresa.Id) " +
-                    "WHERE Empregado.Ativo = Yes AND Empresa.Id = @EmpresaId " +
+                    "WHERE Empregado.Ativo = 1 AND Empresa.Id = @EmpresaId " +
                     "ORDER BY Empregado.Nome ";
             try
             {
@@ -264,7 +264,7 @@ namespace Controle
         public DataTable EmpregadoTabela()
         {
             crud = new CRUD();
-            SQL = "SELECT Empregado.Id, Empregado.Nome, Empregado.Codigo, Empregado.Ativo, Empresa.Id & ' - ' & Empresa.Nome AS EmpresaNome, Departamento.Descricao AS DepartamentoDescricao " +
+            SQL = "SELECT Empregado.Id, Empregado.Nome, Empregado.Codigo, Empregado.Ativo, CONCAT(Empresa.Id, ' - ', Empresa.Nome) AS EmpresaNome, Departamento.Descricao AS DepartamentoDescricao " +
                     "FROM ((Empregado " +
                     "INNER JOIN Empresa ON Empregado.Id_Empresa = Empresa.Id) " +
                     "INNER JOIN Departamento ON Empregado.Id_Departamento = Departamento.Id) " +
@@ -284,7 +284,7 @@ namespace Controle
             crud = new CRUD();
             SQL = "SELECT Id, Id_Empresa, Id_Departamento, Codigo " +
                     "FROM Empregado " +
-                    "WHERE Ativo = true " +
+                    "WHERE Ativo = 1 " +
                     "AND Id_Empresa = @Id_Empresa";
             try
             {
@@ -305,7 +305,7 @@ namespace Controle
                     "FROM ((Empregado " +
                     "INNER JOIN Empresa ON Empregado.Id_Empresa = Empresa.Id) " +
                     "INNER JOIN Departamento ON Empregado.Id_Departamento = Departamento.Id) " +
-                    "WHERE Empregado.Ativo = Yes AND Empregado.Id_Empresa = @Id_Empresa " +
+                    "WHERE Empregado.Ativo = 1 AND Empregado.Id_Empresa = @Id_Empresa " +
                     "ORDER BY Empregado.Nome ";
             try
             {

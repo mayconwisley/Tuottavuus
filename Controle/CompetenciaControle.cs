@@ -74,7 +74,7 @@ namespace Controle
         {
 
             crud = new CRUD();
-            SQL = "UPDATE Competencia SET Ativo = No " +
+            SQL = "UPDATE Competencia SET Ativo = 0 " +
                 "WHERE Id = @Id";
             try
             {
@@ -171,7 +171,7 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "SELECT Competencia FROM Competencia " +
-                  "WHERE Ativo = Yes ";
+                  "WHERE Ativo = 1";
             try
             {
                 DateTime dateTime;

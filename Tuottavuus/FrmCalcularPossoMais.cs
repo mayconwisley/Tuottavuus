@@ -95,6 +95,17 @@ namespace Tuottavuus
 
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
+            possoMaisControle = new PossoMaisControle();
+
+            try
+            {
+                possoMaisControle.ExcluirPorCompetencia(idCompetencia);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             ListaPossoMaisTabela(idCompetencia, idEmpresa, TxtPesquisa.Text.Trim());
         }
 
