@@ -3,6 +3,7 @@ using System.Data.OleDb;
 using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
+using System.Configuration;
 
 namespace Banco_De_Dados
 {
@@ -14,7 +15,10 @@ namespace Banco_De_Dados
 
         private string StrConnectionSQLServer()
         {
-            return $"Data Source=localhost\\SQLEXPRESS,1433; Initial Catalog = Tuottavuus; User Id = sa; Password = thugstools;";
+            var connectionString = ConfigurationManager.ConnectionStrings["Tuottavuus.Properties.Settings.tuottavuusConnectionString"].ConnectionString;
+
+            return connectionString;
+            //return $"Data Source=localhost\\SQLEXPRESS,1433; Initial Catalog = Tuottavuus; User Id = sa; Password = thugstools;";
 
         }
 

@@ -8162,39 +8162,29 @@ namespace Tuottavuus.Relatorios.RelatoriosTuottavuusTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Empregado.Nome AS Empregado, Produtividade.Media_Avaliacao, Produtividade.Produtividade_Valor, Produtividade.Produtividade_Reflexo, SUM(Produtividade.Produtividade_Valor + Produtividade.Produtividade_Reflexo) 
                          AS Total_Geral, Departamento.Descricao AS Departamento, Produtividade.Dias_Apurados, Produtividade.Fer_Dom_Apurados, Competencia.Competencia, Empresa.Nome AS Empresa, Empregado.Ativo
-FROM            ((((Produtividade INNER JOIN
-                         Empregado ON Produtividade.Id_Empregado = Empregado.Id) INNER JOIN
-                         Competencia ON Produtividade.Id_Competencia = Competencia.Id) INNER JOIN
-                         Departamento ON Empregado.Id_Departamento = Departamento.Id) INNER JOIN
-                         Empresa ON Produtividade.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id)
+FROM            Produtividade INNER JOIN
+                         Empregado ON Produtividade.Id_Empregado = Empregado.Id INNER JOIN
+                         Competencia ON Produtividade.Id_Competencia = Competencia.Id INNER JOIN
+                         Departamento ON Empregado.Id_Departamento = Departamento.Id INNER JOIN
+                         Empresa ON Produtividade.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id
 WHERE        (Produtividade.Id_Competencia = CInt(?)) AND (Produtividade.Id_Empresa = CInt(?))
 GROUP BY Produtividade.Id, Produtividade.Produtividade_Valor, Produtividade.Produtividade_Reflexo, Produtividade.Media_Avaliacao, Produtividade.Dias_Apurados, Produtividade.Fer_Dom_Apurados, Empregado.Nome, 
                          Competencia.Competencia, Departamento.Descricao, Empresa.Nome, Empregado.Ativo
-HAVING        (Empregado.Ativo = true)
-ORDER BY Empregado.Nome";
+HAVING        (Empregado.Ativo = [true])
+ORDER BY Empregado";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Competencia", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Competencia", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Competencia", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RelatoriosTuottavuus.CalculoProdutividadeDataTable dataTable, global::System.Nullable<int> Id_Competencia, global::System.Nullable<int> Id_Empresa) {
+        public virtual int Fill(RelatoriosTuottavuus.CalculoProdutividadeDataTable dataTable, int Id_Competencia, int Id_Empresa) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Id_Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -8206,20 +8196,10 @@ ORDER BY Empregado.Nome";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RelatoriosTuottavuus.CalculoProdutividadeDataTable GetData(global::System.Nullable<int> Id_Competencia, global::System.Nullable<int> Id_Empresa) {
+        public virtual RelatoriosTuottavuus.CalculoProdutividadeDataTable GetData(int Id_Competencia, int Id_Empresa) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Id_Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa));
             RelatoriosTuottavuus.CalculoProdutividadeDataTable dataTable = new RelatoriosTuottavuus.CalculoProdutividadeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

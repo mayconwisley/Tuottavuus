@@ -91,10 +91,17 @@ namespace Tuottavuus
 
             try
             {
-                dtCompetencia = DateTime.Parse(MktCompetencia.Text);
-                dtCompInicio = DateTime.Parse(MktCompInicio.Text);
-                dtCompFinal = DateTime.Parse(MktComFinal.Text);
-                idCompetencia = competenciaControle.Id(dtCompetencia);
+               bool dtComp = DateTime.TryParse(MktCompetencia.Text, out dtCompetencia);
+               bool dtCompIni = DateTime.TryParse(MktCompInicio.Text, out dtCompInicio);
+               bool dtCompFim = DateTime.TryParse(MktComFinal.Text, out dtCompFinal);
+
+                if (dtComp)
+                {
+                    idCompetencia = competenciaControle.Id(dtCompetencia);
+
+                }
+
+               
 
                 if (RbEmpresa.Checked && index == 0)
                 {
