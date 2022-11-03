@@ -43,6 +43,8 @@
             this.SubMenuCadastroValorBaseProdutividade = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuCadastroMetaPeso = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuCadastroPesqNota = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.SubMenuCadastroAfastamento = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuAvaliacao = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuAvaliacaoAvaliar = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuAvaliacaoConsultar = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +72,7 @@
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusPrincipal = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.SubMenuCadastroConfigAfastamento = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuPrincipal.SuspendLayout();
             this.StatusPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -104,7 +107,10 @@
             this.SubMenuCadastroFeriado,
             this.SubMenuCadastroValorBaseProdutividade,
             this.SubMenuCadastroMetaPeso,
-            this.SubMenuCadastroPesqNota});
+            this.SubMenuCadastroPesqNota,
+            this.toolStripMenuItem1,
+            this.SubMenuCadastroAfastamento,
+            this.SubMenuCadastroConfigAfastamento});
             this.MenuCadastro.Name = "MenuCadastro";
             this.MenuCadastro.Size = new System.Drawing.Size(66, 20);
             this.MenuCadastro.Text = "Cadastro";
@@ -112,82 +118,94 @@
             // SubMenuCadastroEmpresa
             // 
             this.SubMenuCadastroEmpresa.Name = "SubMenuCadastroEmpresa";
-            this.SubMenuCadastroEmpresa.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroEmpresa.Size = new System.Drawing.Size(217, 22);
             this.SubMenuCadastroEmpresa.Text = "Empresa";
             this.SubMenuCadastroEmpresa.Click += new System.EventHandler(this.SubMenuCadastroEmpresa_Click);
             // 
             // SubMenuCadastroDepartamento
             // 
             this.SubMenuCadastroDepartamento.Name = "SubMenuCadastroDepartamento";
-            this.SubMenuCadastroDepartamento.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroDepartamento.Size = new System.Drawing.Size(217, 22);
             this.SubMenuCadastroDepartamento.Text = "Departamento";
             this.SubMenuCadastroDepartamento.Click += new System.EventHandler(this.SubMenuCadastroDepartamento_Click);
             // 
             // SubMenuCadastroCompetencia
             // 
             this.SubMenuCadastroCompetencia.Name = "SubMenuCadastroCompetencia";
-            this.SubMenuCadastroCompetencia.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroCompetencia.Size = new System.Drawing.Size(217, 22);
             this.SubMenuCadastroCompetencia.Text = "Competência";
             this.SubMenuCadastroCompetencia.Click += new System.EventHandler(this.SubMenuCadastroCompetencia_Click);
             // 
             // SubMenuCadastroEmpregado
             // 
             this.SubMenuCadastroEmpregado.Name = "SubMenuCadastroEmpregado";
-            this.SubMenuCadastroEmpregado.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroEmpregado.Size = new System.Drawing.Size(217, 22);
             this.SubMenuCadastroEmpregado.Text = "Empregado";
             this.SubMenuCadastroEmpregado.Click += new System.EventHandler(this.SubMenuCadastroEmpregado_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(214, 6);
             // 
             // SubMenuCadastroIndicador
             // 
             this.SubMenuCadastroIndicador.Name = "SubMenuCadastroIndicador";
-            this.SubMenuCadastroIndicador.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroIndicador.Size = new System.Drawing.Size(217, 22);
             this.SubMenuCadastroIndicador.Text = "Indicadores";
             this.SubMenuCadastroIndicador.Click += new System.EventHandler(this.SubMenuCadastroIndicador_Click);
             // 
             // SubMenuCadastroAtividade
             // 
             this.SubMenuCadastroAtividade.Name = "SubMenuCadastroAtividade";
-            this.SubMenuCadastroAtividade.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroAtividade.Size = new System.Drawing.Size(217, 22);
             this.SubMenuCadastroAtividade.Text = "Atividades";
             this.SubMenuCadastroAtividade.Click += new System.EventHandler(this.SubMenuCadastroAtividade_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(214, 6);
             // 
             // SubMenuCadastroFeriado
             // 
             this.SubMenuCadastroFeriado.Name = "SubMenuCadastroFeriado";
-            this.SubMenuCadastroFeriado.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroFeriado.Size = new System.Drawing.Size(217, 22);
             this.SubMenuCadastroFeriado.Text = "Feriados";
             this.SubMenuCadastroFeriado.Click += new System.EventHandler(this.SubMenuCadastroFeriado_Click);
             // 
             // SubMenuCadastroValorBaseProdutividade
             // 
             this.SubMenuCadastroValorBaseProdutividade.Name = "SubMenuCadastroValorBaseProdutividade";
-            this.SubMenuCadastroValorBaseProdutividade.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroValorBaseProdutividade.Size = new System.Drawing.Size(217, 22);
             this.SubMenuCadastroValorBaseProdutividade.Text = "Valor Base Produtividade";
             this.SubMenuCadastroValorBaseProdutividade.Click += new System.EventHandler(this.SubMenuCadastroValorBaseProdutividade_Click);
             // 
             // SubMenuCadastroMetaPeso
             // 
             this.SubMenuCadastroMetaPeso.Name = "SubMenuCadastroMetaPeso";
-            this.SubMenuCadastroMetaPeso.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroMetaPeso.Size = new System.Drawing.Size(217, 22);
             this.SubMenuCadastroMetaPeso.Text = "Valor Meta/Peso";
             this.SubMenuCadastroMetaPeso.Click += new System.EventHandler(this.SubMenuCadastroMetaPeso_Click);
             // 
             // SubMenuCadastroPesqNota
             // 
             this.SubMenuCadastroPesqNota.Name = "SubMenuCadastroPesqNota";
-            this.SubMenuCadastroPesqNota.Size = new System.Drawing.Size(204, 22);
+            this.SubMenuCadastroPesqNota.Size = new System.Drawing.Size(217, 22);
             this.SubMenuCadastroPesqNota.Text = "Pesquisa Nota";
             this.SubMenuCadastroPesqNota.Click += new System.EventHandler(this.SubMenuCadastroPesqNota_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(214, 6);
+            // 
+            // SubMenuCadastroAfastamento
+            // 
+            this.SubMenuCadastroAfastamento.Name = "SubMenuCadastroAfastamento";
+            this.SubMenuCadastroAfastamento.Size = new System.Drawing.Size(217, 22);
+            this.SubMenuCadastroAfastamento.Text = "Afastamento";
+            this.SubMenuCadastroAfastamento.Click += new System.EventHandler(this.SubMenuCadastroAfastamento_Click);
             // 
             // MenuAvaliacao
             // 
@@ -232,14 +250,14 @@
             // SubMenuProdutividadeCalcular
             // 
             this.SubMenuProdutividadeCalcular.Name = "SubMenuProdutividadeCalcular";
-            this.SubMenuProdutividadeCalcular.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuProdutividadeCalcular.Size = new System.Drawing.Size(125, 22);
             this.SubMenuProdutividadeCalcular.Text = "Calcular";
             this.SubMenuProdutividadeCalcular.Click += new System.EventHandler(this.SubMenuProdutividadeCalcular_Click);
             // 
             // SubMenuProdutividadeConsultar
             // 
             this.SubMenuProdutividadeConsultar.Name = "SubMenuProdutividadeConsultar";
-            this.SubMenuProdutividadeConsultar.Size = new System.Drawing.Size(180, 22);
+            this.SubMenuProdutividadeConsultar.Size = new System.Drawing.Size(125, 22);
             this.SubMenuProdutividadeConsultar.Text = "Consultar";
             this.SubMenuProdutividadeConsultar.Click += new System.EventHandler(this.SubMenuProdutividadeConsultar_Click);
             // 
@@ -260,7 +278,7 @@
             this.SubChamado,
             this.SubAssiduidade});
             this.SubPremiacaoPossoMais.Name = "SubPremiacaoPossoMais";
-            this.SubPremiacaoPossoMais.Size = new System.Drawing.Size(180, 22);
+            this.SubPremiacaoPossoMais.Size = new System.Drawing.Size(133, 22);
             this.SubPremiacaoPossoMais.Text = "Posso Mais";
             // 
             // SubPesquisa
@@ -270,7 +288,7 @@
             this.SubPesquisaCadastrar,
             this.SubPesquisaConsultar});
             this.SubPesquisa.Name = "SubPesquisa";
-            this.SubPesquisa.Size = new System.Drawing.Size(180, 22);
+            this.SubPesquisa.Size = new System.Drawing.Size(138, 22);
             this.SubPesquisa.Text = "Pesquisa";
             // 
             // SubPesquisaImportar
@@ -301,7 +319,7 @@
             this.SubChamadoCadastrar,
             this.SubChamadoConsultar});
             this.SubChamado.Name = "SubChamado";
-            this.SubChamado.Size = new System.Drawing.Size(180, 22);
+            this.SubChamado.Size = new System.Drawing.Size(138, 22);
             this.SubChamado.Text = "Chamados";
             // 
             // SubChamadoImportar
@@ -331,7 +349,7 @@
             this.SubAssiduidadeCadastrar,
             this.SubAssiduidadeConsultar});
             this.SubAssiduidade.Name = "SubAssiduidade";
-            this.SubAssiduidade.Size = new System.Drawing.Size(180, 22);
+            this.SubAssiduidade.Size = new System.Drawing.Size(138, 22);
             this.SubAssiduidade.Text = "Assiduidade";
             // 
             // SubAssiduidadeCadastrar
@@ -351,14 +369,14 @@
             // SubPremiacaoCalcular
             // 
             this.SubPremiacaoCalcular.Name = "SubPremiacaoCalcular";
-            this.SubPremiacaoCalcular.Size = new System.Drawing.Size(180, 22);
+            this.SubPremiacaoCalcular.Size = new System.Drawing.Size(133, 22);
             this.SubPremiacaoCalcular.Text = "Calcular";
             this.SubPremiacaoCalcular.Click += new System.EventHandler(this.SubPremiacaoCalcular_Click);
             // 
             // SubPremiacaoConsultar
             // 
             this.SubPremiacaoConsultar.Name = "SubPremiacaoConsultar";
-            this.SubPremiacaoConsultar.Size = new System.Drawing.Size(180, 22);
+            this.SubPremiacaoConsultar.Size = new System.Drawing.Size(133, 22);
             this.SubPremiacaoConsultar.Text = "Consultar";
             // 
             // MenuRelatorio
@@ -399,6 +417,13 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(217, 17);
             this.toolStripStatusLabel1.Text = "Desenvolvido por: Maycon Wisley - v1.0";
+            // 
+            // SubMenuCadastroConfigAfastamento
+            // 
+            this.SubMenuCadastroConfigAfastamento.Name = "SubMenuCadastroConfigAfastamento";
+            this.SubMenuCadastroConfigAfastamento.Size = new System.Drawing.Size(217, 22);
+            this.SubMenuCadastroConfigAfastamento.Text = "Configuração Afastamento";
+            this.SubMenuCadastroConfigAfastamento.Click += new System.EventHandler(this.SubMenuCadastroConfigAfastamento_Click);
             // 
             // FrmPrincipal
             // 
@@ -469,6 +494,9 @@
         private System.Windows.Forms.ToolStripMenuItem SubAssiduidadeConsultar;
         private System.Windows.Forms.ToolStripMenuItem SubPremiacaoCalcular;
         private System.Windows.Forms.ToolStripMenuItem SubPremiacaoConsultar;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuCadastroAfastamento;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuCadastroConfigAfastamento;
     }
 }
 

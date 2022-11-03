@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Data;
-using System.Data.OleDb;
 using System.Data.SqlClient;
 
 namespace Banco_De_Dados
 {
     public class CRUD : Conexao
     {
-        //OleDbCommand dbCommand;
-        //OleDbParameterCollection parameterCollection = new OleDbCommand().Parameters;
-
         SqlCommand sqlCommand;
         readonly SqlParameterCollection parameterCollection = new SqlCommand().Parameters;
-
 
         public void LimparParametros()
         {

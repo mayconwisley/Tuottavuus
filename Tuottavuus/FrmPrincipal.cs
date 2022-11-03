@@ -30,6 +30,9 @@ namespace Tuottavuus
         FrmCadastroAssiduidade cadastroAssiduidade; //22
         FrmConsultaAssiduidade consultaAssiduidade; //23
         FrmCalcularPossoMais calcularPossoMais; //24
+        FrmCadastroAfastamento cadastroAfastamento; //25
+        FrmCadastroConfigAfastamento cadastroConfigAfastamento; //26
+
         bool aberto = true;
 
         public FrmPrincipal()
@@ -270,6 +273,25 @@ namespace Tuottavuus
                             aberto = false;
                         }
                         break;
+                    case 25:
+                        cadastroAfastamento = new FrmCadastroAfastamento();
+                        cadastroAfastamento.MdiParent = this;
+                        if (item is FrmCadastroAfastamento)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+                        break;
+                    case 26:
+                        cadastroConfigAfastamento = new FrmCadastroConfigAfastamento();
+                        cadastroConfigAfastamento.MdiParent = this;
+                        if (item is FrmCadastroConfigAfastamento)
+                        {
+                            item.Focus();
+                            aberto = false;
+                        }
+                        break;
+
                     default:
                         break;
                 }
@@ -352,6 +374,12 @@ namespace Tuottavuus
                         break;
                     case 24:
                         calcularPossoMais.Show();
+                        break;
+                    case 25:
+                        cadastroAfastamento.Show();
+                        break;
+                    case 26:
+                        cadastroConfigAfastamento.Show();
                         break;
                     default:
                         break;
@@ -500,6 +528,16 @@ namespace Tuottavuus
         private void SubPremiacaoCalcular_Click(object sender, EventArgs e)
         {
             AbrirFormulario(24);
+        }
+
+        private void SubMenuCadastroAfastamento_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(25);
+        }
+
+        private void SubMenuCadastroConfigAfastamento_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(26);
         }
     }
 }

@@ -62,12 +62,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AfastamentoControle.cs" />
     <Compile Include="AssiduidadeControle.cs" />
     <Compile Include="AtividadeAvaliacaoControle.cs" />
     <Compile Include="AtividadeControle.cs" />
     <Compile Include="CalculoProdutividade.cs" />
     <Compile Include="ChamadoControle.cs" />
     <Compile Include="CompetenciaControle.cs" />
+    <Compile Include="ConfigAfastamentoControle.cs" />
     <Compile Include="DepartamentoControle.cs" />
     <Compile Include="EmpregadoControle.cs" />
     <Compile Include="EmpresaControle.cs" />

@@ -111,6 +111,12 @@
     <Compile Include="FrmBarraCarregamento.Designer.cs">
       <DependentUpon>FrmBarraCarregamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadastroAfastamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastroAfastamento.Designer.cs">
+      <DependentUpon>FrmCadastroAfastamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCadastroAssiduidade.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,12 @@
     </Compile>
     <Compile Include="FrmCadastroCompetencia.Designer.cs">
       <DependentUpon>FrmCadastroCompetencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadastroConfigAfastamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastroConfigAfastamento.Designer.cs">
+      <DependentUpon>FrmCadastroConfigAfastamento.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCadastroDepartamento.cs">
       <SubType>Form</SubType>
@@ -282,6 +294,9 @@
     <EmbeddedResource Include="FrmBarraCarregamento.resx">
       <DependentUpon>FrmBarraCarregamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastroAfastamento.resx">
+      <DependentUpon>FrmCadastroAfastamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroAssiduidade.resx">
       <DependentUpon>FrmCadastroAssiduidade.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroCompetencia.resx">
       <DependentUpon>FrmCadastroCompetencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadastroConfigAfastamento.resx">
+      <DependentUpon>FrmCadastroConfigAfastamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastroDepartamento.resx">
       <DependentUpon>FrmCadastroDepartamento.cs</DependentUpon>

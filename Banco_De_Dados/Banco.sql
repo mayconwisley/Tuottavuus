@@ -1,6 +1,6 @@
 USE master;
 GO
-DROP DATABASE Tuottavuus;
+--DROP DATABASE Tuottavuus;
 GO
 CREATE DATABASE Tuottavuus;
 GO
@@ -83,6 +83,13 @@ CONSTRAINT PK_Id_ProdutividadeBase PRIMARY KEY(Id)
 );
 GO
 
+CREATE TABLE ConfiguracaoAfastamento(
+	Id INT NOT NULL IDENTITY,
+	Total_Dias INT DEFAULT 0
+CONSTRAINT PK_Id_ConfigAfastamento PRIMARY KEY(Id)
+);
+GO
+
 CREATE TABLE MetaPeso(
 	Id INT NOT NULL IDENTITY,
 	Id_Indicador INT NOT NULL,
@@ -112,6 +119,24 @@ CONSTRAINT FK_Empresa_Empregado FOREIGN KEY(Id_Empresa)
 	ON UPDATE CASCADE,
 CONSTRAINT FK_Depart_Empregado FOREIGN KEY(Id_Departamento)
 	REFERENCES Departamento(Id)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+);
+GO
+
+CREATE TABLE Afastamento(
+	Id INT NOT NULL IDENTITY,
+	Id_Competencia INT NOT NULL,
+	Id_Empresa INT NOT NULL,
+	Id_Empregado INT NOT NULL,
+	Total_Dias INT DEFAULT 0
+CONSTRAINT PK_Id_Afastamento PRIMARY KEY(Id),
+CONSTRAINT FK_Afast_Competencia FOREIGN KEY(Id_Competencia)
+	REFERENCES Competencia(Id),
+CONSTRAINT FK_Afast_Empresa FOREIGN KEY(Id_Empresa)
+	REFERENCES Empresa(Id),
+CONSTRAINT FK_Afast_Empregado FOREIGN KEY(Id_Empregado)
+	REFERENCES Empregado(Id)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );

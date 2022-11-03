@@ -61,11 +61,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Afastamento.cs" />
     <Compile Include="Assiduidade.cs" />
     <Compile Include="Atividade.cs" />
     <Compile Include="AtividadeAvaliacao.cs" />
     <Compile Include="Chamado.cs" />
     <Compile Include="Competencia.cs" />
+    <Compile Include="ConfigAfastamento.cs" />
     <Compile Include="Departamento.cs" />
     <Compile Include="Empregado.cs" />
     <Compile Include="Empresa.cs" />

@@ -23,6 +23,11 @@ namespace Tuottavuus
             BtnExcluir.Enabled = false;
             BtnGravar.Enabled = true;
             TxtDescricao.Focus();
+            RbAssiduidade.Checked = false;
+            RbCaptura.Checked = false;
+            RbChamado.Checked = false;
+            RbFeedback.Checked = false;
+            RbPesquisa.Checked = false;
         }
 
         private bool ListaIndicador(string descricao)
@@ -62,7 +67,7 @@ namespace Tuottavuus
                     indicador.Ativo = false;
                 }
 
-                if (CbPesquisa.Checked)
+                if (RbPesquisa.Checked)
                 {
                     indicador.Pesquisa = true;
                 }
@@ -71,7 +76,7 @@ namespace Tuottavuus
                     indicador.Pesquisa = false;
                 }
 
-                if (CbChamado.Checked)
+                if (RbChamado.Checked)
                 {
                     indicador.Chamado = true;
                 }
@@ -80,7 +85,7 @@ namespace Tuottavuus
                     indicador.Chamado = false;
                 }
 
-                if (CbAssiduidade.Checked)
+                if (RbAssiduidade.Checked)
                 {
                     indicador.Assiduidade = true;
                 }
@@ -89,7 +94,7 @@ namespace Tuottavuus
                     indicador.Assiduidade = false;
                 }
 
-                if (CbCaptura.Checked)
+                if (RbCaptura.Checked)
                 {
                     indicador.Captura = true;
                 }
@@ -98,7 +103,7 @@ namespace Tuottavuus
                     indicador.Captura = false;
                 }
 
-                if (CbFeedback.Checked)
+                if (RbFeedback.Checked)
                 {
                     indicador.Feedback = true;
                 }
@@ -159,35 +164,35 @@ namespace Tuottavuus
 
                 if (pesquisa)
                 {
-                    CbPesquisa.Checked = true;
+                    RbPesquisa.Checked = true;
                 }
                 else
                 {
-                    CbPesquisa.Checked = false;
+                    RbPesquisa.Checked = false;
                 }
                 if (chamado)
                 {
-                    CbChamado.Checked = true;
+                    RbChamado.Checked = true;
                 }
                 else
                 {
-                    CbChamado.Checked = false;
+                    RbChamado.Checked = false;
                 }
                 if (assiduidade)
                 {
-                    CbAssiduidade.Checked = true;
+                    RbAssiduidade.Checked = true;
                 }
                 else
                 {
-                    CbAssiduidade.Checked = false;
+                    RbAssiduidade.Checked = false;
                 }
                 if (captura)
                 {
-                    CbCaptura.Checked = true;
+                    RbCaptura.Checked = true;
                 }
                 else
                 {
-                    CbCaptura.Checked = false;
+                    RbCaptura.Checked = false;
                 }
 
 
