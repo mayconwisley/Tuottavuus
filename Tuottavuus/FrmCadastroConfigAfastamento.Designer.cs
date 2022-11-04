@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtTotalDias = new System.Windows.Forms.TextBox();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnGravar = new System.Windows.Forms.Button();
@@ -49,14 +49,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Total Dias";
             // 
-            // textBox1
+            // TxtTotalDias
             // 
-            this.textBox1.Location = new System.Drawing.Point(73, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(72, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "0";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtTotalDias.Location = new System.Drawing.Point(73, 12);
+            this.TxtTotalDias.Name = "TxtTotalDias";
+            this.TxtTotalDias.Size = new System.Drawing.Size(72, 20);
+            this.TxtTotalDias.TabIndex = 1;
+            this.TxtTotalDias.Text = "0";
+            this.TxtTotalDias.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // BtnExcluir
             // 
@@ -67,6 +67,7 @@
             this.BtnExcluir.TabIndex = 29;
             this.BtnExcluir.Text = "&Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = true;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // BtnAlterar
             // 
@@ -77,6 +78,7 @@
             this.BtnAlterar.TabIndex = 28;
             this.BtnAlterar.Text = "&Alterar";
             this.BtnAlterar.UseVisualStyleBackColor = true;
+            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // BtnGravar
             // 
@@ -86,6 +88,7 @@
             this.BtnGravar.TabIndex = 27;
             this.BtnGravar.Text = "&Gravar";
             this.BtnGravar.UseVisualStyleBackColor = true;
+            this.BtnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
             // 
             // DgvConfigAfastamento
             // 
@@ -103,9 +106,11 @@
             this.DgvConfigAfastamento.ReadOnly = true;
             this.DgvConfigAfastamento.Size = new System.Drawing.Size(324, 98);
             this.DgvConfigAfastamento.TabIndex = 30;
+            this.DgvConfigAfastamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvConfigAfastamento_CellDoubleClick);
             // 
             // Id
             // 
+            this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
@@ -114,10 +119,11 @@
             // Total_Dias
             // 
             this.Total_Dias.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Total_Dias.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Total_Dias.DataPropertyName = "Total_Dias";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.Total_Dias.DefaultCellStyle = dataGridViewCellStyle6;
             this.Total_Dias.HeaderText = "Total_Dias";
             this.Total_Dias.Name = "Total_Dias";
             this.Total_Dias.ReadOnly = true;
@@ -131,7 +137,7 @@
             this.Controls.Add(this.BtnExcluir);
             this.Controls.Add(this.BtnAlterar);
             this.Controls.Add(this.BtnGravar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtTotalDias);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -141,6 +147,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Config. Afastamento";
+            this.Load += new System.EventHandler(this.FrmCadastroConfigAfastamento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvConfigAfastamento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -150,7 +157,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtTotalDias;
         private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Button BtnAlterar;
         private System.Windows.Forms.Button BtnGravar;

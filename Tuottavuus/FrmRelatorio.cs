@@ -91,9 +91,9 @@ namespace Tuottavuus
 
             try
             {
-               bool dtComp = DateTime.TryParse(MktCompetencia.Text, out dtCompetencia);
-               bool dtCompIni = DateTime.TryParse(MktCompInicio.Text, out dtCompInicio);
-               bool dtCompFim = DateTime.TryParse(MktComFinal.Text, out dtCompFinal);
+                bool dtComp = DateTime.TryParse(MktCompetencia.Text, out dtCompetencia);
+                bool dtCompIni = DateTime.TryParse(MktCompInicio.Text, out dtCompInicio);
+                bool dtCompFim = DateTime.TryParse(MktComFinal.Text, out dtCompFinal);
 
                 if (dtComp)
                 {
@@ -101,7 +101,7 @@ namespace Tuottavuus
 
                 }
 
-               
+
 
                 if (RbEmpresa.Checked && index == 0)
                 {

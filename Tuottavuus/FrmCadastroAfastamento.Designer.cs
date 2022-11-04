@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CbxEmpregado = new System.Windows.Forms.ComboBox();
             this.CbxEmpresa = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,7 +38,12 @@
             this.BtnAlterar = new System.Windows.Forms.Button();
             this.BtnGravar = new System.Windows.Forms.Button();
             this.DgvAfastamento = new System.Windows.Forms.DataGridView();
+            this.TxtTotalDias = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TxtPesquisa = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Empregado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total_Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAfastamento)).BeginInit();
@@ -53,6 +58,7 @@
             this.CbxEmpregado.Size = new System.Drawing.Size(214, 21);
             this.CbxEmpregado.TabIndex = 20;
             this.CbxEmpregado.ValueMember = "Id";
+            this.CbxEmpregado.SelectedIndexChanged += new System.EventHandler(this.CbxEmpregado_SelectedIndexChanged);
             // 
             // CbxEmpresa
             // 
@@ -63,6 +69,7 @@
             this.CbxEmpresa.Size = new System.Drawing.Size(214, 21);
             this.CbxEmpresa.TabIndex = 19;
             this.CbxEmpresa.ValueMember = "Id";
+            this.CbxEmpresa.SelectedIndexChanged += new System.EventHandler(this.CbxEmpresa_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -100,6 +107,7 @@
             this.BtnExcluir.TabIndex = 26;
             this.BtnExcluir.Text = "&Excluir";
             this.BtnExcluir.UseVisualStyleBackColor = true;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // BtnAlterar
             // 
@@ -110,6 +118,7 @@
             this.BtnAlterar.TabIndex = 25;
             this.BtnAlterar.Text = "&Alterar";
             this.BtnAlterar.UseVisualStyleBackColor = true;
+            this.BtnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // BtnGravar
             // 
@@ -119,6 +128,7 @@
             this.BtnGravar.TabIndex = 24;
             this.BtnGravar.Text = "&Gravar";
             this.BtnGravar.UseVisualStyleBackColor = true;
+            this.BtnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
             // 
             // DgvAfastamento
             // 
@@ -130,23 +140,73 @@
             this.DgvAfastamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvAfastamento.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
+            this.Id_Empregado,
             this.Nome,
             this.Total_Dias});
-            this.DgvAfastamento.Location = new System.Drawing.Point(12, 126);
+            this.DgvAfastamento.Location = new System.Drawing.Point(12, 198);
+            this.DgvAfastamento.MultiSelect = false;
             this.DgvAfastamento.Name = "DgvAfastamento";
             this.DgvAfastamento.ReadOnly = true;
-            this.DgvAfastamento.Size = new System.Drawing.Size(342, 117);
+            this.DgvAfastamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvAfastamento.Size = new System.Drawing.Size(342, 133);
             this.DgvAfastamento.TabIndex = 27;
+            this.DgvAfastamento.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAfastamento_CellDoubleClick);
+            // 
+            // TxtTotalDias
+            // 
+            this.TxtTotalDias.Location = new System.Drawing.Point(12, 133);
+            this.TxtTotalDias.Name = "TxtTotalDias";
+            this.TxtTotalDias.Size = new System.Drawing.Size(61, 20);
+            this.TxtTotalDias.TabIndex = 28;
+            this.TxtTotalDias.Text = "0";
+            this.TxtTotalDias.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 117);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Total Dias";
+            // 
+            // TxtPesquisa
+            // 
+            this.TxtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.TxtPesquisa.Location = new System.Drawing.Point(12, 172);
+            this.TxtPesquisa.Name = "TxtPesquisa";
+            this.TxtPesquisa.Size = new System.Drawing.Size(342, 20);
+            this.TxtPesquisa.TabIndex = 30;
+            this.TxtPesquisa.TextChanged += new System.EventHandler(this.TxtPesquisa_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 156);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Pesquisa";
             // 
             // Id
             // 
+            this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
             // 
+            // Id_Empregado
+            // 
+            this.Id_Empregado.DataPropertyName = "Id_Empregado";
+            this.Id_Empregado.HeaderText = "Id_Empregado";
+            this.Id_Empregado.Name = "Id_Empregado";
+            this.Id_Empregado.ReadOnly = true;
+            this.Id_Empregado.Visible = false;
+            // 
             // Nome
             // 
+            this.Nome.DataPropertyName = "Nome";
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
             this.Nome.ReadOnly = true;
@@ -154,8 +214,9 @@
             // 
             // Total_Dias
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Total_Dias.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Total_Dias.DataPropertyName = "Total_Dias";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Total_Dias.DefaultCellStyle = dataGridViewCellStyle4;
             this.Total_Dias.HeaderText = "Total_Dias";
             this.Total_Dias.Name = "Total_Dias";
             this.Total_Dias.ReadOnly = true;
@@ -164,7 +225,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 255);
+            this.ClientSize = new System.Drawing.Size(367, 343);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.TxtPesquisa);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TxtTotalDias);
             this.Controls.Add(this.DgvAfastamento);
             this.Controls.Add(this.BtnExcluir);
             this.Controls.Add(this.BtnAlterar);
@@ -180,6 +245,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Afastamento";
+            this.Load += new System.EventHandler(this.FrmCadastroAfastamento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvAfastamento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -197,7 +263,12 @@
         private System.Windows.Forms.Button BtnAlterar;
         private System.Windows.Forms.Button BtnGravar;
         private System.Windows.Forms.DataGridView DgvAfastamento;
+        private System.Windows.Forms.TextBox TxtTotalDias;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TxtPesquisa;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Empregado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total_Dias;
     }

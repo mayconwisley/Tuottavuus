@@ -19,9 +19,12 @@ namespace Controle
         PossoMais possoMais;
         MetaPesoControle metaPesoControle;
         PesquisaNotaControle pesquisaNotaControle;
+        AfastamentoControle afastamentoControle;
+        ConfigAfastamentoControle configAfastamentoControle;
+
         private ProgressBar PbCarregamento { get; set; }
 
-        double totalChamado = 0, totalEmpregado = 0, totalChamdadoAtendente = 0, notaConceito = 0;
+        double totalChamado = 0, totalChamdadoAtendente = 0, notaConceito = 0;
         int indicadorId;
         double qtdOuPorcentagem;
 
@@ -38,11 +41,16 @@ namespace Controle
         {
             chamadoControle = new ChamadoControle();
             empregadoControle = new EmpregadoControle();
+            afastamentoControle = new AfastamentoControle();
+            configAfastamentoControle = new ConfigAfastamentoControle();
 
             try
             {
+                int diasAfastadoConfig = configAfastamentoControle.QtdDiasConfig();
+                int totalAfastado = afastamentoControle.QtdAfastadoConfig(diasAfastadoConfig, idDepartamento);
+                int totalEmpregado = empregadoControle.TotalEmpregadoPorDepartamento(idDepartamento);
 
-                totalEmpregado = empregadoControle.TotalEmpregadoPorDepartamento(idDepartamento);
+                int qtdEmpregado = totalEmpregado - totalAfastado;
 
                 if (opcMeta == 'Q')
                 {
@@ -55,7 +63,7 @@ namespace Controle
                     totalChamdadoAtendente = chamadoControle.QtdCapturadoAtendente(idCompetencia, idEmpresa, idEmpregado);
                 }
 
-                double media = totalChamado / totalEmpregado;
+                double media = totalChamado / qtdEmpregado;
                 double porcentagem = (totalChamdadoAtendente * 100) / media;
 
                 return porcentagem;
@@ -65,17 +73,22 @@ namespace Controle
                 throw new System.Exception(ex.Message);
             }
         }
-        public double PorcentagemPesquisa(int codigoAtendente, int notaFinal)
+        public double PorcentagemPesquisa(int codigoAtendente, int notaFinal, int idDepartamento)
         {
             pesquisaControle = new PesquisaControle();
             empregadoControle = new EmpregadoControle();
 
             try
             {
-                totalEmpregado = pesquisaControle.QtdAvaliacaoAtendente(codigoAtendente);
+                int diasAfastadoConfig = configAfastamentoControle.QtdDiasConfig();
+                int totalAfastado = afastamentoControle.QtdAfastadoConfig(diasAfastadoConfig, idDepartamento);
+                int totalEmpregado = pesquisaControle.QtdAvaliacaoAtendente(codigoAtendente);
+
+                int qtdEmpregado = totalEmpregado - totalAfastado;
+
                 notaConceito = pesquisaControle.NotaAvaliacaoAtendente(codigoAtendente);
 
-                double media = notaConceito / totalEmpregado;
+                double media = notaConceito / qtdEmpregado;
                 double porcentagem = (media * 100) / notaFinal;
 
                 return porcentagem;
@@ -225,11 +238,11 @@ namespace Controle
                 var temCalculo = crud.Executar(CommandType.Text, SQL);
                 if (int.Parse(temCalculo.ToString()) > 0)
                 {
-                    return false;
+                    return true;
                 }
                 else
                 {
-                    return true;
+                    return false;
                 }
 
             }
@@ -285,14 +298,18 @@ namespace Controle
             metaPesoControle = new MetaPesoControle();
             chamadoControle = new ChamadoControle();
             pesquisaNotaControle = new PesquisaNotaControle();
+            afastamentoControle = new AfastamentoControle();
+            configAfastamentoControle = new ConfigAfastamentoControle();
 
             DataTable indicador = indicadorControle.IndicadorTabela("%%");
             DataTable empregado = empregadoControle.EmpregadoAtivoTabela(idEmpresa);
-            DataTable codigoGrupoSolucao = chamadoControle.CodigosGrupoSolucaoTabela(idCompetencia);
 
             int nota = pesquisaNotaControle.Nota(DateTime.Now.Date);
+            int qtdAfastConfiguracao = configAfastamentoControle.QtdDiasConfig();
+
             PbCarregamento.Maximum = empregado.Rows.Count;
             int i = 0;
+            ExcluirPorCompetencia(idCompetencia);
             /*Calcular porcentagem Chamado*/
             foreach (DataRow empregadoRow in empregado.Rows)
             {
@@ -306,7 +323,6 @@ namespace Controle
                 foreach (DataRow item in indicador.Rows)
                 {
                     indicadorId = int.Parse(item[0].ToString());
-                    bool ativo = bool.Parse(item[2].ToString());
                     bool pesquisa = bool.Parse(item[3].ToString());
                     bool chamado = bool.Parse(item[4].ToString());
                     bool assiduidade = bool.Parse(item[5].ToString());
@@ -315,7 +331,7 @@ namespace Controle
 
                     if (pesquisa)
                     {
-                        qtdOuPorcentagem = PorcentagemPesquisa(codigoEmpregado, nota);
+                        qtdOuPorcentagem = PorcentagemPesquisa(codigoEmpregado, nota, departamentoId);
                     }
                     if (chamado)
                     {
@@ -334,27 +350,42 @@ namespace Controle
                         qtdOuPorcentagem = QuantidadeFeedback(idCompetencia, empresaId, empregadoId);
                     }
 
+
+                    /*Não grava posso mais se a meta não for encontrada*/
                     int idMeta = metaPesoControle.IdPorMeta(qtdOuPorcentagem, indicadorId);
 
                     if (idMeta == 0)
                     {
                         continue;
                     }
-                    possoMais.Id = Id(idCompetencia, empresaId, empregadoId, idMeta, qtdOuPorcentagem);
-                    possoMais.Competencia = new Competencia();
-                    possoMais.Competencia.Id = idCompetencia;
-                    possoMais.Empresa = new Empresa();
-                    possoMais.Empresa.Id = empresaId;
-                    possoMais.Empregado = new Empregado();
-                    possoMais.Empregado.Id = empregadoId;
-                    possoMais.MetaPeso = new MetaPeso();
-                    possoMais.MetaPeso.Id = idMeta;
-                    possoMais.Total = qtdOuPorcentagem;
+                    /*Não calcula empresa se o mesmo estiver com dias de afastamento igual ou maior que a configuração*/
+                    if (afastamentoControle.IsEmpregado(idCompetencia, empresaId, empregadoId, qtdAfastConfiguracao))
+                    {
+                        continue;
+                    }
 
+                    possoMais.Id = Id(idCompetencia, empresaId, empregadoId, idMeta, qtdOuPorcentagem);
+                    possoMais.Competencia = new Competencia
+                    {
+                        Id = idCompetencia
+                    };
+                    possoMais.Empresa = new Empresa
+                    {
+                        Id = empresaId
+                    };
+                    possoMais.Empregado = new Empregado
+                    {
+                        Id = empregadoId
+                    };
+                    possoMais.MetaPeso = new MetaPeso
+                    {
+                        Id = idMeta
+                    };
+                    possoMais.Total = qtdOuPorcentagem;
 
                     bool temCalculo = IsCalculo(idCompetencia, empresaId, empregadoId, idMeta);
 
-                    if (temCalculo)
+                    if (temCalculo == false)
                     {
                         Gravar(possoMais);
                     }

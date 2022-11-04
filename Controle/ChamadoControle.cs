@@ -319,8 +319,8 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "SELECT Id, Id_Competencia, Id_Empresa, Id_Empregado, DataAbertura, " +
-                    "Chamado, CodigoGrupoSolucao, DescGrupoSolucao, " +
-                    "CodigoAtendente, NomeAtendente, CodigoNatureza, DescNatureza, CodigoTpAtividade, DescTpAtividade " +
+                  "Chamado, CodigoGrupoSolucao, DescGrupoSolucao, " +
+                  "CodigoAtendente, NomeAtendente, CodigoNatureza, DescNatureza, CodigoTpAtividade, DescTpAtividade " +
                   "FROM Chamados " +
                   "WHERE NomeAtendente LIKE @NomeAtendente " +
                   "ORDER BY NomeAtendente ASC, DataAbertura DESC";
@@ -460,17 +460,20 @@ namespace Controle
         }
         public bool ImportarAquivo(int idCompetencia, int idEmpresa, string caminhoArquivo, out ArrayList itensErro, out int qtdAtualizados, out int qtdGravados)
         {
-            int idEmpregado = 0;
             qtdAtualizados = 0; qtdGravados = 0;
 
             empregadoControle = new EmpregadoControle();
             utilitarios = new Utilitarios();
 
-            Chamado chamado = new Chamado();
-            chamado.Competencia = new Competencia();
+            Chamado chamado = new Chamado
+            {
+                Competencia = new Competencia()
+            };
             chamado.Competencia.Id = idCompetencia;
-            chamado.Empresa = new Empresa();
-            chamado.Empresa.Id = idEmpresa;
+            chamado.Empresa = new Empresa
+            {
+                Id = idEmpresa
+            };
 
             ArrayList arquivo = utilitarios.LerArquivo(caminhoArquivo);
             ArrayList linhaArquivo = new ArrayList();
@@ -490,7 +493,7 @@ namespace Controle
                         linhaArquivo.Add(item);
                     }
 
-                    idEmpregado = empregadoControle.IdPorCodigo(int.Parse(linhaArquivo[4].ToString()));
+                    int idEmpregado = empregadoControle.IdPorCodigo(int.Parse(linhaArquivo[4].ToString()));
 
                     if (idEmpregado == 0)
                     {
@@ -502,8 +505,10 @@ namespace Controle
                     int idChamado = IdPorChamado(int.Parse(linhaArquivo[1].ToString()), int.Parse(linhaArquivo[6].ToString()));
 
                     chamado.Id = idChamado;
-                    chamado.Empregado = new Empregado();
-                    chamado.Empregado.Id = idEmpregado;
+                    chamado.Empregado = new Empregado
+                    {
+                        Id = idEmpregado
+                    };
                     chamado.DataAbertura = DateTime.Parse(linhaArquivo[0].ToString());
                     chamado.CodigoChamado = int.Parse(linhaArquivo[1].ToString());
                     chamado.CodigoGrupoSolucao = int.Parse(linhaArquivo[2].ToString());

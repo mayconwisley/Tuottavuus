@@ -13,12 +13,10 @@ namespace Banco_De_Dados
         {
             parameterCollection.Clear();
         }
-
         public void AdicionarParametros(string nome, object valor)
         {
             parameterCollection.Add(new SqlParameter(nome, valor));
         }
-
         public object Executar(CommandType commandType, string SQL)
         {
             if (Conectar())
@@ -50,7 +48,6 @@ namespace Banco_De_Dados
                 return null;
             }
         }
-
         public DataTable ConsultaTabela(CommandType commandType, string SQL)
         {
             if (Conectar())
