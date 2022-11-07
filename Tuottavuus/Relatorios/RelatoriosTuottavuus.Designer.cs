@@ -1180,7 +1180,7 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AvalicaoProdutividadeRow AddAvalicaoProdutividadeRow(string Empregado, string Empresa, System.DateTime Competencia, string Descricao, double Nota) {
+            public AvalicaoProdutividadeRow AddAvalicaoProdutividadeRow(string Empregado, string Empresa, System.DateTime Competencia, string Descricao, decimal Nota) {
                 AvalicaoProdutividadeRow rowAvalicaoProdutividadeRow = ((AvalicaoProdutividadeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Empregado,
@@ -1228,11 +1228,16 @@ namespace Tuottavuus.Relatorios {
                 base.Columns.Add(this.columnCompetencia);
                 this.columnDescricao = new global::System.Data.DataColumn("Descricao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescricao);
-                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNota);
+                this.columnEmpregado.AllowDBNull = false;
                 this.columnEmpregado.MaxLength = 255;
+                this.columnEmpresa.AllowDBNull = false;
                 this.columnEmpresa.MaxLength = 255;
+                this.columnCompetencia.AllowDBNull = false;
+                this.columnDescricao.AllowDBNull = false;
                 this.columnDescricao.MaxLength = 255;
+                this.columnNota.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1522,9 +1527,13 @@ namespace Tuottavuus.Relatorios {
                 base.Columns.Add(this.columnEmpresa);
                 this.columnDepartamento = new global::System.Data.DataColumn("Departamento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartamento);
+                this.columnNome.AllowDBNull = false;
                 this.columnNome.MaxLength = 255;
+                this.columnDescricao.AllowDBNull = false;
                 this.columnDescricao.MaxLength = 255;
+                this.columnEmpresa.AllowDBNull = false;
                 this.columnEmpresa.MaxLength = 255;
+                this.columnDepartamento.AllowDBNull = false;
                 this.columnDepartamento.MaxLength = 255;
             }
             
@@ -1661,14 +1670,6 @@ namespace Tuottavuus.Relatorios {
             
             private global::System.Data.DataColumn columnEmpregado;
             
-            private global::System.Data.DataColumn columnMedia_Avaliacao;
-            
-            private global::System.Data.DataColumn columnProdutividade_Valor;
-            
-            private global::System.Data.DataColumn columnProdutividade_Reflexo;
-            
-            private global::System.Data.DataColumn columnTotal_Geral;
-            
             private global::System.Data.DataColumn columnDepartamento;
             
             private global::System.Data.DataColumn columnDias_Apurados;
@@ -1678,6 +1679,14 @@ namespace Tuottavuus.Relatorios {
             private global::System.Data.DataColumn columnCompetencia;
             
             private global::System.Data.DataColumn columnEmpresa;
+            
+            private global::System.Data.DataColumn columnMedia_Avaliacao;
+            
+            private global::System.Data.DataColumn columnProdutividade_Valor;
+            
+            private global::System.Data.DataColumn columnProdutividade_Reflexo;
+            
+            private global::System.Data.DataColumn columnTotal_Geral;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1717,38 +1726,6 @@ namespace Tuottavuus.Relatorios {
             public global::System.Data.DataColumn EmpregadoColumn {
                 get {
                     return this.columnEmpregado;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Media_AvaliacaoColumn {
-                get {
-                    return this.columnMedia_Avaliacao;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Produtividade_ValorColumn {
-                get {
-                    return this.columnProdutividade_Valor;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Produtividade_ReflexoColumn {
-                get {
-                    return this.columnProdutividade_Reflexo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Total_GeralColumn {
-                get {
-                    return this.columnTotal_Geral;
                 }
             }
             
@@ -1794,6 +1771,38 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Media_AvaliacaoColumn {
+                get {
+                    return this.columnMedia_Avaliacao;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Produtividade_ValorColumn {
+                get {
+                    return this.columnProdutividade_Valor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Produtividade_ReflexoColumn {
+                get {
+                    return this.columnProdutividade_Reflexo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Total_GeralColumn {
+                get {
+                    return this.columnTotal_Geral;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1829,19 +1838,19 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public CalculoProdutividadeDPTORow AddCalculoProdutividadeDPTORow(string Empregado, double Media_Avaliacao, double Produtividade_Valor, double Produtividade_Reflexo, double Total_Geral, string Departamento, int Dias_Apurados, int Fer_Dom_Apurados, System.DateTime Competencia, string Empresa) {
+            public CalculoProdutividadeDPTORow AddCalculoProdutividadeDPTORow(string Empregado, string Departamento, int Dias_Apurados, int Fer_Dom_Apurados, System.DateTime Competencia, string Empresa, int Media_Avaliacao, decimal Produtividade_Valor, decimal Produtividade_Reflexo, decimal Total_Geral) {
                 CalculoProdutividadeDPTORow rowCalculoProdutividadeDPTORow = ((CalculoProdutividadeDPTORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Empregado,
-                        Media_Avaliacao,
-                        Produtividade_Valor,
-                        Produtividade_Reflexo,
-                        Total_Geral,
                         Departamento,
                         Dias_Apurados,
                         Fer_Dom_Apurados,
                         Competencia,
-                        Empresa};
+                        Empresa,
+                        Media_Avaliacao,
+                        Produtividade_Valor,
+                        Produtividade_Reflexo,
+                        Total_Geral};
                 rowCalculoProdutividadeDPTORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCalculoProdutividadeDPTORow);
                 return rowCalculoProdutividadeDPTORow;
@@ -1865,15 +1874,15 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnEmpregado = base.Columns["Empregado"];
-                this.columnMedia_Avaliacao = base.Columns["Media_Avaliacao"];
-                this.columnProdutividade_Valor = base.Columns["Produtividade_Valor"];
-                this.columnProdutividade_Reflexo = base.Columns["Produtividade_Reflexo"];
-                this.columnTotal_Geral = base.Columns["Total_Geral"];
                 this.columnDepartamento = base.Columns["Departamento"];
                 this.columnDias_Apurados = base.Columns["Dias_Apurados"];
                 this.columnFer_Dom_Apurados = base.Columns["Fer_Dom_Apurados"];
                 this.columnCompetencia = base.Columns["Competencia"];
                 this.columnEmpresa = base.Columns["Empresa"];
+                this.columnMedia_Avaliacao = base.Columns["Media_Avaliacao"];
+                this.columnProdutividade_Valor = base.Columns["Produtividade_Valor"];
+                this.columnProdutividade_Reflexo = base.Columns["Produtividade_Reflexo"];
+                this.columnTotal_Geral = base.Columns["Total_Geral"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1881,14 +1890,6 @@ namespace Tuottavuus.Relatorios {
             private void InitClass() {
                 this.columnEmpregado = new global::System.Data.DataColumn("Empregado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmpregado);
-                this.columnMedia_Avaliacao = new global::System.Data.DataColumn("Media_Avaliacao", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMedia_Avaliacao);
-                this.columnProdutividade_Valor = new global::System.Data.DataColumn("Produtividade_Valor", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProdutividade_Valor);
-                this.columnProdutividade_Reflexo = new global::System.Data.DataColumn("Produtividade_Reflexo", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProdutividade_Reflexo);
-                this.columnTotal_Geral = new global::System.Data.DataColumn("Total_Geral", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotal_Geral);
                 this.columnDepartamento = new global::System.Data.DataColumn("Departamento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartamento);
                 this.columnDias_Apurados = new global::System.Data.DataColumn("Dias_Apurados", typeof(int), null, global::System.Data.MappingType.Element);
@@ -1899,9 +1900,22 @@ namespace Tuottavuus.Relatorios {
                 base.Columns.Add(this.columnCompetencia);
                 this.columnEmpresa = new global::System.Data.DataColumn("Empresa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmpresa);
+                this.columnMedia_Avaliacao = new global::System.Data.DataColumn("Media_Avaliacao", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMedia_Avaliacao);
+                this.columnProdutividade_Valor = new global::System.Data.DataColumn("Produtividade_Valor", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProdutividade_Valor);
+                this.columnProdutividade_Reflexo = new global::System.Data.DataColumn("Produtividade_Reflexo", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProdutividade_Reflexo);
+                this.columnTotal_Geral = new global::System.Data.DataColumn("Total_Geral", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal_Geral);
+                this.columnEmpregado.AllowDBNull = false;
                 this.columnEmpregado.MaxLength = 255;
+                this.columnDepartamento.AllowDBNull = false;
                 this.columnDepartamento.MaxLength = 255;
+                this.columnCompetencia.AllowDBNull = false;
+                this.columnEmpresa.AllowDBNull = false;
                 this.columnEmpresa.MaxLength = 255;
+                this.columnTotal_Geral.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2037,14 +2051,6 @@ namespace Tuottavuus.Relatorios {
             
             private global::System.Data.DataColumn columnEmpregado;
             
-            private global::System.Data.DataColumn columnMedia_Avaliacao;
-            
-            private global::System.Data.DataColumn columnProdutividade_Valor;
-            
-            private global::System.Data.DataColumn columnProdutividade_Reflexo;
-            
-            private global::System.Data.DataColumn columnTotal_Geral;
-            
             private global::System.Data.DataColumn columnDepartamento;
             
             private global::System.Data.DataColumn columnDias_Apurados;
@@ -2054,6 +2060,14 @@ namespace Tuottavuus.Relatorios {
             private global::System.Data.DataColumn columnCompetencia;
             
             private global::System.Data.DataColumn columnEmpresa;
+            
+            private global::System.Data.DataColumn columnMedia_Avaliacao;
+            
+            private global::System.Data.DataColumn columnProdutividade_Valor;
+            
+            private global::System.Data.DataColumn columnProdutividade_Reflexo;
+            
+            private global::System.Data.DataColumn columnTotal_Geral;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2093,38 +2107,6 @@ namespace Tuottavuus.Relatorios {
             public global::System.Data.DataColumn EmpregadoColumn {
                 get {
                     return this.columnEmpregado;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Media_AvaliacaoColumn {
-                get {
-                    return this.columnMedia_Avaliacao;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Produtividade_ValorColumn {
-                get {
-                    return this.columnProdutividade_Valor;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Produtividade_ReflexoColumn {
-                get {
-                    return this.columnProdutividade_Reflexo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Total_GeralColumn {
-                get {
-                    return this.columnTotal_Geral;
                 }
             }
             
@@ -2170,6 +2152,38 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Media_AvaliacaoColumn {
+                get {
+                    return this.columnMedia_Avaliacao;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Produtividade_ValorColumn {
+                get {
+                    return this.columnProdutividade_Valor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Produtividade_ReflexoColumn {
+                get {
+                    return this.columnProdutividade_Reflexo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Total_GeralColumn {
+                get {
+                    return this.columnTotal_Geral;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2205,19 +2219,19 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public CalculoProdutividadeEmpregadoRow AddCalculoProdutividadeEmpregadoRow(string Empregado, double Media_Avaliacao, double Produtividade_Valor, double Produtividade_Reflexo, double Total_Geral, string Departamento, int Dias_Apurados, int Fer_Dom_Apurados, System.DateTime Competencia, string Empresa) {
+            public CalculoProdutividadeEmpregadoRow AddCalculoProdutividadeEmpregadoRow(string Empregado, string Departamento, int Dias_Apurados, int Fer_Dom_Apurados, System.DateTime Competencia, string Empresa, int Media_Avaliacao, decimal Produtividade_Valor, decimal Produtividade_Reflexo, decimal Total_Geral) {
                 CalculoProdutividadeEmpregadoRow rowCalculoProdutividadeEmpregadoRow = ((CalculoProdutividadeEmpregadoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Empregado,
-                        Media_Avaliacao,
-                        Produtividade_Valor,
-                        Produtividade_Reflexo,
-                        Total_Geral,
                         Departamento,
                         Dias_Apurados,
                         Fer_Dom_Apurados,
                         Competencia,
-                        Empresa};
+                        Empresa,
+                        Media_Avaliacao,
+                        Produtividade_Valor,
+                        Produtividade_Reflexo,
+                        Total_Geral};
                 rowCalculoProdutividadeEmpregadoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCalculoProdutividadeEmpregadoRow);
                 return rowCalculoProdutividadeEmpregadoRow;
@@ -2241,15 +2255,15 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnEmpregado = base.Columns["Empregado"];
-                this.columnMedia_Avaliacao = base.Columns["Media_Avaliacao"];
-                this.columnProdutividade_Valor = base.Columns["Produtividade_Valor"];
-                this.columnProdutividade_Reflexo = base.Columns["Produtividade_Reflexo"];
-                this.columnTotal_Geral = base.Columns["Total_Geral"];
                 this.columnDepartamento = base.Columns["Departamento"];
                 this.columnDias_Apurados = base.Columns["Dias_Apurados"];
                 this.columnFer_Dom_Apurados = base.Columns["Fer_Dom_Apurados"];
                 this.columnCompetencia = base.Columns["Competencia"];
                 this.columnEmpresa = base.Columns["Empresa"];
+                this.columnMedia_Avaliacao = base.Columns["Media_Avaliacao"];
+                this.columnProdutividade_Valor = base.Columns["Produtividade_Valor"];
+                this.columnProdutividade_Reflexo = base.Columns["Produtividade_Reflexo"];
+                this.columnTotal_Geral = base.Columns["Total_Geral"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2257,14 +2271,6 @@ namespace Tuottavuus.Relatorios {
             private void InitClass() {
                 this.columnEmpregado = new global::System.Data.DataColumn("Empregado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmpregado);
-                this.columnMedia_Avaliacao = new global::System.Data.DataColumn("Media_Avaliacao", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMedia_Avaliacao);
-                this.columnProdutividade_Valor = new global::System.Data.DataColumn("Produtividade_Valor", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProdutividade_Valor);
-                this.columnProdutividade_Reflexo = new global::System.Data.DataColumn("Produtividade_Reflexo", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProdutividade_Reflexo);
-                this.columnTotal_Geral = new global::System.Data.DataColumn("Total_Geral", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotal_Geral);
                 this.columnDepartamento = new global::System.Data.DataColumn("Departamento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartamento);
                 this.columnDias_Apurados = new global::System.Data.DataColumn("Dias_Apurados", typeof(int), null, global::System.Data.MappingType.Element);
@@ -2275,9 +2281,22 @@ namespace Tuottavuus.Relatorios {
                 base.Columns.Add(this.columnCompetencia);
                 this.columnEmpresa = new global::System.Data.DataColumn("Empresa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmpresa);
+                this.columnMedia_Avaliacao = new global::System.Data.DataColumn("Media_Avaliacao", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMedia_Avaliacao);
+                this.columnProdutividade_Valor = new global::System.Data.DataColumn("Produtividade_Valor", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProdutividade_Valor);
+                this.columnProdutividade_Reflexo = new global::System.Data.DataColumn("Produtividade_Reflexo", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProdutividade_Reflexo);
+                this.columnTotal_Geral = new global::System.Data.DataColumn("Total_Geral", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal_Geral);
+                this.columnEmpregado.AllowDBNull = false;
                 this.columnEmpregado.MaxLength = 255;
+                this.columnDepartamento.AllowDBNull = false;
                 this.columnDepartamento.MaxLength = 255;
+                this.columnCompetencia.AllowDBNull = false;
+                this.columnEmpresa.AllowDBNull = false;
                 this.columnEmpresa.MaxLength = 255;
+                this.columnTotal_Geral.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2419,11 +2438,11 @@ namespace Tuottavuus.Relatorios {
             
             private global::System.Data.DataColumn columnDescricao;
             
-            private global::System.Data.DataColumn columnNota;
-            
             private global::System.Data.DataColumn columnDepartamento;
             
             private global::System.Data.DataColumn columnAtivo;
+            
+            private global::System.Data.DataColumn columnNota;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2492,14 +2511,6 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NotaColumn {
-                get {
-                    return this.columnNota;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn DepartamentoColumn {
                 get {
                     return this.columnDepartamento;
@@ -2511,6 +2522,14 @@ namespace Tuottavuus.Relatorios {
             public global::System.Data.DataColumn AtivoColumn {
                 get {
                     return this.columnAtivo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NotaColumn {
+                get {
+                    return this.columnNota;
                 }
             }
             
@@ -2551,16 +2570,16 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AvaliacaoProdutividadeDPTORow AddAvaliacaoProdutividadeDPTORow(string Empregado, string Empresa, System.DateTime Competencia, string Descricao, double Nota, string Departamento, bool Ativo) {
+            public AvaliacaoProdutividadeDPTORow AddAvaliacaoProdutividadeDPTORow(string Empregado, string Empresa, System.DateTime Competencia, string Descricao, string Departamento, bool Ativo, decimal Nota) {
                 AvaliacaoProdutividadeDPTORow rowAvaliacaoProdutividadeDPTORow = ((AvaliacaoProdutividadeDPTORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Empregado,
                         Empresa,
                         Competencia,
                         Descricao,
-                        Nota,
                         Departamento,
-                        Ativo};
+                        Ativo,
+                        Nota};
                 rowAvaliacaoProdutividadeDPTORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAvaliacaoProdutividadeDPTORow);
                 return rowAvaliacaoProdutividadeDPTORow;
@@ -2587,9 +2606,9 @@ namespace Tuottavuus.Relatorios {
                 this.columnEmpresa = base.Columns["Empresa"];
                 this.columnCompetencia = base.Columns["Competencia"];
                 this.columnDescricao = base.Columns["Descricao"];
-                this.columnNota = base.Columns["Nota"];
                 this.columnDepartamento = base.Columns["Departamento"];
                 this.columnAtivo = base.Columns["Ativo"];
+                this.columnNota = base.Columns["Nota"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2603,16 +2622,23 @@ namespace Tuottavuus.Relatorios {
                 base.Columns.Add(this.columnCompetencia);
                 this.columnDescricao = new global::System.Data.DataColumn("Descricao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescricao);
-                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNota);
                 this.columnDepartamento = new global::System.Data.DataColumn("Departamento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartamento);
                 this.columnAtivo = new global::System.Data.DataColumn("Ativo", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAtivo);
+                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNota);
+                this.columnEmpregado.AllowDBNull = false;
                 this.columnEmpregado.MaxLength = 255;
+                this.columnEmpresa.AllowDBNull = false;
                 this.columnEmpresa.MaxLength = 255;
+                this.columnCompetencia.AllowDBNull = false;
+                this.columnDescricao.AllowDBNull = false;
                 this.columnDescricao.MaxLength = 255;
+                this.columnDepartamento.AllowDBNull = false;
                 this.columnDepartamento.MaxLength = 255;
+                this.columnAtivo.AllowDBNull = false;
+                this.columnNota.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2754,9 +2780,9 @@ namespace Tuottavuus.Relatorios {
             
             private global::System.Data.DataColumn columnDescricao;
             
-            private global::System.Data.DataColumn columnNota;
-            
             private global::System.Data.DataColumn columnDepartamento;
+            
+            private global::System.Data.DataColumn columnNota;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -2825,17 +2851,17 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NotaColumn {
+            public global::System.Data.DataColumn DepartamentoColumn {
                 get {
-                    return this.columnNota;
+                    return this.columnDepartamento;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn DepartamentoColumn {
+            public global::System.Data.DataColumn NotaColumn {
                 get {
-                    return this.columnDepartamento;
+                    return this.columnNota;
                 }
             }
             
@@ -2876,15 +2902,15 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AvaliacaoProdutividadeEmpregadoRow AddAvaliacaoProdutividadeEmpregadoRow(string Empregado, string Empresa, System.DateTime Competencia, string Descricao, double Nota, string Departamento) {
+            public AvaliacaoProdutividadeEmpregadoRow AddAvaliacaoProdutividadeEmpregadoRow(string Empregado, string Empresa, System.DateTime Competencia, string Descricao, string Departamento, decimal Nota) {
                 AvaliacaoProdutividadeEmpregadoRow rowAvaliacaoProdutividadeEmpregadoRow = ((AvaliacaoProdutividadeEmpregadoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Empregado,
                         Empresa,
                         Competencia,
                         Descricao,
-                        Nota,
-                        Departamento};
+                        Departamento,
+                        Nota};
                 rowAvaliacaoProdutividadeEmpregadoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAvaliacaoProdutividadeEmpregadoRow);
                 return rowAvaliacaoProdutividadeEmpregadoRow;
@@ -2911,8 +2937,8 @@ namespace Tuottavuus.Relatorios {
                 this.columnEmpresa = base.Columns["Empresa"];
                 this.columnCompetencia = base.Columns["Competencia"];
                 this.columnDescricao = base.Columns["Descricao"];
-                this.columnNota = base.Columns["Nota"];
                 this.columnDepartamento = base.Columns["Departamento"];
+                this.columnNota = base.Columns["Nota"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2926,14 +2952,20 @@ namespace Tuottavuus.Relatorios {
                 base.Columns.Add(this.columnCompetencia);
                 this.columnDescricao = new global::System.Data.DataColumn("Descricao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescricao);
-                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNota);
                 this.columnDepartamento = new global::System.Data.DataColumn("Departamento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartamento);
+                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNota);
+                this.columnEmpregado.AllowDBNull = false;
                 this.columnEmpregado.MaxLength = 255;
+                this.columnEmpresa.AllowDBNull = false;
                 this.columnEmpresa.MaxLength = 255;
+                this.columnCompetencia.AllowDBNull = false;
+                this.columnDescricao.AllowDBNull = false;
                 this.columnDescricao.MaxLength = 255;
+                this.columnDepartamento.AllowDBNull = false;
                 this.columnDepartamento.MaxLength = 255;
+                this.columnNota.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3223,9 +3255,13 @@ namespace Tuottavuus.Relatorios {
                 base.Columns.Add(this.columnEmpresa);
                 this.columnDepartamento = new global::System.Data.DataColumn("Departamento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartamento);
+                this.columnNome.AllowDBNull = false;
                 this.columnNome.MaxLength = 255;
+                this.columnDescricao.AllowDBNull = false;
                 this.columnDescricao.MaxLength = 255;
+                this.columnEmpresa.AllowDBNull = false;
                 this.columnEmpresa.MaxLength = 255;
+                this.columnDepartamento.AllowDBNull = false;
                 this.columnDepartamento.MaxLength = 255;
             }
             
@@ -3370,9 +3406,9 @@ namespace Tuottavuus.Relatorios {
             
             private global::System.Data.DataColumn columnDescricao;
             
-            private global::System.Data.DataColumn columnNota;
-            
             private global::System.Data.DataColumn columnCompetencia;
+            
+            private global::System.Data.DataColumn columnNota;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3449,17 +3485,17 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NotaColumn {
+            public global::System.Data.DataColumn CompetenciaColumn {
                 get {
-                    return this.columnNota;
+                    return this.columnCompetencia;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CompetenciaColumn {
+            public global::System.Data.DataColumn NotaColumn {
                 get {
-                    return this.columnCompetencia;
+                    return this.columnNota;
                 }
             }
             
@@ -3500,7 +3536,7 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AvaliacaoProdutividadeMediaCompRow AddAvaliacaoProdutividadeMediaCompRow(string Empresa, string Empregado, string Descricao, double Nota, System.DateTime Competencia) {
+            public AvaliacaoProdutividadeMediaCompRow AddAvaliacaoProdutividadeMediaCompRow(string Empresa, string Empregado, string Descricao, System.DateTime Competencia, decimal Nota) {
                 AvaliacaoProdutividadeMediaCompRow rowAvaliacaoProdutividadeMediaCompRow = ((AvaliacaoProdutividadeMediaCompRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3508,8 +3544,8 @@ namespace Tuottavuus.Relatorios {
                         null,
                         Empregado,
                         Descricao,
-                        Nota,
-                        Competencia};
+                        Competencia,
+                        Nota};
                 rowAvaliacaoProdutividadeMediaCompRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAvaliacaoProdutividadeMediaCompRow);
                 return rowAvaliacaoProdutividadeMediaCompRow;
@@ -3537,8 +3573,8 @@ namespace Tuottavuus.Relatorios {
                 this.columnId_Empregado = base.Columns["Id_Empregado"];
                 this.columnEmpregado = base.Columns["Empregado"];
                 this.columnDescricao = base.Columns["Descricao"];
-                this.columnNota = base.Columns["Nota"];
                 this.columnCompetencia = base.Columns["Competencia"];
+                this.columnNota = base.Columns["Nota"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3554,19 +3590,26 @@ namespace Tuottavuus.Relatorios {
                 base.Columns.Add(this.columnEmpregado);
                 this.columnDescricao = new global::System.Data.DataColumn("Descricao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescricao);
-                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNota);
                 this.columnCompetencia = new global::System.Data.DataColumn("Competencia", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompetencia);
+                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNota);
                 this.columnId_Empresa.AutoIncrement = true;
                 this.columnId_Empresa.AutoIncrementSeed = -1;
                 this.columnId_Empresa.AutoIncrementStep = -1;
+                this.columnId_Empresa.AllowDBNull = false;
+                this.columnEmpresa.AllowDBNull = false;
                 this.columnEmpresa.MaxLength = 255;
                 this.columnId_Empregado.AutoIncrement = true;
                 this.columnId_Empregado.AutoIncrementSeed = -1;
                 this.columnId_Empregado.AutoIncrementStep = -1;
+                this.columnId_Empregado.AllowDBNull = false;
+                this.columnEmpregado.AllowDBNull = false;
                 this.columnEmpregado.MaxLength = 255;
+                this.columnDescricao.AllowDBNull = false;
                 this.columnDescricao.MaxLength = 255;
+                this.columnCompetencia.AllowDBNull = false;
+                this.columnNota.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3710,13 +3753,13 @@ namespace Tuottavuus.Relatorios {
             
             private global::System.Data.DataColumn columnDescricao;
             
-            private global::System.Data.DataColumn columnNota;
-            
             private global::System.Data.DataColumn columnCompetencia;
             
             private global::System.Data.DataColumn columnId;
             
             private global::System.Data.DataColumn columnDepartamento;
+            
+            private global::System.Data.DataColumn columnNota;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3793,14 +3836,6 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NotaColumn {
-                get {
-                    return this.columnNota;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn CompetenciaColumn {
                 get {
                     return this.columnCompetencia;
@@ -3820,6 +3855,14 @@ namespace Tuottavuus.Relatorios {
             public global::System.Data.DataColumn DepartamentoColumn {
                 get {
                     return this.columnDepartamento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NotaColumn {
+                get {
+                    return this.columnNota;
                 }
             }
             
@@ -3860,7 +3903,7 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AvaliacaoProdutividadeMediaCompEmpregadoRow AddAvaliacaoProdutividadeMediaCompEmpregadoRow(string Empresa, string Empregado, string Descricao, double Nota, System.DateTime Competencia, string Departamento) {
+            public AvaliacaoProdutividadeMediaCompEmpregadoRow AddAvaliacaoProdutividadeMediaCompEmpregadoRow(string Empresa, string Empregado, string Descricao, System.DateTime Competencia, string Departamento, decimal Nota) {
                 AvaliacaoProdutividadeMediaCompEmpregadoRow rowAvaliacaoProdutividadeMediaCompEmpregadoRow = ((AvaliacaoProdutividadeMediaCompEmpregadoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3868,10 +3911,10 @@ namespace Tuottavuus.Relatorios {
                         null,
                         Empregado,
                         Descricao,
-                        Nota,
                         Competencia,
                         null,
-                        Departamento};
+                        Departamento,
+                        Nota};
                 rowAvaliacaoProdutividadeMediaCompEmpregadoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAvaliacaoProdutividadeMediaCompEmpregadoRow);
                 return rowAvaliacaoProdutividadeMediaCompEmpregadoRow;
@@ -3899,10 +3942,10 @@ namespace Tuottavuus.Relatorios {
                 this.columnId_Empregado = base.Columns["Id_Empregado"];
                 this.columnEmpregado = base.Columns["Empregado"];
                 this.columnDescricao = base.Columns["Descricao"];
-                this.columnNota = base.Columns["Nota"];
                 this.columnCompetencia = base.Columns["Competencia"];
                 this.columnId = base.Columns["Id"];
                 this.columnDepartamento = base.Columns["Departamento"];
+                this.columnNota = base.Columns["Nota"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3918,27 +3961,36 @@ namespace Tuottavuus.Relatorios {
                 base.Columns.Add(this.columnEmpregado);
                 this.columnDescricao = new global::System.Data.DataColumn("Descricao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescricao);
-                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNota);
                 this.columnCompetencia = new global::System.Data.DataColumn("Competencia", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompetencia);
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
                 this.columnDepartamento = new global::System.Data.DataColumn("Departamento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartamento);
+                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNota);
                 this.columnId_Empresa.AutoIncrement = true;
                 this.columnId_Empresa.AutoIncrementSeed = -1;
                 this.columnId_Empresa.AutoIncrementStep = -1;
+                this.columnId_Empresa.AllowDBNull = false;
+                this.columnEmpresa.AllowDBNull = false;
                 this.columnEmpresa.MaxLength = 255;
                 this.columnId_Empregado.AutoIncrement = true;
                 this.columnId_Empregado.AutoIncrementSeed = -1;
                 this.columnId_Empregado.AutoIncrementStep = -1;
+                this.columnId_Empregado.AllowDBNull = false;
+                this.columnEmpregado.AllowDBNull = false;
                 this.columnEmpregado.MaxLength = 255;
+                this.columnDescricao.AllowDBNull = false;
                 this.columnDescricao.MaxLength = 255;
+                this.columnCompetencia.AllowDBNull = false;
                 this.columnId.AutoIncrement = true;
                 this.columnId.AutoIncrementSeed = -1;
                 this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnDepartamento.AllowDBNull = false;
                 this.columnDepartamento.MaxLength = 255;
+                this.columnNota.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4082,13 +4134,13 @@ namespace Tuottavuus.Relatorios {
             
             private global::System.Data.DataColumn columnDescricao;
             
-            private global::System.Data.DataColumn columnNota;
-            
             private global::System.Data.DataColumn columnCompetencia;
             
             private global::System.Data.DataColumn columnId;
             
             private global::System.Data.DataColumn columnDepartamento;
+            
+            private global::System.Data.DataColumn columnNota;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -4165,14 +4217,6 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NotaColumn {
-                get {
-                    return this.columnNota;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn CompetenciaColumn {
                 get {
                     return this.columnCompetencia;
@@ -4192,6 +4236,14 @@ namespace Tuottavuus.Relatorios {
             public global::System.Data.DataColumn DepartamentoColumn {
                 get {
                     return this.columnDepartamento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NotaColumn {
+                get {
+                    return this.columnNota;
                 }
             }
             
@@ -4232,7 +4284,7 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AvaliacaoProdutividadeMediaCompEmpresaRow AddAvaliacaoProdutividadeMediaCompEmpresaRow(string Empresa, string Empregado, string Descricao, double Nota, System.DateTime Competencia, string Departamento) {
+            public AvaliacaoProdutividadeMediaCompEmpresaRow AddAvaliacaoProdutividadeMediaCompEmpresaRow(string Empresa, string Empregado, string Descricao, System.DateTime Competencia, string Departamento, decimal Nota) {
                 AvaliacaoProdutividadeMediaCompEmpresaRow rowAvaliacaoProdutividadeMediaCompEmpresaRow = ((AvaliacaoProdutividadeMediaCompEmpresaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4240,10 +4292,10 @@ namespace Tuottavuus.Relatorios {
                         null,
                         Empregado,
                         Descricao,
-                        Nota,
                         Competencia,
                         null,
-                        Departamento};
+                        Departamento,
+                        Nota};
                 rowAvaliacaoProdutividadeMediaCompEmpresaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAvaliacaoProdutividadeMediaCompEmpresaRow);
                 return rowAvaliacaoProdutividadeMediaCompEmpresaRow;
@@ -4271,10 +4323,10 @@ namespace Tuottavuus.Relatorios {
                 this.columnId_Empregado = base.Columns["Id_Empregado"];
                 this.columnEmpregado = base.Columns["Empregado"];
                 this.columnDescricao = base.Columns["Descricao"];
-                this.columnNota = base.Columns["Nota"];
                 this.columnCompetencia = base.Columns["Competencia"];
                 this.columnId = base.Columns["Id"];
                 this.columnDepartamento = base.Columns["Departamento"];
+                this.columnNota = base.Columns["Nota"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4290,27 +4342,36 @@ namespace Tuottavuus.Relatorios {
                 base.Columns.Add(this.columnEmpregado);
                 this.columnDescricao = new global::System.Data.DataColumn("Descricao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescricao);
-                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNota);
                 this.columnCompetencia = new global::System.Data.DataColumn("Competencia", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompetencia);
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
                 this.columnDepartamento = new global::System.Data.DataColumn("Departamento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartamento);
+                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNota);
                 this.columnId_Empresa.AutoIncrement = true;
                 this.columnId_Empresa.AutoIncrementSeed = -1;
                 this.columnId_Empresa.AutoIncrementStep = -1;
+                this.columnId_Empresa.AllowDBNull = false;
+                this.columnEmpresa.AllowDBNull = false;
                 this.columnEmpresa.MaxLength = 255;
                 this.columnId_Empregado.AutoIncrement = true;
                 this.columnId_Empregado.AutoIncrementSeed = -1;
                 this.columnId_Empregado.AutoIncrementStep = -1;
+                this.columnId_Empregado.AllowDBNull = false;
+                this.columnEmpregado.AllowDBNull = false;
                 this.columnEmpregado.MaxLength = 255;
+                this.columnDescricao.AllowDBNull = false;
                 this.columnDescricao.MaxLength = 255;
+                this.columnCompetencia.AllowDBNull = false;
                 this.columnId.AutoIncrement = true;
                 this.columnId.AutoIncrementSeed = -1;
                 this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnDepartamento.AllowDBNull = false;
                 this.columnDepartamento.MaxLength = 255;
+                this.columnNota.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4454,13 +4515,13 @@ namespace Tuottavuus.Relatorios {
             
             private global::System.Data.DataColumn columnDescricao;
             
-            private global::System.Data.DataColumn columnNota;
-            
             private global::System.Data.DataColumn columnCompetencia;
             
             private global::System.Data.DataColumn columnId;
             
             private global::System.Data.DataColumn columnDepartamento;
+            
+            private global::System.Data.DataColumn columnNota;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -4537,14 +4598,6 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NotaColumn {
-                get {
-                    return this.columnNota;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn CompetenciaColumn {
                 get {
                     return this.columnCompetencia;
@@ -4564,6 +4617,14 @@ namespace Tuottavuus.Relatorios {
             public global::System.Data.DataColumn DepartamentoColumn {
                 get {
                     return this.columnDepartamento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NotaColumn {
+                get {
+                    return this.columnNota;
                 }
             }
             
@@ -4604,7 +4665,7 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public AvaliacaoProdutividadeMediaCompDPTORow AddAvaliacaoProdutividadeMediaCompDPTORow(string Empresa, string Empregado, string Descricao, double Nota, System.DateTime Competencia, string Departamento) {
+            public AvaliacaoProdutividadeMediaCompDPTORow AddAvaliacaoProdutividadeMediaCompDPTORow(string Empresa, string Empregado, string Descricao, System.DateTime Competencia, string Departamento, decimal Nota) {
                 AvaliacaoProdutividadeMediaCompDPTORow rowAvaliacaoProdutividadeMediaCompDPTORow = ((AvaliacaoProdutividadeMediaCompDPTORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4612,10 +4673,10 @@ namespace Tuottavuus.Relatorios {
                         null,
                         Empregado,
                         Descricao,
-                        Nota,
                         Competencia,
                         null,
-                        Departamento};
+                        Departamento,
+                        Nota};
                 rowAvaliacaoProdutividadeMediaCompDPTORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAvaliacaoProdutividadeMediaCompDPTORow);
                 return rowAvaliacaoProdutividadeMediaCompDPTORow;
@@ -4643,10 +4704,10 @@ namespace Tuottavuus.Relatorios {
                 this.columnId_Empregado = base.Columns["Id_Empregado"];
                 this.columnEmpregado = base.Columns["Empregado"];
                 this.columnDescricao = base.Columns["Descricao"];
-                this.columnNota = base.Columns["Nota"];
                 this.columnCompetencia = base.Columns["Competencia"];
                 this.columnId = base.Columns["Id"];
                 this.columnDepartamento = base.Columns["Departamento"];
+                this.columnNota = base.Columns["Nota"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4662,27 +4723,36 @@ namespace Tuottavuus.Relatorios {
                 base.Columns.Add(this.columnEmpregado);
                 this.columnDescricao = new global::System.Data.DataColumn("Descricao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescricao);
-                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNota);
                 this.columnCompetencia = new global::System.Data.DataColumn("Competencia", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCompetencia);
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
                 this.columnDepartamento = new global::System.Data.DataColumn("Departamento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartamento);
+                this.columnNota = new global::System.Data.DataColumn("Nota", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNota);
                 this.columnId_Empresa.AutoIncrement = true;
                 this.columnId_Empresa.AutoIncrementSeed = -1;
                 this.columnId_Empresa.AutoIncrementStep = -1;
+                this.columnId_Empresa.AllowDBNull = false;
+                this.columnEmpresa.AllowDBNull = false;
                 this.columnEmpresa.MaxLength = 255;
                 this.columnId_Empregado.AutoIncrement = true;
                 this.columnId_Empregado.AutoIncrementSeed = -1;
                 this.columnId_Empregado.AutoIncrementStep = -1;
+                this.columnId_Empregado.AllowDBNull = false;
+                this.columnEmpregado.AllowDBNull = false;
                 this.columnEmpregado.MaxLength = 255;
+                this.columnDescricao.AllowDBNull = false;
                 this.columnDescricao.MaxLength = 255;
+                this.columnCompetencia.AllowDBNull = false;
                 this.columnId.AutoIncrement = true;
                 this.columnId.AutoIncrementSeed = -1;
                 this.columnId.AutoIncrementStep = -1;
+                this.columnId.AllowDBNull = false;
+                this.columnDepartamento.AllowDBNull = false;
                 this.columnDepartamento.MaxLength = 255;
+                this.columnNota.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5069,12 +5139,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empregado {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvalicaoProdutividade.EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empregado\' in table \'AvalicaoProdutividade\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvalicaoProdutividade.EmpregadoColumn]));
                 }
                 set {
                     this[this.tableAvalicaoProdutividade.EmpregadoColumn] = value;
@@ -5085,12 +5150,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empresa {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvalicaoProdutividade.EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empresa\' in table \'AvalicaoProdutividade\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvalicaoProdutividade.EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvalicaoProdutividade.EmpresaColumn] = value;
@@ -5101,12 +5161,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Competencia {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableAvalicaoProdutividade.CompetenciaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Competencia\' in table \'AvalicaoProdutividade\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableAvalicaoProdutividade.CompetenciaColumn]));
                 }
                 set {
                     this[this.tableAvalicaoProdutividade.CompetenciaColumn] = value;
@@ -5117,12 +5172,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Descricao {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvalicaoProdutividade.DescricaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Descricao\' in table \'AvalicaoProdutividade\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvalicaoProdutividade.DescricaoColumn]));
                 }
                 set {
                     this[this.tableAvalicaoProdutividade.DescricaoColumn] = value;
@@ -5131,78 +5181,13 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Nota {
+            public decimal Nota {
                 get {
-                    try {
-                        return ((double)(this[this.tableAvalicaoProdutividade.NotaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nota\' in table \'AvalicaoProdutividade\' is DBNull.", e);
-                    }
+                    return ((decimal)(this[this.tableAvalicaoProdutividade.NotaColumn]));
                 }
                 set {
                     this[this.tableAvalicaoProdutividade.NotaColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpregadoNull() {
-                return this.IsNull(this.tableAvalicaoProdutividade.EmpregadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpregadoNull() {
-                this[this.tableAvalicaoProdutividade.EmpregadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpresaNull() {
-                return this.IsNull(this.tableAvalicaoProdutividade.EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpresaNull() {
-                this[this.tableAvalicaoProdutividade.EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCompetenciaNull() {
-                return this.IsNull(this.tableAvalicaoProdutividade.CompetenciaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCompetenciaNull() {
-                this[this.tableAvalicaoProdutividade.CompetenciaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDescricaoNull() {
-                return this.IsNull(this.tableAvalicaoProdutividade.DescricaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDescricaoNull() {
-                this[this.tableAvalicaoProdutividade.DescricaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNotaNull() {
-                return this.IsNull(this.tableAvalicaoProdutividade.NotaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNotaNull() {
-                this[this.tableAvalicaoProdutividade.NotaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5224,12 +5209,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Nome {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliarProdutividade.NomeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nome\' in table \'AvaliarProdutividade\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliarProdutividade.NomeColumn]));
                 }
                 set {
                     this[this.tableAvaliarProdutividade.NomeColumn] = value;
@@ -5240,12 +5220,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Descricao {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliarProdutividade.DescricaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Descricao\' in table \'AvaliarProdutividade\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliarProdutividade.DescricaoColumn]));
                 }
                 set {
                     this[this.tableAvaliarProdutividade.DescricaoColumn] = value;
@@ -5256,12 +5231,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empresa {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliarProdutividade.EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empresa\' in table \'AvaliarProdutividade\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliarProdutividade.EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvaliarProdutividade.EmpresaColumn] = value;
@@ -5272,64 +5242,11 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Departamento {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliarProdutividade.DepartamentoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Departamento\' in table \'AvaliarProdutividade\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliarProdutividade.DepartamentoColumn]));
                 }
                 set {
                     this[this.tableAvaliarProdutividade.DepartamentoColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNomeNull() {
-                return this.IsNull(this.tableAvaliarProdutividade.NomeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNomeNull() {
-                this[this.tableAvaliarProdutividade.NomeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDescricaoNull() {
-                return this.IsNull(this.tableAvaliarProdutividade.DescricaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDescricaoNull() {
-                this[this.tableAvaliarProdutividade.DescricaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpresaNull() {
-                return this.IsNull(this.tableAvaliarProdutividade.EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpresaNull() {
-                this[this.tableAvaliarProdutividade.EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDepartamentoNull() {
-                return this.IsNull(this.tableAvaliarProdutividade.DepartamentoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDepartamentoNull() {
-                this[this.tableAvaliarProdutividade.DepartamentoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5351,12 +5268,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empregado {
                 get {
-                    try {
-                        return ((string)(this[this.tableCalculoProdutividadeDPTO.EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empregado\' in table \'CalculoProdutividadeDPTO\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableCalculoProdutividadeDPTO.EmpregadoColumn]));
                 }
                 set {
                     this[this.tableCalculoProdutividadeDPTO.EmpregadoColumn] = value;
@@ -5365,83 +5277,9 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Media_Avaliacao {
-                get {
-                    try {
-                        return ((double)(this[this.tableCalculoProdutividadeDPTO.Media_AvaliacaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Media_Avaliacao\' in table \'CalculoProdutividadeDPTO\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCalculoProdutividadeDPTO.Media_AvaliacaoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Produtividade_Valor {
-                get {
-                    try {
-                        return ((double)(this[this.tableCalculoProdutividadeDPTO.Produtividade_ValorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Produtividade_Valor\' in table \'CalculoProdutividadeDPTO\' is" +
-                                " DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCalculoProdutividadeDPTO.Produtividade_ValorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Produtividade_Reflexo {
-                get {
-                    try {
-                        return ((double)(this[this.tableCalculoProdutividadeDPTO.Produtividade_ReflexoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Produtividade_Reflexo\' in table \'CalculoProdutividadeDPTO\' " +
-                                "is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCalculoProdutividadeDPTO.Produtividade_ReflexoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Total_Geral {
-                get {
-                    try {
-                        return ((double)(this[this.tableCalculoProdutividadeDPTO.Total_GeralColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Geral\' in table \'CalculoProdutividadeDPTO\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableCalculoProdutividadeDPTO.Total_GeralColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Departamento {
                 get {
-                    try {
-                        return ((string)(this[this.tableCalculoProdutividadeDPTO.DepartamentoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Departamento\' in table \'CalculoProdutividadeDPTO\' is DBNull" +
-                                ".", e);
-                    }
+                    return ((string)(this[this.tableCalculoProdutividadeDPTO.DepartamentoColumn]));
                 }
                 set {
                     this[this.tableCalculoProdutividadeDPTO.DepartamentoColumn] = value;
@@ -5486,13 +5324,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Competencia {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableCalculoProdutividadeDPTO.CompetenciaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Competencia\' in table \'CalculoProdutividadeDPTO\' is DBNull." +
-                                "", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableCalculoProdutividadeDPTO.CompetenciaColumn]));
                 }
                 set {
                     this[this.tableCalculoProdutividadeDPTO.CompetenciaColumn] = value;
@@ -5503,12 +5335,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empresa {
                 get {
-                    try {
-                        return ((string)(this[this.tableCalculoProdutividadeDPTO.EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empresa\' in table \'CalculoProdutividadeDPTO\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableCalculoProdutividadeDPTO.EmpresaColumn]));
                 }
                 set {
                     this[this.tableCalculoProdutividadeDPTO.EmpresaColumn] = value;
@@ -5517,14 +5344,94 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpregadoNull() {
-                return this.IsNull(this.tableCalculoProdutividadeDPTO.EmpregadoColumn);
+            public int Media_Avaliacao {
+                get {
+                    try {
+                        return ((int)(this[this.tableCalculoProdutividadeDPTO.Media_AvaliacaoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Media_Avaliacao\' in table \'CalculoProdutividadeDPTO\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCalculoProdutividadeDPTO.Media_AvaliacaoColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpregadoNull() {
-                this[this.tableCalculoProdutividadeDPTO.EmpregadoColumn] = global::System.Convert.DBNull;
+            public decimal Produtividade_Valor {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCalculoProdutividadeDPTO.Produtividade_ValorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Produtividade_Valor\' in table \'CalculoProdutividadeDPTO\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCalculoProdutividadeDPTO.Produtividade_ValorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Produtividade_Reflexo {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCalculoProdutividadeDPTO.Produtividade_ReflexoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Produtividade_Reflexo\' in table \'CalculoProdutividadeDPTO\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCalculoProdutividadeDPTO.Produtividade_ReflexoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Total_Geral {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCalculoProdutividadeDPTO.Total_GeralColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Geral\' in table \'CalculoProdutividadeDPTO\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableCalculoProdutividadeDPTO.Total_GeralColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDias_ApuradosNull() {
+                return this.IsNull(this.tableCalculoProdutividadeDPTO.Dias_ApuradosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDias_ApuradosNull() {
+                this[this.tableCalculoProdutividadeDPTO.Dias_ApuradosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFer_Dom_ApuradosNull() {
+                return this.IsNull(this.tableCalculoProdutividadeDPTO.Fer_Dom_ApuradosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFer_Dom_ApuradosNull() {
+                this[this.tableCalculoProdutividadeDPTO.Fer_Dom_ApuradosColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5574,66 +5481,6 @@ namespace Tuottavuus.Relatorios {
             public void SetTotal_GeralNull() {
                 this[this.tableCalculoProdutividadeDPTO.Total_GeralColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDepartamentoNull() {
-                return this.IsNull(this.tableCalculoProdutividadeDPTO.DepartamentoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDepartamentoNull() {
-                this[this.tableCalculoProdutividadeDPTO.DepartamentoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDias_ApuradosNull() {
-                return this.IsNull(this.tableCalculoProdutividadeDPTO.Dias_ApuradosColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDias_ApuradosNull() {
-                this[this.tableCalculoProdutividadeDPTO.Dias_ApuradosColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsFer_Dom_ApuradosNull() {
-                return this.IsNull(this.tableCalculoProdutividadeDPTO.Fer_Dom_ApuradosColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetFer_Dom_ApuradosNull() {
-                this[this.tableCalculoProdutividadeDPTO.Fer_Dom_ApuradosColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCompetenciaNull() {
-                return this.IsNull(this.tableCalculoProdutividadeDPTO.CompetenciaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCompetenciaNull() {
-                this[this.tableCalculoProdutividadeDPTO.CompetenciaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpresaNull() {
-                return this.IsNull(this.tableCalculoProdutividadeDPTO.EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpresaNull() {
-                this[this.tableCalculoProdutividadeDPTO.EmpresaColumn] = global::System.Convert.DBNull;
-            }
         }
         
         /// <summary>
@@ -5654,13 +5501,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empregado {
                 get {
-                    try {
-                        return ((string)(this[this.tableCalculoProdutividadeEmpregado.EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empregado\' in table \'CalculoProdutividadeEmpregado\' is DBNu" +
-                                "ll.", e);
-                    }
+                    return ((string)(this[this.tableCalculoProdutividadeEmpregado.EmpregadoColumn]));
                 }
                 set {
                     this[this.tableCalculoProdutividadeEmpregado.EmpregadoColumn] = value;
@@ -5669,83 +5510,9 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Media_Avaliacao {
-                get {
-                    try {
-                        return ((double)(this[this.tableCalculoProdutividadeEmpregado.Media_AvaliacaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Media_Avaliacao\' in table \'CalculoProdutividadeEmpregado\' i" +
-                                "s DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCalculoProdutividadeEmpregado.Media_AvaliacaoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Produtividade_Valor {
-                get {
-                    try {
-                        return ((double)(this[this.tableCalculoProdutividadeEmpregado.Produtividade_ValorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Produtividade_Valor\' in table \'CalculoProdutividadeEmpregad" +
-                                "o\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCalculoProdutividadeEmpregado.Produtividade_ValorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Produtividade_Reflexo {
-                get {
-                    try {
-                        return ((double)(this[this.tableCalculoProdutividadeEmpregado.Produtividade_ReflexoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Produtividade_Reflexo\' in table \'CalculoProdutividadeEmpreg" +
-                                "ado\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCalculoProdutividadeEmpregado.Produtividade_ReflexoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Total_Geral {
-                get {
-                    try {
-                        return ((double)(this[this.tableCalculoProdutividadeEmpregado.Total_GeralColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Geral\' in table \'CalculoProdutividadeEmpregado\' is DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tableCalculoProdutividadeEmpregado.Total_GeralColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Departamento {
                 get {
-                    try {
-                        return ((string)(this[this.tableCalculoProdutividadeEmpregado.DepartamentoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Departamento\' in table \'CalculoProdutividadeEmpregado\' is D" +
-                                "BNull.", e);
-                    }
+                    return ((string)(this[this.tableCalculoProdutividadeEmpregado.DepartamentoColumn]));
                 }
                 set {
                     this[this.tableCalculoProdutividadeEmpregado.DepartamentoColumn] = value;
@@ -5790,13 +5557,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Competencia {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableCalculoProdutividadeEmpregado.CompetenciaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Competencia\' in table \'CalculoProdutividadeEmpregado\' is DB" +
-                                "Null.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableCalculoProdutividadeEmpregado.CompetenciaColumn]));
                 }
                 set {
                     this[this.tableCalculoProdutividadeEmpregado.CompetenciaColumn] = value;
@@ -5807,13 +5568,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empresa {
                 get {
-                    try {
-                        return ((string)(this[this.tableCalculoProdutividadeEmpregado.EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empresa\' in table \'CalculoProdutividadeEmpregado\' is DBNull" +
-                                ".", e);
-                    }
+                    return ((string)(this[this.tableCalculoProdutividadeEmpregado.EmpresaColumn]));
                 }
                 set {
                     this[this.tableCalculoProdutividadeEmpregado.EmpresaColumn] = value;
@@ -5822,14 +5577,94 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpregadoNull() {
-                return this.IsNull(this.tableCalculoProdutividadeEmpregado.EmpregadoColumn);
+            public int Media_Avaliacao {
+                get {
+                    try {
+                        return ((int)(this[this.tableCalculoProdutividadeEmpregado.Media_AvaliacaoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Media_Avaliacao\' in table \'CalculoProdutividadeEmpregado\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCalculoProdutividadeEmpregado.Media_AvaliacaoColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpregadoNull() {
-                this[this.tableCalculoProdutividadeEmpregado.EmpregadoColumn] = global::System.Convert.DBNull;
+            public decimal Produtividade_Valor {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCalculoProdutividadeEmpregado.Produtividade_ValorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Produtividade_Valor\' in table \'CalculoProdutividadeEmpregad" +
+                                "o\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCalculoProdutividadeEmpregado.Produtividade_ValorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Produtividade_Reflexo {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCalculoProdutividadeEmpregado.Produtividade_ReflexoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Produtividade_Reflexo\' in table \'CalculoProdutividadeEmpreg" +
+                                "ado\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCalculoProdutividadeEmpregado.Produtividade_ReflexoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Total_Geral {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCalculoProdutividadeEmpregado.Total_GeralColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Geral\' in table \'CalculoProdutividadeEmpregado\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableCalculoProdutividadeEmpregado.Total_GeralColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDias_ApuradosNull() {
+                return this.IsNull(this.tableCalculoProdutividadeEmpregado.Dias_ApuradosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDias_ApuradosNull() {
+                this[this.tableCalculoProdutividadeEmpregado.Dias_ApuradosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFer_Dom_ApuradosNull() {
+                return this.IsNull(this.tableCalculoProdutividadeEmpregado.Fer_Dom_ApuradosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFer_Dom_ApuradosNull() {
+                this[this.tableCalculoProdutividadeEmpregado.Fer_Dom_ApuradosColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5879,66 +5714,6 @@ namespace Tuottavuus.Relatorios {
             public void SetTotal_GeralNull() {
                 this[this.tableCalculoProdutividadeEmpregado.Total_GeralColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDepartamentoNull() {
-                return this.IsNull(this.tableCalculoProdutividadeEmpregado.DepartamentoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDepartamentoNull() {
-                this[this.tableCalculoProdutividadeEmpregado.DepartamentoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDias_ApuradosNull() {
-                return this.IsNull(this.tableCalculoProdutividadeEmpregado.Dias_ApuradosColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDias_ApuradosNull() {
-                this[this.tableCalculoProdutividadeEmpregado.Dias_ApuradosColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsFer_Dom_ApuradosNull() {
-                return this.IsNull(this.tableCalculoProdutividadeEmpregado.Fer_Dom_ApuradosColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetFer_Dom_ApuradosNull() {
-                this[this.tableCalculoProdutividadeEmpregado.Fer_Dom_ApuradosColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCompetenciaNull() {
-                return this.IsNull(this.tableCalculoProdutividadeEmpregado.CompetenciaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCompetenciaNull() {
-                this[this.tableCalculoProdutividadeEmpregado.CompetenciaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpresaNull() {
-                return this.IsNull(this.tableCalculoProdutividadeEmpregado.EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpresaNull() {
-                this[this.tableCalculoProdutividadeEmpregado.EmpresaColumn] = global::System.Convert.DBNull;
-            }
         }
         
         /// <summary>
@@ -5959,13 +5734,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empregado {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeDPTO.EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empregado\' in table \'AvaliacaoProdutividadeDPTO\' is DBNull." +
-                                "", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeDPTO.EmpregadoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeDPTO.EmpregadoColumn] = value;
@@ -5976,12 +5745,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empresa {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeDPTO.EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empresa\' in table \'AvaliacaoProdutividadeDPTO\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeDPTO.EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeDPTO.EmpresaColumn] = value;
@@ -5992,13 +5756,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Competencia {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableAvaliacaoProdutividadeDPTO.CompetenciaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Competencia\' in table \'AvaliacaoProdutividadeDPTO\' is DBNul" +
-                                "l.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableAvaliacaoProdutividadeDPTO.CompetenciaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeDPTO.CompetenciaColumn] = value;
@@ -6009,13 +5767,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Descricao {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeDPTO.DescricaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Descricao\' in table \'AvaliacaoProdutividadeDPTO\' is DBNull." +
-                                "", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeDPTO.DescricaoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeDPTO.DescricaoColumn] = value;
@@ -6024,31 +5776,9 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Nota {
-                get {
-                    try {
-                        return ((double)(this[this.tableAvaliacaoProdutividadeDPTO.NotaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nota\' in table \'AvaliacaoProdutividadeDPTO\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAvaliacaoProdutividadeDPTO.NotaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Departamento {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeDPTO.DepartamentoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Departamento\' in table \'AvaliacaoProdutividadeDPTO\' is DBNu" +
-                                "ll.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeDPTO.DepartamentoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeDPTO.DepartamentoColumn] = value;
@@ -6059,12 +5789,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Ativo {
                 get {
-                    try {
-                        return ((bool)(this[this.tableAvaliacaoProdutividadeDPTO.AtivoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Ativo\' in table \'AvaliacaoProdutividadeDPTO\' is DBNull.", e);
-                    }
+                    return ((bool)(this[this.tableAvaliacaoProdutividadeDPTO.AtivoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeDPTO.AtivoColumn] = value;
@@ -6073,86 +5798,13 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpregadoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeDPTO.EmpregadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpregadoNull() {
-                this[this.tableAvaliacaoProdutividadeDPTO.EmpregadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpresaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeDPTO.EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpresaNull() {
-                this[this.tableAvaliacaoProdutividadeDPTO.EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCompetenciaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeDPTO.CompetenciaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCompetenciaNull() {
-                this[this.tableAvaliacaoProdutividadeDPTO.CompetenciaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDescricaoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeDPTO.DescricaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDescricaoNull() {
-                this[this.tableAvaliacaoProdutividadeDPTO.DescricaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNotaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeDPTO.NotaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNotaNull() {
-                this[this.tableAvaliacaoProdutividadeDPTO.NotaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDepartamentoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeDPTO.DepartamentoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDepartamentoNull() {
-                this[this.tableAvaliacaoProdutividadeDPTO.DepartamentoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsAtivoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeDPTO.AtivoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetAtivoNull() {
-                this[this.tableAvaliacaoProdutividadeDPTO.AtivoColumn] = global::System.Convert.DBNull;
+            public decimal Nota {
+                get {
+                    return ((decimal)(this[this.tableAvaliacaoProdutividadeDPTO.NotaColumn]));
+                }
+                set {
+                    this[this.tableAvaliacaoProdutividadeDPTO.NotaColumn] = value;
+                }
             }
         }
         
@@ -6174,13 +5826,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empregado {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeEmpregado.EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empregado\' in table \'AvaliacaoProdutividadeEmpregado\' is DB" +
-                                "Null.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeEmpregado.EmpregadoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeEmpregado.EmpregadoColumn] = value;
@@ -6191,13 +5837,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empresa {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeEmpregado.EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empresa\' in table \'AvaliacaoProdutividadeEmpregado\' is DBNu" +
-                                "ll.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeEmpregado.EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeEmpregado.EmpresaColumn] = value;
@@ -6208,13 +5848,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Competencia {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableAvaliacaoProdutividadeEmpregado.CompetenciaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Competencia\' in table \'AvaliacaoProdutividadeEmpregado\' is " +
-                                "DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableAvaliacaoProdutividadeEmpregado.CompetenciaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeEmpregado.CompetenciaColumn] = value;
@@ -6225,13 +5859,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Descricao {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeEmpregado.DescricaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Descricao\' in table \'AvaliacaoProdutividadeEmpregado\' is DB" +
-                                "Null.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeEmpregado.DescricaoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeEmpregado.DescricaoColumn] = value;
@@ -6240,32 +5868,9 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Nota {
-                get {
-                    try {
-                        return ((double)(this[this.tableAvaliacaoProdutividadeEmpregado.NotaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nota\' in table \'AvaliacaoProdutividadeEmpregado\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableAvaliacaoProdutividadeEmpregado.NotaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Departamento {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeEmpregado.DepartamentoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Departamento\' in table \'AvaliacaoProdutividadeEmpregado\' is" +
-                                " DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeEmpregado.DepartamentoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeEmpregado.DepartamentoColumn] = value;
@@ -6274,74 +5879,13 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpregadoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeEmpregado.EmpregadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpregadoNull() {
-                this[this.tableAvaliacaoProdutividadeEmpregado.EmpregadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpresaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeEmpregado.EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpresaNull() {
-                this[this.tableAvaliacaoProdutividadeEmpregado.EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCompetenciaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeEmpregado.CompetenciaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCompetenciaNull() {
-                this[this.tableAvaliacaoProdutividadeEmpregado.CompetenciaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDescricaoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeEmpregado.DescricaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDescricaoNull() {
-                this[this.tableAvaliacaoProdutividadeEmpregado.DescricaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNotaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeEmpregado.NotaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNotaNull() {
-                this[this.tableAvaliacaoProdutividadeEmpregado.NotaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDepartamentoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeEmpregado.DepartamentoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDepartamentoNull() {
-                this[this.tableAvaliacaoProdutividadeEmpregado.DepartamentoColumn] = global::System.Convert.DBNull;
+            public decimal Nota {
+                get {
+                    return ((decimal)(this[this.tableAvaliacaoProdutividadeEmpregado.NotaColumn]));
+                }
+                set {
+                    this[this.tableAvaliacaoProdutividadeEmpregado.NotaColumn] = value;
+                }
             }
         }
         
@@ -6363,12 +5907,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Nome {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliarProdutividadeEmpregado.NomeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nome\' in table \'AvaliarProdutividadeEmpregado\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliarProdutividadeEmpregado.NomeColumn]));
                 }
                 set {
                     this[this.tableAvaliarProdutividadeEmpregado.NomeColumn] = value;
@@ -6379,13 +5918,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Descricao {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliarProdutividadeEmpregado.DescricaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Descricao\' in table \'AvaliarProdutividadeEmpregado\' is DBNu" +
-                                "ll.", e);
-                    }
+                    return ((string)(this[this.tableAvaliarProdutividadeEmpregado.DescricaoColumn]));
                 }
                 set {
                     this[this.tableAvaliarProdutividadeEmpregado.DescricaoColumn] = value;
@@ -6396,13 +5929,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empresa {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliarProdutividadeEmpregado.EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empresa\' in table \'AvaliarProdutividadeEmpregado\' is DBNull" +
-                                ".", e);
-                    }
+                    return ((string)(this[this.tableAvaliarProdutividadeEmpregado.EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvaliarProdutividadeEmpregado.EmpresaColumn] = value;
@@ -6413,65 +5940,11 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Departamento {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliarProdutividadeEmpregado.DepartamentoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Departamento\' in table \'AvaliarProdutividadeEmpregado\' is D" +
-                                "BNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliarProdutividadeEmpregado.DepartamentoColumn]));
                 }
                 set {
                     this[this.tableAvaliarProdutividadeEmpregado.DepartamentoColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNomeNull() {
-                return this.IsNull(this.tableAvaliarProdutividadeEmpregado.NomeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNomeNull() {
-                this[this.tableAvaliarProdutividadeEmpregado.NomeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDescricaoNull() {
-                return this.IsNull(this.tableAvaliarProdutividadeEmpregado.DescricaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDescricaoNull() {
-                this[this.tableAvaliarProdutividadeEmpregado.DescricaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpresaNull() {
-                return this.IsNull(this.tableAvaliarProdutividadeEmpregado.EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpresaNull() {
-                this[this.tableAvaliarProdutividadeEmpregado.EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDepartamentoNull() {
-                return this.IsNull(this.tableAvaliarProdutividadeEmpregado.DepartamentoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDepartamentoNull() {
-                this[this.tableAvaliarProdutividadeEmpregado.DepartamentoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6493,13 +5966,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Id_Empresa {
                 get {
-                    try {
-                        return ((int)(this[this.tableAvaliacaoProdutividadeMediaComp.Id_EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Id_Empresa\' in table \'AvaliacaoProdutividadeMediaComp\' is D" +
-                                "BNull.", e);
-                    }
+                    return ((int)(this[this.tableAvaliacaoProdutividadeMediaComp.Id_EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaComp.Id_EmpresaColumn] = value;
@@ -6510,13 +5977,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empresa {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaComp.EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empresa\' in table \'AvaliacaoProdutividadeMediaComp\' is DBNu" +
-                                "ll.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaComp.EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaComp.EmpresaColumn] = value;
@@ -6527,13 +5988,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Id_Empregado {
                 get {
-                    try {
-                        return ((int)(this[this.tableAvaliacaoProdutividadeMediaComp.Id_EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Id_Empregado\' in table \'AvaliacaoProdutividadeMediaComp\' is" +
-                                " DBNull.", e);
-                    }
+                    return ((int)(this[this.tableAvaliacaoProdutividadeMediaComp.Id_EmpregadoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaComp.Id_EmpregadoColumn] = value;
@@ -6544,13 +5999,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empregado {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaComp.EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empregado\' in table \'AvaliacaoProdutividadeMediaComp\' is DB" +
-                                "Null.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaComp.EmpregadoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaComp.EmpregadoColumn] = value;
@@ -6561,13 +6010,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Descricao {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaComp.DescricaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Descricao\' in table \'AvaliacaoProdutividadeMediaComp\' is DB" +
-                                "Null.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaComp.DescricaoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaComp.DescricaoColumn] = value;
@@ -6576,32 +6019,9 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Nota {
-                get {
-                    try {
-                        return ((double)(this[this.tableAvaliacaoProdutividadeMediaComp.NotaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nota\' in table \'AvaliacaoProdutividadeMediaComp\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableAvaliacaoProdutividadeMediaComp.NotaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Competencia {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableAvaliacaoProdutividadeMediaComp.CompetenciaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Competencia\' in table \'AvaliacaoProdutividadeMediaComp\' is " +
-                                "DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableAvaliacaoProdutividadeMediaComp.CompetenciaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaComp.CompetenciaColumn] = value;
@@ -6610,86 +6030,13 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsId_EmpresaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaComp.Id_EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetId_EmpresaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaComp.Id_EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpresaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaComp.EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpresaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaComp.EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsId_EmpregadoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaComp.Id_EmpregadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetId_EmpregadoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaComp.Id_EmpregadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpregadoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaComp.EmpregadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpregadoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaComp.EmpregadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDescricaoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaComp.DescricaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDescricaoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaComp.DescricaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNotaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaComp.NotaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNotaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaComp.NotaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCompetenciaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaComp.CompetenciaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCompetenciaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaComp.CompetenciaColumn] = global::System.Convert.DBNull;
+            public decimal Nota {
+                get {
+                    return ((decimal)(this[this.tableAvaliacaoProdutividadeMediaComp.NotaColumn]));
+                }
+                set {
+                    this[this.tableAvaliacaoProdutividadeMediaComp.NotaColumn] = value;
+                }
             }
         }
         
@@ -6711,13 +6058,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Id_Empresa {
                 get {
-                    try {
-                        return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.Id_EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Id_Empresa\' in table \'AvaliacaoProdutividadeMediaCompEmpreg" +
-                                "ado\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.Id_EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.Id_EmpresaColumn] = value;
@@ -6728,13 +6069,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empresa {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empresa\' in table \'AvaliacaoProdutividadeMediaCompEmpregado" +
-                                "\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.EmpresaColumn] = value;
@@ -6745,13 +6080,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Id_Empregado {
                 get {
-                    try {
-                        return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.Id_EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Id_Empregado\' in table \'AvaliacaoProdutividadeMediaCompEmpr" +
-                                "egado\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.Id_EmpregadoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.Id_EmpregadoColumn] = value;
@@ -6762,13 +6091,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empregado {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empregado\' in table \'AvaliacaoProdutividadeMediaCompEmprega" +
-                                "do\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.EmpregadoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.EmpregadoColumn] = value;
@@ -6779,13 +6102,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Descricao {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.DescricaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Descricao\' in table \'AvaliacaoProdutividadeMediaCompEmprega" +
-                                "do\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.DescricaoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.DescricaoColumn] = value;
@@ -6794,32 +6111,9 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Nota {
-                get {
-                    try {
-                        return ((double)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.NotaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nota\' in table \'AvaliacaoProdutividadeMediaCompEmpregado\' i" +
-                                "s DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.NotaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Competencia {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.CompetenciaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Competencia\' in table \'AvaliacaoProdutividadeMediaCompEmpre" +
-                                "gado\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.CompetenciaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.CompetenciaColumn] = value;
@@ -6830,13 +6124,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Id {
                 get {
-                    try {
-                        return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.IdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Id\' in table \'AvaliacaoProdutividadeMediaCompEmpregado\' is " +
-                                "DBNull.", e);
-                    }
+                    return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.IdColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.IdColumn] = value;
@@ -6847,13 +6135,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Departamento {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.DepartamentoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Departamento\' in table \'AvaliacaoProdutividadeMediaCompEmpr" +
-                                "egado\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.DepartamentoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.DepartamentoColumn] = value;
@@ -6862,110 +6144,13 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsId_EmpresaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpregado.Id_EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetId_EmpresaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.Id_EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpresaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpregado.EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpresaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsId_EmpregadoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpregado.Id_EmpregadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetId_EmpregadoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.Id_EmpregadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpregadoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpregado.EmpregadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpregadoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.EmpregadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDescricaoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpregado.DescricaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDescricaoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.DescricaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNotaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpregado.NotaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNotaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.NotaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCompetenciaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpregado.CompetenciaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCompetenciaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.CompetenciaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsIdNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpregado.IdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetIdNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.IdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDepartamentoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpregado.DepartamentoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDepartamentoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.DepartamentoColumn] = global::System.Convert.DBNull;
+            public decimal Nota {
+                get {
+                    return ((decimal)(this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.NotaColumn]));
+                }
+                set {
+                    this[this.tableAvaliacaoProdutividadeMediaCompEmpregado.NotaColumn] = value;
+                }
             }
         }
         
@@ -6987,13 +6172,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Id_Empresa {
                 get {
-                    try {
-                        return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.Id_EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Id_Empresa\' in table \'AvaliacaoProdutividadeMediaCompEmpres" +
-                                "a\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.Id_EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.Id_EmpresaColumn] = value;
@@ -7004,13 +6183,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empresa {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empresa\' in table \'AvaliacaoProdutividadeMediaCompEmpresa\' " +
-                                "is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.EmpresaColumn] = value;
@@ -7021,13 +6194,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Id_Empregado {
                 get {
-                    try {
-                        return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.Id_EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Id_Empregado\' in table \'AvaliacaoProdutividadeMediaCompEmpr" +
-                                "esa\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.Id_EmpregadoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.Id_EmpregadoColumn] = value;
@@ -7038,13 +6205,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empregado {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empregado\' in table \'AvaliacaoProdutividadeMediaCompEmpresa" +
-                                "\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.EmpregadoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.EmpregadoColumn] = value;
@@ -7055,13 +6216,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Descricao {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.DescricaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Descricao\' in table \'AvaliacaoProdutividadeMediaCompEmpresa" +
-                                "\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.DescricaoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.DescricaoColumn] = value;
@@ -7070,32 +6225,9 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Nota {
-                get {
-                    try {
-                        return ((double)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.NotaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nota\' in table \'AvaliacaoProdutividadeMediaCompEmpresa\' is " +
-                                "DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.NotaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Competencia {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.CompetenciaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Competencia\' in table \'AvaliacaoProdutividadeMediaCompEmpre" +
-                                "sa\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.CompetenciaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.CompetenciaColumn] = value;
@@ -7106,13 +6238,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Id {
                 get {
-                    try {
-                        return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.IdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Id\' in table \'AvaliacaoProdutividadeMediaCompEmpresa\' is DB" +
-                                "Null.", e);
-                    }
+                    return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.IdColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.IdColumn] = value;
@@ -7123,13 +6249,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Departamento {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.DepartamentoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Departamento\' in table \'AvaliacaoProdutividadeMediaCompEmpr" +
-                                "esa\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.DepartamentoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.DepartamentoColumn] = value;
@@ -7138,110 +6258,13 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsId_EmpresaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpresa.Id_EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetId_EmpresaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.Id_EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpresaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpresa.EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpresaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsId_EmpregadoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpresa.Id_EmpregadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetId_EmpregadoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.Id_EmpregadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpregadoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpresa.EmpregadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpregadoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.EmpregadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDescricaoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpresa.DescricaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDescricaoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.DescricaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNotaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpresa.NotaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNotaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.NotaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCompetenciaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpresa.CompetenciaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCompetenciaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.CompetenciaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsIdNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpresa.IdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetIdNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.IdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDepartamentoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompEmpresa.DepartamentoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDepartamentoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.DepartamentoColumn] = global::System.Convert.DBNull;
+            public decimal Nota {
+                get {
+                    return ((decimal)(this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.NotaColumn]));
+                }
+                set {
+                    this[this.tableAvaliacaoProdutividadeMediaCompEmpresa.NotaColumn] = value;
+                }
             }
         }
         
@@ -7263,13 +6286,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Id_Empresa {
                 get {
-                    try {
-                        return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.Id_EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Id_Empresa\' in table \'AvaliacaoProdutividadeMediaCompDPTO\' " +
-                                "is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.Id_EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompDPTO.Id_EmpresaColumn] = value;
@@ -7280,13 +6297,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empresa {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.EmpresaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empresa\' in table \'AvaliacaoProdutividadeMediaCompDPTO\' is " +
-                                "DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.EmpresaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompDPTO.EmpresaColumn] = value;
@@ -7297,13 +6308,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Id_Empregado {
                 get {
-                    try {
-                        return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.Id_EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Id_Empregado\' in table \'AvaliacaoProdutividadeMediaCompDPTO" +
-                                "\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.Id_EmpregadoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompDPTO.Id_EmpregadoColumn] = value;
@@ -7314,13 +6319,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Empregado {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.EmpregadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Empregado\' in table \'AvaliacaoProdutividadeMediaCompDPTO\' i" +
-                                "s DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.EmpregadoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompDPTO.EmpregadoColumn] = value;
@@ -7331,13 +6330,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Descricao {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.DescricaoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Descricao\' in table \'AvaliacaoProdutividadeMediaCompDPTO\' i" +
-                                "s DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.DescricaoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompDPTO.DescricaoColumn] = value;
@@ -7346,32 +6339,9 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double Nota {
-                get {
-                    try {
-                        return ((double)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.NotaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Nota\' in table \'AvaliacaoProdutividadeMediaCompDPTO\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAvaliacaoProdutividadeMediaCompDPTO.NotaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime Competencia {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.CompetenciaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Competencia\' in table \'AvaliacaoProdutividadeMediaCompDPTO\'" +
-                                " is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.CompetenciaColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompDPTO.CompetenciaColumn] = value;
@@ -7382,13 +6352,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int Id {
                 get {
-                    try {
-                        return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.IdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Id\' in table \'AvaliacaoProdutividadeMediaCompDPTO\' is DBNul" +
-                                "l.", e);
-                    }
+                    return ((int)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.IdColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompDPTO.IdColumn] = value;
@@ -7399,13 +6363,7 @@ namespace Tuottavuus.Relatorios {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Departamento {
                 get {
-                    try {
-                        return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.DepartamentoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Departamento\' in table \'AvaliacaoProdutividadeMediaCompDPTO" +
-                                "\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.DepartamentoColumn]));
                 }
                 set {
                     this[this.tableAvaliacaoProdutividadeMediaCompDPTO.DepartamentoColumn] = value;
@@ -7414,110 +6372,13 @@ namespace Tuottavuus.Relatorios {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsId_EmpresaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompDPTO.Id_EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetId_EmpresaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompDPTO.Id_EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpresaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompDPTO.EmpresaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpresaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompDPTO.EmpresaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsId_EmpregadoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompDPTO.Id_EmpregadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetId_EmpregadoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompDPTO.Id_EmpregadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmpregadoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompDPTO.EmpregadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmpregadoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompDPTO.EmpregadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDescricaoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompDPTO.DescricaoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDescricaoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompDPTO.DescricaoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNotaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompDPTO.NotaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNotaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompDPTO.NotaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCompetenciaNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompDPTO.CompetenciaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCompetenciaNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompDPTO.CompetenciaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsIdNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompDPTO.IdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetIdNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompDPTO.IdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsDepartamentoNull() {
-                return this.IsNull(this.tableAvaliacaoProdutividadeMediaCompDPTO.DepartamentoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetDepartamentoNull() {
-                this[this.tableAvaliacaoProdutividadeMediaCompDPTO.DepartamentoColumn] = global::System.Convert.DBNull;
+            public decimal Nota {
+                get {
+                    return ((decimal)(this[this.tableAvaliacaoProdutividadeMediaCompDPTO.NotaColumn]));
+                }
+                set {
+                    this[this.tableAvaliacaoProdutividadeMediaCompDPTO.NotaColumn] = value;
+                }
             }
         }
         
@@ -8270,35 +7131,25 @@ ORDER BY Empregado";
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Empregado.Nome AS Empregado, Empresa.Nome AS Empresa, Competencia.Competencia, Atividade.Descricao, AtividadeAvaliacao.Nota
-FROM            ((((AtividadeAvaliacao INNER JOIN
-                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id) INNER JOIN
-                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id) INNER JOIN
-                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id) INNER JOIN
-                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id)
-WHERE        (AtividadeAvaliacao.Id_Competencia = CInt(?)) AND (AtividadeAvaliacao.Id_Empresa = CInt(?)) AND (Empregado.Ativo = True)";
+FROM            AtividadeAvaliacao INNER JOIN
+                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id INNER JOIN
+                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id INNER JOIN
+                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id INNER JOIN
+                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id
+WHERE        (AtividadeAvaliacao.Id_Competencia = ?) AND (AtividadeAvaliacao.Id_Empresa = ?) AND (Empregado.Ativo = 1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Competencia", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Competencia", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Competencia", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RelatoriosTuottavuus.AvalicaoProdutividadeDataTable dataTable, global::System.Nullable<int> Id_Competencia, global::System.Nullable<int> Id_Empresa) {
+        public virtual int Fill(RelatoriosTuottavuus.AvalicaoProdutividadeDataTable dataTable, int Id_Competencia, int Id_Empresa) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Id_Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -8310,20 +7161,10 @@ WHERE        (AtividadeAvaliacao.Id_Competencia = CInt(?)) AND (AtividadeAvaliac
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RelatoriosTuottavuus.AvalicaoProdutividadeDataTable GetData(global::System.Nullable<int> Id_Competencia, global::System.Nullable<int> Id_Empresa) {
+        public virtual RelatoriosTuottavuus.AvalicaoProdutividadeDataTable GetData(int Id_Competencia, int Id_Empresa) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Id_Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa));
             RelatoriosTuottavuus.AvalicaoProdutividadeDataTable dataTable = new RelatoriosTuottavuus.AvalicaoProdutividadeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8472,13 +7313,14 @@ WHERE        (AtividadeAvaliacao.Id_Competencia = CInt(?)) AND (AtividadeAvaliac
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Empregado.Nome, Atividade.Descricao, Empresa.Nome AS Empresa, Departamento.Descricao AS Departamento
-FROM            ((Empregado INNER JOIN
-                         Empresa ON Empregado.Id_Empresa = Empresa.Id) INNER JOIN
-                         Departamento ON Empregado.Id_Departamento = Departamento.Id), Atividade
-WHERE        (Departamento.Id = CInt(?)) AND (Empregado.Ativo = True)
+FROM            Empregado INNER JOIN
+                         Empresa ON Empregado.Id_Empresa = Empresa.Id INNER JOIN
+                         Departamento ON Empregado.Id_Departamento = Departamento.Id CROSS JOIN
+                         Atividade
+WHERE        (Departamento.Id = ?) AND (Empregado.Ativo = 1)
 ORDER BY Empregado.Nome, Atividade.Descricao";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8630,15 +7472,15 @@ ORDER BY Empregado.Nome, Atividade.Descricao";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "CalculoProdutividadeDPTO";
             tableMapping.ColumnMappings.Add("Empregado", "Empregado");
-            tableMapping.ColumnMappings.Add("Media_Avaliacao", "Media_Avaliacao");
-            tableMapping.ColumnMappings.Add("Produtividade_Valor", "Produtividade_Valor");
-            tableMapping.ColumnMappings.Add("Produtividade_Reflexo", "Produtividade_Reflexo");
-            tableMapping.ColumnMappings.Add("Total_Geral", "Total_Geral");
             tableMapping.ColumnMappings.Add("Departamento", "Departamento");
             tableMapping.ColumnMappings.Add("Dias_Apurados", "Dias_Apurados");
             tableMapping.ColumnMappings.Add("Fer_Dom_Apurados", "Fer_Dom_Apurados");
             tableMapping.ColumnMappings.Add("Competencia", "Competencia");
             tableMapping.ColumnMappings.Add("Empresa", "Empresa");
+            tableMapping.ColumnMappings.Add("Media_Avaliacao", "Media_Avaliacao");
+            tableMapping.ColumnMappings.Add("Produtividade_Valor", "Produtividade_Valor");
+            tableMapping.ColumnMappings.Add("Produtividade_Reflexo", "Produtividade_Reflexo");
+            tableMapping.ColumnMappings.Add("Total_Geral", "Total_Geral");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8657,40 +7499,30 @@ ORDER BY Empregado.Nome, Atividade.Descricao";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Empregado.Nome AS Empregado, Produtividade.Media_Avaliacao, Produtividade.Produtividade_Valor, Produtividade.Produtividade_Reflexo, SUM(Produtividade.Produtividade_Valor + Produtividade.Produtividade_Reflexo) 
                          AS Total_Geral, Departamento.Descricao AS Departamento, Produtividade.Dias_Apurados, Produtividade.Fer_Dom_Apurados, Competencia.Competencia, Empresa.Nome AS Empresa
-FROM            ((((Produtividade INNER JOIN
-                         Empregado ON Produtividade.Id_Empregado = Empregado.Id) INNER JOIN
-                         Competencia ON Produtividade.Id_Competencia = Competencia.Id) INNER JOIN
-                         Departamento ON Empregado.Id_Departamento = Departamento.Id) INNER JOIN
-                         Empresa ON Produtividade.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id)
-WHERE        (Produtividade.Id_Competencia = CInt(?)) AND (Produtividade.Id_Empresa = CInt(?)) AND (Departamento.Id = CInt(?))
+FROM            Produtividade INNER JOIN
+                         Empregado ON Produtividade.Id_Empregado = Empregado.Id INNER JOIN
+                         Competencia ON Produtividade.Id_Competencia = Competencia.Id INNER JOIN
+                         Departamento ON Empregado.Id_Departamento = Departamento.Id INNER JOIN
+                         Empresa ON Produtividade.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id
+WHERE        (Produtividade.Id_Competencia = ?) AND (Produtividade.Id_Empresa = ?) AND (Departamento.Id = ?)
 GROUP BY Produtividade.Id, Produtividade.Produtividade_Valor, Produtividade.Produtividade_Reflexo, Produtividade.Media_Avaliacao, Produtividade.Dias_Apurados, Produtividade.Fer_Dom_Apurados, Empregado.Nome, 
                          Competencia.Competencia, Departamento.Descricao, Empresa.Nome, Empregado.Ativo
-HAVING        (Empregado.Ativo = True)
-ORDER BY Empregado.Nome";
+HAVING        (Empregado.Ativo = 1)
+ORDER BY Empregado";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Competencia", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Competencia", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Competencia", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RelatoriosTuottavuus.CalculoProdutividadeDPTODataTable dataTable, global::System.Nullable<int> Id_Competencia, global::System.Nullable<int> Id_Empresa, int Id) {
+        public virtual int Fill(RelatoriosTuottavuus.CalculoProdutividadeDPTODataTable dataTable, int Id_Competencia, int Id_Empresa, int Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Id_Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -8703,20 +7535,10 @@ ORDER BY Empregado.Nome";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RelatoriosTuottavuus.CalculoProdutividadeDPTODataTable GetData(global::System.Nullable<int> Id_Competencia, global::System.Nullable<int> Id_Empresa, int Id) {
+        public virtual RelatoriosTuottavuus.CalculoProdutividadeDPTODataTable GetData(int Id_Competencia, int Id_Empresa, int Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Id_Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id));
             RelatoriosTuottavuus.CalculoProdutividadeDPTODataTable dataTable = new RelatoriosTuottavuus.CalculoProdutividadeDPTODataTable();
             this.Adapter.Fill(dataTable);
@@ -8846,15 +7668,15 @@ ORDER BY Empregado.Nome";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "CalculoProdutividadeEmpregado";
             tableMapping.ColumnMappings.Add("Empregado", "Empregado");
-            tableMapping.ColumnMappings.Add("Media_Avaliacao", "Media_Avaliacao");
-            tableMapping.ColumnMappings.Add("Produtividade_Valor", "Produtividade_Valor");
-            tableMapping.ColumnMappings.Add("Produtividade_Reflexo", "Produtividade_Reflexo");
-            tableMapping.ColumnMappings.Add("Total_Geral", "Total_Geral");
             tableMapping.ColumnMappings.Add("Departamento", "Departamento");
             tableMapping.ColumnMappings.Add("Dias_Apurados", "Dias_Apurados");
             tableMapping.ColumnMappings.Add("Fer_Dom_Apurados", "Fer_Dom_Apurados");
             tableMapping.ColumnMappings.Add("Competencia", "Competencia");
             tableMapping.ColumnMappings.Add("Empresa", "Empresa");
+            tableMapping.ColumnMappings.Add("Media_Avaliacao", "Media_Avaliacao");
+            tableMapping.ColumnMappings.Add("Produtividade_Valor", "Produtividade_Valor");
+            tableMapping.ColumnMappings.Add("Produtividade_Reflexo", "Produtividade_Reflexo");
+            tableMapping.ColumnMappings.Add("Total_Geral", "Total_Geral");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8873,39 +7695,29 @@ ORDER BY Empregado.Nome";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Empregado.Nome AS Empregado, Produtividade.Media_Avaliacao, Produtividade.Produtividade_Valor, Produtividade.Produtividade_Reflexo, SUM(Produtividade.Produtividade_Valor + Produtividade.Produtividade_Reflexo) 
                          AS Total_Geral, Departamento.Descricao AS Departamento, Produtividade.Dias_Apurados, Produtividade.Fer_Dom_Apurados, Competencia.Competencia, Empresa.Nome AS Empresa
-FROM            ((((Produtividade INNER JOIN
-                         Empregado ON Produtividade.Id_Empregado = Empregado.Id) INNER JOIN
-                         Competencia ON Produtividade.Id_Competencia = Competencia.Id) INNER JOIN
-                         Departamento ON Empregado.Id_Departamento = Departamento.Id) INNER JOIN
-                         Empresa ON Produtividade.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id)
-WHERE        (Produtividade.Id_Empregado = CInt(?)) AND (Produtividade.Id_Competencia = CInt(?))
+FROM            Produtividade INNER JOIN
+                         Empregado ON Produtividade.Id_Empregado = Empregado.Id INNER JOIN
+                         Competencia ON Produtividade.Id_Competencia = Competencia.Id INNER JOIN
+                         Departamento ON Empregado.Id_Departamento = Departamento.Id INNER JOIN
+                         Empresa ON Produtividade.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id
+WHERE        (Produtividade.Id_Empregado = ?) AND (Produtividade.Id_Competencia = ?)
 GROUP BY Produtividade.Id, Produtividade.Produtividade_Valor, Produtividade.Produtividade_Reflexo, Produtividade.Media_Avaliacao, Produtividade.Dias_Apurados, Produtividade.Fer_Dom_Apurados, Empregado.Nome, 
                          Competencia.Competencia, Departamento.Descricao, Empresa.Nome, Empregado.Ativo
-HAVING        (Empregado.Ativo = True)
-ORDER BY Empregado.Nome";
+HAVING        (Empregado.Ativo = 1)
+ORDER BY Empregado";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empregado", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empregado", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Competencia", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empregado", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empregado", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Competencia", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Competencia", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RelatoriosTuottavuus.CalculoProdutividadeEmpregadoDataTable dataTable, global::System.Nullable<int> Id_Empregado, global::System.Nullable<int> Id_Competencia) {
+        public virtual int Fill(RelatoriosTuottavuus.CalculoProdutividadeEmpregadoDataTable dataTable, int Id_Empregado, int Id_Competencia) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Id_Empregado.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Empregado.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Empregado));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Competencia));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -8917,20 +7729,10 @@ ORDER BY Empregado.Nome";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RelatoriosTuottavuus.CalculoProdutividadeEmpregadoDataTable GetData(global::System.Nullable<int> Id_Empregado, global::System.Nullable<int> Id_Competencia) {
+        public virtual RelatoriosTuottavuus.CalculoProdutividadeEmpregadoDataTable GetData(int Id_Empregado, int Id_Competencia) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Id_Empregado.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Empregado.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Empregado));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Competencia));
             RelatoriosTuottavuus.CalculoProdutividadeEmpregadoDataTable dataTable = new RelatoriosTuottavuus.CalculoProdutividadeEmpregadoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -9062,9 +7864,9 @@ ORDER BY Empregado.Nome";
             tableMapping.ColumnMappings.Add("Empresa", "Empresa");
             tableMapping.ColumnMappings.Add("Competencia", "Competencia");
             tableMapping.ColumnMappings.Add("Descricao", "Descricao");
-            tableMapping.ColumnMappings.Add("Nota", "Nota");
             tableMapping.ColumnMappings.Add("Departamento", "Departamento");
             tableMapping.ColumnMappings.Add("Ativo", "Ativo");
+            tableMapping.ColumnMappings.Add("Nota", "Nota");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -9082,37 +7884,27 @@ ORDER BY Empregado.Nome";
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Empregado.Nome AS Empregado, Empresa.Nome AS Empresa, Competencia.Competencia, Atividade.Descricao, AtividadeAvaliacao.Nota, Departamento.Descricao AS Departamento, Empregado.Ativo
-FROM            (((((AtividadeAvaliacao INNER JOIN
-                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id) INNER JOIN
-                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id) INNER JOIN
-                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id) INNER JOIN
-                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id) INNER JOIN
-                         Departamento ON Empregado.Id_Departamento = Departamento.Id)
-WHERE        (AtividadeAvaliacao.Id_Competencia = CInt(?)) AND (AtividadeAvaliacao.Id_Empresa = CInt(?)) AND (Departamento.Id = CInt(?)) AND (Empregado.Ativo = True)";
+FROM            AtividadeAvaliacao INNER JOIN
+                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id INNER JOIN
+                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id INNER JOIN
+                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id INNER JOIN
+                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id INNER JOIN
+                         Departamento ON Empregado.Id_Departamento = Departamento.Id
+WHERE        (AtividadeAvaliacao.Id_Competencia = ?) AND (AtividadeAvaliacao.Id_Empresa = ?) AND (Departamento.Id = ?) AND (Empregado.Ativo = 1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Competencia", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Competencia", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Competencia", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RelatoriosTuottavuus.AvaliacaoProdutividadeDPTODataTable dataTable, global::System.Nullable<int> Id_Competencia, global::System.Nullable<int> Id_Empresa, int Id) {
+        public virtual int Fill(RelatoriosTuottavuus.AvaliacaoProdutividadeDPTODataTable dataTable, int Id_Competencia, int Id_Empresa, int Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Id_Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -9125,20 +7917,10 @@ WHERE        (AtividadeAvaliacao.Id_Competencia = CInt(?)) AND (AtividadeAvaliac
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RelatoriosTuottavuus.AvaliacaoProdutividadeDPTODataTable GetData(global::System.Nullable<int> Id_Competencia, global::System.Nullable<int> Id_Empresa, int Id) {
+        public virtual RelatoriosTuottavuus.AvaliacaoProdutividadeDPTODataTable GetData(int Id_Competencia, int Id_Empresa, int Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Id_Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empresa));
             this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id));
             RelatoriosTuottavuus.AvaliacaoProdutividadeDPTODataTable dataTable = new RelatoriosTuottavuus.AvaliacaoProdutividadeDPTODataTable();
             this.Adapter.Fill(dataTable);
@@ -9271,8 +8053,8 @@ WHERE        (AtividadeAvaliacao.Id_Competencia = CInt(?)) AND (AtividadeAvaliac
             tableMapping.ColumnMappings.Add("Empresa", "Empresa");
             tableMapping.ColumnMappings.Add("Competencia", "Competencia");
             tableMapping.ColumnMappings.Add("Descricao", "Descricao");
-            tableMapping.ColumnMappings.Add("Nota", "Nota");
             tableMapping.ColumnMappings.Add("Departamento", "Departamento");
+            tableMapping.ColumnMappings.Add("Nota", "Nota");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -9290,36 +8072,26 @@ WHERE        (AtividadeAvaliacao.Id_Competencia = CInt(?)) AND (AtividadeAvaliac
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Empregado.Nome AS Empregado, Empresa.Nome AS Empresa, Competencia.Competencia, Atividade.Descricao, AtividadeAvaliacao.Nota, Departamento.Descricao AS Departamento
-FROM            (((((AtividadeAvaliacao INNER JOIN
-                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id) INNER JOIN
-                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id) INNER JOIN
-                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id) INNER JOIN
-                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id) INNER JOIN
-                         Departamento ON Empregado.Id_Departamento = Departamento.Id)
-WHERE        (AtividadeAvaliacao.Id_Competencia = CInt(?)) AND (AtividadeAvaliacao.Id_Empregado = CInt(?)) AND (Empregado.Ativo = True)";
+FROM            AtividadeAvaliacao INNER JOIN
+                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id INNER JOIN
+                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id INNER JOIN
+                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id INNER JOIN
+                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id INNER JOIN
+                         Departamento ON Empregado.Id_Departamento = Departamento.Id
+WHERE        (AtividadeAvaliacao.Id_Competencia = ?) AND (AtividadeAvaliacao.Id_Empregado = ?) AND (Empregado.Ativo = 1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Competencia", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Competencia", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empregado", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empregado", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Competencia", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empregado", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empregado", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RelatoriosTuottavuus.AvaliacaoProdutividadeEmpregadoDataTable dataTable, global::System.Nullable<int> Id_Competencia, global::System.Nullable<int> Id_Empregado) {
+        public virtual int Fill(RelatoriosTuottavuus.AvaliacaoProdutividadeEmpregadoDataTable dataTable, int Id_Competencia, int Id_Empregado) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Id_Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empregado.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empregado.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empregado));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -9331,20 +8103,10 @@ WHERE        (AtividadeAvaliacao.Id_Competencia = CInt(?)) AND (AtividadeAvaliac
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RelatoriosTuottavuus.AvaliacaoProdutividadeEmpregadoDataTable GetData(global::System.Nullable<int> Id_Competencia, global::System.Nullable<int> Id_Empregado) {
+        public virtual RelatoriosTuottavuus.AvaliacaoProdutividadeEmpregadoDataTable GetData(int Id_Competencia, int Id_Empregado) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Id_Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empregado.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empregado.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id_Empregado));
             RelatoriosTuottavuus.AvaliacaoProdutividadeEmpregadoDataTable dataTable = new RelatoriosTuottavuus.AvaliacaoProdutividadeEmpregadoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -9493,13 +8255,14 @@ WHERE        (AtividadeAvaliacao.Id_Competencia = CInt(?)) AND (AtividadeAvaliac
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Empregado.Nome, Atividade.Descricao, Empresa.Nome AS Empresa, Departamento.Descricao AS Departamento
-FROM            ((Empregado INNER JOIN
-                         Empresa ON Empregado.Id_Empresa = Empresa.Id) INNER JOIN
-                         Departamento ON Empregado.Id_Departamento = Departamento.Id), Atividade
-WHERE        (Empregado.Id = CInt(?)) AND (Empregado.Ativo = True)
-ORDER BY Empregado.Nome, Departamento.Descricao";
+FROM            Empregado INNER JOIN
+                         Empresa ON Empregado.Id_Empresa = Empresa.Id INNER JOIN
+                         Departamento ON Empregado.Id_Departamento = Departamento.Id CROSS JOIN
+                         Atividade
+WHERE        (Empregado.Id = ?) AND (Empregado.Ativo = 1)
+ORDER BY Empregado.Nome, Departamento";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9655,8 +8418,8 @@ ORDER BY Empregado.Nome, Departamento.Descricao";
             tableMapping.ColumnMappings.Add("Id_Empregado", "Id_Empregado");
             tableMapping.ColumnMappings.Add("Empregado", "Empregado");
             tableMapping.ColumnMappings.Add("Descricao", "Descricao");
-            tableMapping.ColumnMappings.Add("Nota", "Nota");
             tableMapping.ColumnMappings.Add("Competencia", "Competencia");
+            tableMapping.ColumnMappings.Add("Nota", "Nota");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -9674,36 +8437,26 @@ ORDER BY Empregado.Nome, Departamento.Descricao";
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Empresa.Id AS Id_Empresa, Empresa.Nome AS Empresa, Empregado.Id AS Id_Empregado, Empregado.Nome AS Empregado, Atividade.Descricao, AtividadeAvaliacao.Nota, Competencia.Competencia
-FROM            ((((AtividadeAvaliacao INNER JOIN
-                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id) INNER JOIN
-                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id) INNER JOIN
-                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id) INNER JOIN
-                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id)
-WHERE        (Competencia.Competencia BETWEEN CDate(?) AND CDate(?))
-ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
+FROM            AtividadeAvaliacao INNER JOIN
+                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id INNER JOIN
+                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id INNER JOIN
+                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id INNER JOIN
+                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id
+WHERE        (Competencia.Competencia BETWEEN ? AND ?)
+ORDER BY Competencia.Competencia DESC, Empresa, Empregado";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia1", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia", global::System.Data.OleDb.OleDbType.DBTimeStamp, 8, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia1", global::System.Data.OleDb.OleDbType.DBTimeStamp, 8, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDataTable dataTable, global::System.Nullable<global::System.DateTime> Competencia, global::System.Nullable<global::System.DateTime> Competencia1) {
+        public virtual int Fill(RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDataTable dataTable, System.DateTime Competencia, System.DateTime Competencia1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Competencia1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -9715,20 +8468,10 @@ ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDataTable GetData(global::System.Nullable<global::System.DateTime> Competencia, global::System.Nullable<global::System.DateTime> Competencia1) {
+        public virtual RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDataTable GetData(System.DateTime Competencia, System.DateTime Competencia1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Competencia1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1));
             RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDataTable dataTable = new RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -9861,10 +8604,10 @@ ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
             tableMapping.ColumnMappings.Add("Id_Empregado", "Id_Empregado");
             tableMapping.ColumnMappings.Add("Empregado", "Empregado");
             tableMapping.ColumnMappings.Add("Descricao", "Descricao");
-            tableMapping.ColumnMappings.Add("Nota", "Nota");
             tableMapping.ColumnMappings.Add("Competencia", "Competencia");
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Departamento", "Departamento");
+            tableMapping.ColumnMappings.Add("Nota", "Nota");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -9883,51 +8626,31 @@ ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Empresa.Id AS Id_Empresa, Empresa.Nome AS Empresa, Empregado.Id AS Id_Empregado, Empregado.Nome AS Empregado, Atividade.Descricao, AtividadeAvaliacao.Nota, Competencia.Competencia, Departamento.Id, 
                          Departamento.Descricao AS Departamento
-FROM            (((((AtividadeAvaliacao INNER JOIN
-                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id) INNER JOIN
-                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id) INNER JOIN
-                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id) INNER JOIN
-                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id) INNER JOIN
-                         Departamento ON Empregado.Id_Departamento = Departamento.Id)
-WHERE        (Competencia.Competencia BETWEEN CDate(?) AND CDate(?)) AND (AtividadeAvaliacao.Id_Empresa = CInt(?)) AND (AtividadeAvaliacao.Id_Empregado = CInt(?))
-ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
+FROM            AtividadeAvaliacao INNER JOIN
+                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id INNER JOIN
+                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id INNER JOIN
+                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id INNER JOIN
+                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id INNER JOIN
+                         Departamento ON Empregado.Id_Departamento = Departamento.Id
+WHERE        (Competencia.Competencia BETWEEN ? AND ?) AND (AtividadeAvaliacao.Id_Empresa = ?) AND (AtividadeAvaliacao.Id_Empregado = ?)
+ORDER BY Competencia.Competencia DESC, Empresa, Empregado";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia1", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empregado", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empregado", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia", global::System.Data.OleDb.OleDbType.DBTimeStamp, 8, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia1", global::System.Data.OleDb.OleDbType.DBTimeStamp, 8, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empregado", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empregado", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpregadoDataTable dataTable, global::System.Nullable<global::System.DateTime> Competencia, global::System.Nullable<global::System.DateTime> Competencia1, global::System.Nullable<int> Id_Empresa, global::System.Nullable<int> Id_Empregado) {
+        public virtual int Fill(RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpregadoDataTable dataTable, System.DateTime Competencia, System.DateTime Competencia1, int Id_Empresa, int Id_Empregado) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Competencia1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empregado.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(Id_Empregado.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id_Empresa));
+            this.Adapter.SelectCommand.Parameters[3].Value = ((int)(Id_Empregado));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -9939,32 +8662,12 @@ ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpregadoDataTable GetData(global::System.Nullable<global::System.DateTime> Competencia, global::System.Nullable<global::System.DateTime> Competencia1, global::System.Nullable<int> Id_Empresa, global::System.Nullable<int> Id_Empregado) {
+        public virtual RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpregadoDataTable GetData(System.DateTime Competencia, System.DateTime Competencia1, int Id_Empresa, int Id_Empregado) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Competencia1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empregado.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(Id_Empregado.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id_Empresa));
+            this.Adapter.SelectCommand.Parameters[3].Value = ((int)(Id_Empregado));
             RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpregadoDataTable dataTable = new RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpregadoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -10097,10 +8800,10 @@ ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
             tableMapping.ColumnMappings.Add("Id_Empregado", "Id_Empregado");
             tableMapping.ColumnMappings.Add("Empregado", "Empregado");
             tableMapping.ColumnMappings.Add("Descricao", "Descricao");
-            tableMapping.ColumnMappings.Add("Nota", "Nota");
             tableMapping.ColumnMappings.Add("Competencia", "Competencia");
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Departamento", "Departamento");
+            tableMapping.ColumnMappings.Add("Nota", "Nota");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -10119,44 +8822,29 @@ ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Empresa.Id AS Id_Empresa, Empresa.Nome AS Empresa, Empregado.Id AS Id_Empregado, Empregado.Nome AS Empregado, Atividade.Descricao, AtividadeAvaliacao.Nota, Competencia.Competencia, Departamento.Id, 
                          Departamento.Descricao AS Departamento
-FROM            (((((AtividadeAvaliacao INNER JOIN
-                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id) INNER JOIN
-                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id) INNER JOIN
-                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id) INNER JOIN
-                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id) INNER JOIN
-                         Departamento ON Empregado.Id_Departamento = Departamento.Id)
-WHERE        (Competencia.Competencia BETWEEN CDate(?) AND CDate(?)) AND (AtividadeAvaliacao.Id_Empresa = CInt(?))
-ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
+FROM            AtividadeAvaliacao INNER JOIN
+                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id INNER JOIN
+                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id INNER JOIN
+                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id INNER JOIN
+                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id INNER JOIN
+                         Departamento ON Empregado.Id_Departamento = Departamento.Id
+WHERE        (Competencia.Competencia BETWEEN ? AND ?) AND (AtividadeAvaliacao.Id_Empresa = ?)
+ORDER BY Competencia.Competencia DESC, Empresa, Empregado";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia1", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia", global::System.Data.OleDb.OleDbType.DBTimeStamp, 8, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia1", global::System.Data.OleDb.OleDbType.DBTimeStamp, 8, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpresaDataTable dataTable, global::System.Nullable<global::System.DateTime> Competencia, global::System.Nullable<global::System.DateTime> Competencia1, global::System.Nullable<int> Id_Empresa) {
+        public virtual int Fill(RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpresaDataTable dataTable, System.DateTime Competencia, System.DateTime Competencia1, int Id_Empresa) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Competencia1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id_Empresa));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -10168,26 +8856,11 @@ ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpresaDataTable GetData(global::System.Nullable<global::System.DateTime> Competencia, global::System.Nullable<global::System.DateTime> Competencia1, global::System.Nullable<int> Id_Empresa) {
+        public virtual RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpresaDataTable GetData(System.DateTime Competencia, System.DateTime Competencia1, int Id_Empresa) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Competencia1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id_Empresa));
             RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpresaDataTable dataTable = new RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompEmpresaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -10320,10 +8993,10 @@ ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
             tableMapping.ColumnMappings.Add("Id_Empregado", "Id_Empregado");
             tableMapping.ColumnMappings.Add("Empregado", "Empregado");
             tableMapping.ColumnMappings.Add("Descricao", "Descricao");
-            tableMapping.ColumnMappings.Add("Nota", "Nota");
             tableMapping.ColumnMappings.Add("Competencia", "Competencia");
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Departamento", "Departamento");
+            tableMapping.ColumnMappings.Add("Nota", "Nota");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -10342,51 +9015,31 @@ ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        Empresa.Id AS Id_Empresa, Empresa.Nome AS Empresa, Empregado.Id AS Id_Empregado, Empregado.Nome AS Empregado, Atividade.Descricao, AtividadeAvaliacao.Nota, Competencia.Competencia, Departamento.Id, 
                          Departamento.Descricao AS Departamento
-FROM            (((((AtividadeAvaliacao INNER JOIN
-                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id) INNER JOIN
-                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id) INNER JOIN
-                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id) INNER JOIN
-                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id) INNER JOIN
-                         Departamento ON Empregado.Id_Departamento = Departamento.Id)
-WHERE        (Competencia.Competencia BETWEEN CDate(?) AND CDate(?)) AND (AtividadeAvaliacao.Id_Empresa = CInt(?)) AND (Empregado.Id_Departamento = CInt(?))
-ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
+FROM            AtividadeAvaliacao INNER JOIN
+                         Competencia ON AtividadeAvaliacao.Id_Competencia = Competencia.Id INNER JOIN
+                         Empregado ON AtividadeAvaliacao.Id_Empregado = Empregado.Id INNER JOIN
+                         Empresa ON AtividadeAvaliacao.Id_Empresa = Empresa.Id AND Empregado.Id_Empresa = Empresa.Id INNER JOIN
+                         Atividade ON AtividadeAvaliacao.Id_Atividade = Atividade.Id INNER JOIN
+                         Departamento ON Empregado.Id_Departamento = Departamento.Id
+WHERE        (Competencia.Competencia BETWEEN ? AND ?) AND (AtividadeAvaliacao.Id_Empresa = ?) AND (Empregado.Id_Departamento = ?)
+ORDER BY Competencia.Competencia DESC, Empresa, Empregado";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia1", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Departamento", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Departamento", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia", global::System.Data.OleDb.OleDbType.DBTimeStamp, 8, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Competencia1", global::System.Data.OleDb.OleDbType.DBTimeStamp, 8, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Competencia", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Empresa", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Empresa", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Departamento", global::System.Data.OleDb.OleDbType.Integer, 4, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Departamento", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDPTODataTable dataTable, global::System.Nullable<global::System.DateTime> Competencia, global::System.Nullable<global::System.DateTime> Competencia1, global::System.Nullable<int> Id_Empresa, global::System.Nullable<int> Id_Departamento) {
+        public virtual int Fill(RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDPTODataTable dataTable, System.DateTime Competencia, System.DateTime Competencia1, int Id_Empresa, int Id_Departamento) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Competencia1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Departamento.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(Id_Departamento.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id_Empresa));
+            this.Adapter.SelectCommand.Parameters[3].Value = ((int)(Id_Departamento));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -10398,32 +9051,12 @@ ORDER BY Competencia.Competencia DESC, Empresa.Nome, Empregado.Nome";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDPTODataTable GetData(global::System.Nullable<global::System.DateTime> Competencia, global::System.Nullable<global::System.DateTime> Competencia1, global::System.Nullable<int> Id_Empresa, global::System.Nullable<int> Id_Departamento) {
+        public virtual RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDPTODataTable GetData(System.DateTime Competencia, System.DateTime Competencia1, int Id_Empresa, int Id_Departamento) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((Competencia.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Competencia1.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Empresa.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id_Empresa.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Id_Departamento.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((int)(Id_Departamento.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(Competencia));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Competencia1));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(Id_Empresa));
+            this.Adapter.SelectCommand.Parameters[3].Value = ((int)(Id_Departamento));
             RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDPTODataTable dataTable = new RelatoriosTuottavuus.AvaliacaoProdutividadeMediaCompDPTODataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
