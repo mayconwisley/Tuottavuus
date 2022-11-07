@@ -21,6 +21,7 @@ namespace Controle
         PesquisaNotaControle pesquisaNotaControle;
         AfastamentoControle afastamentoControle;
         ConfigAfastamentoControle configAfastamentoControle;
+        PossoMaisControle possoMaisControle;
 
         private ProgressBar PbCarregamento { get; set; }
 
@@ -198,16 +199,18 @@ namespace Controle
                 throw new System.Exception(ex.Message);
             }
         }
-        public bool ExcluirPorCompetencia(int idCompetencia)
+        public bool ExcluirPorCompetencia(int idCompetencia, int idEmpregado)
         {
             crud = new CRUD();
             SQL = "DELETE FROM PossoMais " +
-                  "WHERE Id_Competencia = @Id_Competencia";
+                  "WHERE Id_Competencia = @Id_Competencia " +
+                  "AND Id_Empregado = @Id_Empregado";
 
             try
             {
                 crud.LimparParametros();
                 crud.AdicionarParametros("Id_Competencia", idCompetencia);
+                crud.AdicionarParametros("Id_Empregado", idEmpregado);
                 crud.Executar(CommandType.Text, SQL);
 
                 return true;
@@ -290,6 +293,8 @@ namespace Controle
                 throw new Exception(ex.Message);
             }
         }
+
+
         public bool Calcular(int idCompetencia, int idEmpresa)
         {
             possoMais = new PossoMais();
@@ -300,6 +305,7 @@ namespace Controle
             pesquisaNotaControle = new PesquisaNotaControle();
             afastamentoControle = new AfastamentoControle();
             configAfastamentoControle = new ConfigAfastamentoControle();
+            possoMaisControle = new PossoMaisControle();
 
             DataTable indicador = indicadorControle.IndicadorTabela("%%");
             DataTable empregado = empregadoControle.EmpregadoAtivoTabela(idEmpresa);
@@ -309,7 +315,7 @@ namespace Controle
 
             PbCarregamento.Maximum = empregado.Rows.Count;
             int i = 0;
-            ExcluirPorCompetencia(idCompetencia);
+
             /*Calcular porcentagem Chamado*/
             foreach (DataRow empregadoRow in empregado.Rows)
             {
@@ -319,6 +325,10 @@ namespace Controle
                 int codigoEmpregado = int.Parse(empregadoRow[3].ToString());
                 i++;
                 PbCarregamento.Value = i;
+
+
+
+
 
                 foreach (DataRow item in indicador.Rows)
                 {
@@ -385,6 +395,19 @@ namespace Controle
 
                     bool temCalculo = IsCalculo(idCompetencia, empresaId, empregadoId, idMeta);
 
+                    //foreach (DataRow possoMaisRow in PossoMaisTabela(idCompetencia, empresaId, "%%").Rows)
+                    //{
+                    //    if (empregadoId != int.Parse(possoMaisRow[2].ToString()))
+                    //    {
+                    //        ExcluirPorCompetencia(idCompetencia, empregadoId);
+                           
+                    //    }
+                    //    else
+                    //    {
+                    //        continue;
+                    //    }
+                    //}
+
                     if (temCalculo == false)
                     {
                         Gravar(possoMais);
@@ -393,6 +416,9 @@ namespace Controle
                     {
                         Alterar(possoMais);
                     }
+
+
+
                 }
             }
 
@@ -402,7 +428,7 @@ namespace Controle
         public DataTable PossoMaisTabela(int idCompetencia, int idEmpresa, string nomeEmpregado)
         {
             crud = new CRUD();
-            SQL = "SELECT PM.Id, EP.Codigo, EP.Nome, PM.Total, DP.Descricao AS Departamento, MP.Peso, IC.Descricao AS Indicador " +
+            SQL = "SELECT PM.Id, EP.Codigo, EP.Id AS Id_Empregado, EP.Nome, PM.Total, DP.Descricao AS Departamento, MP.Peso, IC.Descricao AS Indicador " +
                     "FROM ((((((PossoMais PM " +
                     "INNER JOIN Competencia CP ON CP.Id = PM.Id_Competencia) " +
                     "INNER JOIN Empresa EM ON EM.Id = PM.Id_Empresa) " +

@@ -39,7 +39,7 @@ namespace Controle
         {
 
             crud = new CRUD();
-            SQL = "UPDATE ConfiguracaoAfastamento SET Total_Dias @Total_Dias " +
+            SQL = "UPDATE ConfiguracaoAfastamento SET Total_Dias = @Total_Dias " +
                   "WHERE Id = @Id";
 
             try

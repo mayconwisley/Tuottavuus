@@ -99,7 +99,7 @@ namespace Tuottavuus
 
             try
             {
-                possoMaisControle.ExcluirPorCompetencia(idCompetencia);
+                //possoMaisControle.ExcluirPorCompetencia(idCompetencia);
             }
             catch (Exception ex)
             {
