@@ -397,16 +397,16 @@ namespace Controle
 
                     //foreach (DataRow possoMaisRow in PossoMaisTabela(idCompetencia, empresaId, "%%").Rows)
                     //{
-                    //    if (empregadoId != int.Parse(possoMaisRow[2].ToString()))
+                    //    if (empregadoId == int.Parse(possoMaisRow[2].ToString()))
                     //    {
-                    //        ExcluirPorCompetencia(idCompetencia, empregadoId);
-                           
+                    //        continue;
+
                     //    }
                     //    else
                     //    {
-                    //        continue;
                     //    }
                     //}
+
 
                     if (temCalculo == false)
                     {
