@@ -18,7 +18,7 @@ namespace Controle
         {
             crud = new CRUD();
             SQL = "INSERT INTO Afastamento (Id_Competencia, Id_Empresa, Id_Empregado, Total_Dias) " +
-                "VALUES (@Id_Competencia, @Id_Empresa, @Id_Empregado, @Total_Dias)";
+                  "VALUES (@Id_Competencia, @Id_Empresa, @Id_Empregado, @Total_Dias)";
             try
             {
                 crud.LimparParametros();

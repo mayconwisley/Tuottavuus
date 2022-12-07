@@ -63,9 +63,11 @@ namespace Banco_De_Dados
                     {
                         sqlCommand.Parameters.Add(new SqlParameter(sqlParameter.ParameterName, sqlParameter.Value));
                     }
+
                     SqlDataAdapter sqkDataAdapter = new SqlDataAdapter(sqlCommand);
                     DataTable dataTable = new DataTable();
                     sqkDataAdapter.Fill(dataTable);
+              
                     return dataTable;
                 }
                 catch (Exception ex)

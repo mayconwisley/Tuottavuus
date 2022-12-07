@@ -11,6 +11,8 @@ namespace Banco_De_Dados
 
         private string StrConnectionSQLServer()
         {
+           
+
             var connectionString = ConfigurationManager.ConnectionStrings["tuottavuusConnectionString"].ConnectionString;
 
             return connectionString;
