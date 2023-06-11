@@ -145,7 +145,7 @@ namespace Controle
             try
             {
                 crud.LimparParametros();
-                crud.AdicionarParametros("Id_Coompetencia", idCompetencia);
+                crud.AdicionarParametros("Id_Competencia", idCompetencia);
                 crud.AdicionarParametros("Id_Empresa", idEmpresa);
 
                 DataTable dataTable = crud.ConsultaTabela(CommandType.Text, SQL);
